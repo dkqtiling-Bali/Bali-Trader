@@ -1,0 +1,6 @@
+﻿BALI PROJECT MAP V3
+Generated: 2026-06-26 14:30:54
+Path: C:\Bali\Bali-Trader
+Purpose: AI handover, maintainability, safer patch planning
+
+Bali-Trader

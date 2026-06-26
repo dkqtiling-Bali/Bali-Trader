@@ -1,0 +1,30 @@
+﻿BALI AI HQ V3 INSTALL REPORT
+Generated: 2026-06-26 14:30:54
+Project root: C:\Bali\Bali-Trader
+Patch: BALI_AI_HQ_V3_PROJECT_MAP_SMART_RECOMMENDER
+Class: SAFE_TOOLING_ONLY
+Safety: LIVE_ORDERS_OFF | NO_API_KEYS | PUBLIC_DATA_ONLY | PAPER/SIM FIRST | CHAMPION_LOCKED
+Trading logic changed: NO
+app.py edited: NO
+Live trading enabled: NO
+API keys added: NO
+Ledger reset: NO
+Ledger updated: True
+
+FILES INSTALLED:
+- C:\Bali\Bali-Trader\BALI_AI_HQ_V3.bat
+- C:\Bali\Bali-Trader\tools\BALI_AI_HQ_V3_ANALYSE.ps1
+
+FILES BACKED UP:
+- None
+
+AUTO HANDOVER GENERATION OUTPUT:
+BALI AI HQ V3 OUTPUT CREATED:
+C:\Bali\Bali-Trader\AI_HANDOVER_REPORTS\BALI_AI_HQ_V3_20260626_143053.txt
+C:\Bali\Bali-Trader\AI_HANDOVER_REPORTS\BALI_AI_HQ_V3_20260626_143053.txt
+
+MISSION ALIGNMENT:
+Improves project visibility, safety reporting, handover quality, and proof-driven patch recommendations before any trading logic changes.
+
+NEXT STEP:
+Open BALI_AI_HQ_V3.bat and choose option 1 to generate or refresh the full handover report.

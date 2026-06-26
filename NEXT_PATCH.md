@@ -22,3 +22,17 @@ Create a one-click Generate AI Handover Report button/tool that summarizes:
 
 FUTURE PATCH RULE:
 All future patch recommendations must explain how they move Bali Trader toward the mission goal of finding evidence-backed winning crypto strategies, while preserving safety locks and paper/simulation-first testing.
+
+BALI AI HQ V3 NEXT PATCH NOTE
+
+Preferred next patch after V3:
+V4 Evidence Pack Index + Backtest Run Registry.
+
+Why:
+Before changing strategy logic, Bali should make every backtest, walk-forward result, raw-data gate result, safety scan, and scoreboard output easy to find, compare, and prove. This improves proof, testing, reporting, and strategy discovery while preserving safety locks.
+
+Patch class:
+SAFE_TOOLING_ONLY.
+
+Blocked:
+Any patch that enables live trading, adds API keys, unlocks champion mode, changes strategy scoring without evidence, or claims profitability without proof.
