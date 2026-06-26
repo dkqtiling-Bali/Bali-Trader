@@ -1,0 +1,23 @@
+﻿BALI OS V4E HARD-PATH GIT SAVE FIX INSTALL REPORT
+Generated: 06/26/2026 15:15:27
+Target: C:\Bali\Bali-Trader
+Patch class: SAFE_TOOLING_ONLY
+
+Installed:
+- tools/BALI_OS_SAFETY_SCAN_V4E.ps1
+- tools/BALI_SAFE_GIT_SAVE_V4E.ps1
+- BALI_SAFE_GIT_SAVE.bat
+- BALI_MASTER_CONTROL.bat
+
+Purpose:
+Fixes option 8 by removing empty script-path variables and using fixed hard-coded safe paths.
+
+Safety:
+- NO app.py edit
+- NO trading logic change
+- NO live trading
+- NO API keys
+- NO champion unlock
+
+Next step:
+Open BALI_MASTER_CONTROL.bat and choose option 8.

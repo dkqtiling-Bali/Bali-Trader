@@ -1,0 +1,23 @@
+﻿BALI OS V4C MENU GIT FIX INSTALL REPORT
+Generated: 06/26/2026 15:10:56
+Target: C:\Bali\Bali-Trader
+Patch class: SAFE_TOOLING_ONLY
+
+Installed:
+- tools/BALI_OS_SAFETY_SCAN_V4C.ps1
+- tools/BALI_SAFE_GIT_SAVE_V4C.ps1
+- BALI_SAFE_GIT_SAVE.bat
+- BALI_MASTER_CONTROL.bat
+
+Purpose:
+Rewire option 8 away from old engine GitSafeSave and into V4C safe Git save.
+
+Safety:
+- NO app.py edit
+- NO trading logic change
+- NO live trading
+- NO API keys
+- NO champion unlock
+
+Next step:
+Open BALI_MASTER_CONTROL.bat and choose option 8.

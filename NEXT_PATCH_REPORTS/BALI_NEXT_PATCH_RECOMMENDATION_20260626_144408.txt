@@ -1,0 +1,21 @@
+﻿BALI NEXT PATCH RECOMMENDATION
+Generated: 06/26/2026 14:44:09
+
+Recommended next patch: Fix safety visibility issue before any new patch
+Risk: MEDIUM
+Patch class: SAFETY_FIX_ONLY
+Safety: BLOCKED
+Git: DIRTY:  M LEDGER.md;  M NEXT_PATCH.md; ?? AI_ENGINEER_QUEUE.md; ?? BALI_MASTER_CONTROL.bat; ?? BALI_OS_WORKFLOW.md; ?? BALI_SAFE_GIT_SAVE.bat; ?? CONSTITUTION.md; ?? DEFINITION_OF_DONE.md; ?? EVIDENCE_STANDARDS.md; ?? INSTALL_REPORTS/BALI_OS_V4_INSTALL_20260626_144330.txt; ?? PATCH_APPROVAL_RULES.md; ?? SAFETY_REPORTS/
+
+Why:
+Safety locks must be visible and passing before any new project expansion.
+
+Mission fit:
+This recommendation supports the mission by improving safety, proof, reporting, maintainability, or evidence-backed strategy discovery while preserving paper/simulation-first testing.
+
+Blocked patch types:
+- LIVE_TRADING
+- API_KEYS
+- CHAMPION_UNLOCK
+- PROFIT_CLAIM_WITHOUT_PROOF
+- TRADING_LOGIC_CHANGE_WITHOUT_EVIDENCE

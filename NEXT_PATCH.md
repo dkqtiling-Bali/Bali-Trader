@@ -36,3 +36,17 @@ SAFE_TOOLING_ONLY.
 
 Blocked:
 Any patch that enables live trading, adds API keys, unlocks champion mode, changes strategy scoring without evidence, or claims profitability without proof.
+
+BALI OS V4 NEXT PATCH NOTE
+
+Preferred next patch after V4:
+V5 Evidence Pack Index + Backtest Run Registry.
+
+Why:
+Before changing strategy logic, Bali should make every backtest, walk-forward result, raw-data gate result, safety scan, scoreboard output, and paper/sim result easy to find, compare, and prove. This improves proof, testing, reporting, and strategy discovery while preserving safety locks.
+
+Patch class:
+SAFE_TOOLING_ONLY.
+
+Blocked:
+Any patch that enables live trading, adds API keys, unlocks champion mode, changes strategy scoring without evidence, changes trading logic without proof, or claims profitability without proof.

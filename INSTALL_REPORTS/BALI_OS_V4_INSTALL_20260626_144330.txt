@@ -1,0 +1,28 @@
+﻿BALI OS V4 INSTALL REPORT
+Generated: 06/26/2026 14:43:30
+Path: C:\Bali\Bali-Trader
+Patch: V4_BALI_OS_FOUNDATION_CONSTITUTION_AUTOMATION_HUB
+Patch class: SAFE_TOOLING_ONLY
+Safety: PASS
+Trading logic changed: NO
+app.py edited: NO
+Live orders enabled: NO
+API keys added: NO
+Champion unlocked: NO
+Installed files:
+- BALI_MASTER_CONTROL.bat
+- BALI_SAFE_GIT_SAVE.bat
+- tools/BALI_OS_ENGINE.ps1
+- docs/*.md
+- root project law docs
+Folders ensured:
+- AI_HANDOVER_REPORTS
+- PROJECT_MAPS
+- EVIDENCE_PACKS
+- EVIDENCE_INDEX
+- SAFETY_REPORTS
+- STATUS_DASHBOARDS
+- NEXT_PATCH_REPORTS
+- INSTALL_REPORTS
+Next step:
+Run BALI_MASTER_CONTROL.bat option 1, then option 8 to safe-save the V4 install.

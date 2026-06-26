@@ -1,0 +1,17 @@
+﻿BALI SAFETY SCAN
+Generated: 06/26/2026 15:08:24
+
+Verdict: BLOCKED
+
+Locks:
+- LIVE_ORDERS_OFF: PASS
+- NO_API_KEYS: PASS
+- PUBLIC_DATA_ONLY: PASS
+- CHAMPION_LOCKED: PASS
+- PAPER/SIM FIRST: PASS
+
+Notes:
+Danger keywords found: bali_forever_setup\BaliForever_AutoRecovery_Setup.ps1, bali_rocket_crypto_command_v011b\tools\BALI_AUTO_PATCH_LANE\BALI_AUTO_PATCH_RUNNER.bat, bali_rocket_crypto_command_v011b\tools\bali_v016_native_evidence_scorecard.py, bali_rocket_crypto_command_v011b\app.py, bali_rocket_crypto_command_v011b\V016_NATIVE_PATCH_MANIFEST.json, payload\tools\bali_v016_native_evidence_scorecard.py, payload\app.py, payload\V016_NATIVE_PATCH_MANIFEST.json, tools\BALI_AI_HQ_V3_ANALYSE.ps1, tools\BALI_OS_ENGINE.ps1, tools\BALI_OS_SAFETY_SCAN_V4B.ps1
+
+Result:
+No live trading, API key, champion unlock, or strategy-risk patch should proceed unless safety verdict is PASS.
