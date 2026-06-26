@@ -1,0 +1,9 @@
+﻿BALI OS SAFETY SCAN V7C
+Generated: 06/26/2026 16:57:35
+Base: C:\Bali\Bali-Trader
+Status: PASS
+
+Scope: active launcher/tool/runtime/config files only. Generated reports, docs, payloads, backups, old scanners, and safety-policy text are ignored.
+
+No active danger patterns found.
+Safety locks expected: LIVE_ORDERS_OFF | NO_API_KEYS | PUBLIC_DATA_ONLY | PAPER/SIM FIRST | CHAMPION_LOCKED

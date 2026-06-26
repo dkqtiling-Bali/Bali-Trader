@@ -154,3 +154,17 @@ Clean up V4/V5/V6 fix clutter, archive old generated reports, keep the latest st
 
 Patch class: SAFE_TOOLING_ONLY.
 Blocked: live trading, API keys, champion unlock, trading logic changes without evidence, profitability claims without evidence.
+
+BALI OS V7 NEXT PATCH NOTE
+
+Preferred next patch:
+V8 Stable Tool Cleanup + Archive Manager.
+
+Why:
+Now that the dashboard is the daily front door, archive superseded V4/V5/V6 patch artifacts and old scanner versions so Bali is easier to navigate, safer to inspect, and less confusing for AI assistants.
+
+Patch class:
+SAFE_TOOLING_ONLY.
+
+Blocked:
+Live trading, API keys, champion unlock, profitability claims without proof, or trading logic changes without evidence.

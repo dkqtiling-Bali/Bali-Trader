@@ -1,0 +1,8 @@
+﻿BALI OS V7C PARSER FIX INSTALL REPORT
+Generated: 06/26/2026 16:57:05
+Project: C:\Bali\Bali-Trader
+Status: PASS
+Patch class: SAFE_TOOLING_ONLY
+Safety: NO app.py edit | NO trading logic change | NO live trading | NO API keys | NO champion unlock
+Backup: C:\Bali\Bali-Trader\BACKUPS\BALI_OS_V7C_PARSER_FIX_20260626_165705
+Next: Open C:\Bali\Bali-Trader\BALI_START_HERE.bat and choose option 1.

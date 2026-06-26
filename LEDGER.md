@@ -376,3 +376,105 @@ Installed local: 2026-06-26 16:42:40
 Patch class: SAFE_TOOLING_ONLY
 Purpose: Fix URL dashboard start-button quoting, harden local/phone safe controls, and replace noisy safety scanning with exact active-code blockers only.
 Safety preserved: LIVE_ORDERS_OFF, NO_API_KEYS, PUBLIC_DATA_ONLY, PAPER/SIM FIRST, CHAMPION_LOCKED, no app.py edit, no trading logic change.
+
+Bali OS V7 Dashboard + Phone Mode added.
+
+Added:
+- BALI_CONTROL_DASHBOARD.bat
+- BALI_PHONE_DASHBOARD.bat
+- BALI_START_HERE.bat V7
+- BALI_MASTER_CONTROL.bat V7
+- tools/BALI_LOCAL_URL_DASHBOARD_V7.ps1
+- tools/BALI_OS_ENGINE_V7.ps1
+- tools/BALI_OS_SAFETY_SCAN_V7.ps1
+- tools/BALI_DASHBOARD_SAFE_RUN_V7.ps1
+- docs/BALI_OS_V7_DASHBOARD_GUIDE.md
+
+Purpose:
+Makes the URL dashboard the main daily control surface with mobile-friendly buttons, safer visible action logs, optional phone/LAN dashboard access, status cards, latest report viewing, Start Day, End Day, and New Chat Handover actions.
+
+Safety preserved:
+- LIVE_ORDERS_OFF
+- NO_API_KEYS
+- PUBLIC_DATA_ONLY
+- PAPER/SIM FIRST
+- CHAMPION_LOCKED
+- NO TRADING LOGIC CHANGE
+
+Next recommended patch after V7:
+V8 Stable Tool Cleanup + Archive Manager.
+
+BALI OS V7A URL Server Fix added.
+
+Added/updated:
+- BALI_START_HERE.bat
+- BALI_CONTROL_DASHBOARD.bat
+- BALI_PHONE_DASHBOARD.bat
+- BALI_MASTER_CONTROL.bat
+- tools/BALI_LOCAL_URL_DASHBOARD_V7A.ps1
+- tools/BALI_DASHBOARD_SAFE_RUN_V7A.bat
+- tools/BALI_OS_ENGINE_V7A.ps1
+- tools/BALI_OS_SAFETY_SCAN_V7A.ps1
+- tools/BALI_SAFE_GIT_SAVE_V7A.ps1
+- tools/BALI_URL_SERVER_HEALTHCHECK_V7A.ps1
+
+Purpose:
+Fixes localhost refused connection by making the URL dashboard server visible, persistent, and fallback-port aware.
+
+Safety preserved:
+- LIVE_ORDERS_OFF
+- NO_API_KEYS
+- PUBLIC_DATA_ONLY
+- PAPER/SIM FIRST
+- CHAMPION_LOCKED
+- NO TRADING LOGIC CHANGE
+
+BALI OS V7B HTML Query Fix added.
+
+Added/updated:
+- BALI_START_HERE.bat
+- BALI_CONTROL_DASHBOARD.bat
+- BALI_PHONE_DASHBOARD.bat
+- BALI_MASTER_CONTROL.bat
+- tools/BALI_LOCAL_URL_DASHBOARD_V7B.ps1
+- tools/BALI_DASHBOARD_SAFE_RUN_V7B.bat
+- tools/BALI_OS_ENGINE_V7B.ps1
+- tools/BALI_OS_SAFETY_SCAN_V7B.ps1
+- tools/BALI_SAFE_GIT_SAVE_V7B.ps1
+- tools/BALI_URL_SERVER_HEALTHCHECK_V7B.ps1
+
+Purpose:
+Fixes localhost refused connection by making the URL dashboard server visible, persistent, and fallback-port aware.
+
+Safety preserved:
+- LIVE_ORDERS_OFF
+- NO_API_KEYS
+- PUBLIC_DATA_ONLY
+- PAPER/SIM FIRST
+- CHAMPION_LOCKED
+- NO TRADING LOGIC CHANGE
+
+BALI OS V7C Parser Fix added.
+
+Added/updated:
+- BALI_START_HERE.bat
+- BALI_CONTROL_DASHBOARD.bat
+- BALI_PHONE_DASHBOARD.bat
+- BALI_MASTER_CONTROL.bat
+- tools/BALI_LOCAL_URL_DASHBOARD_V7C.ps1
+- tools/BALI_DASHBOARD_SAFE_RUN_V7C.bat
+- tools/BALI_OS_ENGINE_V7C.ps1
+- tools/BALI_OS_SAFETY_SCAN_V7C.ps1
+- tools/BALI_SAFE_GIT_SAVE_V7C.ps1
+- tools/BALI_URL_SERVER_HEALTHCHECK_V7C.ps1
+
+Purpose:
+Fixes the PowerShell parser crash caused by $d: in evidence index generation, while keeping the URL dashboard visible, persistent, and fallback-port aware.
+
+Safety preserved:
+- LIVE_ORDERS_OFF
+- NO_API_KEYS
+- PUBLIC_DATA_ONLY
+- PAPER/SIM FIRST
+- CHAMPION_LOCKED
+- NO TRADING LOGIC CHANGE

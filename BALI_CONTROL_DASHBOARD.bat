@@ -1,2 +1,2 @@
-@echo off
-call C:\Bali\Bali-Trader\BALI_URL_DASHBOARD.bat
+@echo off
+call "C:\Bali\Bali-Trader\BALI_START_HERE.bat"

@@ -1,4 +1,4 @@
 @echo off
 setlocal
-set "BASE=C:\Bali\Bali-Trader"
-call "%BASE%\BALI_DASHBOARD_SAFE_RUN_V6B.bat" git_save
+cd /d C:\Bali\Bali-Trader
+call "C:\Bali\Bali-Trader\tools\BALI_DASHBOARD_SAFE_RUN_V7.bat" git

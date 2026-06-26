@@ -1,0 +1,14 @@
+﻿BALI STATUS V7C
+Generated: 06/26/2026 16:57:35
+
+Version: V015A / Bali OS V7C
+Git: DIRTY
+Safety: PASS
+Health: PASS
+Mission: ACTIVE
+Champion Lock: ON
+Live Trading: OFF
+API Keys: NONE
+Paper/Sim: ON
+Dashboard: URL SERVER V7C
+Recommended flow: START DAY -> REVIEW RECOMMENDATION -> END DAY / GIT SAFE SAVE
