@@ -1,0 +1,12 @@
+﻿BALI SAFETY SCAN V4E
+Generated: 06/26/2026 15:20:54
+Base: C:\Bali\Bali-Trader
+Status: PASS
+Block findings: 0
+
+RULES
+- Safety-policy wording such as NO_API_KEYS, NO live trading, and CHAMPION_LOCKED does not block.
+- Real-looking secrets/tokens still block.
+- Direct live-trading/champion-unlock enablement still blocks.
+
+No blocking findings detected.

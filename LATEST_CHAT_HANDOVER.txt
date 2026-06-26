@@ -1,15 +1,15 @@
 ﻿BALI OS V4 FULL AI HANDOVER
-Generated: 06/26/2026 14:47:26
+Generated: 06/26/2026 15:18:50
 Path: C:\Bali\Bali-Trader
 
 ==================== FIRST PAGE DASHBOARD ====================
 BALI STATUS
 
 Version: V015A BACKTEST_WALK_FORWARD_GATE
-Git: DIRTY:  M LEDGER.md;  M NEXT_PATCH.md; ?? AI_ENGINEER_QUEUE.md; ?? BALI_MASTER_CONTROL.bat; ?? BALI_OS_WORKFLOW.md; ?? BALI_SAFE_GIT_SAVE.bat; ?? CONSTITUTION.md; ?? DEFINITION_OF_DONE.md; ?? EVIDENCE_INDEX.md; ?? EVIDENCE_INDEX/; ?? EVIDENCE_STANDARDS.md; ?? INSTALL_REPORTS/BALI_OS_V4_INSTALL_20260626_144330.txt
+Git: DIRTY: ?? BACKUPS/; ?? SAFETY_REPORTS/BALI_SAFETY_SCAN_20260626_151842.txt; ?? docs/AI_ENGINEER_QUEUE.md; ?? docs/BALI_OS_WORKFLOW.md; ?? docs/CONSTITUTION.md; ?? docs/DEFINITION_OF_DONE.md; ?? docs/EVIDENCE_STANDARDS.md; ?? docs/PATCH_APPROVAL_RULES.md; ?? docs/PROJECT_MAP.md
 Safety: BLOCKED
 Health: BLOCKED
-Latest Report: SAFETY_REPORTS\BALI_SAFETY_SCAN_20260626_144719.txt
+Latest Report: SAFETY_REPORTS\BALI_SAFETY_SCAN_20260626_151842.txt
 Mission: Active
 Champion Lock: PASS
 Paper/Sim: PASS
@@ -30,13 +30,13 @@ Bali OS improves maintainability, safety visibility, reporting, patch discipline
 
 ==================== RECOMMENDED NEXT ACTION ====================
 BALI NEXT PATCH RECOMMENDATION
-Generated: 06/26/2026 14:47:23
+Generated: 06/26/2026 15:18:46
 
 Recommended next patch: Fix safety visibility issue before any new patch
 Risk: MEDIUM
 Patch class: SAFETY_FIX_ONLY
 Safety: BLOCKED
-Git: DIRTY:  M LEDGER.md;  M NEXT_PATCH.md; ?? AI_ENGINEER_QUEUE.md; ?? BALI_MASTER_CONTROL.bat; ?? BALI_OS_WORKFLOW.md; ?? BALI_SAFE_GIT_SAVE.bat; ?? CONSTITUTION.md; ?? DEFINITION_OF_DONE.md; ?? EVIDENCE_INDEX.md; ?? EVIDENCE_INDEX/; ?? EVIDENCE_STANDARDS.md; ?? INSTALL_REPORTS/BALI_OS_V4_INSTALL_20260626_144330.txt
+Git: DIRTY: ?? BACKUPS/; ?? SAFETY_REPORTS/BALI_SAFETY_SCAN_20260626_151842.txt; ?? STATUS_DASHBOARDS/BALI_STATUS_20260626_151844.txt; ?? docs/AI_ENGINEER_QUEUE.md; ?? docs/BALI_OS_WORKFLOW.md; ?? docs/CONSTITUTION.md; ?? docs/DEFINITION_OF_DONE.md; ?? docs/EVIDENCE_STANDARDS.md; ?? docs/PATCH_APPROVAL_RULES.md; ?? docs/PROJECT_MAP.md
 
 Why:
 Safety locks must be visible and passing before any new project expansion.
@@ -233,6 +233,93 @@ Safety preserved:
 Next recommended patch after V4:
 Use Bali OS to run Full Auto Analyse + Handover, then prefer V5 Evidence Pack Index + Backtest Run Registry unless Bali OS finds a safety or health issue first.
 
+BALI OS V4B Safe Git Save Fix added.
+
+Added:
+- tools/BALI_OS_SAFETY_SCAN_V4B.ps1
+- tools/BALI_SAFE_GIT_SAVE_V4B.ps1
+- BALI_SAFE_GIT_SAVE.bat updated to call V4B safe save
+
+Purpose:
+Fixes false positive Git-save blocking caused by safety-rule wording such as NO_API_KEYS and NO live trading appearing in project documentation. V4B still blocks likely real secrets, tokens, live-trading enablement, champion unlock, and unsafe staged files.
+
+Mission alignment:
+Improves safe automation, source control reliability, project maintainability, and proof/report preservation without changing trading logic.
+
+Safety preserved:
+- LIVE_ORDERS_OFF
+- NO_API_KEYS
+- PUBLIC_DATA_ONLY
+- PAPER/SIM FIRST
+- CHAMPION_LOCKED
+- NO TRADING LOGIC CHANGE
+
+BALI OS V4C Menu Git Fix added.
+
+Added:
+- tools/BALI_OS_SAFETY_SCAN_V4C.ps1
+- tools/BALI_SAFE_GIT_SAVE_V4C.ps1
+- BALI_SAFE_GIT_SAVE.bat updated to V4C
+- BALI_MASTER_CONTROL.bat option 8 rewired to call V4C safe Git directly
+
+Purpose:
+Fixes the remaining issue where Master Control option 8 still called the old Bali OS engine GitSafeSave action and blocked on false-positive safety-policy wording. V4C keeps Git save automated while preserving hard blockers for real-looking secrets, live-trading enablement, and champion unlock.
+
+Mission alignment:
+Improves safe automation, source control reliability, project maintainability, and proof/report preservation without changing trading logic.
+
+Safety preserved:
+- LIVE_ORDERS_OFF
+- NO_API_KEYS
+- PUBLIC_DATA_ONLY
+- PAPER/SIM FIRST
+- CHAMPION_LOCKED
+- NO TRADING LOGIC CHANGE
+
+BALI OS V4D Direct Menu Git Fix added.
+
+Added:
+- tools/BALI_OS_SAFETY_SCAN_V4D.ps1
+- tools/BALI_SAFE_GIT_SAVE_V4D.ps1
+- BALI_SAFE_GIT_SAVE.bat updated to V4D
+- BALI_MASTER_CONTROL.bat rewritten with label-based direct calls
+
+Purpose:
+Fixes the Windows batch quoting issue from V4C where option 8 produced '""' is not recognized. V4D removes the nested call wrapper and runs the V4D PowerShell Git save script directly from a menu label.
+
+Mission alignment:
+Improves safe automation, source control reliability, project maintainability, and proof/report preservation without changing trading logic.
+
+Safety preserved:
+- LIVE_ORDERS_OFF
+- NO_API_KEYS
+- PUBLIC_DATA_ONLY
+- PAPER/SIM FIRST
+- CHAMPION_LOCKED
+- NO TRADING LOGIC CHANGE
+
+BALI OS V4E Hard-Path Git Save Fix added.
+
+Added:
+- tools/BALI_OS_SAFETY_SCAN_V4E.ps1
+- tools/BALI_SAFE_GIT_SAVE_V4E.ps1
+- BALI_SAFE_GIT_SAVE.bat updated to V4E
+- BALI_MASTER_CONTROL.bat rewritten with fixed hard-coded safe paths
+
+Purpose:
+Fixes the Windows PowerShell -File '' issue from V4D by removing the empty script-path variable entirely. Option 8 now runs the V4E Git save script from a fixed known path: C:\Bali\Bali-Trader\tools\BALI_SAFE_GIT_SAVE_V4E.ps1.
+
+Mission alignment:
+Improves safe automation, source-control reliability, project maintainability, and proof/report preservation without changing trading logic.
+
+Safety preserved:
+- LIVE_ORDERS_OFF
+- NO_API_KEYS
+- PUBLIC_DATA_ONLY
+- PAPER/SIM FIRST
+- CHAMPION_LOCKED
+- NO TRADING LOGIC CHANGE
+
 
 ==================== NEXT PATCH ====================
 NEXT PATCH OBJECTIVE
@@ -290,11 +377,11 @@ Any patch that enables live trading, adds API keys, unlocks champion mode, chang
 
 
 ==================== PROJECT MAP SUMMARY ====================
-Project map file: C:\Bali\Bali-Trader\PROJECT_MAPS\BALI_PROJECT_MAP_20260626_144723.md
+Project map file: C:\Bali\Bali-Trader\PROJECT_MAPS\BALI_PROJECT_MAP_20260626_151846.md
 
 # BALI PROJECT MAP
 
-Generated: 06/26/2026 14:47:24
+Generated: 06/26/2026 15:18:47
 Base: C:\Bali\Bali-Trader
 
 ## Major Launchers
@@ -311,6 +398,13 @@ Base: C:\Bali\Bali-Trader
 - _BALI_FOREVER_RECOVERY\legacy_launcher_backups\BALI_ROCKET_FOREVER_STARTER_PRE_FOREVER_SAFE_26034.bat
 - _BALI_FOREVER_RECOVERY\legacy_launcher_backups\BALI_THEMED_FOREVER_STARTER_PRE_FOREVER_SAFE_19872.bat
 - _BALI_FOREVER_RECOVERY\legacy_launcher_backups\BALI_THEMED_FOREVER_STARTER_PRE_FOREVER_SAFE_22399.bat
+- BACKUPS\V4B_SAFE_GIT_FIX_20260626_150735\BALI_SAFE_GIT_SAVE.bat
+- BACKUPS\V4C_MENU_GIT_FIX_20260626_151056\BALI_MASTER_CONTROL.bat
+- BACKUPS\V4C_MENU_GIT_FIX_20260626_151056\BALI_SAFE_GIT_SAVE.bat
+- BACKUPS\V4D_DIRECT_MENU_FIX_20260626_151308\BALI_MASTER_CONTROL.bat
+- BACKUPS\V4D_DIRECT_MENU_FIX_20260626_151308\BALI_SAFE_GIT_SAVE.bat
+- BACKUPS\V4E_HARDPATH_GIT_FIX_20260626_151527\BALI_MASTER_CONTROL.bat
+- BACKUPS\V4E_HARDPATH_GIT_FIX_20260626_151527\BALI_SAFE_GIT_SAVE.bat
 - BALI START HERE - ONE CLICK.bat
 - Bali Supervisor Mission Control.bat
 - BALI_AI_HQ_V1.bat
@@ -550,14 +644,27 @@ Base: C:\Bali\Bali-Trader
 - payload\tools\bali_v016_native_evidence_scorecard.py
 
 ## Latest Reports / Evidence-Like Files
+- 2026-06-26 15:18:46 - NEXT_PATCH_REPORTS\BALI_NEXT_PATCH_RECOMMENDATION_20260626_151845.txt
+- 2026-06-26 15:18:45 - STATUS_DASHBOARDS\BALI_STATUS_20260626_151844.txt
+- 2026-06-26 15:18:44 - SAFETY_REPORTS\BALI_SAFETY_SCAN_20260626_151842.txt
+- 2026-06-26 15:15:57 - SAFETY_REPORTS\BALI_SAFETY_SCAN_V4E_20260626_151557.txt
+- 2026-06-26 15:15:27 - INSTALL_REPORTS\BALI_OS_V4E_HARDPATH_GIT_FIX_INSTALL_20260626_151527.txt
+- 2026-06-26 15:13:08 - INSTALL_REPORTS\BALI_OS_V4D_DIRECT_MENU_FIX_INSTALL_20260626_151308.txt
+- 2026-06-26 15:10:56 - INSTALL_REPORTS\BALI_OS_V4C_MENU_GIT_FIX_INSTALL_20260626_151056.txt
+- 2026-06-26 15:08:24 - SAFETY_REPORTS\BALI_SAFETY_SCAN_20260626_150824.txt
+- 2026-06-26 15:07:35 - INSTALL_REPORTS\BALI_OS_V4B_SAFE_GIT_FIX_INSTALL_20260626_150735.txt
+- 2026-06-26 14:47:48 - SAFETY_REPORTS\BALI_SAFETY_SCAN_20260626_144747.txt
+- 2026-06-26 14:47:26 - AI_HANDOVER_REPORTS\BALI_OS_V4_FULL_HANDOVER_20260626_144720.txt
+- 2026-06-26 14:47:26 - EVIDENCE_INDEX\BALI_EVIDENCE_INDEX_20260626_144724.md
+- 2026-06-26 14:47:26 - EVIDENCE_INDEX.md
+- 2026-06-26 14:47:24 - PROJECT_MAPS\BALI_PROJECT_MAP_20260626_144723.md
+- 2026-06-26 14:47:24 - PROJECT_MAP.md
 - 2026-06-26 14:47:23 - NEXT_PATCH_REPORTS\BALI_NEXT_PATCH_RECOMMENDATION_20260626_144722.txt
 - 2026-06-26 14:47:21 - STATUS_DASHBOARDS\BALI_STATUS_20260626_144720.txt
 - 2026-06-26 14:47:20 - SAFETY_REPORTS\BALI_SAFETY_SCAN_20260626_144719.txt
 - 2026-06-26 14:47:07 - SAFETY_REPORTS\BALI_SAFETY_SCAN_20260626_144706.txt
 - 2026-06-26 14:44:12 - AI_HANDOVER_REPORTS\BALI_OS_V4_FULL_HANDOVER_20260626_144406.txt
 - 2026-06-26 14:44:12 - EVIDENCE_INDEX\BALI_EVIDENCE_INDEX_20260626_144410.md
-- 2026-06-26 14:44:12 - EVIDENCE_INDEX.md
-- 2026-06-26 14:44:10 - PROJECT_MAP.md
 - 2026-06-26 14:44:10 - PROJECT_MAPS\BALI_PROJECT_MAP_20260626_144409.md
 - 2026-06-26 14:44:09 - NEXT_PATCH_REPORTS\BALI_NEXT_PATCH_RECOMMENDATION_20260626_144408.txt
 - 2026-06-26 14:44:07 - STATUS_DASHBOARDS\BALI_STATUS_20260626_144406.txt
@@ -575,25 +682,25 @@ Base: C:\Bali\Bali-Trader
 - 2026-06-26 13:49:24 - AI_HANDOVER_REPORTS\BALI_AI_HANDOVER_20260626_134923.txt
 - 2026-06-26 13:49:08 - AI_HANDOVER_REPORTS\BALI_AI_HANDOVER_20260626_134907.txt
 - 2026-06-26 13:35:51 - README_AI_HANDOVER_REPORT.md
-- 2026-06-26 13:35:51 - tools\BALI_AI_HANDOVER_REPORT.ps1
 - 2026-06-26 13:35:51 - BALI_GENERATE_AI_HANDOVER_REPORT.bat
+- 2026-06-26 13:35:51 - tools\BALI_AI_HANDOVER_REPORT.ps1
 - 2026-06-26 13:11:04 - bali_rocket_crypto_command_v011b\logs\LAST_STARTUP_REPORT.txt
 - 2026-06-26 13:11:03 - _BALI_FOREVER_RECOVERY\START_BALI_ROCKET_SAFE_LAST_REPORT.txt
-- 2026-06-26 13:08:19 - bali_rocket_crypto_command_v011b\logs\LAST_V018_RISK_FILTER_TUNER_REPORT.txt
 - 2026-06-26 13:08:19 - bali_rocket_crypto_command_v011b\shared_data\reports\LAST_V018_RISK_FILTER_TUNER_REPORT.txt
-- 2026-06-26 13:08:19 - bali_rocket_crypto_command_v011b\shared_data\reports\risk_filter_tuner_report_ledger.jsonl
+- 2026-06-26 13:08:19 - bali_rocket_crypto_command_v011b\logs\LAST_V018_RISK_FILTER_TUNER_REPORT.txt
 - 2026-06-26 13:08:19 - bali_rocket_crypto_command_v011b\shared_data\reports\BALI_V018_RISK_FILTER_TUNER_REPORT_20260626_030819.txt
+- 2026-06-26 13:08:19 - bali_rocket_crypto_command_v011b\shared_data\reports\risk_filter_tuner_report_ledger.jsonl
 - 2026-06-26 12:45:07 - bali_rocket_crypto_command_v011b\shared_data\reports\BALI_V018_RISK_FILTER_TUNER_REPORT_20260626_024507.txt
 - 2026-06-26 12:03:04 - bali_rocket_crypto_command_v011b\shared_data\reports\BALI_V018_RISK_FILTER_TUNER_REPORT_20260626_020304.txt
 - 2026-06-26 12:02:39 - GENERATE_V018_RISK_REPORT_FROM_HERE.cmd
-- 2026-06-26 11:57:07 - bali_rocket_crypto_command_v011b\logs\LAST_CHATGPT_STATUS_REPORT.txt
 - 2026-06-26 11:57:07 - bali_rocket_crypto_command_v011b\shared_data\reports\BALI_CHATGPT_STATUS_REPORT_20260626_015707.txt
-- 2026-06-26 11:56:52 - bali_rocket_crypto_command_v011b\logs\LAST_ALWAYS_WORKING_BOT_STATS_REPORT.txt
+- 2026-06-26 11:57:07 - bali_rocket_crypto_command_v011b\logs\LAST_CHATGPT_STATUS_REPORT.txt
 - 2026-06-26 11:56:52 - bali_rocket_crypto_command_v011b\shared_data\reports\always_working_report_ledger.jsonl
+- 2026-06-26 11:56:52 - bali_rocket_crypto_command_v011b\logs\LAST_ALWAYS_WORKING_BOT_STATS_REPORT.txt
 - 2026-06-26 11:56:52 - bali_rocket_crypto_command_v011b\shared_data\reports\BALI_ALWAYS_WORKING_BOT_STATS_REPORT_20260626_015652_407220.txt
-- 2026-06-26 11:55:57 - logs\BALI_DASH_UPDATE_FINAL_REPORT_V012J.txt
-- 2026-06-26 11:55:57 - logs\LAST_FINAL_REPORT.txt
 - 2026-06-26 11:55:57 - logs\LAST_DASH_UPDATE_RESTART_REPORT.txt
+- 2026-06-26 11:55:57 - logs\LAST_FINAL_REPORT.txt
+- 2026-06-26 11:55:57 - logs\BALI_DASH_UPDATE_FINAL_REPORT_V012J.txt
 - 2026-06-26 11:55:57 - logs\BALI_DASH_UPDATE_DEBUG_REPORT_V012J.txt
 - 2026-06-26 11:55:56 - logs\LAST_SPEED_LANE_UPDATE_REPORT.txt
 - 2026-06-26 11:55:56 - logs\BALI_DASH_INTERNAL_SPEED_LANE_REPORT_V012J.txt
@@ -601,13 +708,13 @@ Base: C:\Bali\Bali-Trader
 - 2026-06-26 11:55:55 - logs\BALI_FAST_HEALTH_REPORT_V012J.txt
 - 2026-06-26 11:55:53 - logs\LAST_LAUNCH_BAY_CLEANUP_REPORT.txt
 - 2026-06-26 11:55:53 - logs\BALI_LAUNCH_BAY_CLEANUP_REPORT_V012J.txt
-- 2026-06-26 11:55:52 - logs\LAST_ONE_CLICK_UPDATE_REPORT.txt
 - 2026-06-26 11:55:52 - logs\BALI_SPEED_LANE_INTERNAL_UPDATE_REPORT_V012J.txt
+- 2026-06-26 11:55:52 - logs\LAST_ONE_CLICK_UPDATE_REPORT.txt
 - 2026-06-26 11:55:50 - logs\BALI_CLOSE_DASHBOARD_PORT_REPORT_V012J.txt
 - 2026-06-26 11:50:37 - bali_rocket_crypto_command_v011b\shared_data\reports\BALI_ALWAYS_WORKING_BOT_STATS_REPORT_20260626_015037_354755.txt
 - 2026-06-26 11:24:39 - bali_rocket_crypto_command_v011b\shared_data\reports\BALI_ALWAYS_WORKING_BOT_STATS_REPORT_20260626_012439_254405.txt
-- 2026-06-26 11:22:52 - logs\LAST_FOREVER_DESKTOP_ICON_REPORT.txt
 - 2026-06-26 11:22:52 - logs\BALI_THEMED_DESKTOP_ICON_REPORT_V012J.txt
+- 2026-06-26 11:22:52 - logs\LAST_FOREVER_DESKTOP_ICON_REPORT.txt
 - 2026-06-26 11:22:52 - logs\LAST_BALI_THEMED_DESKTOP_ICON_REPORT.txt
 - 2026-06-26 11:22:08 - updates\BALI_V017_DASHBOARD_REPORT_BUTTON_ONE_CLICK_FIXED.cmd
 - 2026-06-26 11:11:42 - bali_rocket_crypto_command_v011b\shared_data\reports\BALI_CHATGPT_STATUS_REPORT_20260626_011142.txt
@@ -617,39 +724,37 @@ Base: C:\Bali\Bali-Trader
 - 2026-06-26 10:37:06 - logs\LAST_STARTUP_REPORT.txt
 - 2026-06-26 10:37:06 - BALI_VISIBLE_BOOT_REPORT_V012J.txt
 - 2026-06-26 08:18:12 - bali_rocket_crypto_command_v011b\shared_data\reports\BALI_CHATGPT_STATUS_REPORT_20260625_221812.txt
-- 2026-06-26 08:11:49 - bali_rocket_crypto_command_v011b\shared_data\reports\BALI_CHATGPT_STATUS_REPORT_20260625_221149.txt
-- 2026-06-26 08:03:05 - bali_rocket_crypto_command_v011b\shared_data\reports\BALI_CHATGPT_STATUS_REPORT_20260625_220305.txt
-- 2026-06-26 08:02:55 - bali_rocket_crypto_command_v011b\shared_data\reports\BALI_CHATGPT_STATUS_REPORT_20260625_220255.txt
-- 2026-06-26 08:01:48 - bali_rocket_crypto_command_v011b\shared_data\reports\BALI_OVERNIGHT_REPORT_20260625_220148.txt
-- 2026-06-26 00:58:20 - bali_rocket_crypto_command_v011b\shared_data\reports\BALI_CHATGPT_STATUS_REPORT_20260625_145820.txt
-- 2026-06-26 00:02:11 - bali_rocket_crypto_command_v011b\shared_data\reports\BALI_V037_AUTOPATCH_RUN_REPORT.txt
-- 2026-06-25 22:38:37 - bali_rocket_crypto_command_v011b\shared_data\reports\BALI_ONE_CLICK_START_LATEST_REPORT.txt
-- 2026-06-25 22:31:25 - bali_rocket_crypto_command_v011b\shared_data\reports\BALI_V039_SUPERVISOR_INSTALL_REPORT.txt
-- 2026-06-25 22:25:43 - bali_rocket_crypto_command_v011b\shared_data\reports\BALI_V037_AUTOPATCH_ENGINE_INSTALL_REPORT.txt
-- 2026-06-25 22:17:53 - bali_rocket_crypto_command_v011b\shared_data\reports\BALI_CHATGPT_STATUS_REPORT_20260625_121753.txt
-- 2026-06-25 22:17:00 - bali_rocket_crypto_command_v011b\shared_data\reports\BALI_V036_AUTOPATCH_VISIBLE_RUN_REPORT.txt
-- 2026-06-25 22:16:30 - bali_rocket_crypto_command_v011b\shared_data\reports\BALI_V036_VISIBLE_AUTOPATCH_INSTALL_REPORT.txt
-- 2026-06-25 22:13:55 - bali_rocket_crypto_command_v011b\shared_data\reports\BALI_V031_AUTOPATCH_RUN_REPORT.txt
 
 ## Duplicate Filename Candidates
-- BALI_AUTOPATCH_STATUS_OPEN_NOW.bat appears 3 times
-  - BALI_AUTOPATCH_STATUS_OPEN_NOW.bat
-  - bali_rocket_crypto_command_v011b\tools\BALI_FOREVER_AUTOPATCH_ENGINE\BALI_AUTOPATCH_STATUS_OPEN_NOW.bat
-  - payload\BALI_AUTOPATCH_STATUS_OPEN_NOW.bat
-- BALI_AUTOPATCH_ENGINE_HEALTH_CHECK_NOW.bat appears 3 times
-  - BALI_AUTOPATCH_ENGINE_HEALTH_CHECK_NOW.bat
-  - bali_rocket_crypto_command_v011b\tools\BALI_FOREVER_AUTOPATCH_ENGINE\BALI_AUTOPATCH_ENGINE_HEALTH_CHECK_NOW.bat
-  - payload\BALI_AUTOPATCH_ENGINE_HEALTH_CHECK_NOW.bat
+- BALI_SAFE_GIT_SAVE.bat appears 5 times
+  - BALI_SAFE_GIT_SAVE.bat
+  - BACKUPS\V4B_SAFE_GIT_FIX_20260626_150735\BALI_SAFE_GIT_SAVE.bat
+  - BACKUPS\V4C_MENU_GIT_FIX_20260626_151056\BALI_SAFE_GIT_SAVE.bat
+  - BACKUPS\V4D_DIRECT_MENU_FIX_20260626_151308\BALI_SAFE_GIT_SAVE.bat
+  - BACKUPS\V4E_HARDPATH_GIT_FIX_20260626_151527\BALI_SAFE_GIT_SAVE.bat
+- BALI_MASTER_CONTROL.bat appears 4 times
+  - BALI_MASTER_CONTROL.bat
+  - BACKUPS\V4C_MENU_GIT_FIX_20260626_151056\BALI_MASTER_CONTROL.bat
+  - BACKUPS\V4D_DIRECT_MENU_FIX_20260626_151308\BALI_MASTER_CONTROL.bat
+  - BACKUPS\V4E_HARDPATH_GIT_FIX_20260626_151527\BALI_MASTER_CONTROL.bat
 - V016_FIXED_UPLOAD_READY_BALI_PATCH.zip appears 3 times
   - bali_rocket_crypto_command_v011b\UPDATE_INBOX\V016_FIXED_UPLOAD_READY_BALI_PATCH.zip
   - bali_rocket_crypto_command_v011b\UPDATE_INBOX\_HOLD_OLD_PATCH_ZIPS\V016_FIXED_UPLOAD_READY_BALI_PATCH.zip
   - updates\ARCHIVE_V033_CLEANED_LEGACY_Thu025-06-2026_22-06-50.30\V016_FIXED_UPLOAD_READY_BALI_PATCH.zip
-- BALI_ROCKET_CRYPTO_COMMAND_V013_PAPER_SHADOW_SIGNAL_SIMULATOR.zip appears 2 times
-  - bali_rocket_crypto_command_v011b\UPDATE_INBOX\_HOLD_OLD_PATCH_ZIPS\BALI_ROCKET_CRYPTO_COMMAND_V013_PAPER_SHADOW_SIGNAL_SIMULATOR.zip
-  - updates\ARCHIVE_V033_CLEANED_LEGACY_Thu025-06-2026_22-06-50.30\BALI_ROCKET_CRYPTO_COMMAND_V013_PAPER_SHADOW_SIGNAL_SIMULATOR.zip
+- BALI_AUTOPATCH_ENGINE_HEALTH_CHECK_NOW.bat appears 3 times
+  - BALI_AUTOPATCH_ENGINE_HEALTH_CHECK_NOW.bat
+  - bali_rocket_crypto_command_v011b\tools\BALI_FOREVER_AUTOPATCH_ENGINE\BALI_AUTOPATCH_ENGINE_HEALTH_CHECK_NOW.bat
+  - payload\BALI_AUTOPATCH_ENGINE_HEALTH_CHECK_NOW.bat
+- BALI_AUTOPATCH_STATUS_OPEN_NOW.bat appears 3 times
+  - BALI_AUTOPATCH_STATUS_OPEN_NOW.bat
+  - bali_rocket_crypto_command_v011b\tools\BALI_FOREVER_AUTOPATCH_ENGINE\BALI_AUTOPATCH_STATUS_OPEN_NOW.bat
+  - payload\BALI_AUTOPATCH_STATUS_OPEN_NOW.bat
 - STARGATE_CPU_CHECKIN_SAMPLE_V012F.json appears 2 times
   - game_arena\bridge\inbox\STARGATE_CPU_CHECKIN_SAMPLE_V012F.json
   - game_arena\bridge\shared_drop\from_stargate\STARGATE_CPU_CHECKIN_SAMPLE_V012F.json
+- BALI_ROCKET_CRYPTO_COMMAND_V013_PAPER_SHADOW_SIGNAL_SIMULATOR.zip appears 2 times
+  - bali_rocket_crypto_command_v011b\UPDATE_INBOX\_HOLD_OLD_PATCH_ZIPS\BALI_ROCKET_CRYPTO_COMMAND_V013_PAPER_SHADOW_SIGNAL_SIMULATOR.zip
+  - updates\ARCHIVE_V033_CLEANED_LEGACY_Thu025-06-2026_22-06-50.30\BALI_ROCKET_CRYPTO_COMMAND_V013_PAPER_SHADOW_SIGNAL_SIMULATOR.zip
 - STARGATE_CPU_CHECKIN_SAMPLE_V012E.json appears 2 times
   - game_arena\bridge\inbox\STARGATE_CPU_CHECKIN_SAMPLE_V012E.json
   - game_arena\bridge\shared_drop\from_stargate\STARGATE_CPU_CHECKIN_SAMPLE_V012E.json
@@ -719,12 +824,6 @@ Base: C:\Bali\Bali-Trader
 - ROCKET_CRYPTO_COMMAND_START_PHONE_LAN_EXPERIMENTAL.bat appears 2 times
   - ROCKET_CRYPTO_COMMAND_START_PHONE_LAN_EXPERIMENTAL.bat
   - bali_rocket_crypto_command_v011b\ROCKET_CRYPTO_COMMAND_START_PHONE_LAN_EXPERIMENTAL.bat
-- ROCKET_CRYPTO_COMMAND_START.bat appears 2 times
-  - ROCKET_CRYPTO_COMMAND_START.bat
-  - bali_rocket_crypto_command_v011b\ROCKET_CRYPTO_COMMAND_START.bat
-- DEFINITION_OF_DONE.md appears 2 times
-  - DEFINITION_OF_DONE.md
-  - docs\DEFINITION_OF_DONE.md
 
 ## Archive Recommendations
 - Do not delete anything automatically.
@@ -734,11 +833,11 @@ Base: C:\Bali\Bali-Trader
 
 
 ==================== EVIDENCE INDEX SUMMARY ====================
-Evidence index file: C:\Bali\Bali-Trader\EVIDENCE_INDEX\BALI_EVIDENCE_INDEX_20260626_144724.md
+Evidence index file: C:\Bali\Bali-Trader\EVIDENCE_INDEX\BALI_EVIDENCE_INDEX_20260626_151847.md
 
 # BALI EVIDENCE INDEX
 
-Generated: 06/26/2026 14:47:26
+Generated: 06/26/2026 15:18:50
 Base: C:\Bali\Bali-Trader
 
 ## Purpose
@@ -752,21 +851,33 @@ This index helps Bali find, compare, and prove strategy research evidence before
 - CHAMPION_LOCKED
 
 ## Evidence-Like Files Found
+- 2026-06-26 15:18:44 | SAFETY_REPORTS\BALI_SAFETY_SCAN_20260626_151842.txt | 1.26 KB
+- 2026-06-26 15:15:57 | SAFETY_REPORTS\BALI_SAFETY_SCAN_V4E_20260626_151557.txt | 0.36 KB
+- 2026-06-26 15:15:27 | tools\BALI_OS_SAFETY_SCAN_V4E.ps1 | 4.23 KB
+- 2026-06-26 15:13:08 | BACKUPS\V4E_HARDPATH_GIT_FIX_20260626_151527\tools_BALI_OS_SAFETY_SCAN_V4D.ps1 | 4.05 KB
+- 2026-06-26 15:13:08 | tools\BALI_OS_SAFETY_SCAN_V4D.ps1 | 4.05 KB
+- 2026-06-26 15:10:56 | BACKUPS\V4D_DIRECT_MENU_FIX_20260626_151308\tools_BALI_OS_SAFETY_SCAN_V4C.ps1 | 4.13 KB
+- 2026-06-26 15:10:56 | tools\BALI_OS_SAFETY_SCAN_V4C.ps1 | 4.13 KB
+- 2026-06-26 15:08:24 | SAFETY_REPORTS\BALI_SAFETY_SCAN_20260626_150824.txt | 0.86 KB
+- 2026-06-26 15:07:35 | tools\BALI_OS_SAFETY_SCAN_V4B.ps1 | 4.52 KB
+- 2026-06-26 15:07:35 | BACKUPS\V4C_MENU_GIT_FIX_20260626_151056\tools_BALI_OS_SAFETY_SCAN_V4B.ps1 | 4.52 KB
+- 2026-06-26 14:47:48 | SAFETY_REPORTS\BALI_SAFETY_SCAN_20260626_144747.txt | 0.83 KB
+- 2026-06-26 14:47:26 | LATEST_CHAT_HANDOVER.txt | 67.86 KB
+- 2026-06-26 14:47:26 | AI_HANDOVER_REPORTS\BALI_OS_V4_FULL_HANDOVER_20260626_144720.txt | 67.86 KB
 - 2026-06-26 14:47:20 | SAFETY_REPORTS\BALI_SAFETY_SCAN_20260626_144719.txt | 0.83 KB
 - 2026-06-26 14:47:07 | SAFETY_REPORTS\BALI_SAFETY_SCAN_20260626_144706.txt | 0.83 KB
 - 2026-06-26 14:44:12 | AI_HANDOVER_REPORTS\BALI_OS_V4_FULL_HANDOVER_20260626_144406.txt | 68.27 KB
-- 2026-06-26 14:44:12 | LATEST_CHAT_HANDOVER.txt | 68.27 KB
 - 2026-06-26 14:44:06 | SAFETY_REPORTS\BALI_SAFETY_SCAN_20260626_144352.txt | 0.83 KB
 - 2026-06-26 14:30:54 | INSTALL_REPORTS\BALI_AI_HQ_V3_INSTALL_REPORT_20260626_143053.txt | 1.01 KB
 - 2026-06-26 14:04:22 | AI_HANDOVER_REPORTS\BALI_AI_HANDOVER_20260626_140421.txt | 6.74 KB
 - 2026-06-26 13:49:24 | AI_HANDOVER_REPORTS\BALI_AI_HANDOVER_20260626_134923.txt | 5.72 KB
 - 2026-06-26 13:49:08 | AI_HANDOVER_REPORTS\BALI_AI_HANDOVER_20260626_134907.txt | 5.72 KB
 - 2026-06-26 13:35:51 | README_AI_HANDOVER_REPORT.md | 0.32 KB
-- 2026-06-26 13:35:51 | BALI_GENERATE_AI_HANDOVER_REPORT.bat | 0.11 KB
 - 2026-06-26 13:35:51 | tools\BALI_AI_HANDOVER_REPORT.ps1 | 1.43 KB
+- 2026-06-26 13:35:51 | BALI_GENERATE_AI_HANDOVER_REPORT.bat | 0.11 KB
 - 2026-06-26 13:14:15 | bali_rocket_crypto_command_v011b\shared_data\backtests\backtest_walkforward_state.json | 7.12 KB
-- 2026-06-26 13:14:15 | bali_rocket_crypto_command_v011b\shared_data\backtests\backtest_walkforward_results.csv | 161.96 KB
 - 2026-06-26 13:14:15 | bali_rocket_crypto_command_v011b\shared_data\backtests\backtest_walkforward_ledger.jsonl | 3489.72 KB
+- 2026-06-26 13:14:15 | bali_rocket_crypto_command_v011b\shared_data\backtests\backtest_walkforward_results.csv | 161.96 KB
 - 2026-06-26 13:14:14 | bali_rocket_crypto_command_v011b\shared_data\paper_shadow_ledger.csv | 253.47 KB
 - 2026-06-26 13:14:14 | bali_rocket_crypto_command_v011b\shared_data\paper_shadow_state.json | 0.3 KB
 - 2026-06-26 13:14:14 | bali_rocket_crypto_command_v011b\shared_data\paper_shadow_ledger.jsonl | 472.26 KB
@@ -779,29 +890,29 @@ This index helps Bali find, compare, and prove strategy research evidence before
 - 2026-06-26 12:45:07 | bali_rocket_crypto_command_v011b\shared_data\reports\BALI_V018_RISK_FILTER_TUNER_REPORT_20260626_024507.txt | 3.61 KB
 - 2026-06-26 12:03:04 | bali_rocket_crypto_command_v011b\shared_data\reports\BALI_V018_RISK_FILTER_TUNER_REPORT_20260626_020304.txt | 3.28 KB
 - 2026-06-26 12:02:39 | GENERATE_V018_RISK_REPORT_FROM_HERE.cmd | 0.34 KB
-- 2026-06-26 11:57:07 | bali_rocket_crypto_command_v011b\shared_data\reports\BALI_CHATGPT_STATUS_REPORT_20260626_015707.txt | 15.33 KB
 - 2026-06-26 11:57:07 | bali_rocket_crypto_command_v011b\logs\LAST_CHATGPT_STATUS_REPORT.txt | 15.33 KB
-- 2026-06-26 11:56:52 | bali_rocket_crypto_command_v011b\logs\LAST_ALWAYS_WORKING_BOT_STATS_REPORT.txt | 13.58 KB
+- 2026-06-26 11:57:07 | bali_rocket_crypto_command_v011b\shared_data\reports\BALI_CHATGPT_STATUS_REPORT_20260626_015707.txt | 15.33 KB
 - 2026-06-26 11:56:52 | bali_rocket_crypto_command_v011b\shared_data\reports\always_working_report_ledger.jsonl | 1.51 KB
+- 2026-06-26 11:56:52 | bali_rocket_crypto_command_v011b\logs\LAST_ALWAYS_WORKING_BOT_STATS_REPORT.txt | 13.58 KB
 - 2026-06-26 11:56:52 | bali_rocket_crypto_command_v011b\shared_data\reports\BALI_ALWAYS_WORKING_BOT_STATS_REPORT_20260626_015652_407220.txt | 13.58 KB
 - 2026-06-26 11:55:57 | logs\LAST_FINAL_REPORT.txt | 0.84 KB
-- 2026-06-26 11:55:57 | logs\BALI_DASH_UPDATE_FINAL_REPORT_V012J.txt | 0.84 KB
 - 2026-06-26 11:55:57 | logs\LAST_DASH_UPDATE_RESTART_REPORT.txt | 0.84 KB
+- 2026-06-26 11:55:57 | logs\BALI_DASH_UPDATE_FINAL_REPORT_V012J.txt | 0.84 KB
 - 2026-06-26 11:55:57 | logs\BALI_DASH_UPDATE_DEBUG_REPORT_V012J.txt | 3.41 KB
-- 2026-06-26 11:55:56 | logs\BALI_DASH_INTERNAL_SPEED_LANE_REPORT_V012J.txt | 2.58 KB
 - 2026-06-26 11:55:56 | logs\LAST_SPEED_LANE_UPDATE_REPORT.txt | 2.58 KB
+- 2026-06-26 11:55:56 | logs\BALI_DASH_INTERNAL_SPEED_LANE_REPORT_V012J.txt | 2.58 KB
 - 2026-06-26 11:55:55 | logs\LAST_FAST_HEALTH_REPORT.txt | 1.29 KB
 - 2026-06-26 11:55:55 | logs\BALI_FAST_HEALTH_REPORT_V012J.txt | 1.29 KB
-- 2026-06-26 11:55:53 | logs\LAST_LAUNCH_BAY_CLEANUP_REPORT.txt | 0.67 KB
 - 2026-06-26 11:55:53 | logs\BALI_LAUNCH_BAY_CLEANUP_REPORT_V012J.txt | 0.67 KB
-- 2026-06-26 11:55:52 | logs\LAST_ONE_CLICK_UPDATE_REPORT.txt | 1.4 KB
+- 2026-06-26 11:55:53 | logs\LAST_LAUNCH_BAY_CLEANUP_REPORT.txt | 0.67 KB
 - 2026-06-26 11:55:52 | logs\BALI_SPEED_LANE_INTERNAL_UPDATE_REPORT_V012J.txt | 1.4 KB
+- 2026-06-26 11:55:52 | logs\LAST_ONE_CLICK_UPDATE_REPORT.txt | 1.4 KB
 - 2026-06-26 11:55:50 | logs\BALI_CLOSE_DASHBOARD_PORT_REPORT_V012J.txt | 0.56 KB
 - 2026-06-26 11:50:37 | bali_rocket_crypto_command_v011b\shared_data\reports\BALI_ALWAYS_WORKING_BOT_STATS_REPORT_20260626_015037_354755.txt | 13.57 KB
 - 2026-06-26 11:24:39 | bali_rocket_crypto_command_v011b\shared_data\reports\BALI_ALWAYS_WORKING_BOT_STATS_REPORT_20260626_012439_254405.txt | 13.52 KB
-- 2026-06-26 11:22:52 | logs\BALI_THEMED_DESKTOP_ICON_REPORT_V012J.txt | 1.03 KB
 - 2026-06-26 11:22:52 | logs\LAST_BALI_THEMED_DESKTOP_ICON_REPORT.txt | 1.03 KB
 - 2026-06-26 11:22:52 | logs\LAST_FOREVER_DESKTOP_ICON_REPORT.txt | 1.03 KB
+- 2026-06-26 11:22:52 | logs\BALI_THEMED_DESKTOP_ICON_REPORT_V012J.txt | 1.03 KB
 - 2026-06-26 11:22:08 | updates\BALI_V017_DASHBOARD_REPORT_BUTTON_ONE_CLICK_FIXED.cmd | 25.71 KB
 - 2026-06-26 11:11:42 | bali_rocket_crypto_command_v011b\shared_data\reports\BALI_CHATGPT_STATUS_REPORT_20260626_011142.txt | 15.31 KB
 - 2026-06-26 10:58:30 | README_V017_ALWAYS_WORKING_REPORT_CENTER.txt | 0.95 KB
@@ -859,8 +970,8 @@ This index helps Bali find, compare, and prove strategy research evidence before
 - 2026-06-25 18:54:53 | updates\applied_patch_archive\before_V013A_20260625_191028\BALI_ROCKET_CRYPTO_COMMAND_V012N_REPORT_DOCK_AUTOMATION_FIX.zip | 68.85 KB
 - 2026-06-25 17:21:26 | bali_rocket_crypto_command_v011b\shared_data\reports\BALI_OVERNIGHT_REPORT_20260625_072126.txt | 4.07 KB
 - 2026-06-25 13:54:12 | logs\BALI_AWAY_TRAINING_START_REPORT_V012N.txt | 0.64 KB
-- 2026-06-25 13:46:01 | logs\LAST_ONEDRIVE_BRIDGE_SETUP_REPORT.txt | 0.48 KB
 - 2026-06-25 13:46:01 | logs\BALI_ONEDRIVE_BRIDGE_SETUP_REPORT_V012J.txt | 0.48 KB
+- 2026-06-25 13:46:01 | logs\LAST_ONEDRIVE_BRIDGE_SETUP_REPORT.txt | 0.48 KB
 - 2026-06-25 13:42:09 | logs\BALI_V012M_RESCUE_AUTOFIND_REPORT.txt | 0.57 KB
 - 2026-06-25 13:35:18 | logs\BALI_DASH_UPDATE_FINAL_REPORT_V012I.txt | 0.34 KB
 - 2026-06-25 13:35:18 | logs\BALI_DASH_UPDATE_DEBUG_REPORT_V012I.txt | 2.59 KB
@@ -1040,25 +1151,13 @@ This index helps Bali find, compare, and prove strategy research evidence before
 - 2026-06-25 11:12:08 | logs\BALI_SPEED_LANE_UPDATE_REPORT_V011L.txt | 1.75 KB
 - 2026-06-25 11:12:04 | logs\BALI_FAST_HEALTH_REPORT_V011L.txt | 1.05 KB
 - 2026-06-25 11:12:03 | logs\BALI_SPEED_LANE_INTERNAL_UPDATE_REPORT_V011L.txt | 7.62 KB
-- 2026-06-25 11:08:44 | bali_rocket_crypto_command_v011b\logs\BALI_VISIBLE_STARTUP_REPORT_V011L.txt | 1.94 KB
-- 2026-06-25 11:08:44 | BALI_VISIBLE_BOOT_REPORT_V011L.txt | 0.75 KB
-- 2026-06-25 10:52:54 | logs\BALI_THEMED_DESKTOP_ICON_REPORT_V011L.txt | 1.27 KB
-- 2026-06-25 10:51:41 | logs\BALI_ONE_CLICK_UPDATE_REPORT_V011J.txt | 6.05 KB
-- 2026-06-25 10:51:32 | bali_rocket_crypto_command_v011b\logs\BALI_VISIBLE_STARTUP_REPORT_V011J.txt | 1.94 KB
-- 2026-06-25 10:51:32 | BALI_VISIBLE_BOOT_REPORT_V011J.txt | 0.75 KB
-- 2026-06-25 10:42:24 | logs\BALI_FOREVER_DESKTOP_ICON_REPORT_V011J.txt | 0.99 KB
-- 2026-06-25 10:38:16 | logs\BALI_ROCKET_HEALTH_CHECK_REPORT_V011J.txt | 1.76 KB
-- 2026-06-25 10:38:16 | bali_rocket_crypto_command_v011b\logs\LAST_HEALTH_CHECK_REPORT.txt | 1.76 KB
-- 2026-06-25 10:38:16 | logs\LAST_HEALTH_CHECK_REPORT.txt | 1.76 KB
-- 2026-06-25 10:35:42 | logs\BALI_ONE_CLICK_UPDATE_RESCUE_REPORT_V011J.txt | 4.97 KB
-- 2026-06-25 10:32:16 | logs\BALI_ROCKET_HEALTH_CHECK_REPORT_V011I.txt | 1.74 KB
 
 ## Next Evidence Upgrade Needed
 V5 should create a structured Backtest Run Registry with run IDs, dataset IDs, fees, slippage, in-sample, walk-forward, out-of-sample, drawdown, profit factor, trade count, and pass/fail reason.
 
 
 ==================== GIT STATUS ====================
-DIRTY:  M LEDGER.md;  M NEXT_PATCH.md; ?? AI_ENGINEER_QUEUE.md; ?? BALI_MASTER_CONTROL.bat; ?? BALI_OS_WORKFLOW.md; ?? BALI_SAFE_GIT_SAVE.bat; ?? CONSTITUTION.md; ?? DEFINITION_OF_DONE.md; ?? EVIDENCE_INDEX.md; ?? EVIDENCE_INDEX/; ?? EVIDENCE_STANDARDS.md; ?? INSTALL_REPORTS/BALI_OS_V4_INSTALL_20260626_144330.txt
+DIRTY:  M EVIDENCE_INDEX.md;  M PROJECT_MAP.md; ?? BACKUPS/; ?? EVIDENCE_INDEX/BALI_EVIDENCE_INDEX_20260626_151847.md; ?? NEXT_PATCH_REPORTS/BALI_NEXT_PATCH_RECOMMENDATION_20260626_151845.txt; ?? PROJECT_MAPS/BALI_PROJECT_MAP_20260626_151846.md; ?? SAFETY_REPORTS/BALI_SAFETY_SCAN_20260626_151842.txt; ?? STATUS_DASHBOARDS/BALI_STATUS_20260626_151844.txt; ?? docs/AI_ENGINEER_QUEUE.md; ?? docs/BALI_OS_WORKFLOW.md; ?? docs/CONSTITUTION.md; ?? docs/DEFINITION_OF_DONE.md
 
 ==================== DEFINITION OF DONE ====================
 # DEFINITION OF DONE
