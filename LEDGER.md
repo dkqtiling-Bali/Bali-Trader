@@ -22,3 +22,15 @@ Central command menu for AI handover, Git status, Git backup, and Project Brain 
 
 Next recommended patch:
 Improve handover report to include folder map, latest logs, safety lock scan, and next patch recommendation.
+
+AI HQ V2 added.
+
+Added:
+- BALI_AI_HQ_V2.bat
+- tools/BALI_AI_HQ_V2_ANALYSE.ps1
+
+Purpose:
+Adds bundled project analysis, handover V2, safety scan, git clean check, mission alignment check, project score, and next patch recommendation.
+
+Mission alignment:
+This update improves maintainability, safety visibility, reporting quality, and AI-assisted patch selection. It supports the mission of safely discovering evidence-backed crypto strategies that may help generate profit in the market.
