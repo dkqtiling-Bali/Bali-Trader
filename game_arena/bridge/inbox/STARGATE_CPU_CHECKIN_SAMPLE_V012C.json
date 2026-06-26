@@ -1,0 +1,16 @@
+{
+  "version": "V012C",
+  "cpu_role": "STARGATE_CPU",
+  "bot": "Stargate Bot",
+  "mode": "SIM_ONLY",
+  "round_id": "ROUND_0001_SAMPLE",
+  "profit_pct": 0.0,
+  "max_drawdown_pct": 0.0,
+  "risk_events": 0,
+  "uptime_pct": 0,
+  "safety_violations": 0,
+  "score": 0,
+  "xp": 0,
+  "status": "AWAITING_STARGATE_CPU",
+  "note": "Sample only. Referee networking remains OFF."
+}

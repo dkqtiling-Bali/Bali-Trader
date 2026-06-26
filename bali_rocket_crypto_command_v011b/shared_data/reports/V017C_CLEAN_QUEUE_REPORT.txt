@@ -1,0 +1,11 @@
+V017C CLEAN QUEUE REPORT
+Generated: Thu 25/06/2026 20:24:38.37
+Safety: live orders remain OFF; no API keys; no private exchange endpoints; champion lock unchanged.
+Bali root: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\bali_rocket_crypto_command_v011b
+UPDATE_INBOX: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\bali_rocket_crypto_command_v011b\UPDATE_INBOX
+Old ZIPs moved to: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\bali_rocket_crypto_command_v011b\UPDATE_INBOX\_HOLD_OLD_PATCH_ZIPS
+Old ZIPs moved count: 3
+Active queued ZIP count: 1
+Active queued ZIP: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\bali_rocket_crypto_command_v011b\UPDATE_INBOX\V016_FIXED_UPLOAD_READY_BALI_PATCH.zip
+Result: READY_FOR_SINGLE_PATCH_APPLY
+Next: Close Bali completely, start Bali normally, then click Apply ZIP Already in Updates if needed.

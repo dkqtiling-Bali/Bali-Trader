@@ -1,0 +1,11 @@
+BALI ROCKET CRYPTO COMMAND - STARTUP REPORT
+Generated: Thu 25/06/2026 10:00:41.55
+Folder: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\bali_rocket_crypto_command_v011b
+
+Found direct Python: C:\Users\CB\AppData\Local\Programs\Python\Python313\python.exe 
+Python selected: C:\Users\CB\AppData\Local\Programs\Python\Python313\python.exe
+Syntax check: PASS
+Dashboard: http://127.0.0.1:9061
+Phone mode: use ROCKET_CRYPTO_COMMAND_START_PHONE_LAN_EXPERIMENTAL.bat
+Safety: live orders OFF, champion lock LOCKED, no API keys.
+App exited with code -1073741521 

@@ -1,0 +1,22 @@
+BALI ROCKET CRYPTO COMMAND V011E LEDGER NOTE
+
+Patch name: Root Finder + Stargate Rival Launcher
+Purpose: Fix parent-folder launch failure after V011D proved Python 3.10 was good but app.py was not found.
+
+Observed failure:
+- V011D correctly skipped Python 3.13.
+- V011D found Python 3.10.11.
+- Compile failed because the launcher was running from the parent folder, not the folder containing app.py.
+
+Correction:
+- Find APP_ROOT first.
+- Compile and run APP_ROOT\app.py with Python 3.10/3.11/3.12.
+- Continue rejecting Python 3.13.
+- Add visible mission marker: Bali Rocket is being prepared as the Stargate-rival competitor machine.
+
+Safety:
+- No live orders.
+- Champion approval remains locked.
+- No API keys.
+- No secret files touched.
+- No ledgers, learner state, growth state, or market data overwritten.

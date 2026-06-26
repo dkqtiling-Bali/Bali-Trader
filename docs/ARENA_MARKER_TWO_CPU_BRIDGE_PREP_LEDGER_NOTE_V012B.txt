@@ -1,0 +1,1 @@
+V012B ledger note: added arena marker status and local-only two-CPU bridge prep folders/CPU role samples. Networking, API keys, live orders, and trading logic remain disabled/unchanged. Competition remains SIM/PAPER only.

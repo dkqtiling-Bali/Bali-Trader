@@ -1,0 +1,13 @@
+{
+  "version": "V012J",
+  "mode": "SIM_ONLY",
+  "safety": "LIVE_ORDERS_OFF | CHAMPION_LOCK_LOCKED | NO_API_KEYS",
+  "arena": "GAME_FOUNDATION",
+  "two_cpu_bridge": "SHARED_FOLDER_READY_SIM_ONLY",
+  "match_referee": "PREP_LOCAL_JSON_ONLY",
+  "bridge_config": "game_arena/bridge/BRIDGE_CONFIG_SAMPLE_V012J.json",
+  "shared_drop": "game_arena/bridge/shared_drop",
+  "network_execution": "OFF",
+  "live_trading_readiness": "0_PERCENT_LOCKED",
+  "next": "V012J shared-folder watch + referee scoring from real SIM check-ins"
+}

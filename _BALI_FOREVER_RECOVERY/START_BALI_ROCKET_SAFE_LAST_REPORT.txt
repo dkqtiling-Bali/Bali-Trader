@@ -1,0 +1,16 @@
+BALI ROCKET FOREVER SAFE START REPORT
+Generated: Fri 26/06/2026 13:11:03.43
+Root: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD
+App: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\bali_rocket_crypto_command_v011b
+Safety: live orders OFF | champion LOCKED | no API keys | public data only
+Autopatch: DISABLED_BY_FOREVER_SAFE
+Update ZIPs: NOT processed automatically
+
+Found direct Python: C:\Users\CB\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe 
+Python selected: C:\Users\CB\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe
+Python 3.12.13
+Syntax check: PASS
+Dashboard: http://127.0.0.1:9061
+Report button: Reports tab - Generate Always-Working Bot Stats Report
+Watch mode: active by default from Forever Safe
+

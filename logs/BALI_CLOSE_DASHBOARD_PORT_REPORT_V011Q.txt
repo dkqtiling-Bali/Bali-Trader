@@ -1,0 +1,9 @@
+BALI CLOSE PREVIOUS DASHBOARD REPORT V011Q
+Generated: 06/25/2026 11:23:35
+Root folder: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD
+Port: 9061
+Purpose: close previous Bali dashboard before update/restart so only one dash remains.
+Safety: live orders OFF, champion lock LOCKED, no API keys.
+
+PORT_STATUS=CLEAR
+RESULT: CLOSE DASHBOARD PASS

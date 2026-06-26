@@ -1,0 +1,1 @@
+V011Y ledger note: important-only autopilot success report; detailed lines kept in logs. No live orders, API keys, secrets, or trading logic changed.

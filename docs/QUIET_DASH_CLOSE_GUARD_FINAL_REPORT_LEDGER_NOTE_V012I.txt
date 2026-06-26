@@ -1,0 +1,5 @@
+V012I LEDGER NOTE - QUIET DASH CLOSE GUARD FINAL REPORT
+
+V012I hardens the V011Q quiet dashboard update flow. The close step now targets the port 9061 LISTENING server only, retries with taskkill fallback, and ignores browser/client ESTABLISHED connections so the final report does not claim the dashboard is still active when only a browser connection remains.
+
+Safety remains unchanged: live orders OFF, champion lock LOCKED, no API keys touched, no trading logic changed.

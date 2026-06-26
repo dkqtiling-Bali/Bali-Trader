@@ -1,0 +1,8 @@
+Backtest Walk-Forward Policy V015A
+
+Backtests use only candles collected by Bali's public-data candle harvester.
+A run must be treated as research evidence only.
+No strategy may claim champion status from one run.
+No live trading, API keys, private endpoints, or broker/exchange execution are added.
+Fees and slippage are included in replay calculations.
+The champion gate remains locked until repeated evidence and human approval exist.

@@ -1,0 +1,15 @@
+{
+  "version": "V012G",
+  "selected_role": "BALI_CPU",
+  "available_roles": [
+    "BALI_CPU",
+    "STARGATE_CPU",
+    "REFEREE_CPU"
+  ],
+  "competition_mode": "SIM_ONLY",
+  "networking": "OFF_PLACEHOLDER_ONLY",
+  "shared_secret": "NOT_SET",
+  "live_orders": "OFF",
+  "champion_lock": "LOCKED",
+  "api_keys": "NONE"
+}

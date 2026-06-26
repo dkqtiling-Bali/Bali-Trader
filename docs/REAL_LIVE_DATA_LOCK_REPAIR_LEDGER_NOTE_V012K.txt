@@ -1,0 +1,9 @@
+BALI LEDGER NOTE V012K - REAL LIVE DATA LOCK REPAIR
+
+Hard law added to code path:
+REAL LIVE DATA ONLY. NO EXCEPTION.
+
+The old fetch fallback returned fake_ticker_data with source offline_demo when Binance failed.
+V012K changes that path to LIVE_DATA_FAIL and blocks scoring/learning/research/proof ledger writes until verified public exchange data returns.
+
+This patch is safety-critical. It does not add live trading. It does not touch API keys. It does not unlock champions.

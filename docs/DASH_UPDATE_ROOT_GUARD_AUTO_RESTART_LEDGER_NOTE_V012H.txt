@@ -1,0 +1,5 @@
+BALI V012H LEDGER NOTE
+
+V012H adds a wrong-folder root guard so extracted patch folders under updates are not treated as the live install root. It keeps the V011N dashboard update/auto-restart bridge and the Bali-themed desktop starter.
+
+Safety unchanged: live orders OFF, champion lock LOCKED, no API keys touched. Trading logic unchanged. app.py changes are limited to the dashboard update bridge inherited from V011N.

@@ -1,0 +1,4 @@
+V012H LEDGER NOTE
+Adds RAW_LIVE_DATA_ONLY Governor gate for arena scoring.
+Synthetic/mock/seed/demo/replay-ranked inputs are blocked from scoring.
+No live orders, no API keys, no remote commands, no trading execution changes.

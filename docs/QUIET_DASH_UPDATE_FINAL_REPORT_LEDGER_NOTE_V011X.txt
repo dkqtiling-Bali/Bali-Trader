@@ -1,0 +1,5 @@
+BALI V011X LEDGER NOTE
+
+V011X improves the dashboard update workflow by closing previous dashboard instances before update/restart and by suppressing intermediate report popups. One final report is shown after a completed dashboard update, while errors still open their report immediately.
+
+No trading logic, live orders, API keys, champion locks, or protected ledgers are changed.

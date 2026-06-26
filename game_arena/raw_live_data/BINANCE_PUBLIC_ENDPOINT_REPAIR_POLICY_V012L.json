@@ -1,0 +1,19 @@
+{
+  "version": "V012L",
+  "policy": "BINANCE_PUBLIC_ENDPOINT_REPAIR",
+  "real_live_data_only": true,
+  "offline_demo_scoring_blocked": true,
+  "synthetic_scoring_blocked": true,
+  "mock_scoring_blocked": true,
+  "public_bases": [
+    "https://data-api.binance.vision",
+    "https://api.binance.com"
+  ],
+  "request_strategy": [
+    "compact_symbols_json_array",
+    "single_symbol_public_repair_fallback"
+  ],
+  "live_orders": "OFF",
+  "api_keys_touched": false,
+  "remote_commands": false
+}

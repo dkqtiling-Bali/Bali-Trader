@@ -1,0 +1,10 @@
+{
+  "version": "V012F",
+  "round_id": "ROUND_0001_BRIDGE_TEST",
+  "mode": "SIM_ONLY",
+  "bridge": "SHARED_FOLDER_JSON_ONLY",
+  "bali_checkin": "from_bali/BALI_CPU_CHECKIN_SAMPLE_V012F.json",
+  "stargate_checkin": "from_stargate/STARGATE_CPU_CHECKIN_SAMPLE_V012F.json",
+  "winner": "NOT_SCORED_YET",
+  "safety": "LIVE_ORDERS_OFF | CHAMPION_LOCK_LOCKED | NO_API_KEYS"
+}

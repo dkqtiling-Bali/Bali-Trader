@@ -1,0 +1,3 @@
+BALI QUIET DASH UPDATE STAMP V012J
+
+This marker confirms V012J quiet dashboard update and final-report-only behavior is installed.

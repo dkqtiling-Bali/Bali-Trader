@@ -1,0 +1,14 @@
+{
+  "version": "V012M",
+  "patch": "LIVE_GATE_ACCEPT_OK_STATUS_REPAIR",
+  "real_live_data_only": true,
+  "accepted_statuses": ["OK_MULTI_SYMBOLS_*", "OK_SINGLE_SYMBOL_REPAIR_*"],
+  "accepted_sources": ["https://data-api.binance.vision", "https://api.binance.com"],
+  "blocked_sources": ["offline_demo", "LIVE_DATA_FAIL", "NO_REAL_LIVE_DATA", "synthetic", "mock"],
+  "blocked_status_terms": ["OFFLINE", "DEMO", "FAKE", "LIVE_DATA_FAIL"],
+  "scoring_without_real_live_data": false,
+  "live_orders": false,
+  "api_keys": false,
+  "remote_commands": false,
+  "offline_demo_rows": "historical audit only; ignored by latest verified ticks table"
+}

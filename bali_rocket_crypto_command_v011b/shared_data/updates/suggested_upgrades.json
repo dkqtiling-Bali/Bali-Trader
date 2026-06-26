@@ -1,0 +1,45 @@
+{
+  "suggestions": [
+    {
+      "name": "Candle Harvester",
+      "one_click_ready": false,
+      "risk": "low",
+      "status": "READY_TO_BUILD_NEXT",
+      "version": "V011",
+      "why": "Enough feed ticks are forming a baseline; add candle storage and missing-data checks."
+    },
+    {
+      "name": "Market Regime Proof Board",
+      "one_click_ready": false,
+      "risk": "low",
+      "status": "SUGGESTED",
+      "version": "V012",
+      "why": "Turn overnight regime labels into graphs and regime durations."
+    },
+    {
+      "name": "Paper Shadow Signal Simulator",
+      "one_click_ready": true,
+      "risk": "medium",
+      "status": "INSTALLED_PAPER_ONLY",
+      "version": "V013A",
+      "why": "Installed: creates paper-only would-have-traded records from verified live public data."
+    },
+    {
+      "name": "Universe Top State Repair",
+      "one_click_ready": true,
+      "risk": "low",
+      "status": "INSTALLED_UNIVERSE_TOP_STATE_REPAIR",
+      "version": "V014C",
+      "why": "Installed: makes the Universe headline top symbol and visible latest-rank table use the same sorted latest batch."
+    },
+    {
+      "name": "Backtest + Walk-Forward Gate",
+      "one_click_ready": true,
+      "risk": "medium",
+      "status": "INSTALLED_BACKTEST_GATE",
+      "version": "V015A",
+      "why": "Installed: replays collected public candles through a simple strategy probe and blocks champion claims until repeated evidence exists."
+    }
+  ],
+  "updated_at": "2026-06-26T03:14:15+00:00"
+}

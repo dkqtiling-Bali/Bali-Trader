@@ -1,0 +1,37 @@
+<!-- Bali V016 Native Evidence Scorecard Panel
+Add this where the dashboard renders cards, or serve the JSON file directly.
+It reads: shared_data/dashboard/v016_evidence_scorecard_panel.json
+-->
+<div id="v016-evidence-scorecard" style="border:1px solid #ddd;border-radius:12px;padding:14px;margin:12px 0;">
+  <h3>V016 Evidence Scorecard</h3>
+  <div id="v016-scorecard-body">Loading local scorecard...</div>
+</div>
+<script>
+(function(){
+  const el = document.getElementById('v016-scorecard-body');
+  function safeText(v){ return (v === null || v === undefined) ? 'UNKNOWN' : String(v); }
+  fetch('/shared_data/dashboard/v016_evidence_scorecard_panel.json', {cache:'no-store'})
+    .then(r => r.ok ? r.json() : Promise.reject(new Error('scorecard json not served')))
+    .then(d => {
+      const s = d.summary || {};
+      const blockers = d.blockers || [];
+      el.innerHTML = `
+        <p><b>Status:</b> ${safeText(d.overall_status)} | <b>Gate:</b> ${safeText(d.gate)}</p>
+        <p><b>Champion nomination:</b> ${safeText(d.nomination_allowed)} | <b>Live orders allowed:</b> ${safeText(d.live_orders_allowed)}</p>
+        <ul>
+          <li>Real live data gate: ${safeText(s.real_live_data_gate)}</li>
+          <li>Paper rows: ${safeText(s.paper_shadow_rows)}</li>
+          <li>Closed paper trades visible: ${safeText(s.paper_closed_trade_rows_visible)}</li>
+          <li>Backtest/WF rows: ${safeText(s.backtest_walk_forward_rows)}</li>
+          <li>Positive WF rows visible: ${safeText(s.positive_walk_forward_rows_visible)}</li>
+          <li>Latest WF average visible: ${safeText(s.latest_walk_forward_avg_visible)}</li>
+          <li>Backtest gate: ${safeText(s.backtest_gate)}</li>
+        </ul>
+        <p><b>Top blockers:</b> ${blockers.length ? blockers.slice(0,5).map(b => safeText(b.name)).join(', ') : 'None'}</p>
+      `;
+    })
+    .catch(err => {
+      el.innerHTML = 'Scorecard file not served yet. Run RUN_V016_EVIDENCE_SCORECARD_NOW.bat, then refresh.';
+    });
+})();
+</script>

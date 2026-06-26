@@ -1,0 +1,258 @@
+{
+  "version": "V016_NATIVE_EVIDENCE_SCORECARD_PANEL",
+  "generated_utc": "2026-06-25T10:40:47+00:00",
+  "source_report": "/mnt/data/v016_native_evidence_scorecard_panel/sample_test_root/shared_data/reports/BALI_CHATGPT_STATUS_REPORT_SAMPLE.txt",
+  "source_version": "V015A_BACKTEST_WALK_FORWARD_GATE",
+  "overall_status": "BLOCK",
+  "gate": "CHAMPION_NOMINATION_BLOCKED",
+  "nomination_allowed": false,
+  "champion_claim_allowed": false,
+  "live_orders_allowed": false,
+  "council_status": "LOCKED_0_OF_3_UNCHANGED",
+  "reason": "Repeated evidence is not strong enough to nominate a champion.",
+  "thresholds": {
+    "paper_shadow_rows_min": 50,
+    "paper_closed_trade_rows_min": 10,
+    "backtest_walk_forward_rows_min": 12,
+    "positive_walk_forward_rows_min": 8,
+    "distinct_backtest_ids_min": 12,
+    "candle_rows_min": 100,
+    "universe_ledger_rows_min": 200,
+    "real_live_data_gate_required": "PASS_RECENT_REAL_LIVE_DATA"
+  },
+  "summary": {
+    "paper_shadow_rows": 71,
+    "paper_closed_trade_rows_visible": 0,
+    "candle_rows_total": 666,
+    "universe_ledger_rows": 2520,
+    "backtest_walk_forward_rows": 44,
+    "positive_walk_forward_rows_visible": 0,
+    "latest_walk_forward_avg_visible": -0.3017,
+    "backtest_gate": "WALK_FORWARD_RECORDED_EDGE_NOT_PROVEN",
+    "real_live_data_gate": "PASS_RECENT_REAL_LIVE_DATA"
+  },
+  "safety_checks": [
+    {
+      "name": "live_orders_off",
+      "pass": true,
+      "observed": "OFF",
+      "required": "OFF",
+      "blocks_nomination": false,
+      "note": ""
+    },
+    {
+      "name": "api_keys_none",
+      "pass": true,
+      "observed": "NONE / private exchange endpoints not used",
+      "required": "NONE",
+      "blocks_nomination": false,
+      "note": ""
+    },
+    {
+      "name": "champion_lock_locked",
+      "pass": true,
+      "observed": "LOCKED / approved 0/3",
+      "required": "LOCKED",
+      "blocks_nomination": false,
+      "note": ""
+    },
+    {
+      "name": "risk_police_armed",
+      "pass": true,
+      "observed": "ARMED",
+      "required": "ARMED",
+      "blocks_nomination": false,
+      "note": ""
+    },
+    {
+      "name": "no_danger_flags",
+      "pass": true,
+      "observed": [],
+      "required": [],
+      "blocks_nomination": false,
+      "note": ""
+    }
+  ],
+  "evidence_checks": [
+    {
+      "name": "real_live_data_gate",
+      "pass": true,
+      "observed": "PASS_RECENT_REAL_LIVE_DATA",
+      "required": "PASS_RECENT_REAL_LIVE_DATA",
+      "blocks_nomination": false,
+      "note": ""
+    },
+    {
+      "name": "fresh_live_data",
+      "pass": true,
+      "observed": 0,
+      "required": "<=60 seconds",
+      "blocks_nomination": false,
+      "note": ""
+    },
+    {
+      "name": "offline_demo_rows_ignored",
+      "pass": true,
+      "observed": 0,
+      "required": 0,
+      "blocks_nomination": false,
+      "note": ""
+    },
+    {
+      "name": "paper_shadow_rows",
+      "pass": true,
+      "observed": 71,
+      "required": 50,
+      "blocks_nomination": false,
+      "note": ""
+    },
+    {
+      "name": "paper_closed_trade_rows",
+      "pass": false,
+      "observed": 0,
+      "required": 10,
+      "blocks_nomination": true,
+      "note": "Visible status report currently shows stand-aside rows, not enough closed simulated trades."
+    },
+    {
+      "name": "candle_rows",
+      "pass": true,
+      "observed": 666,
+      "required": 100,
+      "blocks_nomination": false,
+      "note": ""
+    },
+    {
+      "name": "universe_ledger_rows",
+      "pass": true,
+      "observed": 2520,
+      "required": 200,
+      "blocks_nomination": false,
+      "note": ""
+    },
+    {
+      "name": "backtest_walk_forward_rows",
+      "pass": true,
+      "observed": 44,
+      "required": 12,
+      "blocks_nomination": false,
+      "note": ""
+    },
+    {
+      "name": "distinct_backtest_ids_visible",
+      "pass": false,
+      "observed": 5,
+      "required": 12,
+      "blocks_nomination": true,
+      "note": ""
+    },
+    {
+      "name": "positive_walk_forward_rows_visible",
+      "pass": false,
+      "observed": 0,
+      "required": 8,
+      "blocks_nomination": true,
+      "note": ""
+    },
+    {
+      "name": "backtest_gate_not_edge_not_proven",
+      "pass": false,
+      "observed": "WALK_FORWARD_RECORDED_EDGE_NOT_PROVEN",
+      "required": "not EDGE_NOT_PROVEN",
+      "blocks_nomination": true,
+      "note": ""
+    },
+    {
+      "name": "latest_walk_forward_avg_positive",
+      "pass": false,
+      "observed": -0.3017,
+      "required": ">0",
+      "blocks_nomination": true,
+      "note": ""
+    },
+    {
+      "name": "champion_claim_already_false_until_gate_pass",
+      "pass": true,
+      "observed": "False",
+      "required": "False until V016 passes",
+      "blocks_nomination": false,
+      "note": ""
+    }
+  ],
+  "blockers": [
+    {
+      "name": "paper_closed_trade_rows",
+      "pass": false,
+      "observed": 0,
+      "required": 10,
+      "blocks_nomination": true,
+      "note": "Visible status report currently shows stand-aside rows, not enough closed simulated trades."
+    },
+    {
+      "name": "distinct_backtest_ids_visible",
+      "pass": false,
+      "observed": 5,
+      "required": 12,
+      "blocks_nomination": true,
+      "note": ""
+    },
+    {
+      "name": "positive_walk_forward_rows_visible",
+      "pass": false,
+      "observed": 0,
+      "required": 8,
+      "blocks_nomination": true,
+      "note": ""
+    },
+    {
+      "name": "backtest_gate_not_edge_not_proven",
+      "pass": false,
+      "observed": "WALK_FORWARD_RECORDED_EDGE_NOT_PROVEN",
+      "required": "not EDGE_NOT_PROVEN",
+      "blocks_nomination": true,
+      "note": ""
+    },
+    {
+      "name": "latest_walk_forward_avg_positive",
+      "pass": false,
+      "observed": -0.3017,
+      "required": ">0",
+      "blocks_nomination": true,
+      "note": ""
+    }
+  ],
+  "raw_parsed": {
+    "source_version": "V015A_BACKTEST_WALK_FORWARD_GATE",
+    "live_orders": "OFF",
+    "champion_lock": "LOCKED / approved 0/3",
+    "api_keys": "NONE / private exchange endpoints not used",
+    "mode": "PUBLIC_DATA_RESEARCH_ONLY",
+    "real_live_data_gate": "PASS_RECENT_REAL_LIVE_DATA",
+    "raw_data_rule": "ENFORCED_PASS_REAL_LIVE_DATA_ONLY",
+    "warning": "OK",
+    "stale_seconds": 0,
+    "feed_source": "https://data-api.binance.vision",
+    "ignored_offline_demo_rows": 0,
+    "paper_shadow_rows": 71,
+    "candle_rows_total": 666,
+    "universe_ledger_rows": 2520,
+    "universe_latest_rows": 40,
+    "backtest_walk_forward_rows": 44,
+    "backtest_gate": "WALK_FORWARD_RECORDED_EDGE_NOT_PROVEN",
+    "champion_claim_allowed": "False",
+    "risk_police": "ARMED",
+    "paper_closed_trade_rows_visible": 0,
+    "paper_closed_trade_net_values_visible": [],
+    "distinct_backtest_ids_visible": 5,
+    "walk_forward_avgs_visible": [
+      -0.3017,
+      -0.3017,
+      -0.3017,
+      -0.3017,
+      -0.3017
+    ],
+    "positive_walk_forward_rows_visible": 0,
+    "latest_walk_forward_avg_visible": -0.3017,
+    "danger_flags": []
+  }
+}

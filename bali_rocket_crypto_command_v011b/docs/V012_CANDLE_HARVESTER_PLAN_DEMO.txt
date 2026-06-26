@@ -1,0 +1,3 @@
+V012 Candle Harvester Plan Demo
+This is a safe Update Dock test payload. It adds a plan note only.
+No live trading, no API keys, no protected state changes.

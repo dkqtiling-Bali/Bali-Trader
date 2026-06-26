@@ -1,0 +1,4 @@
+V011O repairs the V011I missing asset/tools issue by replacing the updater engine with fixed directory copy handling and shipping both V011O and V011I icon filenames. No trading logic, live orders, API keys, or app.py are changed.
+
+
+

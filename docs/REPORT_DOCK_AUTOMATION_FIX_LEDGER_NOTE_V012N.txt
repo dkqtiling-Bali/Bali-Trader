@@ -1,0 +1,10 @@
+BALI V012N REPORT DOCK AUTOMATION FIX
+
+Purpose:
+- Fix the Reports tab JavaScript error: ReferenceError: reports is not defined.
+- Add a Generate + Copy ChatGPT Report button.
+- Save compact ChatGPT handover reports to shared_data/reports and logs/LAST_CHATGPT_STATUS_REPORT.txt.
+- Keep all safety locks unchanged: live orders OFF, champion lock LOCKED, no API keys, no private exchange endpoints.
+
+Why:
+Dan should not need to manually copy Market Feed, Learning Pulse, Paper Arena, Risk Police, Doctor, and Reports screens one by one. The dashboard should generate a single compact report for ChatGPT.

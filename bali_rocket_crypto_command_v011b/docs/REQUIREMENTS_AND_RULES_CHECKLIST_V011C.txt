@@ -1,0 +1,124 @@
+BALI / STARGATE CRYPTO COMMAND - REQUIREMENTS AND RULES CHECKLIST V011C
+=======================================================================
+
+A. LAUNCH / DASHBOARD
+[ ] Forever desktop icon or stable launcher remains the same.
+[ ] One click starts the themed URL HUD.
+[ ] Dashboard opens at http://127.0.0.1:9061.
+[ ] Phone LAN mode is available only on private Wi-Fi.
+[ ] Bali and Stargate can be launched as separate themed identities.
+[ ] Each machine has its own local dashboard.
+[ ] A shared competition view is planned for Bali vs Stargate.
+
+B. UPDATE / PATCH SYSTEM
+[ ] One universal UPDATE_INBOX for all patches.
+[ ] User never has to search folders or do manual installs.
+[ ] Dashboard Update Dock scans for patches.
+[ ] Update Dock previews patch details.
+[ ] Update Dock validates update_manifest.json.
+[ ] Wrong-project patches are blocked.
+[ ] Older/downgrade patches are blocked unless explicitly approved.
+[ ] Protected files are blocked.
+[ ] Backups are created before applying.
+[ ] One update at a time by default.
+[ ] Future one-click loop applies all safe updates until blocked or complete.
+[ ] Notepad report opens after scan/apply/rollback.
+[ ] Rollback button/report exists.
+
+C. PROTECTED FILES / DATA
+[ ] .env protected.
+[ ] .venv/env/venv protected.
+[ ] secrets/tokens/passwords/API keys protected.
+[ ] live order settings protected.
+[ ] champion approvals protected.
+[ ] proof ledgers protected.
+[ ] paper logs protected.
+[ ] growth history protected.
+[ ] learner state protected.
+[ ] strategy graveyard protected.
+[ ] shared data protected from destructive overwrite.
+
+D. HANDOVER / LEDGER
+[ ] Every build includes MASTER_LEDGER_HANDOVER latest version.
+[ ] Every build includes REQUIREMENTS_AND_RULES_CHECKLIST latest version.
+[ ] Every build includes NEXT_CHAT_HANDOVER_PROMPT latest version.
+[ ] Every new idea/rule/feature goes into the ledger going forward.
+[ ] Every major report is easy to copy/paste into a new chat.
+[ ] Notepad pop-up reports are the preferred handover method.
+
+E. SAFETY
+[ ] Live trading OFF.
+[ ] Trading executor not built.
+[ ] API keys not required.
+[ ] Champion Council locked.
+[ ] Approved champions 0/3.
+[ ] Risk Police armed.
+[ ] No champion approval by phone alone.
+[ ] No live-size increase by phone.
+[ ] No bypassing proof gates.
+
+F. GOVERNOR / COACH
+[ ] Governor/watchtower speaks after reports.
+[ ] Governor checks priorities, timeline, and main profitability mission.
+[ ] Governor warns if the job drifts into low-value work.
+[ ] Coach suggests bot substitutions and lineup changes.
+[ ] Coach explains active/bench/retired decisions.
+
+G. UNIVERSAL EXHAUSTIVE RESEARCH
+[ ] Bots research forward/backward/sideways.
+[ ] Multiple research lanes run in parallel.
+[ ] Start target: about 6 active bots per machine.
+[ ] Bench/substitute pool supports endless cycling.
+[ ] Research remains safe and paper/demo only until proof exists.
+
+H. TEAM / COMPETITION
+[ ] Bali Trader identity.
+[ ] Stargate Trader identity.
+[ ] Bali vs Stargate scoreboard.
+[ ] Active lineup.
+[ ] Substitute bench.
+[ ] Bot statuses: active/scouting/benched/blocked/retired/review.
+[ ] XP, levels, badges, quests, trophies.
+[ ] Rewards meaningful proof and risk discipline, not reckless activity.
+
+I. STRATEGY / PROFITABILITY ENGINE
+[ ] Clean data validation.
+[ ] Market feed proof.
+[ ] Candle harvester planned.
+[ ] Market regime board planned.
+[ ] Strategy DNA ledger.
+[ ] Overfit Police.
+[ ] Risk Police.
+[ ] Paper Arena.
+[ ] Shadow mode before live.
+[ ] Champion Council proof gates.
+[ ] Strategy graveyard.
+[ ] Trade/research explanation packets.
+[ ] Slippage/fees/spread realism.
+[ ] Out-of-sample/walk-forward/regime testing.
+
+J. NEWS / ANNOUNCEMENT SCOUT
+[ ] Future news/event scout planned.
+[ ] Tracks upcoming announcements.
+[ ] Studies past market reactions.
+[ ] Measures volatility around events.
+[ ] Warns about danger windows.
+[ ] Paper-only until proven.
+
+K. SOUND / MUSIC
+[ ] Optional audio hooks planned.
+[ ] Bali theme audio later.
+[ ] Stargate theme audio later.
+[ ] Mute/volume control required.
+[ ] Only licensed/royalty-free/user-provided audio.
+
+L. NEXT UPGRADE PRIORITY
+[ ] Add ledger tab/copy button to dashboard.
+[ ] Add Governor first version.
+[ ] Strengthen Update Dock one-click loop/reporting.
+[ ] Add Bali/Stargate identity selector.
+[ ] Add roster manager active lineup + bench.
+[ ] Add competition scoreboard.
+[ ] Add suggested upgrades board.
+[ ] Add candle harvester and regime proof board.
+

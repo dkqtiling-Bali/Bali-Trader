@@ -1,0 +1,5 @@
+Universe Scanner Policy V014A
+
+The scanner ranks wider USDT symbols using public 24h ticker data.
+Ranking buckets are HOT, ACTIVE, QUIET, LOW_SIGNAL.
+This is not a trade signal and does not unlock live trading.

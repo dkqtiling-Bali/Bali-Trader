@@ -1,0 +1,12 @@
+﻿{
+    "update_dock_used":  "NO",
+    "reports":  "C:\\Users\\CB\\Desktop\\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\\bali_rocket_crypto_command_v011b\\shared_data\\reports",
+    "python_used":  "NO",
+    "version":  "V032_LOCAL_PROJECT_SCANNER_NO_PYTHON",
+    "base":  "C:\\Users\\CB\\Desktop\\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD",
+    "valid_autopatch_zips_in_updates":  0,
+    "legacy_or_non_autopatch_zips_in_updates":  0,
+    "app":  "C:\\Users\\CB\\Desktop\\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\\bali_rocket_crypto_command_v011b",
+    "result":  "PASS_LOCAL_PROJECT_SCAN_WRITTEN_NO_PYTHON",
+    "updates":  "C:\\Users\\CB\\Desktop\\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\\updates"
+}

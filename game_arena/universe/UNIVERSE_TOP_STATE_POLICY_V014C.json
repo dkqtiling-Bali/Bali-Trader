@@ -1,0 +1,10 @@
+{
+  "version": "V014C",
+  "headline_top_matches_first_visible_row": true,
+  "visible_rows_source": "latest_batch_sorted_by_score_top_rows",
+  "scan_logic_changed": false,
+  "ranking_only": true,
+  "not_trade_signal": true,
+  "live_orders": "OFF",
+  "api_keys": "NONE"
+}

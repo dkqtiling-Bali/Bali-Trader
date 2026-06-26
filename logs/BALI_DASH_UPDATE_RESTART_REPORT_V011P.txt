@@ -1,0 +1,37 @@
+BALI DASH UPDATE AUTO RESTART REPORT V011P
+Generated: 06/25/2026 11:20:00
+Root folder: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD
+Purpose: dashboard-triggered patch apply, fast health, cleanup, status pack, then dashboard restart.
+Mission: STARGATE RIVAL MODE - faster controlled upgrades from inside the dash.
+Safety: live orders OFF, champion lock LOCKED, no API keys.
+
+=== Step 0: dashboard handoff ===
+Dashboard mode: server endpoint launched this bridge and should exit so files can be replaced safely.
+Waiting for dashboard port 9061 to release before applying patch...
+PORT_9061=STILL_ACTIVE_BEFORE_UPDATE
+PORT_DETAIL=TCP    127.0.0.1:9061         127.0.0.1:49886        TIME_WAIT       0
+PORT_DETAIL=TCP    127.0.0.1:9061         127.0.0.1:49908        TIME_WAIT       0
+PORT_DETAIL=TCP    127.0.0.1:9061         127.0.0.1:51733        TIME_WAIT       0
+
+=== Step 1: speed lane apply/check ===
+Speed lane engine: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\tools\BALI_SPEED_LANE_ENGINE_V011P.ps1
+Speed lane exit code: 0
+Selected patch zip: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\updates\BALI_ROCKET_CRYPTO_COMMAND_V011Q_QUIET_DASH_UPDATE_FINAL_REPORT_PATCH.zip
+Selected version: V011Q
+RESULT: UPDATE APPLIED
+Patch zip: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\updates\BALI_ROCKET_CRYPTO_COMMAND_V011Q_QUIET_DASH_UPDATE_FINAL_REPORT_PATCH.zip
+RESULT: FAST HEALTH PASS
+Installed version: V011Q
+RESULT: LAUNCH BAY CLEANUP PASS
+Compact status pack: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\logs\BALI_FAST_STATUS_PACK_V011P.txt
+RESULT: FAST HEALTH PASS
+RESULT: FAST STATUS PACK READY
+RESULT: SPEED LANE PASS
+Next normal flow: put next patch ZIP in root/updates, then use the dashboard Updates tab: Dashboard Update + Auto Restart.
+
+=== Step 2: restart dashboard ===
+Starting dashboard via: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\BALI_THEMED_FOREVER_STARTER.bat
+RESTART=LAUNCHED
+
+RESULT: DASH UPDATE AUTO RESTART PASS
+Next normal flow: from the dashboard Updates tab, use Dashboard Update + Auto Restart after dropping the next patch ZIP into updates.

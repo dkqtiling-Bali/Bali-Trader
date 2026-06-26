@@ -1,0 +1,14 @@
+{
+  "version": "V020_CAPABILITY_STATUS_BRIDGE_NO_PYTHON",
+  "safety": "LIVE_ORDERS_OFF ^| CHAMPION_LOCK_LOCKED ^| NO_API_KEYS",
+  "python_used": false,
+  "update_dock_used": false,
+  "update_dock_status": "BYPASSED_BY_DESIGN",
+  "installed_capability": "V016_NATIVE_EVIDENCE_SCORECARD_PANEL_NO_PYTHON",
+  "v016_scorecard_marker": "PRESENT",
+  "evidence_scorecard": "BLOCK",
+  "champion_nomination": "CHAMPION_NOMINATION_BLOCKED",
+  "champion_claim_allowed": false,
+  "live_orders_allowed": false,
+  "result": "PASS_V020_CAPABILITY_STATUS_WRITTEN_NO_PYTHON"
+}

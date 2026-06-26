@@ -1,0 +1,1 @@
+V012C ledger note: added local JSON referee prep, scoring rules, sample round/check-in files, and tiny report marker. No networking, API keys, live orders, or trading logic enabled. Competition remains SIM/PAPER only.

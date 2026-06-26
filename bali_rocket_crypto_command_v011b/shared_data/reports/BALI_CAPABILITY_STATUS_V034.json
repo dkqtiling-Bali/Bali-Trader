@@ -1,0 +1,10 @@
+{
+  "version": "V034_AUTO_EVIDENCE_SCORECARD_REFRESH_NO_PYTHON",
+  "python_used": "NO",
+  "update_dock_used": "NO",
+  "patch_lane": "V031_PLUS_FOREVER_STARTER_AUTOPATCH",
+  "evidence_scorecard": "BLOCK",
+  "champion_nomination": "CHAMPION_NOMINATION_BLOCKED",
+  "champion_claim_allowed": "False",
+  "live_orders_allowed": false
+}

@@ -1,0 +1,14 @@
+{
+  "version": "V012J",
+  "mode": "SIM_ONLY",
+  "safety": "LIVE_ORDERS_OFF | CHAMPION_LOCK_LOCKED | NO_API_KEYS",
+  "formula": {
+    "profit_pct_points": "profit_pct * 10, clamped -100..100",
+    "drawdown_penalty": "max_drawdown_pct * 4",
+    "risk_event_penalty": "risk_events * 5",
+    "uptime_bonus": "uptime_pct * 0.25",
+    "safety_violation_penalty": "safety_violations * 50 plus automatic disqualification if live orders or api keys are present"
+  },
+  "winner": "highest total_score after safety validation",
+  "notes": "Designed for fun SIM/paper competition only. It never sends orders and never accepts remote commands."
+}

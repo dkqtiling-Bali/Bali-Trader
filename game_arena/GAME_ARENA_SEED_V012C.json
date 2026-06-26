@@ -1,0 +1,27 @@
+{
+  "version": "V012C",
+  "mode": "SIM_ONLY",
+  "safety": "LIVE_ORDERS_OFF | CHAMPION_LOCK_LOCKED | NO_API_KEYS",
+  "arena": "GAME_FOUNDATION",
+  "two_cpu_bridge": "PREP_ONLY",
+  "match_referee": "PREP_ONLY",
+  "scoring_rules": "game_arena/referee/REFEREE_SCORING_RULES_V012C.json",
+  "round_format": "game_arena/bridge/rounds/ROUND_0001_SAMPLE_V012C.json",
+  "bots": [
+    {
+      "name": "Bali Bot",
+      "cpu": "BALI_CPU",
+      "score": 0,
+      "level": 1,
+      "xp": 0
+    },
+    {
+      "name": "Stargate Bot",
+      "cpu": "STARGATE_CPU",
+      "score": 0,
+      "level": 1,
+      "xp": 0
+    }
+  ],
+  "next": "V012D referee validates real local SIM check-ins and updates round history"
+}

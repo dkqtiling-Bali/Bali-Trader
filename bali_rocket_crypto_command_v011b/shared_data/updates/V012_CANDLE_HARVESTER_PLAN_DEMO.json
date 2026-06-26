@@ -1,0 +1,7 @@
+{
+  "version": "V012",
+  "name": "Candle Harvester Plan Demo",
+  "claim_level": "PLAN_ONLY",
+  "live_orders": "OFF",
+  "next_action": "Build real candle harvesting after launcher is stable."
+}

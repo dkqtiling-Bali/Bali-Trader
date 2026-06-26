@@ -1,0 +1,43 @@
+BALI ROCKET CRYPTO COMMAND - GOOD PYTHON STARTUP REPORT V011D
+Generated: Thu 25/06/2026 10:03:27.20
+Folder: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD
+
+Fix active: Python 3.13 is treated as bad/unstable for this launcher.
+Preferred order: Python 3.10, then 3.11, then 3.12.
+Safety: live orders OFF, champion lock LOCKED, no API keys.
+
+=== Candidate scan === 
+Checking: direct local Python 3.10 - C:\Users\CB\AppData\Local\Programs\Python\Python310\python.exe 
+probe_version=3.10.11
+[Errno 2] No such file or directory: 'app.py'SKIP app compile failed with: C:\Users\CB\AppData\Local\Programs\Python\Python310\python.exe 
+SKIP missing: direct local Python 3.11 - C:\Users\CB\AppData\Local\Programs\Python\Python311\python.exe 
+SKIP missing: direct local Python 3.12 - C:\Users\CB\AppData\Local\Programs\Python\Python312\python.exe 
+SKIP missing: Program Files Python 3.10 - C:\Program Files\Python310\python.exe 
+SKIP missing: Program Files Python 3.11 - C:\Program Files\Python311\python.exe 
+SKIP missing: Program Files Python 3.12 - C:\Program Files\Python312\python.exe 
+FOUND BUT SKIPPED bad Python 3.13: C:\Users\CB\AppData\Local\Programs\Python\Python313\python.exe 
+Checking: py launcher 3.10 - C:\Users\CB\AppData\Local\Programs\Python\Python310\python.exe 
+probe_version=3.10.11
+[Errno 2] No such file or directory: 'app.py'SKIP app compile failed with: C:\Users\CB\AppData\Local\Programs\Python\Python310\python.exe 
+No suitable Python runtime found
+Pass --list (-0) to see all detected environments on your machine
+or set environment variable PYLAUNCHER_ALLOW_INSTALL to use winget
+or open the Microsoft Store to the requested version.
+No suitable Python runtime found
+Pass --list (-0) to see all detected environments on your machine
+or set environment variable PYLAUNCHER_ALLOW_INSTALL to use winget
+or open the Microsoft Store to the requested version.
+Checking: PATH python - C:\Users\CB\AppData\Local\Programs\Python\Python310\python.exe 
+probe_version=3.10.11
+[Errno 2] No such file or directory: 'app.py'SKIP app compile failed with: C:\Users\CB\AppData\Local\Programs\Python\Python310\python.exe 
+Checking: PATH python - C:\Users\CB\AppData\Local\Microsoft\WindowsApps\python.exe 
+probe_version=3.10.11
+[Errno 2] No such file or directory: 'app.py'SKIP app compile failed with: C:\Users\CB\AppData\Local\Microsoft\WindowsApps\python.exe 
+Checking: PATH python3 - C:\Users\CB\AppData\Local\Microsoft\WindowsApps\python3.exe 
+probe_version=3.10.11
+[Errno 2] No such file or directory: 'app.py'SKIP app compile failed with: C:\Users\CB\AppData\Local\Microsoft\WindowsApps\python3.exe 
+
+RESULT: GOOD PYTHON NOT FOUND
+This V011D launcher intentionally skips Python 3.13 because it caused the crash code -1073741521.
+Install or repair Python 3.10, 3.11, or 3.12, then run this again.
+Best target for your machine is usually Python 3.10 or 3.11.

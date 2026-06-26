@@ -1,0 +1,418 @@
+BALI ROCKET CRYPTO COMMAND - MASTER LEDGER + HANDOVER V011C
+============================================================
+Generated for chat handover and rebuild continuity.
+Purpose: this file is the source-of-truth ledger for the Bali / Stargate crypto research command-post build.
+Rule going forward: every new feature, rule, patch, problem, decision, and update must be added to this ledger or a newer replacement ledger so nothing is lost between chats.
+
+CURRENT BUILD FAMILY
+--------------------
+Project family: Bali Rocket Crypto Command / Stargate Trader twin-bot system
+Current packaged base: V011B Bad Python Hotfix Full Build, with V011C handover ledger documents added
+Primary local dashboard port: 9061
+Primary URL: http://127.0.0.1:9061
+Phone LAN view: /phone via private home Wi-Fi only
+Live trading: OFF / not built
+Champion approvals: LOCKED / 0 of 3 approved
+API keys: not required / not used
+Trading executor: not built
+Current purpose: safe command centre + public-data collection + learning/research pulse + update dock + handover continuity
+
+CORE MISSION
+------------
+Build a fun, themed, game-like crypto research machine that tries to find repeatable winning strategies by exhausting many research directions safely.
+The machine should learn, research, scout, test, log, compare, reject weak ideas, promote only proof-backed candidates, and protect capital first.
+It should never pretend that demo/paper/research activity is real profitability.
+
+HIGH-LEVEL OPERATING PRINCIPLES
+-------------------------------
+1. Build the command centre first, not live trading first.
+2. Paper/research/shadow mode first; real trading only much later after proof and human approval.
+3. Risk Police always outranks Strategy Forge.
+4. No live trading without champion proof gates and explicit human approval.
+5. Every action should create clear reports that can be copied into a new chat.
+6. Every update must go through the one universal patch inbox and dashboard Update Dock.
+7. No direct installs, no folder hunting, no manual overwrite work for the user.
+8. Code updates must not upset protected data, logs, proof ledgers, keys, or learning records.
+9. Maximum safe upgrades should be bundled when possible, but never at the cost of system stability.
+10. The experience must be themed, fun, alive, and game-like, not a boring spreadsheet.
+
+ONE-CLICK SYSTEM REQUIREMENTS
+-----------------------------
+- A forever desktop boss icon / launcher must remain stable.
+- The boss launcher should start the themed mini Windows URL-style HUD/dashboard.
+- The mini hub should have a one-click button/process to scan, preview, apply, and report patches.
+- The launcher target should stay stable; future upgrades should not create confusing duplicate launchers.
+- The dashboard should open automatically at the correct URL.
+- The phone view should be available on private LAN when launched in phone LAN mode.
+- The system should produce Notepad pop-up reports for easy copy/paste handover.
+
+THEMED DASHBOARD REQUIREMENTS
+-----------------------------
+The dashboard must be beautiful, themed, and accessible by URL.
+Required themes:
+- Bali Trader: tropical, Bali, lagoon, neon, ocean, island, temple, palm, volcano, reef style.
+- Stargate Trader: cosmic, portal, starfield, gate, wormhole, alien-tech, space-command style.
+
+Required dashboard tabs / panels:
+- Mission Control
+- Phone Overview
+- Market Brain
+- Strategy Forge
+- Alpha Squad
+- Bravo Squad
+- Charlie Squad
+- Paper Arena
+- Risk Police
+- Overfit Police
+- Champion Council
+- Graveyard
+- Growth Lab
+- Research Ledger
+- Learning Pulse
+- Update Dock / Patch Control
+- Doctor
+- Reports
+- Governor / Watchtower
+- Coach / Roster Manager
+- Bali vs Stargate Competition Board
+- Suggested Upgrades / Next Missions
+
+PHONE REMOTE REQUIREMENTS
+-------------------------
+- Phone access should be private LAN only at first.
+- No public exposure or port forwarding unless proper authentication/security is added later.
+- Phone view must allow monitoring, reports, update preview, doctor checks, and safe update actions.
+- Dangerous actions are locked by default: live trading, champion approval, risk increase, API key changes, risk-police bypass.
+- Phone interface should be clean, simple, and mobile-friendly.
+
+UNIVERSAL PATCH INBOX REQUIREMENTS
+----------------------------------
+- One universal UPDATE_INBOX is required.
+- Every patch, repair, upgrade, theme update, module update, dashboard update, bot logic update, or fix must go into the same inbox.
+- The user should not have to search for folders or do direct installs.
+- The dashboard Update Dock must scan the inbox, identify which patch belongs where, preview it, apply it safely, then report.
+- Updates need manifests so the system can determine project, target, version, safety level, files, and services.
+- The updater should apply one update at a time, report, then wait for the next command.
+- Future ideal: one click can safely apply all applicable updates until blocked or no more safe updates remain, then report.
+
+UPDATE SAFETY RULES
+-------------------
+Protected forever:
+- .env
+- .venv
+- env
+- venv
+- secrets
+- tokens
+- passwords
+- API keys
+- live-order settings
+- champion approvals
+- proof ledgers
+- paper logs
+- growth history
+- learner state
+- strategy graveyard
+- backtest results
+- shared_data unless explicitly append-only or safe
+
+Required update flow:
+1. Scan UPDATE_INBOX.
+2. Validate update_manifest.json.
+3. Reject wrong project updates.
+4. Reject old/downgrade versions unless explicitly approved.
+5. Block protected paths.
+6. Stage the update.
+7. Run syntax checks.
+8. Create backup before changes.
+9. Apply only safe files.
+10. Restart only needed services.
+11. Run Doctor.
+12. Open Notepad report in front.
+13. Allow rollback.
+
+POP-UP REPORT REQUIREMENT
+-------------------------
+After every important action, the system should open a plain Notepad report that is easy to copy/paste into ChatGPT.
+Reports needed:
+- Startup report
+- Doctor report
+- Update scan report
+- Update apply report
+- Rollback report
+- Overnight/morning report
+- Growth report
+- Governor report
+- Bali vs Stargate competition report
+- Error/Python failure report
+
+HANDOVER REQUIREMENT
+--------------------
+Every build must include handover documents in /docs:
+- MASTER_LEDGER_HANDOVER latest version
+- REQUIREMENTS_AND_RULES_CHECKLIST latest version
+- NEXT_CHAT_HANDOVER_PROMPT latest version
+- README_FIRST
+The dashboard should also provide copy buttons for reports where possible.
+
+GOVERNOR / WATCHTOWER REQUIREMENTS
+----------------------------------
+The Governor is the overseer/watchtower.
+It should:
+- Speak after every report.
+- Check whether the job is running right.
+- Check whether priorities are being followed.
+- Keep the system aligned to the timeline and main goal of becoming profitable.
+- Warn when the system is drifting into low-value work.
+- Recommend safe next actions.
+- Keep live trading locked until proper proof exists.
+- Summarize progress in plain English.
+
+COACH REQUIREMENTS
+------------------
+A Coach module should guide the team like a sports coach.
+It should:
+- Review bot performance.
+- Recommend substitutions.
+- Recommend lineup changes.
+- Encourage useful research lanes.
+- Keep the game fun without encouraging reckless trading.
+- Explain why a bot/strategy is on the field, benched, or retired.
+
+UNIVERSAL EXHAUSTIVE MODE REQUIREMENTS
+--------------------------------------
+The bots should run universal exhaustive research mode within safe limits.
+They should look:
+- Forward
+- Backward
+- Sideways
+- Across symbols
+- Across timeframes
+- Across strategy families
+- Across market regimes
+- Across historical reaction windows
+- Across live/paper/shadow activity when available
+
+They should do as much research/scouting as possible without upsetting hardware, data integrity, or safety.
+
+PARALLEL BOT TEAM REQUIREMENTS
+------------------------------
+Initial desired setup:
+- Two machines on same network.
+- One is Bali Trader.
+- One is Stargate Trader.
+- Each has its own local themed dashboard.
+- A shared comparison/competition view should compare both.
+- Start with about 6 active research bots per machine, then scale based on CPU/RAM health.
+- Bench/substitute pool should be larger and cyclic, supporting universal exhaustive mode.
+
+Suggested 6 active bots per machine:
+1. Trend Scout
+2. Mean Reversion Scout
+3. Breakout Scout
+4. Volatility Scout
+5. News/Event Scout
+6. Risk/Execution Reality Scout
+
+Bench / substitute pool examples:
+- BTC Lead/Lag Scout
+- Alt Rotation Scout
+- Weekend Liquidity Scout
+- Funding Squeeze Scout
+- Panic Wick Reversal Scout
+- Range Chop Filter Scout
+- Session Timing Scout
+- Correlation Breakdown Scout
+- Slippage Reality Scout
+- Data Quality Scout
+- Overfit Killer Scout
+- Graveyard Memory Scout
+- Regime Change Scout
+- Candle Pattern Scout
+- Multi-Timeframe Stack Scout
+
+ROSTER / SPORTS TEAM REQUIREMENTS
+---------------------------------
+The system should work like a football/basketball team:
+- Active lineup
+- Bench
+- Substitution recommendations
+- Injured/blocked list
+- Retired strategies
+- Star players / champion candidates
+- Coach notes
+- Governor verdict
+- Match/season scoreboard
+- Bali vs Stargate ladder
+
+Bots/strategies can be:
+- Active
+- Scouting
+- Benched
+- Under review
+- Injured / blocked by data
+- Retired to graveyard
+- Promoted to champion review
+
+BALI VS STARGATE COMPETITION REQUIREMENTS
+-----------------------------------------
+- Bali and Stargate should compete to become profitable first, but only in safe/paper/research terms until later.
+- Each bot should have its own theme and dashboard.
+- A shared competition board should compare both machines.
+- Scoring must reward meaningful proof, not reckless trade count.
+
+Competition metrics:
+- Data collected
+- Clean feed uptime
+- Research cycles
+- Strategy DNA entries
+- Paper/shadow results later
+- Proof gates passed
+- Overfit failures detected
+- Risk blocks correctly triggered
+- Drawdown control
+- Consistency
+- Coach/Governor rating
+- Fun XP/levels/badges
+
+GAMIFICATION REQUIREMENTS
+-------------------------
+The system should feel like a game.
+Required game-style elements:
+- XP
+- Levels
+- Badges
+- Missions/quests
+- Progress bars
+- Leaderboards
+- Season/tournament mode
+- Team rivalry: Bali vs Stargate
+- Squad rivalry: Alpha vs Bravo vs Charlie
+- Trophy cabinet
+- Unlockable visual theme layers
+- Fun status messages
+- Narrative logs
+- Milestone celebrations
+- Sounds/music hooks later
+
+Important: gamification must reward proof, patience, data quality, and risk control. It must not reward reckless trading.
+
+SOUND / MUSIC REQUIREMENTS
+--------------------------
+- Wire in optional sound/music support later.
+- Bali can have tropical/Bali-themed music and tones.
+- Stargate can have cosmic/portal-themed music and tones.
+- Use only user-provided or royalty-free/licensed audio.
+- Must have mute/volume controls.
+- Sounds should be optional, not required for the system to function.
+- Useful sound events: startup, update complete, doctor warning, mission complete, badge earned, risk lock triggered.
+
+MARKET / STRATEGY RESEARCH REQUIREMENTS
+---------------------------------------
+The system should eventually research:
+- Trend-following
+- Mean reversion
+- Breakout/retest
+- Pullback continuation
+- Volatility expansion
+- Range/chop filters
+- BTC-led alt movement
+- Altcoin rotation
+- Funding squeeze setups
+- Weekend liquidity traps
+- News/announcement reactions
+- Multi-timeframe confirmation
+- Session timing
+- Panic wick reversals
+- Liquidity sweep reactions
+
+Every strategy needs Strategy DNA:
+- Strategy name
+- Family
+- Symbol class
+- Timeframes
+- Required regime
+- Entry rule
+- Exit rule
+- Stop/invalidation rule
+- Risk rule
+- Weakness
+- Proof status
+- Current role/team
+
+NEWS / ANNOUNCEMENT SCOUT REQUIREMENTS
+--------------------------------------
+A future bot should monitor upcoming events and announcements.
+It should:
+- Track scheduled economic/crypto events.
+- Track major project announcements where available.
+- Compare past announcement reactions.
+- Measure volatility before/after announcements.
+- Warn of danger windows.
+- Suggest paper-only research setups around events.
+- Never trade live on news without proof and risk locks.
+
+DATA / TESTING / PROFITABILITY REQUIREMENTS
+-------------------------------------------
+To improve odds of profitability, the system must include:
+- Clean data validation
+- Missing candle detection
+- Stale feed detection
+- Duplicate candle detection
+- Slippage/fees/spread realism
+- Out-of-sample testing
+- Walk-forward testing
+- Regime split testing
+- Overfit police
+- Paper arena
+- Shadow mode before live
+- Risk police
+- Champion council
+- Graveyard memory
+- Strategy explanation packets
+- Morning/overnight reports
+- Versioned proof ledgers
+
+COMMON ALGO PITFALLS TO AVOID
+-----------------------------
+- Overfitting
+- Look-ahead bias
+- Ignoring fees/slippage/spread
+- Bad data quality
+- Weak forward testing
+- Ignoring regime change
+- Poor risk control
+- Too much complexity
+- No operational governance
+- No rollback/update safety
+- No monitoring
+- Confusing demo output with real edge
+
+LIVE TRADING RULES
+------------------
+Live trading is not part of the current build.
+If built much later, it must require:
+- Champion proof package
+- Human approval
+- Risk Police approval
+- Tiny initial size
+- Kill switch tested
+- Exchange keys protected
+- No phone-only accidental live activation
+- Multi-step confirmation
+- Clear live/paper/shadow labels
+
+CURRENT NEXT BUILD DIRECTION
+----------------------------
+Immediate next priorities after V011C handover docs:
+1. Dashboard ledger tab and copy button.
+2. Governor / Watchtower first version.
+3. Universal patch inbox one-click loop with Notepad reports.
+4. Bali/Stargate identity selector.
+5. Active lineup + bench manager.
+6. Competition scoreboard foundation.
+7. Suggested upgrades board.
+8. Public candle harvester / regime board.
+9. Phone LAN safety improvements.
+10. Optional sound hook placeholders.
+

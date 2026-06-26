@@ -1,0 +1,2 @@
+@echo off
+call "C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\bali_rocket_crypto_command_v011b\tools\BALI_SUPERVISOR\BALI_SUPERVISOR_ONE_CLICK.bat"

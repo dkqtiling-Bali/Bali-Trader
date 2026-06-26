@@ -1,0 +1,18 @@
+BALI UPDATE ZIP MANIFEST SPEC
+=============================
+
+Every update ZIP should contain update_manifest.json and a payload/ folder.
+
+Example:
+{
+  "project": "BALI_ROCKET_CRYPTO_COMMAND",
+  "name": "V011 Candle Harvester",
+  "version": "V011",
+  "version_number": 11,
+  "payload_prefix": "payload/",
+  "restart_required": true,
+  "summary": "Adds candle harvesting and missing-data checks.",
+  "safety": "public_data_only_no_live_orders"
+}
+
+The Update Dock blocks old versions, wrong project names, missing manifests, path traversal, and protected paths.

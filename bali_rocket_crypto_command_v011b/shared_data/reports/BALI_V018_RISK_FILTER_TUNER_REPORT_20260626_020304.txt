@@ -1,0 +1,67 @@
+BALI ROCKET - V018 RISK FILTER TUNER REPORT
+========================================================================
+Generated UTC: 2026-06-26T02:03:04+00:00
+Core version: V015A_BACKTEST_WALK_FORWARD_GATE
+Patch report version: V018_RISK_FILTER_TUNER
+
+LAST PATCH DETAILS
+Patch ID: V018_RISK_FILTER_TUNER_ACTIVE_FIX
+Title: Risk Filter Tuner Active App Verifier/Fixer
+Installed UTC: 2026-06-26T02:02:39Z
+Status: installed_active_app_verified
+Files changed: app.py, README_V018_RISK_FILTER_TUNER_ACTIVE_FIX.txt, Reports button: Generate Risk Filter Tuner Report
+Safety note: LIVE_ORDERS_OFF | CHAMPION_LOCKED | NO_API_KEYS | PUBLIC_DATA_RESEARCH_ONLY | NO_STRATEGY_CHANGE
+
+SAFETY LOCKS
+Live orders: OFF
+API/private endpoints: NONE / private exchange endpoints not used
+Champion lock: LOCKED / approved 0/3
+Champion claim allowed: False
+Risk Police: ARMED
+Safety verdict: PASS
+
+RISK GATE SUMMARY
+Gate: WALK_FORWARD_RECORDED_RISK_TOO_HIGH
+Risk verdict: RISK TOO HIGH - BLOCK CHAMPION
+Symbol / interval: BTCUSDT 1m
+Run ID: BT20260626T020136Z | Run time: 2026-06-26T02:01:37+00:00
+Total candles: 823
+In-sample: trades=59 | avg_net_pct=-0.3548 | max_drawdown_pct=18.9212 | win_rate_pct=1.69
+Walk-forward: trades=26 | avg_net_pct=-0.3757 | max_drawdown_pct=9.3233 | win_rate_pct=0.0
+
+WHY CHAMPION IS BLOCKED
+- BLOCKER: walk-forward max drawdown is above the current risk ceiling of 8.0%. Champion remains locked.
+- RISK DETAIL: walk-forward drawdown 9.3233% is above 8.0%.
+- EDGE DETAIL: walk-forward average net -0.3757% is not positive.
+- SAMPLE DETAIL: walk-forward trades=26 is still a small sample. Keep collecting before conclusions.
+- ROBUSTNESS DETAIL: in-sample average is better than walk-forward by 0.0209 percentage points. Watch for overfit/chop.
+
+RESEARCH-ONLY FILTER RECOMMENDATIONS
+- Keep stand-aside discipline active while BTC_TIDE_FALLING or no_trade_score >= 65.
+- Research-only filter idea: require lower drawdown before any signal review; target repeated walk-forward DD below 8%, then below 5%.
+- Research-only filter idea: add a chop/panic guard so momentum probes skip falling-BTC regimes unless higher-timeframe confirmation improves.
+- Research-only filter idea: require walk-forward average net > 0 after fees/slippage across repeated runs before any Champion nomination.
+- Collect more candles and paper rows before judging. Small walk-forward samples can mislead.
+- Do not enable live trading, API keys, private endpoints, or Champion unlock from this patch.
+- Next research step: compare risk metrics across symbols/intervals and only promote filters that reduce drawdown without hiding losses.
+
+RISK TREND SINCE PREVIOUS V018 REPORT
+- Previous V018 risk snapshot: NONE - baseline risk report
+
+BOT COLLECTION CONTEXT
+Market ticks: 6666
+Paper shadow rows: 646
+Candle rows: 6532
+Universe scan ledger rows: 25520
+Backtest walk-forward rows: 619
+Current regime: BTC_TIDE_FALLING
+No-trade score: 65
+
+FINAL VERDICT
+LIVE DATA: PASS
+SAFETY: PASS
+RISK FILTER STATUS: RISK TOO HIGH - BLOCK CHAMPION
+EDGE PROOF: NOT APPROVED FOR CHAMPION
+NEXT ACTION: Keep live trading OFF; collect more evidence; use this report to decide research-only filter changes.
+
+Safety reminder: this patch does not trade, does not add API keys, does not unlock Champion, and does not claim profit proof.

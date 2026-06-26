@@ -1,0 +1,186 @@
+{
+  "updates": [
+    {
+      "added_files": [
+        "shared_data/updates/V012_CANDLE_HARVESTER_PLAN_DEMO.json",
+        "docs/V012_CANDLE_HARVESTER_PLAN_DEMO.txt"
+      ],
+      "applied_files": [
+        "docs/V012_CANDLE_HARVESTER_PLAN_DEMO.txt",
+        "shared_data/updates/V012_CANDLE_HARVESTER_PLAN_DEMO.json"
+      ],
+      "backup": "C:\\Users\\CB\\Desktop\\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\\bali_rocket_crypto_command_v011b\\backups\\backup_before_BALI_ROCKET_CRYPTO_COMMAND_V012_CANDLE_HARVESTER_PLAN_DEMO_UPDATE_20260625_001724.zip",
+      "claim_level": "SAFE_UPDATE_APPLIED_NO_PROTECTED_DATA_TOUCHED",
+      "manifest": {
+        "name": "V012 Candle Harvester Plan Demo",
+        "payload_prefix": "payload/",
+        "project": "BALI_ROCKET_CRYPTO_COMMAND",
+        "restart_required": false,
+        "safety": "plan_only_no_live_orders_no_api_keys",
+        "summary": "Demo safe update that adds a V012 candle harvester plan note only. It does not change app code or protected data.",
+        "version": "V012_DEMO_PLAN_ONLY",
+        "version_number": 12
+      },
+      "overwritten_files": [],
+      "restart_required": false,
+      "ts": "2026-06-25T00:17:24+00:00",
+      "zip": "BALI_ROCKET_CRYPTO_COMMAND_V012_CANDLE_HARVESTER_PLAN_DEMO_UPDATE.zip"
+    },
+    {
+      "added_files": [],
+      "applied_files": [
+        "docs/V012_CANDLE_HARVESTER_PLAN_DEMO.txt",
+        "shared_data/updates/V012_CANDLE_HARVESTER_PLAN_DEMO.json"
+      ],
+      "backup": "C:\\Users\\CB\\Desktop\\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\\bali_rocket_crypto_command_v011b\\backups\\backup_before_BALI_ROCKET_CRYPTO_COMMAND_V012_CANDLE_HARVESTER_PLAN_DEMO_UPDATE_20260625_001928.zip",
+      "claim_level": "SAFE_UPDATE_APPLIED_NO_PROTECTED_DATA_TOUCHED",
+      "manifest": {
+        "name": "V012 Candle Harvester Plan Demo",
+        "payload_prefix": "payload/",
+        "project": "BALI_ROCKET_CRYPTO_COMMAND",
+        "restart_required": false,
+        "safety": "plan_only_no_live_orders_no_api_keys",
+        "summary": "Demo safe update that adds a V012 candle harvester plan note only. It does not change app code or protected data.",
+        "version": "V012_DEMO_PLAN_ONLY",
+        "version_number": 12
+      },
+      "overwritten_files": [
+        "shared_data/updates/V012_CANDLE_HARVESTER_PLAN_DEMO.json",
+        "docs/V012_CANDLE_HARVESTER_PLAN_DEMO.txt"
+      ],
+      "restart_required": false,
+      "ts": "2026-06-25T00:19:28+00:00",
+      "zip": "BALI_ROCKET_CRYPTO_COMMAND_V012_CANDLE_HARVESTER_PLAN_DEMO_UPDATE.zip"
+    },
+    {
+      "added_files": [],
+      "applied_files": [
+        "docs/V012_CANDLE_HARVESTER_PLAN_DEMO.txt",
+        "shared_data/updates/V012_CANDLE_HARVESTER_PLAN_DEMO.json"
+      ],
+      "backup": "C:\\Users\\CB\\Desktop\\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\\bali_rocket_crypto_command_v011b\\backups\\backup_before_BALI_ROCKET_CRYPTO_COMMAND_V012_CANDLE_HARVESTER_PLAN_DEMO_UPDATE_20260625_004542.zip",
+      "claim_level": "SAFE_UPDATE_APPLIED_NO_PROTECTED_DATA_TOUCHED",
+      "manifest": {
+        "name": "V012 Candle Harvester Plan Demo",
+        "payload_prefix": "payload/",
+        "project": "BALI_ROCKET_CRYPTO_COMMAND",
+        "restart_required": false,
+        "safety": "plan_only_no_live_orders_no_api_keys",
+        "summary": "Demo safe update that adds a V012 candle harvester plan note only. It does not change app code or protected data.",
+        "version": "V012_DEMO_PLAN_ONLY",
+        "version_number": 12
+      },
+      "overwritten_files": [
+        "shared_data/updates/V012_CANDLE_HARVESTER_PLAN_DEMO.json",
+        "docs/V012_CANDLE_HARVESTER_PLAN_DEMO.txt"
+      ],
+      "restart_required": false,
+      "ts": "2026-06-25T00:45:42+00:00",
+      "zip": "BALI_ROCKET_CRYPTO_COMMAND_V012_CANDLE_HARVESTER_PLAN_DEMO_UPDATE.zip"
+    },
+    {
+      "added_files": [],
+      "applied_files": [
+        "docs/V012_CANDLE_HARVESTER_PLAN_DEMO.txt",
+        "shared_data/updates/V012_CANDLE_HARVESTER_PLAN_DEMO.json"
+      ],
+      "backup": "C:\\Users\\CB\\Desktop\\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\\bali_rocket_crypto_command_v011b\\backups\\backup_before_BALI_ROCKET_CRYPTO_COMMAND_V012_CANDLE_HARVESTER_PLAN_DEMO_UPDATE_20260625_004613.zip",
+      "claim_level": "SAFE_UPDATE_APPLIED_NO_PROTECTED_DATA_TOUCHED",
+      "manifest": {
+        "name": "V012 Candle Harvester Plan Demo",
+        "payload_prefix": "payload/",
+        "project": "BALI_ROCKET_CRYPTO_COMMAND",
+        "restart_required": false,
+        "safety": "plan_only_no_live_orders_no_api_keys",
+        "summary": "Demo safe update that adds a V012 candle harvester plan note only. It does not change app code or protected data.",
+        "version": "V012_DEMO_PLAN_ONLY",
+        "version_number": 12
+      },
+      "overwritten_files": [
+        "shared_data/updates/V012_CANDLE_HARVESTER_PLAN_DEMO.json",
+        "docs/V012_CANDLE_HARVESTER_PLAN_DEMO.txt"
+      ],
+      "restart_required": false,
+      "ts": "2026-06-25T00:46:13+00:00",
+      "zip": "BALI_ROCKET_CRYPTO_COMMAND_V012_CANDLE_HARVESTER_PLAN_DEMO_UPDATE.zip"
+    },
+    {
+      "added_files": [],
+      "applied_files": [
+        "docs/V012_CANDLE_HARVESTER_PLAN_DEMO.txt",
+        "shared_data/updates/V012_CANDLE_HARVESTER_PLAN_DEMO.json"
+      ],
+      "backup": "C:\\Users\\CB\\Desktop\\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\\bali_rocket_crypto_command_v011b\\backups\\backup_before_BALI_ROCKET_CRYPTO_COMMAND_V012_CANDLE_HARVESTER_PLAN_DEMO_UPDATE_20260625_005002.zip",
+      "claim_level": "SAFE_UPDATE_APPLIED_NO_PROTECTED_DATA_TOUCHED",
+      "manifest": {
+        "name": "V012 Candle Harvester Plan Demo",
+        "payload_prefix": "payload/",
+        "project": "BALI_ROCKET_CRYPTO_COMMAND",
+        "restart_required": false,
+        "safety": "plan_only_no_live_orders_no_api_keys",
+        "summary": "Demo safe update that adds a V012 candle harvester plan note only. It does not change app code or protected data.",
+        "version": "V012_DEMO_PLAN_ONLY",
+        "version_number": 12
+      },
+      "overwritten_files": [
+        "shared_data/updates/V012_CANDLE_HARVESTER_PLAN_DEMO.json",
+        "docs/V012_CANDLE_HARVESTER_PLAN_DEMO.txt"
+      ],
+      "restart_required": false,
+      "ts": "2026-06-25T00:50:03+00:00",
+      "zip": "BALI_ROCKET_CRYPTO_COMMAND_V012_CANDLE_HARVESTER_PLAN_DEMO_UPDATE.zip"
+    },
+    {
+      "added_files": [],
+      "applied_files": [
+        "docs/V012_CANDLE_HARVESTER_PLAN_DEMO.txt",
+        "shared_data/updates/V012_CANDLE_HARVESTER_PLAN_DEMO.json"
+      ],
+      "backup": "C:\\Users\\CB\\Desktop\\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\\bali_rocket_crypto_command_v011b\\backups\\backup_before_BALI_ROCKET_CRYPTO_COMMAND_V012_CANDLE_HARVESTER_PLAN_DEMO_UPDATE_20260625_010359.zip",
+      "claim_level": "SAFE_UPDATE_APPLIED_NO_PROTECTED_DATA_TOUCHED",
+      "manifest": {
+        "name": "V012 Candle Harvester Plan Demo",
+        "payload_prefix": "payload/",
+        "project": "BALI_ROCKET_CRYPTO_COMMAND",
+        "restart_required": false,
+        "safety": "plan_only_no_live_orders_no_api_keys",
+        "summary": "Demo safe update that adds a V012 candle harvester plan note only. It does not change app code or protected data.",
+        "version": "V012_DEMO_PLAN_ONLY",
+        "version_number": 12
+      },
+      "overwritten_files": [
+        "shared_data/updates/V012_CANDLE_HARVESTER_PLAN_DEMO.json",
+        "docs/V012_CANDLE_HARVESTER_PLAN_DEMO.txt"
+      ],
+      "restart_required": false,
+      "ts": "2026-06-25T01:03:59+00:00",
+      "zip": "BALI_ROCKET_CRYPTO_COMMAND_V012_CANDLE_HARVESTER_PLAN_DEMO_UPDATE.zip"
+    },
+    {
+      "added_files": [],
+      "applied_files": [
+        "docs/V012_CANDLE_HARVESTER_PLAN_DEMO.txt",
+        "shared_data/updates/V012_CANDLE_HARVESTER_PLAN_DEMO.json"
+      ],
+      "backup": "C:\\Users\\CB\\Desktop\\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\\bali_rocket_crypto_command_v011b\\backups\\backup_before_BALI_ROCKET_CRYPTO_COMMAND_V012_CANDLE_HARVESTER_PLAN_DEMO_UPDATE_20260625_010858.zip",
+      "claim_level": "SAFE_UPDATE_APPLIED_NO_PROTECTED_DATA_TOUCHED",
+      "manifest": {
+        "name": "V012 Candle Harvester Plan Demo",
+        "payload_prefix": "payload/",
+        "project": "BALI_ROCKET_CRYPTO_COMMAND",
+        "restart_required": false,
+        "safety": "plan_only_no_live_orders_no_api_keys",
+        "summary": "Demo safe update that adds a V012 candle harvester plan note only. It does not change app code or protected data.",
+        "version": "V012_DEMO_PLAN_ONLY",
+        "version_number": 12
+      },
+      "overwritten_files": [
+        "shared_data/updates/V012_CANDLE_HARVESTER_PLAN_DEMO.json",
+        "docs/V012_CANDLE_HARVESTER_PLAN_DEMO.txt"
+      ],
+      "restart_required": false,
+      "ts": "2026-06-25T01:08:58+00:00",
+      "zip": "BALI_ROCKET_CRYPTO_COMMAND_V012_CANDLE_HARVESTER_PLAN_DEMO_UPDATE.zip"
+    }
+  ]
+}

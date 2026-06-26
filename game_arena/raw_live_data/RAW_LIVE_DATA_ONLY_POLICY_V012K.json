@@ -1,0 +1,16 @@
+{
+  "version": "V012K",
+  "hard_law": "REAL LIVE DATA ONLY. NO EXCEPTION.",
+  "live_orders": "OFF",
+  "api_keys": "NONE",
+  "scoring_requires": "fresh public exchange data with source URL and OK status",
+  "blocked_sources": [
+    "offline_demo",
+    "mock",
+    "synthetic",
+    "fake",
+    "replay_without_live_proof"
+  ],
+  "failure_behavior": "block market ticks, feed proof, learning cycles, research scoring and paper scoring; write live_data_guard only",
+  "warning_after_seconds": 600
+}

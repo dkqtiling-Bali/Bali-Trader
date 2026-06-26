@@ -1,0 +1,27 @@
+BALI ROCKET CRYPTO COMMAND - ONE CLICK UPDATE REPORT V012J
+Generated: 06/26/2026 11:55:51
+Root folder: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD
+Mission: STARGATE RIVAL MODE - controlled upgrades for the challenger machine.
+Safety: live orders OFF, champion lock LOCKED, no API keys.
+Mode: V012J quiet dashboard update plus listener-only close guard and final-report-only mode.
+Selection: valid manifest zips only; highest Bali version wins.
+
+Search order:
+1. C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\updates
+2. C:\Users\CB\Downloads
+3. C:\Users\CB\Desktop
+4. C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD
+
+=== Candidate zips found ===
+2026-06-26 11:07:36  C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V017_ALWAYS_WORKING_REPORT_CENTER_FULL_BUILD.zip
+2026-06-25 22:41:16  C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD.zip
+
+SKIP no manifest: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD.zip
+
+=== Valid Bali patch zips ===
+V015A    rank=1500  C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V017_ALWAYS_WORKING_REPORT_CENTER_FULL_BUILD.zip
+
+Installed version: V015A rank=1500
+Highest available patch: V015A rank=1500
+RESULT: NO NEWER PATCH FOUND
+Speed lane will continue with health, icon, cleanup, and status checks.

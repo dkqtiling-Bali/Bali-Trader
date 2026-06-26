@@ -1,0 +1,10 @@
+{
+  "version": "V012B",
+  "cpu_role": "BALI_CPU",
+  "bot": "Bali Bot",
+  "mode": "SIM_ONLY",
+  "score": 0,
+  "xp": 0,
+  "status": "ARENA_READY_BRIDGE_PREP",
+  "safety": "LIVE_ORDERS_OFF | CHAMPION_LOCK_LOCKED | NO_API_KEYS"
+}

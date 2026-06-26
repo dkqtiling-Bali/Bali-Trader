@@ -1,0 +1,1 @@
+V012J ledger note: Bali becomes the Governor Hub; Stargate joins as a competitor node through a shared-folder JSON join kit. The bridge stays JSON-only, SIM-only, raw-live-data-only, and no-remote-commands.

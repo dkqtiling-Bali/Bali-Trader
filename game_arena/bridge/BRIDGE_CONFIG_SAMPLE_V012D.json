@@ -1,0 +1,17 @@
+{
+  "version": "V012D",
+  "bridge_mode": "SHARED_FOLDER_JSON_ONLY",
+  "competition_mode": "SIM_ONLY",
+  "network_execution": "OFF",
+  "live_orders": "OFF",
+  "champion_lock": "LOCKED",
+  "api_keys": "NONE",
+  "shared_folder_example": "\\\\SECOND-PC\\BaliStargateArenaShare",
+  "allowed_files": [
+    "*.json"
+  ],
+  "bali_out": "game_arena/bridge/shared_drop/from_bali",
+  "stargate_in": "game_arena/bridge/shared_drop/from_stargate",
+  "round_results": "game_arena/bridge/shared_drop/round_results",
+  "notes": "Use a normal Windows shared folder or copy JSON files manually. This bridge never runs remote commands and never places live orders."
+}

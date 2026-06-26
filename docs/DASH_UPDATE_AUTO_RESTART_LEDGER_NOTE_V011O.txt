@@ -1,0 +1,15 @@
+BALI V011O DASH UPDATE AUTO RESTART LEDGER NOTE
+
+V011O promotes the update workflow from external-only BAT files to a dashboard-triggered bridge.
+
+Design:
+- The dashboard does not unzip patches inside the Python web process.
+- It launches an external PowerShell bridge.
+- The Python dashboard exits before patching so app.py and launcher files can be replaced safely.
+- The bridge runs Speed Lane, health, icon, cleanup, status, then restarts through Bali Forever Starter.
+
+Safety locks:
+- Live orders OFF.
+- Champion lock LOCKED.
+- No API keys touched.
+- Trading logic unchanged.

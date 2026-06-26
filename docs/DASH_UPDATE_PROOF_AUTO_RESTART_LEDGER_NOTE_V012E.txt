@@ -1,0 +1,5 @@
+BALI V012E LEDGER NOTE
+
+V012E is the first patch intended specifically to be applied from the dashboard Updates tab as the proof of the full dashboard update + auto-restart loop.
+
+It keeps V011O root guard protections and adds a V012E proof stamp/status marker. No trading logic, live orders, API keys, champion locks, or protected ledgers are changed.

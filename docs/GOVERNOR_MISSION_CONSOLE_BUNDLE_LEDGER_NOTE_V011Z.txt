@@ -1,0 +1,1 @@
+V011Z ledger note: added Governor Mission Console UI with progress bars, bot placeholders, safety scoreboard, update progress, and important status copy. No live orders, API keys, secrets, or trading logic changed.

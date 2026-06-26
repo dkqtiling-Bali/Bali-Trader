@@ -1,0 +1,45 @@
+{
+  "created_at": "2026-06-24T13:51:44+00:00",
+  "strategies": [
+    {
+      "family": "Trend Pullback",
+      "name": "Bali Breakout Pullback",
+      "proof_needed": "historical candles + paper arena",
+      "regime_needed": "BTC_TIDE_RISING or BALI_TREND_UP_ALT_ROTATION",
+      "risk": "medium",
+      "status": "RESEARCH_SEED",
+      "symbols": "BTCUSDT, ETHUSDT, SOLUSDT",
+      "timeframes": "4h bias + 15m entry"
+    },
+    {
+      "family": "Range Reversion",
+      "name": "Lagoon Mean Reversion",
+      "proof_needed": "chop-only backtest + slippage stress",
+      "regime_needed": "LOW_WAVE_CHOP",
+      "risk": "medium",
+      "status": "RESEARCH_SEED",
+      "symbols": "BTCUSDT, ETHUSDT",
+      "timeframes": "1h range + 5m entry"
+    },
+    {
+      "family": "Defensive No-Trade Filter",
+      "name": "Volcano Risk-Off Shield",
+      "proof_needed": "feed proof + drawdown avoidance test",
+      "regime_needed": "BTC_STORM_RISK_OFF",
+      "risk": "low",
+      "status": "RESEARCH_SEED",
+      "symbols": "all",
+      "timeframes": "market-wide"
+    },
+    {
+      "family": "Alt Momentum Scanner",
+      "name": "Palm Tree Alt Rotation Scout",
+      "proof_needed": "relative strength ledger + paper shadow trades",
+      "regime_needed": "BALI_TREND_UP_ALT_ROTATION",
+      "risk": "high",
+      "status": "RESEARCH_SEED",
+      "symbols": "SOLUSDT, XRPUSDT, DOGEUSDT, LINKUSDT",
+      "timeframes": "1h + 15m"
+    }
+  ]
+}

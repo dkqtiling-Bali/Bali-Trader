@@ -1,0 +1,8 @@
+{
+  "version": "V014A",
+  "ranking_only": true,
+  "not_trade_signal": true,
+  "live_orders": "OFF",
+  "api_keys": "NONE",
+  "requires_real_live_data": true
+}

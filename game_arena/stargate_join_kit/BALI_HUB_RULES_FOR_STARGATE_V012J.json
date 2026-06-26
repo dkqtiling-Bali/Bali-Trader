@@ -1,0 +1,24 @@
+{
+  "rules_version": "V012J",
+  "governor_hub": "BALI_CPU",
+  "competitor": "STARGATE_CPU",
+  "match_mode": "SIM_ONLY",
+  "scoring_data": "RAW_LIVE_DATA_ONLY",
+  "synthetic_data_for_ranked_score": "BLOCKED",
+  "remote_commands": "BLOCKED",
+  "live_orders": "OFF",
+  "api_keys": "NONE",
+  "score_categories": [
+    "research_points",
+    "scout_points",
+    "paper_trading_points",
+    "risk_control",
+    "uptime",
+    "safety_violations"
+  ],
+  "penalties": {
+    "missing_raw_live_provenance": "reject_round",
+    "safety_violation": "heavy_penalty",
+    "live_order_attempt": "reject_and_lock"
+  }
+}

@@ -1,0 +1,3 @@
+V012G ledger note: added read-only phone arena monitor status and SIM-only bot guardian state.
+This patch prepares 24/7 watch/score/heartbeat mode while the PC is awake.
+It does not enable live orders, API keys, remote commands, public internet access, or phone trading controls.

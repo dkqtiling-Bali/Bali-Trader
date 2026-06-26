@@ -1,0 +1,11 @@
+BALI ROCKET CRYPTO COMMAND - QUIET STARTUP REPORT V011W
+Generated: Thu 25/06/2026 11:52:16.47
+Launcher folder: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD
+Mission: STARGATE RIVAL MODE - Bali Rocket is being prepared to compete against the Stargate machine.
+Update active: V011W quiet dashboard update, listener-only close guard, final-report-only mode, Bali-themed starter, auto restart bridge, and wrong-folder root guard.
+Fix active: visible report first, root finder active, Python 3.13 shield active.
+One-click update: V011W manifest-aware updater installed after this patch is applied.
+Safety: live orders OFF, champion lock LOCKED, no API keys.
+
+=== App root scan === 
+ACCEPTED app root: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\bali_rocket_crypto_command_v011b 

@@ -1,0 +1,8 @@
+Bali Rocket Crypto Command V015A_BACKTEST_WALK_FORWARD_GATE startup
+UTC: 2026-06-26T03:11:04+00:00
+Local URL: http://127.0.0.1:9061
+Phone URL: http://<your-pc-lan-ip>:9061/phone
+Detected LAN URLs:
+- http://192.168.1.105:9061/phone
+- http://100.115.61.118:9061/phone
+Safety: REAL LIVE DATA ONLY; live orders OFF; no API keys. Scoring blocks if public exchange data fails.

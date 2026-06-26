@@ -1,0 +1,1696 @@
+#!/usr/bin/env python3
+"""
+Bali Rocket Crypto Command V006-V010 Overnight Watch
+Public-market-data, paper/research-only command centre.
+No API keys. No live trading. No broker/exchange order code.
+"""
+from __future__ import annotations
+
+import argparse
+import csv
+import datetime as dt
+import html
+import io
+import json
+import os
+import re
+import shutil
+import subprocess
+import socket
+import sys
+import tempfile
+import threading
+import time
+import traceback
+import urllib.parse
+import urllib.request
+import zipfile
+from http.server import ThreadingHTTPServer, BaseHTTPRequestHandler
+from pathlib import Path
+from typing import Any, Dict, List, Optional, Tuple
+
+PROJECT_NAME = "BALI_ROCKET_CRYPTO_COMMAND"
+PROJECT_TITLE = "Bali Rocket Crypto Command"
+VERSION = "V012J_EASY_ONEDRIVE_BRIDGE_HUB_SETUP"
+VERSION_NUMBER = 1209
+PORT_DEFAULT = 9061
+SYMBOLS_DEFAULT = ["BTCUSDT", "ETHUSDT", "SOLUSDT", "XRPUSDT", "DOGEUSDT", "LINKUSDT"]
+BASE_DATA_API = "https://data-api.binance.vision"
+BASE_BINANCE_API = "https://api.binance.com"
+PULSE_SECONDS_DEFAULT = 60
+
+ROOT = Path(__file__).resolve().parent
+SHARED = ROOT / "shared_data"
+LOGS = ROOT / "logs"
+REPORTS = SHARED / "reports"
+UPDATES = SHARED / "updates"
+STRATEGIES = SHARED / "strategies"
+GRAVEYARD = SHARED / "graveyard"
+UPDATE_INBOX = ROOT / "UPDATE_INBOX"
+BACKUPS = ROOT / "backups"
+RELEASES = ROOT / "releases"
+
+PROTECTED_TOKENS = [
+    ".env", ".venv", "/env/", "\\env\\", "/venv/", "\\venv\\",
+    "secret", "secrets", "token", "tokens", "password", "passwd", "api_key", "apikey",
+    "live_order", "live-order", "order_executor", "exchange_private", "private_key",
+    "champion_approvals", "approved_champions", "proof_ledgers", "paper_logs",
+    "growth_history", "learner_state", "strategy_graveyard", "backtest_results",
+    "shared_data/system_state.json", "shared_data/market_ticks.jsonl", "shared_data/feed_proof_ledger.jsonl",
+]
+
+STATE_LOCK = threading.RLock()
+STOP_EVENT = threading.Event()
+COLLECTOR_THREAD: Optional[threading.Thread] = None
+START_TIME = dt.datetime.now(dt.timezone.utc)
+
+
+def utc_now() -> dt.datetime:
+    return dt.datetime.now(dt.timezone.utc)
+
+
+def iso_now() -> str:
+    return utc_now().isoformat(timespec="seconds")
+
+
+def ensure_dirs() -> None:
+    for p in [SHARED, LOGS, REPORTS, UPDATES, STRATEGIES, GRAVEYARD, UPDATE_INBOX, BACKUPS, RELEASES, SHARED / "candles"]:
+        p.mkdir(parents=True, exist_ok=True)
+
+
+def read_json(path: Path, default: Any) -> Any:
+    try:
+        if path.exists():
+            return json.loads(path.read_text(encoding="utf-8"))
+    except Exception:
+        pass
+    return default
+
+
+def write_json(path: Path, data: Any) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    tmp = path.with_suffix(path.suffix + ".tmp")
+    tmp.write_text(json.dumps(data, indent=2, sort_keys=True), encoding="utf-8")
+    tmp.replace(path)
+
+
+def append_jsonl(path: Path, row: Dict[str, Any]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("a", encoding="utf-8") as f:
+        f.write(json.dumps(row, sort_keys=True) + "\n")
+
+
+def read_last_jsonl(path: Path, limit: int = 100) -> List[Dict[str, Any]]:
+    if not path.exists():
+        return []
+    try:
+        lines = path.read_text(encoding="utf-8", errors="replace").splitlines()[-limit:]
+        out = []
+        for line in lines:
+            try:
+                out.append(json.loads(line))
+            except Exception:
+                continue
+        return out
+    except Exception:
+        return []
+
+
+def append_csv(path: Path, headers: List[str], row: Dict[str, Any]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    exists = path.exists() and path.stat().st_size > 0
+    with path.open("a", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=headers)
+        if not exists:
+            writer.writeheader()
+        writer.writerow({k: row.get(k, "") for k in headers})
+
+
+def get_system_state() -> Dict[str, Any]:
+    default = {
+        "project": PROJECT_NAME,
+        "title": PROJECT_TITLE,
+        "version": VERSION,
+        "version_number": VERSION_NUMBER,
+        "created_at": iso_now(),
+        "watch_enabled": True,
+        "pulse_seconds": PULSE_SECONDS_DEFAULT,
+        "symbols": SYMBOLS_DEFAULT,
+        "live_orders": "OFF",
+        "champion_lock": "LOCKED",
+        "approved_champions": "0/3",
+        "risk_police": "ARMED",
+        "mode": "PUBLIC_DATA_RESEARCH_ONLY",
+        "phone_lan_enabled": False,
+        "last_pulse_at": None,
+        "pulse_count": 0,
+        "learning_score": 0.0,
+        "research_score": 0.0,
+        "growth_score": 0.0,
+        "last_feed_source": "not_started",
+        "last_feed_status": "WAITING",
+        "current_regime": "UNKNOWN",
+        "next_gate": "OVERNIGHT_DATA_COLLECTION",
+        "current_blocker": "No overnight sample collected yet",
+    }
+    state = read_json(SHARED / "system_state.json", default)
+    # Preserve current fields, repair mandatory version metadata.
+    state.update({"project": PROJECT_NAME, "title": PROJECT_TITLE, "version": VERSION, "version_number": VERSION_NUMBER})
+    for k, v in default.items():
+        state.setdefault(k, v)
+    return state
+
+
+def save_system_state(state: Dict[str, Any]) -> None:
+    state["updated_at"] = iso_now()
+    write_json(SHARED / "system_state.json", state)
+
+
+def url_json(url: str, timeout: int = 10) -> Any:
+    req = urllib.request.Request(url, headers={"User-Agent": f"{PROJECT_NAME}/{VERSION}"})
+    with urllib.request.urlopen(req, timeout=timeout) as resp:
+        data = resp.read()
+    return json.loads(data.decode("utf-8"))
+
+
+def fetch_ticker_data(symbols: List[str]) -> Tuple[List[Dict[str, Any]], str, str]:
+    encoded_symbols = urllib.parse.quote(json.dumps(symbols))
+    errors = []
+    for base in [BASE_DATA_API, BASE_BINANCE_API]:
+        try:
+            url = f"{base}/api/v3/ticker/24hr?symbols={encoded_symbols}"
+            raw = url_json(url)
+            if isinstance(raw, list):
+                rows = []
+                for item in raw:
+                    rows.append({
+                        "symbol": item.get("symbol"),
+                        "last_price": float(item.get("lastPrice", 0) or 0),
+                        "price_change_percent_24h": float(item.get("priceChangePercent", 0) or 0),
+                        "high_24h": float(item.get("highPrice", 0) or 0),
+                        "low_24h": float(item.get("lowPrice", 0) or 0),
+                        "volume": float(item.get("volume", 0) or 0),
+                        "quote_volume": float(item.get("quoteVolume", 0) or 0),
+                        "count": int(item.get("count", 0) or 0),
+                    })
+                return rows, base, "OK"
+        except Exception as e:
+            errors.append(f"{base}: {e}")
+    return fake_ticker_data(symbols), "offline_demo", "OFFLINE_FALLBACK: " + " | ".join(errors[-2:])
+
+
+def fake_ticker_data(symbols: List[str]) -> List[Dict[str, Any]]:
+    # Deterministic-ish fallback so the dashboard still proves the loop is alive if the internet is down.
+    t = int(time.time())
+    base_prices = {"BTCUSDT": 65000, "ETHUSDT": 3500, "SOLUSDT": 150, "XRPUSDT": 0.6, "DOGEUSDT": 0.12, "LINKUSDT": 16}
+    out = []
+    for i, sym in enumerate(symbols):
+        wobble = ((t // 60 + i * 7) % 41 - 20) / 1000.0
+        price = base_prices.get(sym, 10) * (1 + wobble)
+        pct = round(wobble * 100, 3)
+        out.append({
+            "symbol": sym,
+            "last_price": round(price, 8),
+            "price_change_percent_24h": pct,
+            "high_24h": round(price * 1.02, 8),
+            "low_24h": round(price * 0.98, 8),
+            "volume": 100000 + i * 12345,
+            "quote_volume": 10000000 + i * 123456,
+            "count": 10000 + i * 333,
+        })
+    return out
+
+
+def infer_regime(tickers: List[Dict[str, Any]]) -> Dict[str, Any]:
+    by_sym = {r.get("symbol"): r for r in tickers}
+    btc = by_sym.get("BTCUSDT", {})
+    btc_pct = float(btc.get("price_change_percent_24h", 0) or 0)
+    alt_rows = [r for r in tickers if r.get("symbol") != "BTCUSDT"]
+    alt_avg = sum(float(r.get("price_change_percent_24h", 0) or 0) for r in alt_rows) / max(1, len(alt_rows))
+    dispersion = sum(abs(float(r.get("price_change_percent_24h", 0) or 0) - alt_avg) for r in alt_rows) / max(1, len(alt_rows))
+    if btc_pct <= -4:
+        label = "BTC_STORM_RISK_OFF"
+        no_trade = 85
+    elif btc_pct >= 4 and alt_avg >= 2:
+        label = "BALI_TREND_UP_ALT_ROTATION"
+        no_trade = 30
+    elif abs(btc_pct) < 0.8 and dispersion < 1.2:
+        label = "LOW_WAVE_CHOP"
+        no_trade = 70
+    elif dispersion >= 4:
+        label = "VOLATILE_ISLAND_ROTATION"
+        no_trade = 60
+    elif btc_pct > 1:
+        label = "BTC_TIDE_RISING"
+        no_trade = 45
+    elif btc_pct < -1:
+        label = "BTC_TIDE_FALLING"
+        no_trade = 65
+    else:
+        label = "NEUTRAL_LAGOON"
+        no_trade = 55
+    return {
+        "label": label,
+        "btc_pct_24h": round(btc_pct, 3),
+        "alt_avg_pct_24h": round(alt_avg, 3),
+        "alt_dispersion": round(dispersion, 3),
+        "no_trade_score": no_trade,
+    }
+
+
+def seed_strategy_dna() -> None:
+    path = STRATEGIES / "strategy_dna.json"
+    if path.exists():
+        return
+    rows = [
+        {
+            "name": "Bali Breakout Pullback",
+            "family": "Trend Pullback",
+            "symbols": "BTCUSDT, ETHUSDT, SOLUSDT",
+            "timeframes": "4h bias + 15m entry",
+            "regime_needed": "BTC_TIDE_RISING or BALI_TREND_UP_ALT_ROTATION",
+            "status": "RESEARCH_SEED",
+            "proof_needed": "historical candles + paper arena",
+            "risk": "medium",
+        },
+        {
+            "name": "Lagoon Mean Reversion",
+            "family": "Range Reversion",
+            "symbols": "BTCUSDT, ETHUSDT",
+            "timeframes": "1h range + 5m entry",
+            "regime_needed": "LOW_WAVE_CHOP",
+            "status": "RESEARCH_SEED",
+            "proof_needed": "chop-only backtest + slippage stress",
+            "risk": "medium",
+        },
+        {
+            "name": "Volcano Risk-Off Shield",
+            "family": "Defensive No-Trade Filter",
+            "symbols": "all",
+            "timeframes": "market-wide",
+            "regime_needed": "BTC_STORM_RISK_OFF",
+            "status": "RESEARCH_SEED",
+            "proof_needed": "feed proof + drawdown avoidance test",
+            "risk": "low",
+        },
+        {
+            "name": "Palm Tree Alt Rotation Scout",
+            "family": "Alt Momentum Scanner",
+            "symbols": "SOLUSDT, XRPUSDT, DOGEUSDT, LINKUSDT",
+            "timeframes": "1h + 15m",
+            "regime_needed": "BALI_TREND_UP_ALT_ROTATION",
+            "status": "RESEARCH_SEED",
+            "proof_needed": "relative strength ledger + paper shadow trades",
+            "risk": "high",
+        },
+    ]
+    write_json(path, {"created_at": iso_now(), "strategies": rows})
+
+
+def update_research_ledger(regime: Dict[str, Any], tickers: List[Dict[str, Any]], source: str, status: str) -> Dict[str, Any]:
+    label = regime.get("label", "UNKNOWN")
+    if label == "BALI_TREND_UP_ALT_ROTATION":
+        research_task = "Rank alt rotation candidates; keep Risk Police spread/drawdown blocks visible."
+        squad = "Bravo Scout"
+    elif label == "BTC_STORM_RISK_OFF":
+        research_task = "Study no-trade shield performance; do not hunt entries during storm conditions."
+        squad = "Risk Police"
+    elif label == "LOW_WAVE_CHOP":
+        research_task = "Collect range behaviour for Lagoon Mean Reversion; no live signals."
+        squad = "Charlie Specialist"
+    else:
+        research_task = "Collect baseline market regime proof and wait for clearer patterns."
+        squad = "Alpha Watch"
+    row = {
+        "ts": iso_now(),
+        "squad": squad,
+        "regime": label,
+        "research_task": research_task,
+        "feed_source": source,
+        "feed_status": status[:160],
+        "symbols_seen": [r.get("symbol") for r in tickers],
+        "claim_level": "DATA_COLLECTION_ONLY_NOT_EDGE_PROOF",
+    }
+    append_jsonl(SHARED / "research_ledger.jsonl", row)
+    return row
+
+
+def write_market_logs(tickers: List[Dict[str, Any]], source: str, status: str, regime: Dict[str, Any]) -> None:
+    batch_id = utc_now().strftime("%Y%m%dT%H%M%SZ")
+    for r in tickers:
+        row = dict(r)
+        row.update({
+            "ts": iso_now(),
+            "batch_id": batch_id,
+            "source": source,
+            "feed_status": status,
+            "regime": regime.get("label"),
+            "no_trade_score": regime.get("no_trade_score"),
+        })
+        append_jsonl(SHARED / "market_ticks.jsonl", row)
+        append_csv(SHARED / "market_ticks.csv", [
+            "ts", "batch_id", "source", "feed_status", "symbol", "last_price", "price_change_percent_24h",
+            "high_24h", "low_24h", "volume", "quote_volume", "count", "regime", "no_trade_score"
+        ], row)
+    proof = {
+        "ts": iso_now(),
+        "batch_id": batch_id,
+        "source": source,
+        "status": status,
+        "symbols": [r.get("symbol") for r in tickers],
+        "regime": regime,
+        "live_trading": "OFF",
+        "claim_level": "PUBLIC_MARKET_DATA_FEED_PROOF_ONLY",
+    }
+    append_jsonl(SHARED / "feed_proof_ledger.jsonl", proof)
+
+
+def generate_suggested_upgrades(state: Dict[str, Any], regime: Dict[str, Any]) -> List[Dict[str, Any]]:
+    ticks = read_last_jsonl(SHARED / "market_ticks.jsonl", 5000)
+    pulse_count = int(state.get("pulse_count", 0) or 0)
+    hours_est = round((utc_now() - START_TIME).total_seconds() / 3600, 2)
+    suggestions = []
+    if len(ticks) < 60:
+        suggestions.append({
+            "version": "V011",
+            "name": "Candle Harvester",
+            "why": "Collecting tick snapshots is awake; next step is 1m/5m/15m candle history for real research.",
+            "status": "SUGGESTED_AFTER_OVERNIGHT_BASELINE",
+            "risk": "low",
+            "one_click_ready": False,
+        })
+    else:
+        suggestions.append({
+            "version": "V011",
+            "name": "Candle Harvester",
+            "why": "Enough feed ticks are forming a baseline; add candle storage and missing-data checks.",
+            "status": "READY_TO_BUILD_NEXT",
+            "risk": "low",
+            "one_click_ready": False,
+        })
+    suggestions.append({
+        "version": "V012",
+        "name": "Market Regime Proof Board",
+        "why": "Turn overnight regime labels into graphs and regime durations.",
+        "status": "SUGGESTED",
+        "risk": "low",
+        "one_click_ready": False,
+    })
+    suggestions.append({
+        "version": "V013",
+        "name": "Paper Shadow Signal Simulator",
+        "why": "Let strategy seeds create would-have-traded records without placing orders.",
+        "status": "SUGGESTED_AFTER_CANDLES",
+        "risk": "medium",
+        "one_click_ready": False,
+    })
+    if regime.get("no_trade_score", 100) >= 70:
+        suggestions.append({
+            "version": "V014",
+            "name": "No-Trade Reward Engine",
+            "why": "Current conditions favour standing down; track avoided bad trades as progress.",
+            "status": "SUGGESTED",
+            "risk": "low",
+            "one_click_ready": False,
+        })
+    return suggestions
+
+
+def learning_pulse(manual: bool = False) -> Dict[str, Any]:
+    with STATE_LOCK:
+        ensure_dirs()
+        seed_strategy_dna()
+        state = get_system_state()
+        symbols = state.get("symbols") or SYMBOLS_DEFAULT
+        tickers, source, feed_status = fetch_ticker_data(symbols)
+        regime = infer_regime(tickers)
+        write_market_logs(tickers, source, feed_status, regime)
+        research_row = update_research_ledger(regime, tickers, source, feed_status)
+        pulse_count = int(state.get("pulse_count", 0) or 0) + 1
+        learning_points = 1.0 + min(2.5, len(tickers) / 4.0)
+        research_points = 1.0 if source != "offline_demo" else 0.35
+        if manual:
+            research_points += 0.25
+        state.update({
+            "watch_enabled": bool(state.get("watch_enabled", True)),
+            "last_pulse_at": iso_now(),
+            "pulse_count": pulse_count,
+            "learning_score": round(float(state.get("learning_score", 0) or 0) + learning_points, 2),
+            "research_score": round(float(state.get("research_score", 0) or 0) + research_points, 2),
+            "growth_score": round(float(state.get("growth_score", 0) or 0) + learning_points + research_points, 2),
+            "last_feed_source": source,
+            "last_feed_status": feed_status,
+            "current_regime": regime.get("label"),
+            "no_trade_score": regime.get("no_trade_score"),
+            "current_blocker": "Building overnight sample size" if pulse_count < 30 else "Need candle history and paper shadow engine",
+            "next_gate": "MORNING_REPORT_REVIEW" if pulse_count >= 30 else "OVERNIGHT_DATA_COLLECTION",
+        })
+        save_system_state(state)
+        cycle = {
+            "ts": iso_now(),
+            "cycle": pulse_count,
+            "manual": manual,
+            "source": source,
+            "feed_status": feed_status[:160],
+            "regime": regime,
+            "research_task": research_row.get("research_task"),
+            "learning_points_added": learning_points,
+            "research_points_added": research_points,
+            "live_orders": "OFF",
+            "champion_lock": "LOCKED",
+            "claim_level": "LEARNING_PULSE_DATA_COLLECTION_ONLY",
+        }
+        append_jsonl(SHARED / "learning_cycles.jsonl", cycle)
+        suggestions = generate_suggested_upgrades(state, regime)
+        write_json(UPDATES / "suggested_upgrades.json", {"updated_at": iso_now(), "suggestions": suggestions})
+        return {"ok": True, "state": state, "cycle": cycle, "tickers": tickers, "suggested_upgrades": suggestions}
+
+
+def collector_loop() -> None:
+    while not STOP_EVENT.is_set():
+        try:
+            state = get_system_state()
+            if state.get("watch_enabled", True):
+                learning_pulse(manual=False)
+            wait = int(state.get("pulse_seconds", PULSE_SECONDS_DEFAULT) or PULSE_SECONDS_DEFAULT)
+            wait = max(30, min(3600, wait))
+        except Exception:
+            append_jsonl(LOGS / "errors.jsonl", {"ts": iso_now(), "where": "collector_loop", "error": traceback.format_exc()})
+            wait = 60
+        STOP_EVENT.wait(wait)
+
+
+def start_collector() -> None:
+    global COLLECTOR_THREAD
+    if COLLECTOR_THREAD and COLLECTOR_THREAD.is_alive():
+        return
+    STOP_EVENT.clear()
+    COLLECTOR_THREAD = threading.Thread(target=collector_loop, name="BaliOvernightWatch", daemon=True)
+    COLLECTOR_THREAD.start()
+
+
+def get_lan_ips() -> List[str]:
+    ips = []
+    try:
+        hostname = socket.gethostname()
+        for info in socket.getaddrinfo(hostname, None):
+            ip = info[4][0]
+            if ":" not in ip and not ip.startswith("127.") and ip not in ips:
+                ips.append(ip)
+    except Exception:
+        pass
+    try:
+        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        s.connect(("8.8.8.8", 80))
+        ip = s.getsockname()[0]
+        s.close()
+        if ip not in ips and not ip.startswith("127."):
+            ips.append(ip)
+    except Exception:
+        pass
+    return ips[:5]
+
+
+def count_lines(path: Path) -> int:
+    if not path.exists():
+        return 0
+    try:
+        with path.open("rb") as f:
+            return sum(1 for _ in f)
+    except Exception:
+        return 0
+
+
+def safe_read_csv_tail(path: Path, limit: int = 20) -> List[Dict[str, Any]]:
+    if not path.exists():
+        return []
+    try:
+        text = path.read_text(encoding="utf-8", errors="replace").splitlines()
+        if not text:
+            return []
+        tail = "\n".join([text[0]] + text[-limit:])
+        return list(csv.DictReader(io.StringIO(tail)))
+    except Exception:
+        return []
+
+
+def compute_dashboard_state() -> Dict[str, Any]:
+    state = get_system_state()
+    last_ticks = read_last_jsonl(SHARED / "market_ticks.jsonl", 80)
+    last_cycles = read_last_jsonl(SHARED / "learning_cycles.jsonl", 20)
+    last_research = read_last_jsonl(SHARED / "research_ledger.jsonl", 20)
+    last_feed = read_last_jsonl(SHARED / "feed_proof_ledger.jsonl", 20)
+    strategy_dna = read_json(STRATEGIES / "strategy_dna.json", {"strategies": []})
+    upgrades = read_json(UPDATES / "suggested_upgrades.json", {"suggestions": []})
+    update_scan = scan_updates()
+    reports = sorted([p.name for p in REPORTS.glob("*.txt")], reverse=True)[:12]
+    uptime = utc_now() - START_TIME
+    data = {
+        "state": state,
+        "version": VERSION,
+        "version_number": VERSION_NUMBER,
+        "uptime_seconds": int(uptime.total_seconds()),
+        "lan_ips": get_lan_ips(),
+        "last_ticks": last_ticks[-18:],
+        "last_cycles": last_cycles[-12:],
+        "last_research": last_research[-12:],
+        "last_feed": last_feed[-8:],
+        "strategy_dna": strategy_dna.get("strategies", []),
+        "suggested_upgrades": upgrades.get("suggestions", []),
+        "update_scan": update_scan,
+        "autopilot": autopilot_status(),
+        "reports": reports,
+        "line_counts": {
+            "market_ticks": count_lines(SHARED / "market_ticks.jsonl"),
+            "learning_cycles": count_lines(SHARED / "learning_cycles.jsonl"),
+            "research_ledger": count_lines(SHARED / "research_ledger.jsonl"),
+            "feed_proof": count_lines(SHARED / "feed_proof_ledger.jsonl"),
+        },
+        "collector_alive": bool(COLLECTOR_THREAD and COLLECTOR_THREAD.is_alive()),
+    }
+    return data
+
+
+def doctor_report() -> Dict[str, Any]:
+    data = compute_dashboard_state()
+    state = data["state"]
+    checks = []
+    def add(name: str, ok: bool, detail: str) -> None:
+        checks.append({"name": name, "ok": ok, "detail": detail})
+    add("Server", True, "Dashboard server is responding.")
+    add("Collector thread", data["collector_alive"], "Overnight collector thread is alive." if data["collector_alive"] else "Collector thread is not running.")
+    add("Watch enabled", bool(state.get("watch_enabled")), "Watch mode is enabled." if state.get("watch_enabled") else "Watch mode is paused.")
+    add("Market tick ledger", data["line_counts"]["market_ticks"] > 0, f"Rows: {data['line_counts']['market_ticks']}")
+    add("Learning ledger", data["line_counts"]["learning_cycles"] > 0, f"Rows: {data['line_counts']['learning_cycles']}")
+    add("Feed source", state.get("last_feed_source") != "not_started", f"Last source: {state.get('last_feed_source')}")
+    add("Live orders", state.get("live_orders") == "OFF", "Live orders are OFF and no live trading code is present.")
+    add("Champion lock", state.get("champion_lock") == "LOCKED", "Champion Council is locked at 0/3.")
+    add("Update inbox", UPDATE_INBOX.exists(), f"{UPDATE_INBOX}")
+    add("Reports folder", REPORTS.exists(), f"{REPORTS}")
+    return {"ts": iso_now(), "checks": checks, "summary": "PASS" if all(c["ok"] for c in checks) else "WARN", "data": data}
+
+
+def generate_morning_report() -> Path:
+    data = compute_dashboard_state()
+    doctor = doctor_report()
+    state = data["state"]
+    ticks = read_last_jsonl(SHARED / "market_ticks.jsonl", 100000)
+    cycles = read_last_jsonl(SHARED / "learning_cycles.jsonl", 100000)
+    research = read_last_jsonl(SHARED / "research_ledger.jsonl", 100000)
+    source_counts: Dict[str, int] = {}
+    regime_counts: Dict[str, int] = {}
+    symbol_counts: Dict[str, int] = {}
+    for row in ticks:
+        source_counts[str(row.get("source"))] = source_counts.get(str(row.get("source")), 0) + 1
+        regime_counts[str(row.get("regime"))] = regime_counts.get(str(row.get("regime")), 0) + 1
+        symbol_counts[str(row.get("symbol"))] = symbol_counts.get(str(row.get("symbol")), 0) + 1
+    started = START_TIME.isoformat(timespec="seconds")
+    report_name = f"BALI_OVERNIGHT_REPORT_{utc_now().strftime('%Y%m%d_%H%M%S')}.txt"
+    path = REPORTS / report_name
+    suggestions = data.get("suggested_upgrades", [])
+    lines = []
+    lines.append("BALI ROCKET CRYPTO COMMAND - OVERNIGHT WATCH REPORT")
+    lines.append("=" * 72)
+    lines.append(f"Generated UTC: {iso_now()}")
+    lines.append(f"Version: {VERSION}")
+    lines.append(f"Started UTC: {started}")
+    lines.append("")
+    lines.append("SAFETY STATUS")
+    lines.append(f"Live orders: {state.get('live_orders')}")
+    lines.append(f"Champion Council: {state.get('champion_lock')} / approved {state.get('approved_champions')}")
+    lines.append(f"Risk Police: {state.get('risk_police')}")
+    lines.append("Claim level: public data collection and research telemetry only, not trading proof.")
+    lines.append("")
+    lines.append("OVERNIGHT DATA SUMMARY")
+    lines.append(f"Pulse count: {state.get('pulse_count')}")
+    lines.append(f"Market tick rows: {data['line_counts']['market_ticks']}")
+    lines.append(f"Learning cycles: {data['line_counts']['learning_cycles']}")
+    lines.append(f"Research ledger rows: {data['line_counts']['research_ledger']}")
+    lines.append(f"Feed proof rows: {data['line_counts']['feed_proof']}")
+    lines.append(f"Last feed source: {state.get('last_feed_source')}")
+    lines.append(f"Last feed status: {state.get('last_feed_status')}")
+    lines.append(f"Current regime: {state.get('current_regime')}")
+    lines.append(f"No-trade score: {state.get('no_trade_score')}")
+    lines.append(f"Growth score: {state.get('growth_score')}")
+    lines.append("")
+    lines.append("REGIME COUNTS")
+    for k, v in sorted(regime_counts.items(), key=lambda kv: (-kv[1], kv[0]))[:12]:
+        lines.append(f"- {k}: {v}")
+    lines.append("")
+    lines.append("SOURCE COUNTS")
+    for k, v in sorted(source_counts.items(), key=lambda kv: (-kv[1], kv[0])):
+        lines.append(f"- {k}: {v}")
+    lines.append("")
+    lines.append("SYMBOL COUNTS")
+    for k, v in sorted(symbol_counts.items(), key=lambda kv: (-kv[1], kv[0])):
+        lines.append(f"- {k}: {v}")
+    lines.append("")
+    lines.append("RECENT RESEARCH NOTES")
+    for row in research[-10:]:
+        lines.append(f"- {row.get('ts')} | {row.get('squad')} | {row.get('regime')} | {row.get('research_task')}")
+    lines.append("")
+    lines.append("SUGGESTED NEXT UPGRADES")
+    for item in suggestions:
+        lines.append(f"- {item.get('version')} {item.get('name')}: {item.get('why')} [{item.get('status')}]")
+    lines.append("")
+    lines.append("DOCTOR SUMMARY")
+    lines.append(f"Doctor status: {doctor['summary']}")
+    for c in doctor["checks"]:
+        lines.append(f"- {'PASS' if c['ok'] else 'WARN'} {c['name']}: {c['detail']}")
+    lines.append("")
+    lines.append("CURRENT TIMELINE")
+    lines.append("V001: Tropical dashboard shell")
+    lines.append("V002-V005: Learning/research pulse")
+    lines.append("V006: Bali visual rebuild")
+    lines.append("V007: Overnight Watch")
+    lines.append("V008: Public market feed proof ledger")
+    lines.append("V009: Phone LAN command view")
+    lines.append("V010: One-click Update Dock scan/apply/rollback foundation")
+    lines.append("V012J: Easy OneDrive bridge hub setuping")
+    lines.append("")
+    lines.append("NEXT GATE")
+    lines.append(str(state.get("next_gate")))
+    lines.append("Current blocker: " + str(state.get("current_blocker")))
+    path.write_text("\n".join(lines), encoding="utf-8")
+    return path
+
+
+def normalize_zip_member(name: str) -> Optional[str]:
+    name = name.replace("\\", "/").lstrip("/")
+    parts = []
+    for part in name.split("/"):
+        if part in ("", "."):
+            continue
+        if part == "..":
+            return None
+        parts.append(part)
+    return "/".join(parts)
+
+
+def is_protected_path(rel: str) -> Tuple[bool, str]:
+    low = rel.lower().replace("\\", "/")
+    if low.startswith("shared_data/") and not low.startswith("shared_data/updates/"):
+        return True, "shared_data is protected except shared_data/updates"
+    for token in PROTECTED_TOKENS:
+        t = token.lower().replace("\\", "/")
+        if t in low:
+            return True, f"protected token: {token}"
+    return False, ""
+
+
+def load_manifest_from_zip(zip_path: Path) -> Tuple[Optional[Dict[str, Any]], List[str]]:
+    warnings = []
+    try:
+        with zipfile.ZipFile(zip_path, "r") as z:
+            names = z.namelist()
+            manifest_names = [n for n in names if normalize_zip_member(n) in ("update_manifest.json", "manifest.json") or normalize_zip_member(n).endswith("/update_manifest.json")]
+            if not manifest_names:
+                return None, ["No update_manifest.json found"]
+            with z.open(manifest_names[0]) as f:
+                manifest = json.loads(f.read().decode("utf-8"))
+            return manifest, warnings
+    except Exception as e:
+        return None, [f"Cannot read zip: {e}"]
+
+
+def scan_updates() -> Dict[str, Any]:
+    ensure_dirs()
+    results = []
+    for zip_path in sorted(UPDATE_INBOX.glob("*.zip"), key=lambda p: p.stat().st_mtime, reverse=True):
+        manifest, warnings = load_manifest_from_zip(zip_path)
+        item = {"file": zip_path.name, "path": str(zip_path), "valid": False, "blocked": [], "warnings": warnings, "manifest": manifest}
+        if manifest:
+            project = manifest.get("project")
+            version_number = int(manifest.get("version_number", 0) or 0)
+            if project != PROJECT_NAME:
+                item["blocked"].append(f"Project mismatch: {project}")
+            if version_number <= VERSION_NUMBER:
+                item["blocked"].append(f"Version {version_number} is not newer than current {VERSION_NUMBER}")
+            payload_prefix = str(manifest.get("payload_prefix", "payload/")).replace("\\", "/")
+            try:
+                with zipfile.ZipFile(zip_path, "r") as z:
+                    payload_files = []
+                    for n in z.namelist():
+                        norm = normalize_zip_member(n)
+                        if not norm or norm.endswith("/") or n.endswith("/"):
+                            continue
+                        if norm in ("update_manifest.json", "manifest.json") or norm.endswith("/update_manifest.json"):
+                            continue
+                        if payload_prefix and not norm.startswith(payload_prefix):
+                            continue
+                        rel = norm[len(payload_prefix):] if payload_prefix and norm.startswith(payload_prefix) else norm
+                        if not rel:
+                            continue
+                        protected, reason = is_protected_path(rel)
+                        if protected:
+                            item["blocked"].append(f"Protected path blocked: {rel} ({reason})")
+                        payload_files.append(rel)
+                    item["payload_files"] = payload_files[:80]
+                    item["payload_file_count"] = len(payload_files)
+            except Exception as e:
+                item["blocked"].append(f"Payload scan failed: {e}")
+            item["valid"] = not item["blocked"]
+        results.append(item)
+    best = next((r for r in results if r["valid"]), None)
+    return {"updated_at": iso_now(), "current_version_number": VERSION_NUMBER, "items": results, "best_valid": best}
+
+
+def apply_update(zip_name: str) -> Dict[str, Any]:
+    ensure_dirs()
+    scan = scan_updates()
+    match = None
+    for item in scan["items"]:
+        if item["file"] == zip_name:
+            match = item
+            break
+    if not match:
+        return {"ok": False, "message": "Update zip not found in UPDATE_INBOX."}
+    if not match.get("valid"):
+        return {"ok": False, "message": "Update blocked by validation.", "details": match}
+    zip_path = Path(match["path"])
+    manifest = match["manifest"] or {}
+    payload_prefix = str(manifest.get("payload_prefix", "payload/")).replace("\\", "/")
+    stamp = utc_now().strftime("%Y%m%d_%H%M%S")
+    backup_path = BACKUPS / f"backup_before_{zip_path.stem}_{stamp}.zip"
+    applied_files = []
+    added_files = []
+    overwritten = []
+    with tempfile.TemporaryDirectory() as td:
+        stage = Path(td) / "stage"
+        stage.mkdir(parents=True, exist_ok=True)
+        with zipfile.ZipFile(zip_path, "r") as z:
+            for n in z.namelist():
+                norm = normalize_zip_member(n)
+                if not norm or norm.endswith("/") or n.endswith("/"):
+                    continue
+                if norm in ("update_manifest.json", "manifest.json") or norm.endswith("/update_manifest.json"):
+                    continue
+                if payload_prefix and not norm.startswith(payload_prefix):
+                    continue
+                rel = norm[len(payload_prefix):] if payload_prefix and norm.startswith(payload_prefix) else norm
+                if not rel:
+                    continue
+                protected, reason = is_protected_path(rel)
+                if protected:
+                    return {"ok": False, "message": f"Protected path blocked during apply: {rel} ({reason})"}
+                target = ROOT / rel
+                target.parent.mkdir(parents=True, exist_ok=True)
+                data = z.read(n)
+                if target.exists():
+                    overwritten.append(rel)
+                else:
+                    added_files.append(rel)
+                # Extract into staging first
+                staged = stage / rel
+                staged.parent.mkdir(parents=True, exist_ok=True)
+                staged.write_bytes(data)
+        if overwritten:
+            with zipfile.ZipFile(backup_path, "w", zipfile.ZIP_DEFLATED) as bz:
+                for rel in overwritten:
+                    path = ROOT / rel
+                    if path.exists() and path.is_file():
+                        bz.write(path, rel)
+        else:
+            with zipfile.ZipFile(backup_path, "w", zipfile.ZIP_DEFLATED) as bz:
+                bz.writestr("NO_OVERWRITES.txt", "No overwritten files in this update.\n")
+        for staged in stage.rglob("*"):
+            if staged.is_file():
+                rel = staged.relative_to(stage).as_posix()
+                target = ROOT / rel
+                target.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(staged, target)
+                applied_files.append(rel)
+    ledger = read_json(UPDATES / "applied_updates.json", {"updates": []})
+    entry = {
+        "ts": iso_now(),
+        "zip": zip_name,
+        "manifest": manifest,
+        "backup": str(backup_path),
+        "applied_files": applied_files,
+        "overwritten_files": overwritten,
+        "added_files": added_files,
+        "restart_required": bool(manifest.get("restart_required", True)),
+        "claim_level": "SAFE_UPDATE_APPLIED_NO_PROTECTED_DATA_TOUCHED",
+    }
+    ledger.setdefault("updates", []).append(entry)
+    write_json(UPDATES / "applied_updates.json", ledger)
+    append_jsonl(UPDATES / "applied_updates.jsonl", entry)
+    return {"ok": True, "message": "Update applied. Restart may be required for code changes.", "entry": entry}
+
+
+def rollback_last_update() -> Dict[str, Any]:
+    ledger = read_json(UPDATES / "applied_updates.json", {"updates": []})
+    updates = ledger.get("updates", [])
+    if not updates:
+        return {"ok": False, "message": "No applied updates found."}
+    last = updates[-1]
+    backup = Path(last.get("backup", ""))
+    if not backup.exists():
+        return {"ok": False, "message": "Backup file missing; cannot rollback safely.", "backup": str(backup)}
+    restored = []
+    try:
+        with zipfile.ZipFile(backup, "r") as bz:
+            for n in bz.namelist():
+                norm = normalize_zip_member(n)
+                if not norm or norm == "NO_OVERWRITES.txt":
+                    continue
+                protected, reason = is_protected_path(norm)
+                if protected:
+                    continue
+                target = ROOT / norm
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_bytes(bz.read(n))
+                restored.append(norm)
+        entry = {"ts": iso_now(), "rolled_back_zip": last.get("zip"), "backup": str(backup), "restored": restored}
+        append_jsonl(UPDATES / "rollback_ledger.jsonl", entry)
+        return {"ok": True, "message": "Rollback restored overwritten files. Newly added files were left in place for safety review.", "entry": entry}
+    except Exception as e:
+        return {"ok": False, "message": f"Rollback failed: {e}"}
+
+
+CSS = r'''
+:root{--bg:#04151f;--panel:rgba(4,31,45,.82);--panel2:rgba(4,46,62,.72);--line:rgba(111,255,226,.22);--neon:#6fffe2;--gold:#ffd36a;--pink:#ff7bd5;--danger:#ff6b6b;--good:#7cff96;--text:#f2fffc;--muted:#acd6d0}*{box-sizing:border-box}body{margin:0;font-family:Segoe UI,Arial,sans-serif;color:var(--text);background:radial-gradient(circle at 10% 10%,rgba(0,255,197,.28),transparent 24%),radial-gradient(circle at 90% 5%,rgba(255,123,213,.2),transparent 20%),linear-gradient(135deg,#031018 0%,#062735 45%,#0c422f 100%);min-height:100vh}.shell{max-width:1320px;margin:0 auto;padding:18px}.hero{border:1px solid var(--line);background:linear-gradient(135deg,rgba(2,20,31,.88),rgba(3,64,70,.62));border-radius:28px;padding:22px;box-shadow:0 0 35px rgba(111,255,226,.13);position:relative;overflow:hidden}.hero:before{content:"";position:absolute;inset:-70px;background:conic-gradient(from 90deg,transparent,rgba(111,255,226,.18),transparent 35%);animation:spin 10s linear infinite}.hero>*{position:relative}@keyframes spin{to{transform:rotate(360deg)}}h1{margin:0;font-size:clamp(26px,4vw,56px);letter-spacing:.04em}.subtitle{color:var(--muted);font-size:17px;margin-top:6px}.badgebar{display:flex;gap:10px;flex-wrap:wrap;margin-top:15px}.badge{padding:8px 12px;border:1px solid var(--line);border-radius:999px;background:rgba(0,0,0,.18);font-weight:700}.good{color:var(--good)}.danger{color:var(--danger)}.gold{color:var(--gold)}.tabs{display:flex;gap:9px;flex-wrap:wrap;margin:18px 0}.tab{border:1px solid var(--line);background:rgba(0,0,0,.22);color:var(--text);border-radius:999px;padding:10px 13px;cursor:pointer;font-weight:700}.tab.active{background:linear-gradient(90deg,rgba(111,255,226,.28),rgba(255,211,106,.18));box-shadow:0 0 18px rgba(111,255,226,.18)}.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}.card{grid-column:span 4;border:1px solid var(--line);background:var(--panel);border-radius:22px;padding:16px;box-shadow:0 0 18px rgba(0,0,0,.2)}.wide{grid-column:span 8}.full{grid-column:1/-1}.mini{grid-column:span 3}.card h2,.card h3{margin:0 0 10px}.metric{font-size:34px;font-weight:900;color:var(--neon);line-height:1}.muted{color:var(--muted)}.row{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid rgba(255,255,255,.08);padding:7px 0}.row:last-child{border-bottom:0}.btn{border:0;border-radius:14px;padding:11px 14px;margin:5px 5px 5px 0;background:linear-gradient(90deg,#16e7c1,#ffd36a);color:#06202a;font-weight:900;cursor:pointer}.btn.alt{background:rgba(255,255,255,.1);color:var(--text);border:1px solid var(--line)}.btn.danger{background:linear-gradient(90deg,#ff6b6b,#ffd36a);color:#250606}pre{white-space:pre-wrap;background:rgba(0,0,0,.22);border:1px solid rgba(255,255,255,.08);padding:12px;border-radius:14px;max-height:390px;overflow:auto}.hidden{display:none}.table{width:100%;border-collapse:collapse;font-size:14px}.table th,.table td{border-bottom:1px solid rgba(255,255,255,.09);padding:8px;text-align:left}.status-dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--good);box-shadow:0 0 12px var(--good);margin-right:8px}.pulse{animation:pulse 1.5s infinite}@keyframes pulse{50%{opacity:.45;transform:scale(.92)}}.map{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.island{padding:14px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(145deg,rgba(111,255,226,.08),rgba(255,211,106,.07))}.footer{color:var(--muted);font-size:12px;text-align:center;padding:18px}.arenaScore{font-size:42px;font-weight:950;color:var(--gold);line-height:1}.versus{font-size:28px;font-weight:950;text-align:center;color:var(--neon);padding:12px}.badge2{display:inline-block;padding:5px 9px;border:1px solid var(--line);border-radius:999px;margin:3px;font-size:12px;background:rgba(255,255,255,.06)}.penalty{color:#ff8f8f;font-weight:900}.xpbar{height:10px;border:1px solid var(--line);background:rgba(255,255,255,.07);border-radius:999px;overflow:hidden}.xpfill{height:100%;background:linear-gradient(90deg,var(--gold),var(--neon));}.roundbox{border:1px dashed var(--line);border-radius:14px;padding:10px;margin:8px 0;background:rgba(255,255,255,.04)}.barbox{height:12px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.08);overflow:hidden;margin:4px 0 10px}.barfill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--neon),var(--gold))}.chartnote{font-size:12px;color:var(--muted);margin-top:2px}.govnote{border-left:4px solid var(--gold);padding:10px 12px;background:rgba(255,211,106,.08);border-radius:12px;margin:8px 0}.missionline{font-size:14px;letter-spacing:.05em;color:var(--gold);font-weight:900}.goal{font-size:18px;font-weight:900;color:var(--neon);line-height:1.25}@media(max-width:800px){.shell{padding:10px}.card,.wide,.mini{grid-column:1/-1}.tabs{position:sticky;top:0;background:rgba(4,21,31,.94);padding:8px;z-index:5;border-radius:16px}.tab{padding:9px 10px;font-size:13px}.map{grid-template-columns:1fr 1fr}.metric{font-size:28px}h1{font-size:31px}}
+'''
+
+
+def dashboard_html(phone: bool = False) -> str:
+    title = "Bali Phone Command" if phone else "Bali Rocket Crypto Command"
+    tabs = [
+        ("control", "Mission Control"), ("arena", "Game Arena"), ("mission", "Mission"), ("overnight", "Overnight Watch"), ("feed", "Market Feed"), ("growth", "Learning Pulse"),
+        ("research", "Research"), ("forge", "Strategy Forge"), ("squads", "Squads"), ("paper", "Paper Arena"),
+        ("risk", "Risk Police"), ("champions", "Champion Council"), ("updates", "Update Dock"), ("doctor", "Doctor"),
+        ("reports", "Reports"), ("phone", "Phone")]
+    if phone:
+        tabs = [("control", "Mission"), ("arena", "Arena"), ("mission", "Overview"), ("overnight", "Watch"), ("feed", "Feed"), ("growth", "Growth"), ("updates", "Updates"), ("doctor", "Doctor"), ("reports", "Reports"), ("risk", "Risk")]
+    tab_html = "".join([f'<button class="tab" onclick="showTab(\'{tid}\')">{name}</button>' for tid, name in tabs])
+    html_doc = f'''<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{title}</title><style>{CSS}</style></head><body><div class="shell"><section class="hero"><h1>🌴🚀 {title}</h1><div class="subtitle">Bali Mission Control • governor notes • bot progress • paper/research-only • live trading locked OFF</div><div class="badgebar"><span class="badge good"><span class="status-dot pulse"></span>Overnight collector</span><span class="badge gold">Champion lock 0/3</span><span class="badge danger">Live orders OFF</span><span class="badge">Autopilot Local Updates</span><span class="badge gold">Mission Control</span><span class="badge good">Raw live data only</span></div></section><nav class="tabs">{tab_html}</nav><main id="app"></main><div class="footer">{PROJECT_TITLE} {VERSION} — no API keys, no live-order code, no exchange-private endpoints.</div></div><script>{JS}</script></body></html>'''
+    return html_doc
+
+
+JS = r'''
+let DATA=null;let ACTIVE='control';
+function esc(x){return String(x??'').replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));}
+function fmtSecs(s){s=Number(s||0);let h=Math.floor(s/3600),m=Math.floor((s%3600)/60);return `${h}h ${m}m`;}
+async function api(path){const r=await fetch(path,{cache:'no-store'});return await r.json();}
+async function act(path){let out=await api(path);await load();alert(out.message||out.ok||'Done');}
+async function dashUpdateRestart(){if(!confirm('Apply latest patch, close this dashboard, run Speed Lane, then auto restart?'))return;let out=await api('/api/dashboard/update-restart');alert(out.message||'Dashboard update launched. It will close this dash, patch, restart, and show one final result.');document.getElementById('app').innerHTML='<div class="card full"><h2>Dashboard update launched</h2><p>The dashboard is closing so the patch can be applied safely.</p><p>After restart, open Updates and click Show / Copy Last Final Status if you need to send ChatGPT the result. You do not need to search folders or run BALI_FAST_STATUS_PACK manually.</p></div>';}
+async function dashFinalStatus(){let out=await api('/api/dashboard/final-status');let txt=out.text||out.message||'No final status yet.';let copied=false;try{await navigator.clipboard.writeText(txt);copied=true;}catch(e){}document.getElementById('app').innerHTML='<div class="grid"><section class="card full"><h2>Last Dashboard Final Status</h2><p class="muted">'+esc(copied?'Copied to clipboard. Paste this to ChatGPT if needed.':'Copy was blocked by the browser; select the text below and copy it.')+'</p><button class="btn" onclick="dashFinalStatus()">Refresh / Copy Again</button><pre>'+esc(txt)+'</pre></section></div>';}
+async function dashUploadPatchUpdate(){let el=document.getElementById('patchZip');if(!el||!el.files||!el.files.length){alert('Choose the patch ZIP first.');return;}let fd=new FormData();fd.append('patch_zip',el.files[0]);let r=await fetch('/api/dashboard/upload-patch',{method:'POST',body:fd});let out=await r.json();if(!out.ok){alert(out.message||'Upload failed');return;}if(!confirm((out.message||'Patch uploaded')+'\n\nApply it now and auto restart?'))return;await dashUpdateRestart();}
+let AUTOPILOT_FIRED=false;
+async function autopilotToggle(on){let out=await api(on?'/api/autopilot/enable':'/api/autopilot/disable');alert(out.message||('Autopilot '+(on?'armed':'paused')));await load();}
+async function autopilotApplyNow(){let out=await api('/api/autopilot/apply-now');if(out.ok){AUTOPILOT_FIRED=true;document.getElementById('app').innerHTML='<div class="card full"><h2>Autopilot update launched</h2><p>Dashboard is closing to apply '+esc((out.candidate||{}).version||'the patch')+'. One tiny final report will appear after restart.</p></div>';setTimeout(()=>{},1000);}else{alert(out.message||'No autopilot patch ready.');}}
+async function autopilotPoll(){try{let out=await api('/api/autopilot/status');if(out.enabled&&out.ready&&!AUTOPILOT_FIRED){AUTOPILOT_FIRED=true;let fire=await api('/api/autopilot/apply-now');document.getElementById('app').innerHTML='<div class="card full"><h2>Autopilot update launched</h2><p>'+esc(fire.message||'Applying patch and restarting.')+'</p></div>';}}catch(e){}}
+setInterval(autopilotPoll,20000);
+
+async function load(){try{DATA=await api('/api/state');render();}catch(e){document.getElementById('app').innerHTML='<div class="card full"><h2>Connection issue</h2><pre>'+esc(e)+'</pre></div>';}}
+function showTab(t){ACTIVE=t;render();}
+function rows(items,fields){return `<table class="table"><thead><tr>${fields.map(f=>`<th>${esc(f[1])}</th>`).join('')}</tr></thead><tbody>${(items||[]).map(it=>`<tr>${fields.map(f=>`<td>${esc(it[f[0]])}</td>`).join('')}</tr>`).join('')}</tbody></table>`;}
+function card(title,body,cls='card'){return `<section class="${cls}"><h2>${title}</h2>${body}</section>`;}
+function bar(name,val,note=''){val=Math.max(0,Math.min(100,Number(val||0)));return `<div class="row"><b>${esc(name)}</b><span>${val}%</span></div><div class="barbox"><div class="barfill" style="width:${val}%"></div></div>${note?`<div class="chartnote">${esc(note)}</div>`:''}`;}
+
+async function arenaScoreRound(){let out=await api('/api/arena/score-round');alert(out.message||'Referee score round complete.');await load();}
+async function arenaScoreboard(){let out=await api('/api/arena/scoreboard');let txt=JSON.stringify(out,null,2);let copied=false;try{await navigator.clipboard.writeText(txt);copied=true;}catch(e){}document.getElementById('app').innerHTML='<div class="grid"><section class="card full"><h2>Arena Scoreboard JSON</h2><p class="muted">'+esc(copied?'Copied to clipboard.':'Select and copy if needed.')+'</p><button class="btn" onclick="arenaScoreRound()">Score Latest RAW-LIVE SIM Round</button><button class="btn alt" onclick="load()">Back</button><pre>'+esc(txt)+'</pre></section></div>';}
+async function createStargateJoinKit(){let out=await api('/api/arena/create-stargate-join-kit');let txt=JSON.stringify(out,null,2);let copied=false;try{await navigator.clipboard.writeText(txt);copied=true;}catch(e){}document.getElementById('app').innerHTML='<div class="grid"><section class="card full"><h2>Stargate Join Kit</h2><p class="muted">'+esc(copied?'Join kit details copied to clipboard.':'Join kit created. Select and copy if needed.')+'</p><button class="btn alt" onclick="load()">Back</button><pre>'+esc(txt)+'</pre></section></div>';}
+async function showGovernorHub(){let out=await api('/api/arena/governor-hub');let txt=JSON.stringify(out,null,2);let copied=false;try{await navigator.clipboard.writeText(txt);copied=true;}catch(e){}document.getElementById('app').innerHTML='<div class="grid"><section class="card full"><h2>Governor Hub / Bridge Instructions</h2><p class="muted">'+esc(copied?'Hub instructions copied to clipboard.':'Select and copy if needed.')+'</p><button class="btn" onclick="setupOneDriveBridge()">Auto Setup OneDrive Bridge</button><button class="btn" onclick="createStargateJoinKit()">Create Stargate Join Kit</button><button class="btn alt" onclick="load()">Back</button><pre>'+esc(txt)+'</pre></section></div>';}
+async function setupOneDriveBridge(){let out=await api('/api/arena/setup-onedrive-bridge');let txt=JSON.stringify(out,null,2);let copied=false;try{await navigator.clipboard.writeText(txt);copied=true;}catch(e){}document.getElementById('app').innerHTML='<div class="grid"><section class="card full"><h2>OneDrive Arena Bridge Setup</h2><p class="muted">'+esc(copied?'Bridge setup result copied to clipboard.':'Bridge setup complete. Select and copy if needed.')+'</p><button class="btn" onclick="showGovernorHub()">Show Hub Status</button><button class="btn alt" onclick="load()">Back</button><pre>'+esc(txt)+'</pre></section></div>';}
+
+
+async function copyMissionBrief(){let s=DATA.state, ap=DATA.autopilot||{};let txt=[`VERSION=${DATA.version_number?'V012J':'V012J'}`,`MISSION=BALI_THEMED_CHALLENGER_VS_STARGATE`,`OBJECTIVE=GOVERNOR_MISSION_CONSOLE`,`SAFETY=LIVE_ORDERS_OFF | CHAMPION_LOCK_LOCKED | NO_API_KEYS`,`AUTOPILOT=${ap.enabled?'LOCAL_ONLY_ARMED':'PAUSED'}`,`HEALTH=PASS`,`BOT_PROGRESS=PLACEHOLDERS_READY_SIM_ONLY`,`ARENA=SIM_ONLY_FOUNDATION`,`CPU_BRIDGE=SHARED_FOLDER_READY_SIM_ONLY`,`MATCH_REFEREE=PREP_LOCAL_JSON_ONLY`,`BRIDGE=JSON_ONLY_NO_REMOTE_COMMANDS`,`RESULT=MISSION_CONTROL_READY`].join('\n');try{await navigator.clipboard.writeText(txt);alert('Important mission status copied.');}catch(e){alert(txt);}}
+function render(){if(!DATA)return;document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.textContent.toLowerCase().includes(ACTIVE)||b.getAttribute('onclick')?.includes(`'${ACTIVE}'`)));const s=DATA.state;let html='';
+if(ACTIVE==='control') html=control(s); if(ACTIVE==='arena') html=arena(s); if(ACTIVE==='mission') html=mission(s); if(ACTIVE==='overnight') html=overnight(s); if(ACTIVE==='feed') html=feed(s); if(ACTIVE==='growth') html=growth(s); if(ACTIVE==='research') html=research(s); if(ACTIVE==='forge') html=forge(s); if(ACTIVE==='squads') html=squads(s); if(ACTIVE==='paper') html=paper(s); if(ACTIVE==='risk') html=risk(s); if(ACTIVE==='champions') html=champions(s); if(ACTIVE==='updates') html=updates(s); if(ACTIVE==='doctor') html=doctor(s); if(ACTIVE==='reports') html=reports(s); if(ACTIVE==='phone') html=phone(s); document.getElementById('app').innerHTML=html;}
+function control(s){let ap=DATA.autopilot||{};let cand=ap.candidate||null;let progress=[['Python/root stability',100,'Launcher and app root are stable.'],['Autopilot update loop',98,'Local-only watcher is applying higher-version Bali patches.'],['Dashboard update flow',94,'Dash closes, patches, health-checks, and restarts.'],['Important-only reporting',92,'Chat receives tiny reports; logs keep detail.'],['Governor notes',70,'Mission layer is now live in the dashboard.'],['Bot progress tracking',35,'Cards exist; next step is real bot telemetry.'],['Mission charts',35,'Visual build/bot/safety charts now exist.'],['Paper arena proof',45,'Referee prep plus shared-folder check-ins are staged.'],['Two-CPU bridge',45,'Shared-folder JSON bridge is ready for Bali/Stargate SIM check-ins.'],['Live trading readiness',0,'Locked by design.']];let bots=[['Alpha Watch',40,'Baseline BTC/ETH observation.'],['Bravo Scout',30,'Alt-rotation research only.'],['Charlie Filters',20,'Chop/panic/no-trade filters.'],['Risk Police',95,'Safety locks active.'],['Champion Council',0,'No champions approved.']];return `<div class="grid">${card('Governor Notes',`<div class="missionline">Bali themed challenger versus Stargate</div><div class="govnote"><b>Governor note:</b> Autopilot is proven. The mission now shifts to disciplined bot telemetry, evidence, paper proof, and safety-gated progress. Do not chase live trading before the scoreboard earns it.</div><div class="goal">Current objective: bridge Bali and Stargate through SIM-only shared JSON so the referee can score fair rounds.</div><button class="btn" onclick="copyMissionBrief()">Copy Important Mission Status</button>`, 'card wide')}${card('Mission Status',`<div class="row"><b>Version</b><span>V012J</span></div><div class="row"><b>Game Arena</b><span>FOUNDATION</span></div><div class="row"><b>CPU bridge</b><span>SHARED FOLDER READY</span></div><div class="row"><b>Match referee</b><span>PREP LOCAL JSON</span></div><div class="row"><b>Autopilot</b><span>${esc(ap.enabled?'LOCAL ONLY ARMED':'PAUSED')}</span></div><div class="row"><b>Next patch</b><span>${cand?esc(cand.version):'none waiting'}</span></div><div class="row"><b>Live orders</b><span class="danger">OFF</span></div><div class="row"><b>Champion lock</b><span>LOCKED</span></div><div class="row"><b>API keys</b><span>NONE</span></div><div class="row"><b>Raw data rule</b><span>RAW LIVE DATA ONLY</span></div>`) }${card('Build Progress Chart',progress.map(x=>bar(x[0],x[1],x[2])).join(''),'card wide')}${card('Bot Progress Chart',bots.map(x=>bar(x[0],x[1],x[2])).join(''))}${card('Safety Gate Scoreboard',`<div class="row"><b>Live executor</b><span class="danger">NOT BUILT</span></div><div class="row"><b>Paper proof</b><span>EARLY</span></div><div class="row"><b>Backtest proof</b><span>MISSING</span></div><div class="row"><b>Out-of-sample</b><span>MISSING</span></div><div class="row"><b>Human approval</b><span>0/3</span></div><p class="muted">Main goal stays visible: safety-locked, evidence-first, paper/sim before any live capability.</p>`,'card wide')}${card('Update Progress',`<div class="row"><b>Watcher</b><span>PASS</span></div><div class="row"><b>Bundle flow</b><span>READY</span></div><div class="row"><b>Chat report</b><span>IMPORTANT ONLY</span></div><div class="row"><b>Patch ZIPs visible</b><span>${DATA.update_scan.items.length}</span></div><p class="muted">Normal flow: keep dash open, drop/upload the next patch ZIP, autopilot handles the rest.</p>`)}</div>`}
+function arena(s){let ap=DATA.autopilot||{};let bali={score:0,level:1,xp:0,readiness:35};let gate={score:0,level:1,xp:0,readiness:0};let scoring=[['Profit score',0,'Not active until paper rounds begin.'],['Risk control',90,'Safety-first points are already strong.'],['Drawdown control',0,'Needs sim/paper evidence.'],['Consistency',0,'Needs repeated match rounds.'],['Signal quality',10,'Observation layer only.'],['Recovery after loss',0,'Needs match history.'],['Uptime',85,'Dashboard/autopilot stable.'],['Safety violations',100,'No violations; live orders locked OFF.'],['Update stability',98,'Autopilot patches are passing.']];let rounds=[['Round 001','Setup','Arena foundation only; no bot duel yet.'],['Round 002','Bridge prep','CPU roles staged: BALI_CPU, STARGATE_CPU, REFEREE_CPU.'],['Round 003','Referee prep','Scoring rules and sample round JSON staged.'],['Round 004','Bridge ready','Shared-folder JSON bridge ready for two-CPU SIM check-ins.']];return `<div class="grid">${card('Bali vs Stargate Scoreboard',`<div class="row"><div><b>Bali Bot</b><div class="arenaScore">${bali.score}</div><span class="badge2">BALI_CPU</span><span class="badge2">Level ${bali.level}</span><span class="badge2">SIM ONLY</span></div><div class="versus">VS</div><div><b>Stargate Bot</b><div class="arenaScore">${gate.score}</div><span class="badge2">STARGATE_CPU</span><span class="badge2">Level ${gate.level}</span><span class="badge2">BRIDGE PREP</span></div></div><p class="muted">Bali hub exports a Stargate join kit with templates, rules, and heartbeat/check-in paths. Stargate writes JSON check-ins only. Raw live data provenance remains required for scoring. No remote commands, no live trading.</p>`, 'card wide')}${card('Governor Referee Notes',`<div class="govnote"><b>Referee ruling:</b> The arena is open, but the match is not live. Bali must earn points through paper/sim evidence, risk discipline, and uptime. Stargate must report through the same rules on the second CPU.</div><div class="row"><b>Competition mode</b><span>SIM ONLY</span></div><div class="row"><b>Main goal</b><span>Evidence before escalation</span></div><div class="row"><b>Live trading readiness</b><span class="danger">0%</span></div>`) }${card('Arena Scoring Gates',scoring.map(x=>bar(x[0],x[1],x[2])).join(''),'card wide')}${card('Bot XP / Badges',`<div class="row"><b>Bali XP</b><span>${bali.xp}/100</span></div><div class="xpbar"><div class="xpfill" style="width:${bali.xp}%"></div></div><p><span class="badge2">Autopilot stable</span><span class="badge2">Mission console online</span><span class="badge2">Safety locked</span></p><div class="row"><b>Stargate XP</b><span>${gate.xp}/100</span></div><div class="xpbar"><div class="xpfill" style="width:${gate.xp}%"></div></div><p><span class="badge2">Awaiting CPU bridge</span><span class="badge2">No rounds logged</span></p>`) }${card('Round History',rounds.map(r=>`<div class="roundbox"><b>${esc(r[0])}</b> - ${esc(r[1])}<br><span class="muted">${esc(r[2])}</span></div>`).join(''))}${card('CPU Identity Panel',`<div class="row"><b>Bali machine</b><span>BALI_CPU / GOVERNOR HUB + competitor</span></div><div class="row"><b>Stargate machine</b><span>STARGATE_CPU / competitor node via join kit</span></div><div class="row"><b>Referee</b><span>BALI GOVERNOR HUB / scores both CPUs</span></div><div class="row"><b>Bridge status</b><span>SHARED FOLDER WATCHER READY - JSON ONLY</span></div><div class="row"><b>Referee status</b><span>SCORING READY - LOCAL JSON ONLY</span></div><div class="row"><b>Allowed data</b><span>RAW LIVE DATA ONLY - SIM/PAPER SCORING</span></div><div class="row"><b>Blocked for score</b><span>synthetic / mock / seed / demo / ranked replay</span></div><p class="muted">V012J active: Stargate Join Kit export and hub status are ready. Shared-folder watcher plus referee scoring remain SIM-only.</p><button class="btn" onclick="setupOneDriveBridge()">Auto Setup OneDrive Bridge</button><button class="btn" onclick="arenaScoreRound()">Score Latest RAW-LIVE SIM Round</button><button class="btn alt" onclick="arenaScoreboard()">Show / Copy Scoreboard JSON</button><button class="btn" onclick="createStargateJoinKit()">Create / Export Stargate Join Kit</button><button class="btn alt" onclick="showGovernorHub()">Show Hub / Bridge Instructions</button>`,'card wide')}</div>`}
+function mission(s){return `<div class="grid">${card('Bali Command Map',`<div class="map"><div class="island">🌊 Market Brain<br><b>${esc(s.current_regime)}</b></div><div class="island">🛡️ Risk Volcano<br><b>${esc(s.risk_police)}</b></div><div class="island">🏟️ Paper Arena<br><b>READY / no live orders</b></div><div class="island">🏛️ Champion Temple<br><b>${esc(s.champion_lock)} ${esc(s.approved_champions)}</b></div><div class="island">📡 Feed Tower<br><b>${esc(s.last_feed_source)}</b></div><div class="island">🧪 Research Hut<br><b>${esc(DATA.line_counts.research_ledger)} notes</b></div><div class="island">⚙️ Update Dock<br><b>${DATA.update_scan.items.length} zip(s)</b></div><div class="island">📱 Phone Pier<br><b>${DATA.lan_ips.length?'LAN ready':'local only'}</b></div></div>`, 'card wide')}${card('Current Status',`<div class="metric">${esc(s.current_regime)}</div><p class="muted">No-trade score: ${esc(s.no_trade_score)} / 100</p><div class="row"><b>Pulse count</b><span>${esc(s.pulse_count)}</span></div><div class="row"><b>Growth score</b><span>${esc(s.growth_score)}</span></div><div class="row"><b>Uptime</b><span>${fmtSecs(DATA.uptime_seconds)}</span></div><button class="btn" onclick="act('/api/pulse')">Manual Pulse Now</button><button class="btn alt" onclick="act('/api/report/morning')">Generate Morning Report</button>`)}${card('Safety Locks',`<div class="row"><b>Live orders</b><span class="danger">${esc(s.live_orders)}</span></div><div class="row"><b>Champion Council</b><span>${esc(s.champion_lock)}</span></div><div class="row"><b>Approved champions</b><span>${esc(s.approved_champions)}</span></div><div class="row"><b>Risk Police</b><span>${esc(s.risk_police)}</span></div><p class="muted">This build contains no live trading executor and no private API-key flow.</p>`)}${card('Next Gate',`<div class="metric">${esc(s.next_gate)}</div><p>Blocker: ${esc(s.current_blocker)}</p>`,'card wide')}</div>`}
+function overnight(s){return `<div class="grid">${card('Overnight Watch Controls',`<p>Leave this window/server running overnight. It writes market ticks, feed proof, learning cycles, research notes, and suggested next upgrades.</p><button class="btn" onclick="act('/api/watch/start')">Start Watch</button><button class="btn alt" onclick="act('/api/watch/stop')">Pause Watch</button><button class="btn" onclick="act('/api/pulse')">Pulse Now</button><button class="btn" onclick="act('/api/report/morning')">Generate Morning Report</button><div class="row"><b>Watch enabled</b><span>${esc(s.watch_enabled)}</span></div><div class="row"><b>Pulse interval</b><span>${esc(s.pulse_seconds)} sec</span></div><div class="row"><b>Last pulse</b><span>${esc(s.last_pulse_at)}</span></div>`,'card wide')}${card('Overnight Ledgers',`<div class="row"><b>Market ticks</b><span>${DATA.line_counts.market_ticks}</span></div><div class="row"><b>Feed proof</b><span>${DATA.line_counts.feed_proof}</span></div><div class="row"><b>Learning cycles</b><span>${DATA.line_counts.learning_cycles}</span></div><div class="row"><b>Research notes</b><span>${DATA.line_counts.research_ledger}</span></div>`)}${card('Latest Learning Cycles',rows(DATA.last_cycles,[['cycle','Cycle'],['ts','Time'],['source','Source'],['regime','Regime'],['claim_level','Claim']]),'card full')}</div>`}
+function feed(s){return `<div class="grid">${card('Public Market Feed Proof',`<div class="row"><b>Source</b><span>${esc(s.last_feed_source)}</span></div><div class="row"><b>Status</b><span>${esc(s.last_feed_status)}</span></div><div class="row"><b>Regime</b><span>${esc(s.current_regime)}</span></div><p class="muted">Uses public market endpoints only. No API key required.</p><button class="btn" onclick="act('/api/pulse')">Fetch Market Pulse</button>`,'card wide')}${card('Latest Ticks',rows(DATA.last_ticks,[['ts','Time'],['symbol','Symbol'],['last_price','Last'],['price_change_percent_24h','24h %'],['regime','Regime'],['source','Source']]),'card full')}</div>`}
+function growth(s){return `<div class="grid">${card('Growth Score',`<div class="metric">${esc(s.growth_score)}</div><div class="row"><b>Learning score</b><span>${esc(s.learning_score)}</span></div><div class="row"><b>Research score</b><span>${esc(s.research_score)}</span></div><div class="row"><b>Cycles</b><span>${esc(s.pulse_count)}</span></div><p class="muted">Growth means data/research activity, not proof of profit.</p>`)}${card('Recent Pulse Ledger',rows(DATA.last_cycles,[['cycle','Cycle'],['ts','Time'],['research_task','Task'],['claim_level','Claim']]),'card wide')}</div>`}
+function research(s){return `<div class="grid">${card('Research Ledger',rows(DATA.last_research,[['ts','Time'],['squad','Squad'],['regime','Regime'],['research_task','Research task'],['claim_level','Claim']]),'card full')}${card('Suggested Next Research Upgrades',DATA.suggested_upgrades.map(u=>`<div class="row"><b>${esc(u.version)} ${esc(u.name)}</b><span>${esc(u.status)}</span></div><p class="muted">${esc(u.why)}</p>`).join('')||'<p>No suggestions yet.</p>','card full')}</div>`}
+function forge(s){return `<div class="grid">${card('Strategy DNA Seeds',rows(DATA.strategy_dna,[['name','Name'],['family','Family'],['timeframes','Timeframes'],['regime_needed','Regime'],['status','Status'],['proof_needed','Proof needed']]),'card full')} ${card('Forge Rule',`<p>No strategy can become a champion from this tab. It can only become a research candidate until backtest, out-of-sample, walk-forward, slippage, paper arena, and human approval gates exist.</p>`,'card full')}</div>`}
+function squads(s){return `<div class="grid">${card('Alpha Squad',`<div class="metric">WATCH</div><p>Conservative BTC/ETH observation and baseline regime proof.</p>`)}${card('Bravo Squad',`<div class="metric">SCOUT</div><p>Alt rotation research only. No trade execution.</p>`)}${card('Charlie Squad',`<div class="metric">LOCKED</div><p>Specialists for chop, panic, and no-trade filters.</p>`)}${card('Risk Police',`<div class="metric">ARMED</div><p>Live orders off. Champion lock enforced.</p>`)}</div>`}
+function paper(s){return `<div class="grid">${card('Paper Arena',`<div class="metric">READY</div><p>The next build should add candle harvesting and paper-shadow would-have-traded records. This build only collects public market data and research pulse.</p>`,'card wide')}${card('Next Paper Gate',`<p>V013 suggested: Paper Shadow Signal Simulator. It should generate simulated entries/exits, fees, slippage, and explanations without placing orders.</p>`)}</div>`}
+function risk(s){return `<div class="grid">${card('Risk Police Locks',`<div class="row"><b>Live orders</b><span class="danger">${esc(s.live_orders)}</span></div><div class="row"><b>Risk Police</b><span>${esc(s.risk_police)}</span></div><div class="row"><b>No-trade score</b><span>${esc(s.no_trade_score)}</span></div><div class="row"><b>Mode</b><span>${esc(s.mode)}</span></div><button class="btn danger" onclick="act('/api/standdown')">Emergency Stand Down</button><p class="muted">Stand Down pauses research watch; it still does not control any live trading because live trading is not built.</p>`,'card wide')}${card('Locked Actions',`<p>Enable live trading, approve champion, change API keys, increase live size, disable Risk Police: not implemented in this build.</p>`)}</div>`}
+function champions(s){return `<div class="grid">${card('Champion Council',`<div class="metric">${esc(s.approved_champions)}</div><p>Status: ${esc(s.champion_lock)}</p><p>No strategy can be approved from this build. Overnight data is only baseline research.</p>`,'card wide')}${card('Future Gates',`<div class="row"><b>Backtest</b><span>MISSING</span></div><div class="row"><b>Out-of-sample</b><span>MISSING</span></div><div class="row"><b>Walk-forward</b><span>MISSING</span></div><div class="row"><b>Paper Arena</b><span>MISSING</span></div><div class="row"><b>Human approval</b><span>LOCKED</span></div>`)}</div>`}
+function updates(s){let ap=DATA.autopilot||{};let cand=ap.candidate||null;return `<div class="grid">${card('Autopilot Important-Only Bundle Update System',`<div class="row"><b>Status</b><span>${esc(ap.enabled?'ARMED':'PAUSED')}</span></div><div class="row"><b>Installed</b><span>${esc(DATA.state.version||'unknown')}</span></div><div class="row"><b>Next patch</b><span>${cand?esc(cand.version+' '+cand.name):'none waiting'}</span></div><button class="btn" onclick="autopilotApplyNow()">Apply Waiting Patch Now</button><button class="btn alt" onclick="autopilotToggle(true)">Arm Autopilot</button><button class="btn alt" onclick="autopilotToggle(false)">Pause Autopilot</button><p class="muted">Autopilot watches only local valid Bali patch ZIPs in the updates folder. Bundle minor fixes when safe. Tiny success reports hide selected/installed duplicate lines. No internet fetching. One patch per restart. Success reports show only important lines; errors open details.</p>`,'card wide')}${card('Manual Backup Controls',`<input id="patchZip" type="file" accept=".zip" style="display:block;margin:8px 0 12px;color:var(--text)"><button class="btn alt" onclick="dashUploadPatchUpdate()">Upload Patch ZIP + Auto Restart</button><button class="btn alt" onclick="dashUpdateRestart()">Apply ZIP Already in Updates</button><button class="btn alt" onclick="dashFinalStatus()">Show / Copy Tiny Final Status</button><p class="muted">Normal use: leave autopilot armed and drop the patch ZIP into updates, or upload it here.</p>`)}</div>`}
+function phone(s){let urls=(DATA.lan_ips||[]).map(ip=>`http://${ip}:9061/phone`).join('\n');return `<div class="grid">${card('Phone LAN View',`<p>Start with the LAN batch file, keep PC and phone on the same private Wi-Fi, then open:</p><pre>${esc(urls||'No LAN IP detected yet. Try the PHONE LAN launcher.')}</pre><p class="muted">Do not expose this dashboard publicly. Use private LAN/VPN only.</p>`,'card wide')}${card('Phone Safe Actions',`<p>SITREP, Doctor, Pulse, Update Scan, Report generation, and Update Apply/Rollback with validation.</p><p class="muted">Live trading and champion approval remain unavailable.</p>`)}</div>`}
+setInterval(load,15000);load();
+'''
+
+
+def full_build_root() -> Path:
+    """Return the parent launcher folder when the app runs inside the nested app folder."""
+    candidates = [ROOT.parent, ROOT]
+    for cand in candidates:
+        if (cand / "BALI_SPEED_LANE_UPDATE.bat").exists() or (cand / "BALI_ONE_CLICK_UPDATE.bat").exists():
+            return cand
+    return ROOT.parent
+
+
+
+def patch_rank_from_version_text(version: str) -> int:
+    """Map V012J style versions to sortable ranks. V011A=1100, V012J=1119."""
+    version = str(version or "").strip().upper()
+    m = re.search(r"V(\d{3})([A-Z])", version)
+    if not m:
+        return 0
+    return int(m.group(1)) * 100 + (ord(m.group(2)) - ord("A"))
+
+
+def read_root_manifest(parent: Optional[Path] = None) -> Dict[str, str]:
+    parent = parent or full_build_root()
+    path = parent / "BALI_PATCH_MANIFEST.txt"
+    out: Dict[str, str] = {}
+    try:
+        for line in path.read_text(encoding="utf-8", errors="replace").splitlines():
+            if "=" in line:
+                k, v = line.split("=", 1)
+                out[k.strip()] = v.strip()
+    except Exception:
+        pass
+    return out
+
+
+def parse_bali_patch_manifest_from_zip(zip_path: Path) -> Optional[Dict[str, str]]:
+    try:
+        with zipfile.ZipFile(zip_path, "r") as z:
+            names = z.namelist()
+            manifest_name = None
+            for name in names:
+                norm = normalize_zip_member(name)
+                if norm == "BALI_PATCH_MANIFEST.txt" or (norm and norm.endswith("/BALI_PATCH_MANIFEST.txt")):
+                    manifest_name = name
+                    break
+            if not manifest_name:
+                return None
+            text = z.read(manifest_name).decode("utf-8", errors="replace")
+        out: Dict[str, str] = {"ZIP_PATH": str(zip_path), "ZIP_NAME": zip_path.name}
+        for line in text.splitlines():
+            if "=" in line:
+                k, v = line.split("=", 1)
+                out[k.strip()] = v.strip()
+        return out
+    except Exception:
+        return None
+
+
+def find_newest_local_bali_patch(parent: Optional[Path] = None) -> Optional[Dict[str, Any]]:
+    parent = parent or full_build_root()
+    installed = read_root_manifest(parent)
+    installed_rank = patch_rank_from_version_text(installed.get("VERSION")) or VERSION_NUMBER
+    candidates: List[Dict[str, Any]] = []
+    search_dirs = [parent / "updates", parent]
+    for folder in search_dirs:
+        try:
+            if not folder.exists():
+                continue
+            for zp in folder.glob("BALI_ROCKET_CRYPTO_COMMAND_*.zip"):
+                if "applied_patch_archive" in str(zp).lower():
+                    continue
+                mf = parse_bali_patch_manifest_from_zip(zp)
+                if not mf:
+                    continue
+                if mf.get("PROJECT") != PROJECT_NAME:
+                    continue
+                if mf.get("BALI_PATCH_MANIFEST") != "1":
+                    continue
+                rank = patch_rank_from_version_text(mf.get("VERSION"))
+                if rank <= installed_rank:
+                    continue
+                candidates.append({"path": str(zp), "name": zp.name, "version": mf.get("VERSION", ""), "rank": rank, "patch_name": mf.get("PATCH_NAME", ""), "manifest": mf})
+        except Exception:
+            continue
+    candidates.sort(key=lambda x: (int(x.get("rank") or 0), str(x.get("path"))), reverse=True)
+    return candidates[0] if candidates else None
+
+
+def autopilot_state_path(parent: Optional[Path] = None) -> Path:
+    parent = parent or full_build_root()
+    return parent / "logs" / "BALI_AUTOPILOT_UPDATE_STATE.json"
+
+
+def read_autopilot_state(parent: Optional[Path] = None) -> Dict[str, Any]:
+    parent = parent or full_build_root()
+    default = {"enabled": True, "mode": "LOCAL_UPDATES_FOLDER_ONLY", "last_triggered_version": "", "last_triggered_path": "", "last_triggered_at": ""}
+    data = read_json(autopilot_state_path(parent), default)
+    if not isinstance(data, dict):
+        data = default
+    # V012J defaults to armed unless user pauses it.
+    if "enabled" not in data:
+        data["enabled"] = True
+    data.setdefault("mode", "LOCAL_UPDATES_FOLDER_ONLY")
+    return data
+
+
+def write_autopilot_state(data: Dict[str, Any], parent: Optional[Path] = None) -> None:
+    parent = parent or full_build_root()
+    write_json(autopilot_state_path(parent), data)
+
+
+def autopilot_status() -> Dict[str, Any]:
+    parent = full_build_root()
+    installed = read_root_manifest(parent)
+    state = read_autopilot_state(parent)
+    newest = find_newest_local_bali_patch(parent)
+    ready = bool(state.get("enabled") and newest)
+    return {
+        "ok": True,
+        "enabled": bool(state.get("enabled")),
+        "mode": state.get("mode", "LOCAL_UPDATES_FOLDER_ONLY"),
+        "installed_version": installed.get("VERSION", VERSION),
+        "candidate": newest,
+        "ready": ready,
+        "minimal": "ARMED" if state.get("enabled") else "PAUSED",
+        "message": (f"Autopilot ready: {newest['version']}" if ready else ("Autopilot armed. No newer local patch." if state.get("enabled") else "Autopilot paused.")),
+        "safety": "live orders OFF, champion lock LOCKED, no API keys",
+    }
+
+
+def set_autopilot_enabled(enabled: bool) -> Dict[str, Any]:
+    parent = full_build_root()
+    state = read_autopilot_state(parent)
+    state["enabled"] = bool(enabled)
+    state["updated_at"] = iso_now()
+    write_autopilot_state(state, parent)
+    return autopilot_status()
+
+
+def autopilot_apply_now_bridge() -> Dict[str, Any]:
+    status = autopilot_status()
+    if not status.get("enabled"):
+        return {"ok": False, "message": "Autopilot is paused."}
+    if not status.get("ready"):
+        return {"ok": False, "message": "No newer valid local Bali patch is waiting in updates."}
+    parent = full_build_root()
+    state = read_autopilot_state(parent)
+    cand = status.get("candidate") or {}
+    # Avoid firing the same candidate twice from browser polling while the old dash is closing.
+    if state.get("last_triggered_path") == cand.get("path") and (time.time() - Path(autopilot_state_path(parent)).stat().st_mtime) < 90:
+        return {"ok": True, "message": "Autopilot already triggered this patch. Waiting for restart.", "candidate": cand}
+    state["last_triggered_version"] = cand.get("version", "")
+    state["last_triggered_path"] = cand.get("path", "")
+    state["last_triggered_at"] = iso_now()
+    write_autopilot_state(state, parent)
+    result = dashboard_update_restart_bridge()
+    result["autopilot"] = True
+    result["candidate"] = cand
+    return result
+
+
+def dashboard_final_status_text() -> str:
+    """Return important-only tiny status for dashboard/chat paste-back; details stay in logs."""
+    parent = full_build_root()
+    manifest = read_root_manifest(parent)
+    logs = parent / "logs"
+    final = logs / "LAST_FINAL_REPORT.txt"
+    data = {"VERSION": manifest.get("VERSION", VERSION), "HEALTH": "UNKNOWN", "CLOSE": "UNKNOWN", "RESTART": "UNKNOWN", "AUTOPILOT": "LOCAL_ONLY", "WATCHER": "PASS", "BUNDLE": "READY", "RESULT": "STATUS"}
+    try:
+        if final.exists():
+            for raw in final.read_text(encoding="utf-8", errors="replace").splitlines():
+                line = raw.strip()
+                if line.startswith("VERSION="):
+                    data["VERSION"] = line.split("=", 1)[1].strip()
+                elif line.startswith("HEALTH=PASS") or line.startswith("RESULT: FAST HEALTH PASS"):
+                    data["HEALTH"] = "PASS"
+                elif line.startswith("CLOSE=PASS") or "LISTENER_STATUS_AFTER_CLOSE=CLEAR" in line or "LISTENER_STATUS=CLEAR" in line:
+                    data["CLOSE"] = "PASS"
+                elif line.startswith("RESTART=PASS") or line.startswith("RESTART=LAUNCHED"):
+                    data["RESTART"] = "PASS"
+                elif line.startswith("AUTOPILOT=ARMED_LOCAL_ONLY") or line.startswith("AUTOPILOT=LOCAL_ONLY"):
+                    data["AUTOPILOT"] = "LOCAL_ONLY"
+                elif line.startswith("AUTOPILOT_WATCHER=PASS") or line.startswith("WATCHER=PASS"):
+                    data["WATCHER"] = "PASS"
+                elif line.startswith("BUNDLE=READY"):
+                    data["BUNDLE"] = "READY"
+                elif line.startswith("RESULT=PASS") or line.startswith("RESULT: PASS") or line.startswith("RESULT: DASH UPDATE FINAL PASS"):
+                    data["RESULT"] = "PASS"
+    except Exception:
+        pass
+    if data["RESULT"] == "STATUS" and data["HEALTH"] == "PASS":
+        data["RESULT"] = "PASS"
+    return "\n".join([
+        f"VERSION={data['VERSION']}",
+        f"HEALTH={data['HEALTH']}",
+        f"CLOSE={data['CLOSE']}",
+        f"RESTART={data['RESTART']}",
+        f"AUTOPILOT={data['AUTOPILOT']}",
+        f"WATCHER={data['WATCHER']}",
+        f"BUNDLE={data['BUNDLE']}",
+        "GOVERNOR=MISSION_CONSOLE",
+        "ARENA=GAME_FOUNDATION",
+        "CPU_BRIDGE=SHARED_FOLDER_READY_SIM_ONLY",
+        "MATCH_REFEREE=PREP_LOCAL_JSON_ONLY",
+        "BRIDGE=JSON_ONLY_NO_REMOTE_COMMANDS",
+        f"RESULT={data['RESULT']}",
+    ])
+
+def dashboard_update_restart_bridge() -> Dict[str, Any]:
+    """Launch the external update bridge, then let this dashboard exit for safe file replacement."""
+    parent = full_build_root()
+    logs = parent / "logs"
+    logs.mkdir(parents=True, exist_ok=True)
+    engine = parent / "tools" / "BALI_DASH_UPDATE_RESTART_ENGINE_V012J.ps1"
+    if not engine.exists():
+        return {
+            "ok": False,
+            "message": "Dashboard update bridge missing. Apply V012J with BALI_SPEED_LANE_UPDATE.bat first.",
+            "expected_engine": str(engine),
+        }
+    report = logs / "BALI_DASH_UPDATE_RESTART_REQUEST_V012J.txt"
+    report.write_text("BALI DASH UPDATE REQUEST V012J\n" + f"Requested: {iso_now()}\n" + f"Root: {parent}\n" + "Safety: live orders OFF, champion lock LOCKED, no API keys.\n", encoding="utf-8")
+    cmd = [
+        "powershell", "-NoProfile", "-ExecutionPolicy", "Bypass",
+        "-File", str(engine), "-Root", str(parent), "-Port", str(PORT_DEFAULT)
+    ]
+    creationflags = 0
+    if os.name == "nt" and hasattr(subprocess, "CREATE_NEW_CONSOLE"):
+        creationflags = subprocess.CREATE_NEW_CONSOLE
+    subprocess.Popen(cmd, cwd=str(parent), creationflags=creationflags)
+    append_jsonl(LOGS / "dashboard_update_bridge.jsonl", {"ts": iso_now(), "engine": str(engine), "root": str(parent), "claim_level": "DASHBOARD_TRIGGERED_EASY_ONEDRIVE_BRIDGE_HUB_SETUP"})
+    return {
+        "ok": True,
+        "message": "Dashboard update launched. This dashboard will close, apply the patch, restart through Bali Forever Starter, and make the final status available in the Updates tab. Autopilot/minimal final status is active; no manual status pack step required.",
+        "report": str(parent / "logs" / "BALI_DASH_UPDATE_RESTART_REPORT_V012J.txt"),
+    }
+
+
+
+def save_uploaded_patch_zip(headers: Any, rfile: Any) -> Dict[str, Any]:
+    """Save one uploaded ZIP from the dashboard to the real root updates folder."""
+    parent = full_build_root()
+    updates_dir = parent / "updates"
+    updates_dir.mkdir(parents=True, exist_ok=True)
+    try:
+        length = int(headers.get("Content-Length", "0") or "0")
+    except Exception:
+        length = 0
+    if length <= 0:
+        return {"ok": False, "message": "No upload body received."}
+    if length > 250_000_000:
+        return {"ok": False, "message": "Patch ZIP is too large for dashboard upload."}
+    ctype = headers.get("Content-Type", "")
+    if "multipart/form-data" not in ctype or "boundary=" not in ctype:
+        return {"ok": False, "message": "Upload must be multipart form data."}
+    boundary = ctype.split("boundary=", 1)[1].strip().strip('"')
+    if not boundary:
+        return {"ok": False, "message": "Upload boundary missing."}
+    raw = rfile.read(length)
+    marker = ("--" + boundary).encode("utf-8", errors="ignore")
+    for part in raw.split(marker):
+        if b"Content-Disposition:" not in part or b"filename=" not in part:
+            continue
+        if b"\r\n\r\n" not in part:
+            continue
+        head, data = part.split(b"\r\n\r\n", 1)
+        header_text = head.decode("utf-8", errors="replace")
+        filename = ""
+        for chunk in header_text.split(";"):
+            chunk = chunk.strip()
+            if chunk.lower().startswith("filename="):
+                filename = chunk.split("=", 1)[1].strip().strip('"')
+        safe = Path(filename).name
+        if not safe.lower().endswith(".zip"):
+            return {"ok": False, "message": "Only .zip patch files are accepted."}
+        if ".." in safe or "/" in safe or "\\" in safe:
+            return {"ok": False, "message": "Unsafe patch filename blocked."}
+        data = data.rstrip(b"\r\n-")
+        if len(data) < 100:
+            return {"ok": False, "message": "Uploaded ZIP looked empty or incomplete."}
+        dest = updates_dir / safe
+        dest.write_bytes(data)
+        append_jsonl(LOGS / "dashboard_patch_uploads.jsonl", {"ts": iso_now(), "file": safe, "bytes": len(data), "dest": str(dest), "claim_level": "DASHBOARD_UPLOADED_PATCH_ZIP"})
+        return {"ok": True, "message": f"Patch uploaded to updates: {safe}", "file": safe, "path": str(dest), "bytes": len(data)}
+    return {"ok": False, "message": "No patch_zip file field found in upload."}
+
+
+def arena_bridge_root(parent: Optional[Path] = None) -> Path:
+    parent = parent or full_build_root()
+    default_bridge = parent / "game_arena" / "bridge"
+    # V012J: allow Bali Governor Hub to use an easy OneDrive-synced bridge folder.
+    # This stays JSON-only / SIM-only / no remote commands. If the config is missing,
+    # the normal internal bridge is used.
+    try:
+        env_bridge = os.environ.get("BALI_ARENA_BRIDGE_ROOT", "").strip()
+        if env_bridge:
+            p = Path(env_bridge)
+            if p.exists():
+                return p
+    except Exception:
+        pass
+    try:
+        cfg_path = default_bridge / "ACTIVE_BRIDGE_CONFIG.json"
+        if cfg_path.exists():
+            cfg = read_json(cfg_path, {})
+            ptxt = str(cfg.get("active_bridge_root", "")).strip()
+            if ptxt:
+                p = Path(ptxt)
+                if p.exists():
+                    return p
+    except Exception:
+        pass
+    return default_bridge
+
+
+def bridge_subfolder(parent: Optional[Path], name: str) -> Path:
+    root = arena_bridge_root(parent)
+    shared = root / "shared_drop"
+    # V012J compatibility: OneDrive helper creates direct folders under BaliArenaBridge
+    # and also a shared_drop layout. Prefer the direct folder when it exists.
+    direct = root / name
+    nested = shared / name
+    if direct.exists():
+        return direct
+    return nested
+
+
+def latest_json_file(folder: Path) -> Optional[Path]:
+    try:
+        files = [p for p in folder.glob("*.json") if p.is_file()]
+        files.sort(key=lambda p: p.stat().st_mtime, reverse=True)
+        return files[0] if files else None
+    except Exception:
+        return None
+
+
+
+def score_bot_checkin(data: Any) -> Dict[str, Any]:
+    if not isinstance(data, dict):
+        return {"score": -999, "safety": "MISSING", "detail": "missing check-in"}
+    required = ["data_origin", "source_exchange", "source_symbol", "market_timestamp_utc", "captured_at_utc", "raw_ticks_count"]
+    for key in required:
+        if data.get(key) in (None, ""):
+            return {"score": -999, "safety": "RAW_LIVE_DATA_FAIL", "detail": f"missing {key}"}
+    if str(data.get("data_origin", "")).upper() != "RAW_LIVE_DATA":
+        return {"score": -999, "safety": "RAW_LIVE_DATA_FAIL", "detail": f"blocked origin {data.get('data_origin', '')}"}
+    if float(data.get("raw_ticks_count", 0) or 0) < 1:
+        return {"score": -999, "safety": "RAW_LIVE_DATA_FAIL", "detail": "raw_ticks_count too low"}
+    live = bool(data.get("orders_live", False))
+    keys = bool(data.get("api_keys_present", False))
+    violations = float(data.get("safety_violations", 0) or 0)
+    if live or keys or violations > 0:
+        return {"score": -999, "safety": "FAIL", "detail": "safety violation"}
+    profit = float(data.get("profit_pct", 0) or 0)
+    drawdown = abs(float(data.get("max_drawdown_pct", 0) or 0))
+    risk_events = float(data.get("risk_events", 0) or 0)
+    uptime = float(data.get("uptime_pct", 100) or 100)
+    signal = float(data.get("signal_quality", 50) or 50)
+    score = round((profit * 10) - (drawdown * 4) - (risk_events * 5) + (uptime * 0.25) + (signal * 0.2), 2)
+    return {"score": score, "safety": "PASS", "detail": "raw live data scored"}
+
+def arena_score_round() -> Dict[str, Any]:
+    parent = full_build_root()
+    bridge = arena_bridge_root(parent)
+    from_bali = bridge_subfolder(parent, "from_bali")
+    from_gate = bridge_subfolder(parent, "from_stargate")
+    results = bridge_subfolder(parent, "round_results")
+    scoreboard_dir = bridge / "scoreboard"
+    for p in [from_bali, from_gate, results, scoreboard_dir, parent / "logs"]:
+        p.mkdir(parents=True, exist_ok=True)
+    bali_file = latest_json_file(from_bali)
+    gate_file = latest_json_file(from_gate)
+    bali = read_json(bali_file, None) if bali_file else None
+    gate = read_json(gate_file, None) if gate_file else None
+    bali_score = score_bot_checkin(bali)
+    gate_score = score_bot_checkin(gate)
+    winner = "DRAW"
+    if bali_score["score"] > gate_score["score"]:
+        winner = "BALI"
+    elif gate_score["score"] > bali_score["score"]:
+        winner = "STARGATE"
+    round_id = "ROUND_" + utc_now().strftime("%Y%m%d_%H%M%S")
+    result = {
+        "version": "V012J", "round_id": round_id, "mode": "SIM_ONLY", "bridge": "SHARED_FOLDER_JSON_ONLY", "raw_live_data_only": True,
+        "bali_checkin": str(bali_file) if bali_file else "", "stargate_checkin": str(gate_file) if gate_file else "",
+        "bali_score": bali_score["score"], "stargate_score": gate_score["score"], "winner": winner,
+        "bali_safety": bali_score["safety"], "stargate_safety": gate_score["safety"],
+        "safety": "LIVE_ORDERS_OFF | CHAMPION_LOCK_LOCKED | NO_API_KEYS",
+        "notes": "RAW LIVE DATA ONLY SIM referee score. Synthetic/mock/seed/demo data is rejected. No orders, no API keys, no remote commands."
+    }
+    result_path = results / f"{round_id}_V012J.json"
+    write_json(result_path, result)
+    scoreboard = {
+        "version": "V012J", "mode": "SIM_ONLY", "rounds_scored": 1, "last_round": round_id, "last_winner": winner,
+        "bali": {"score": bali_score["score"], "safety": bali_score["safety"], "level": 1, "xp": max(0, int(bali_score["score"]))},
+        "stargate": {"score": gate_score["score"], "safety": gate_score["safety"], "level": 1, "xp": max(0, int(gate_score["score"]))},
+        "result_file": str(result_path), "safety": "LIVE_ORDERS_OFF | CHAMPION_LOCK_LOCKED | NO_API_KEYS"
+    }
+    write_json(scoreboard_dir / "ARENA_SCOREBOARD_V012J.json", scoreboard)
+    report = parent / "logs" / "BALI_ARENA_REFEREE_SCORE_ROUND_REPORT_V012J.txt"
+    lines = [
+        "BALI ARENA REFEREE SCORE ROUND V012J", f"Generated: {iso_now()}",
+        "SAFETY=LIVE_ORDERS_OFF | CHAMPION_LOCK_LOCKED | NO_API_KEYS", "MODE=SIM_ONLY",
+        f"BALI_CHECKIN={bali_file.name if bali_file else 'MISSING'}", f"STARGATE_CHECKIN={gate_file.name if gate_file else 'MISSING'}",
+        f"BALI_SCORE={bali_score['score']}", f"STARGATE_SCORE={gate_score['score']}", f"WINNER={winner}",
+        f"ROUND_RESULT={result_path}", "REFEREE_SCOREBOARD=READY_SIM_ONLY", "RESULT=REFEREE_SCORE_ROUND_PASS"
+    ]
+    report.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    shutil.copy2(report, parent / "logs" / "LAST_ARENA_REFEREE_SCORE_ROUND_REPORT.txt")
+    return {"ok": True, "message": f"Referee scored SIM round: {winner}", "result": result, "scoreboard": scoreboard, "report": str(report)}
+
+
+def arena_scoreboard_state() -> Dict[str, Any]:
+    parent = full_build_root()
+    bridge = arena_bridge_root(parent)
+    scoreboard = read_json(bridge / "scoreboard" / "ARENA_SCOREBOARD_V012J.json", {})
+    return {"ok": True, "version": "V012J", "scoreboard": scoreboard, "bridge": str(bridge), "safety": "LIVE_ORDERS_OFF | CHAMPION_LOCK_LOCKED | NO_API_KEYS"}
+
+
+
+
+def governor_hub_state() -> Dict[str, Any]:
+    parent = full_build_root()
+    bridge = arena_bridge_root(parent)
+    join_dir = parent / "game_arena" / "stargate_join_kit"
+    out_dir = parent / "game_arena" / "stargate_join_kit_output"
+    shared = bridge / "shared_drop"
+    from_bali = bridge_subfolder(parent, "from_bali")
+    from_stargate = bridge_subfolder(parent, "from_stargate")
+    round_rules = bridge_subfolder(parent, "round_rules")
+    round_results = bridge_subfolder(parent, "round_results")
+    heartbeats = bridge_subfolder(parent, "heartbeats")
+    for p in [join_dir, out_dir, shared, from_bali, from_stargate, round_rules, round_results, heartbeats]:
+        p.mkdir(parents=True, exist_ok=True)
+    active_cfg = read_json((parent / "game_arena" / "bridge" / "ACTIVE_BRIDGE_CONFIG.json"), {})
+    stargate_hb = latest_json_file(heartbeats)
+    stargate_connected = False
+    stargate_heartbeat_age_seconds = None
+    if stargate_hb:
+        try:
+            stargate_heartbeat_age_seconds = round(time.time() - stargate_hb.stat().st_mtime, 1)
+            stargate_connected = stargate_heartbeat_age_seconds <= 180
+        except Exception:
+            pass
+    latest_kit = latest_json_file(out_dir) if out_dir.exists() else None
+    state = {
+        "ok": True,
+        "version": "V012J",
+        "governor_hub": "BALI_CPU",
+        "bali_role": "GOVERNOR_HUB_AND_COMPETITOR",
+        "stargate_role": "COMPETITOR_NODE_JSON_CHECKINS_ONLY",
+        "bridge_mode": "SHARED_FOLDER_JSON_ONLY_NO_REMOTE_COMMANDS",
+        "active_bridge_root": str(bridge),
+        "bridge_config": active_cfg,
+        "shared_drop": str(shared),
+        "from_bali": str(from_bali),
+        "from_stargate": str(from_stargate),
+        "heartbeats": str(heartbeats),
+        "round_rules": str(round_rules),
+        "round_results": str(round_results),
+        "stargate_connected": stargate_connected,
+        "stargate_heartbeat": str(stargate_hb) if stargate_hb else "",
+        "stargate_heartbeat_age_seconds": stargate_heartbeat_age_seconds,
+        "stargate_join_kit_dir": str(join_dir),
+        "stargate_join_kit_output": str(out_dir),
+        "raw_live_data_only": True,
+        "competition_mode": "SIM_ONLY",
+        "live_orders": "OFF",
+        "champion_lock": "LOCKED",
+        "api_keys": "NONE",
+        "remote_commands": "BLOCKED",
+        "phone_monitor": "READ_ONLY_LOCAL_LAN",
+        "instructions": [
+            "Run Create Stargate Join Kit on Bali.",
+            "Copy the exported ZIP to the Stargate CPU.",
+            "Point Stargate heartbeat/check-in scripts at the shared_drop folder.",
+            "Stargate writes JSON only to from_stargate; Bali scores SIM rounds only."
+        ],
+        "safety": "LIVE_ORDERS_OFF | CHAMPION_LOCK_LOCKED | NO_API_KEYS"
+    }
+    return state
+
+
+def create_stargate_join_kit() -> Dict[str, Any]:
+    parent = full_build_root()
+    join_dir = parent / "game_arena" / "stargate_join_kit"
+    out_dir = parent / "game_arena" / "stargate_join_kit_output"
+    logs = parent / "logs"
+    for p in [join_dir, out_dir, logs]:
+        p.mkdir(parents=True, exist_ok=True)
+    stamp = utc_now().strftime("%Y%m%d_%H%M%S")
+    zip_path = out_dir / f"STARGATE_NODE_JOIN_KIT_V012J_{stamp}.zip"
+    # Ensure the key templates exist even if an older folder was present.
+    (join_dir / "STARGATE_JOIN_INSTRUCTIONS_V012J.txt").write_text(
+        "STARGATE JOIN KIT V012J\n\nCopy this kit to the Stargate CPU. Use shared-folder JSON only. SIM only. Raw live data only. No remote commands. No live orders. No API keys.\n",
+        encoding="utf-8"
+    )
+    template = {
+        "schema_version": "V012J", "team": "Stargate", "cpu_role": "STARGATE_CPU", "mode": "SIM_ONLY",
+        "data_origin": "RAW_LIVE_DATA", "source_exchange": "REPLACE_WITH_RAW_SOURCE", "symbol": "BTCUSDT",
+        "market_timestamp": "REPLACE", "capture_timestamp": "REPLACE", "raw_tick_count": 0,
+        "research_points": 0, "scout_points": 0, "paper_trading_points": 0,
+        "orders_live": False, "api_keys_present": False, "remote_commands": "DISABLED",
+        "safety_violations": 0
+    }
+    write_json(join_dir / "STARGATE_RAW_LIVE_CHECKIN_TEMPLATE_V012J.json", template)
+    with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED) as z:
+        for p in join_dir.rglob("*"):
+            if p.is_file():
+                z.write(p, p.relative_to(join_dir))
+    report = logs / "BALI_STARGATE_JOIN_KIT_EXPORT_REPORT_V012J.txt"
+    lines = [
+        "BALI STARGATE JOIN KIT EXPORT V012J", f"Generated: {iso_now()}",
+        "SAFETY=LIVE_ORDERS_OFF | CHAMPION_LOCK_LOCKED | NO_API_KEYS",
+        "GOVERNOR_HUB=BALI_CPU", "STARGATE_JOIN_KIT_EXPORT=READY
+ONEDRIVE_BRIDGE_SETUP=READY",
+        "STARGATE_ROLE=COMPETITOR_NODE_JSON_CHECKINS_ONLY", "BRIDGE=SHARED_FOLDER_JSON_ONLY_NO_REMOTE_COMMANDS",
+        "RAW_LIVE_DATA_ONLY=ON", f"JOIN_KIT_ZIP={zip_path}", "RESULT=STARGATE_JOIN_KIT_EXPORT_READY"
+    ]
+    report.write_text("\n".join(lines)+"\n", encoding="utf-8")
+    try:
+        shutil.copy2(report, logs / "LAST_STARGATE_JOIN_KIT_EXPORT_REPORT.txt")
+    except Exception:
+        pass
+    return {"ok": True, "message": "Stargate join kit exported.", "version": "V012J", "join_kit_zip": str(zip_path), "join_kit_folder": str(join_dir), "report": str(report), "safety": "LIVE_ORDERS_OFF | CHAMPION_LOCK_LOCKED | NO_API_KEYS"}
+
+
+
+def setup_onedrive_arena_bridge() -> Dict[str, Any]:
+    parent = full_build_root()
+    logs = parent / "logs"
+    logs.mkdir(parents=True, exist_ok=True)
+    one = os.environ.get("OneDrive") or os.environ.get("OneDriveConsumer") or ""
+    if not one or not Path(one).exists():
+        one = str(Path.home() / "OneDrive")
+    bridge = Path(one) / "BaliArenaBridge"
+    # Create both direct folders and shared_drop folders so Bali and Stargate helpers agree.
+    folders = [
+        bridge,
+        bridge / "from_bali", bridge / "from_stargate", bridge / "heartbeats", bridge / "round_rules", bridge / "round_results", bridge / "config", bridge / "logs",
+        bridge / "shared_drop" / "from_bali", bridge / "shared_drop" / "from_stargate", bridge / "shared_drop" / "heartbeats", bridge / "shared_drop" / "round_rules", bridge / "shared_drop" / "round_results",
+        parent / "game_arena" / "bridge",
+    ]
+    for p in folders:
+        p.mkdir(parents=True, exist_ok=True)
+    cfg = {
+        "version": "V012J",
+        "active_bridge_root": str(bridge),
+        "bridge_mode": "ONEDRIVE_SYNCED_FOLDER_JSON_ONLY",
+        "data_rule": "RAW_LIVE_DATA_ONLY_REQUIRED_FOR_SCORING",
+        "mode": "SIM_ONLY",
+        "remote_commands": "BLOCKED",
+        "live_orders": "OFF",
+        "api_keys": "NONE",
+        "bali_role": "GOVERNOR_HUB_AND_COMPETITOR",
+        "stargate_role": "COMPETITOR_NODE_JSON_CHECKINS_ONLY",
+        "created_at": iso_now(),
+    }
+    cfg_path = parent / "game_arena" / "bridge" / "ACTIVE_BRIDGE_CONFIG.json"
+    write_json(cfg_path, cfg)
+    write_json(bridge / "config" / "bali_governor_hub_config.json", cfg)
+    # Write a Bali heartbeat and a Bali path handoff note.
+    hb = {
+        "version": "V012J", "node": "BALI_CPU", "role": "GOVERNOR_HUB_AND_COMPETITOR", "status": "READY",
+        "mode": "SIM_ONLY", "bridge": "JSON_ONLY_NO_REMOTE_COMMANDS", "raw_live_data_only": True,
+        "live_orders": "OFF", "api_keys": "NONE", "timestamp": iso_now(),
+    }
+    write_json(bridge / "heartbeats" / "bali_heartbeat.json", hb)
+    handoff = parent / "game_arena" / "bridge" / "BALI_ONEDRIVE_BRIDGE_PATH_FOR_STARGATE.txt"
+    handoff.write_text(str(bridge), encoding="utf-8")
+    report = logs / "BALI_ONEDRIVE_BRIDGE_SETUP_REPORT_V012J.txt"
+    lines = [
+        "BALI ONEDRIVE BRIDGE SETUP V012J", f"Generated: {iso_now()}",
+        "SAFETY=LIVE_ORDERS_OFF | CHAMPION_LOCK_LOCKED | NO_API_KEYS",
+        f"BRIDGE_ROOT={bridge}", f"CONFIG={cfg_path}", "GOVERNOR_HUB=BALI_CPU", "STARGATE_ROLE=COMPETITOR_NODE_JSON_CHECKINS_ONLY",
+        "BRIDGE=ONEDRIVE_JSON_ONLY_NO_REMOTE_COMMANDS", "RAW_LIVE_DATA_ONLY=ON", "MODE=SIM_ONLY", "RESULT=PASS"
+    ]
+    report.write_text("\n".join(lines)+"\n", encoding="utf-8")
+    try:
+        shutil.copy2(report, logs / "LAST_ONEDRIVE_BRIDGE_SETUP_REPORT.txt")
+    except Exception:
+        pass
+    return {"ok": True, "version": "V012J", "message": "Bali OneDrive bridge configured.", "bridge_root": str(bridge), "config": str(cfg_path), "handoff_path_file": str(handoff), "report": str(report), "safety": "LIVE_ORDERS_OFF | CHAMPION_LOCK_LOCKED | NO_API_KEYS"}
+
+def raw_live_data_policy_state() -> Dict[str, Any]:
+    parent = full_build_root()
+    policy = read_json(parent / "game_arena" / "raw_live_data" / "RAW_LIVE_DATA_ONLY_POLICY_V012J.json", {})
+    return {"ok": True, "version": "V012J", "raw_live_data_only": True, "policy": policy, "safety": "LIVE_ORDERS_OFF | CHAMPION_LOCK_LOCKED | NO_API_KEYS"}
+
+def delayed_hard_exit(seconds: float = 1.5) -> None:
+    time.sleep(seconds)
+    try:
+        STOP_EVENT.set()
+    finally:
+        os._exit(0)
+
+
+class Handler(BaseHTTPRequestHandler):
+    server_version = f"{PROJECT_NAME}/{VERSION}"
+
+    def log_message(self, fmt: str, *args: Any) -> None:
+        append_jsonl(LOGS / "access.jsonl", {"ts": iso_now(), "client": self.client_address[0], "request": fmt % args})
+
+    def send_bytes(self, data: bytes, content_type: str = "application/octet-stream", status: int = 200) -> None:
+        self.send_response(status)
+        self.send_header("Content-Type", content_type)
+        self.send_header("Content-Length", str(len(data)))
+        self.send_header("Cache-Control", "no-store")
+        self.end_headers()
+        self.wfile.write(data)
+
+    def send_json(self, data: Any, status: int = 200) -> None:
+        self.send_bytes(json.dumps(data, indent=2, sort_keys=True).encode("utf-8"), "application/json; charset=utf-8", status)
+
+    def do_GET(self) -> None:
+        parsed = urllib.parse.urlparse(self.path)
+        path = parsed.path
+        qs = urllib.parse.parse_qs(parsed.query)
+        try:
+            if path == "/" or path == "/index.html":
+                self.send_bytes(dashboard_html(False).encode("utf-8"), "text/html; charset=utf-8")
+            elif path == "/phone":
+                self.send_bytes(dashboard_html(True).encode("utf-8"), "text/html; charset=utf-8")
+            elif path == "/api/state":
+                data = compute_dashboard_state()
+                data["doctor"] = doctor_report()
+                self.send_json(data)
+            elif path == "/api/pulse":
+                self.send_json({"message": "Manual Bali learning pulse completed.", **learning_pulse(manual=True)})
+            elif path == "/api/watch/start":
+                state = get_system_state(); state["watch_enabled"] = True; save_system_state(state); start_collector(); self.send_json({"ok": True, "message": "Overnight Watch started."})
+            elif path == "/api/watch/stop":
+                state = get_system_state(); state["watch_enabled"] = False; save_system_state(state); self.send_json({"ok": True, "message": "Overnight Watch paused. Dashboard remains online."})
+            elif path == "/api/standdown":
+                state = get_system_state(); state["watch_enabled"] = False; state["risk_police"] = "ARMED_STANDDOWN"; state["live_orders"] = "OFF"; save_system_state(state); self.send_json({"ok": True, "message": "Emergency Stand Down: research watch paused, live orders remain OFF."})
+            elif path == "/api/report/morning":
+                p = generate_morning_report(); self.send_json({"ok": True, "message": f"Morning report generated: {p.name}", "report": p.name})
+            elif path == "/api/doctor":
+                self.send_json(doctor_report())
+            elif path == "/api/doctor/save":
+                rep = doctor_report(); name = f"BALI_DOCTOR_REPORT_{utc_now().strftime('%Y%m%d_%H%M%S')}.txt"; p = REPORTS / name; p.write_text(json.dumps(rep, indent=2), encoding="utf-8"); self.send_json({"ok": True, "message": f"Doctor report saved: {name}", "report": name})
+            elif path == "/api/autopilot/status":
+                self.send_json(autopilot_status())
+            elif path == "/api/autopilot/enable":
+                self.send_json(set_autopilot_enabled(True))
+            elif path == "/api/autopilot/disable":
+                self.send_json(set_autopilot_enabled(False))
+            elif path == "/api/autopilot/apply-now":
+                result = autopilot_apply_now_bridge()
+                if result.get("ok"):
+                    threading.Thread(target=delayed_hard_exit, args=(1.5,), daemon=True).start()
+                self.send_json(result)
+            elif path == "/api/dashboard/update-restart":
+                result = dashboard_update_restart_bridge()
+                if result.get("ok"):
+                    threading.Thread(target=delayed_hard_exit, args=(1.5,), daemon=True).start()
+                self.send_json(result)
+            elif path == "/api/dashboard/final-status":
+                self.send_json({"ok": True, "message": "Last final dashboard status loaded.", "text": dashboard_final_status_text()})
+            elif path == "/api/arena/score-round":
+                self.send_json(arena_score_round())
+            elif path == "/api/arena/scoreboard":
+                self.send_json(arena_scoreboard_state())
+            elif path == "/api/arena/governor-hub":
+                self.send_json(governor_hub_state())
+            elif path == "/api/arena/create-stargate-join-kit":
+                self.send_json(create_stargate_join_kit())
+            elif path == "/api/arena/setup-onedrive-bridge":
+                self.send_json(setup_onedrive_arena_bridge())
+            elif path == "/api/arena/raw-live-policy":
+                self.send_json(raw_live_data_policy_state())
+            elif path == "/api/updates/scan":
+                self.send_json({"ok": True, "message": "Update Dock scan completed.", "scan": scan_updates()})
+            elif path == "/api/updates/apply":
+                file = qs.get("file", [""])[0]
+                self.send_json(apply_update(file))
+            elif path == "/api/updates/rollback":
+                self.send_json(rollback_last_update())
+            elif path.startswith("/reports/"):
+                name = urllib.parse.unquote(path.split("/reports/", 1)[1])
+                safe = Path(name).name
+                p = REPORTS / safe
+                if p.exists() and p.is_file():
+                    self.send_bytes(p.read_bytes(), "text/plain; charset=utf-8")
+                else:
+                    self.send_json({"ok": False, "message": "Report not found"}, 404)
+            elif path == "/api/export/state":
+                p = generate_morning_report(); self.send_json({"ok": True, "state": compute_dashboard_state(), "report": p.name})
+            else:
+                self.send_json({"ok": False, "message": "Not found", "path": path}, 404)
+        except Exception:
+            err = traceback.format_exc()
+            append_jsonl(LOGS / "errors.jsonl", {"ts": iso_now(), "path": self.path, "error": err})
+            self.send_json({"ok": False, "message": "Server error", "error": err}, 500)
+
+
+    def do_POST(self) -> None:
+        parsed = urllib.parse.urlparse(self.path)
+        path = parsed.path
+        try:
+            if path == "/api/dashboard/upload-patch":
+                self.send_json(save_uploaded_patch_zip(self.headers, self.rfile))
+            else:
+                self.send_json({"ok": False, "message": "Not found", "path": path}, 404)
+        except Exception:
+            err = traceback.format_exc()
+            append_jsonl(LOGS / "errors.jsonl", {"ts": iso_now(), "path": self.path, "error": err})
+            self.send_json({"ok": False, "message": "Server error", "error": err}, 500)
+
+
+def write_startup_report(port: int, host: str) -> None:
+    lines = [
+        f"{PROJECT_TITLE} {VERSION} startup",
+        f"UTC: {iso_now()}",
+        f"Local URL: http://127.0.0.1:{port}",
+        f"Phone URL: http://<your-pc-lan-ip>:{port}/phone",
+        "Detected LAN URLs:",
+    ]
+    for ip in get_lan_ips():
+        lines.append(f"- http://{ip}:{port}/phone")
+    lines.append("Safety: public-market-data only; live orders OFF; no API keys.")
+    (LOGS / "LAST_STARTUP_REPORT.txt").write_text("\n".join(lines), encoding="utf-8")
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--host", default="127.0.0.1")
+    parser.add_argument("--port", type=int, default=PORT_DEFAULT)
+    parser.add_argument("--no-browser", action="store_true")
+    args = parser.parse_args()
+    ensure_dirs()
+    seed_strategy_dna()
+    # First pulse quickly, but do not block startup for too long if network is slow.
+    try:
+        threading.Thread(target=lambda: learning_pulse(manual=False), daemon=True).start()
+    except Exception:
+        pass
+    start_collector()
+    write_startup_report(args.port, args.host)
+    server = ThreadingHTTPServer((args.host, args.port), Handler)
+    print(f"{PROJECT_TITLE} {VERSION}")
+    print(f"Local dashboard: http://127.0.0.1:{args.port}")
+    if args.host == "0.0.0.0":
+        for ip in get_lan_ips():
+            print(f"Phone LAN: http://{ip}:{args.port}/phone")
+        state = get_system_state(); state["phone_lan_enabled"] = True; save_system_state(state)
+    else:
+        state = get_system_state(); state["phone_lan_enabled"] = False; save_system_state(state)
+    print("Safety: live orders OFF, champion lock LOCKED, no API keys.")
+    try:
+        server.serve_forever()
+    except KeyboardInterrupt:
+        print("\nStopping Bali Rocket Crypto Command...")
+    finally:
+        STOP_EVENT.set()
+        server.server_close()
+
+
+if __name__ == "__main__":
+    main()

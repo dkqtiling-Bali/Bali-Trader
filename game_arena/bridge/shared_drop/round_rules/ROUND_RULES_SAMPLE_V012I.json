@@ -1,0 +1,27 @@
+{
+  "round_id": "ROUND_0001",
+  "version": "V012I",
+  "governor_hub": "BALI_CPU",
+  "competitors": [
+    "BALI_CPU",
+    "STARGATE_CPU"
+  ],
+  "mode": "SIM_ONLY",
+  "raw_live_data_only": true,
+  "symbols": [
+    "BTCUSDT",
+    "ETHUSDT"
+  ],
+  "duration_minutes": 15,
+  "required_outputs": [
+    "research_points",
+    "scout_points",
+    "paper_trading_points",
+    "paper_pnl",
+    "drawdown",
+    "signal_quality",
+    "safety_violations"
+  ],
+  "live_orders": "OFF",
+  "champion_lock": "LOCKED"
+}

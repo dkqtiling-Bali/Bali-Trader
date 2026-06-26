@@ -1,0 +1,154 @@
+BALI CHATGPT STATUS REPORT
+========================================================================
+Generated UTC: 2026-06-25T10:37:20+00:00
+Version: V015A_BACKTEST_WALK_FORWARD_GATE
+Purpose: one compact report for ChatGPT. No more tab-by-tab copying unless there is a specific error.
+
+SAFETY
+Live orders: OFF
+Champion lock: LOCKED / approved 0/3
+API keys: NONE / private exchange endpoints not used
+Mode: PUBLIC_DATA_RESEARCH_ONLY
+
+REAL LIVE DATA GATE
+Gate: PASS_RECENT_REAL_LIVE_DATA
+Raw data gate: ENFORCED_PASS_REAL_LIVE_DATA_ONLY
+Warning: OK
+Stale seconds: 0
+Feed source: https://data-api.binance.vision
+Feed status: OK_MULTI_SYMBOLS_6
+Current regime: BTC_TIDE_FALLING
+Ignored recent offline_demo rows: 0
+
+COUNTS
+Market ticks: 3168
+Feed proof: 528
+Live data guard: 130
+Learning cycles: 526
+Research notes: 526
+Pulse count: 542
+Paper shadow rows: 71
+Candle rows total: 666
+Candle proof rows: 63
+Candle last new rows: 0
+Universe scan ledger rows: 2520
+Universe latest batch visible rows: 40
+Backtest walk-forward rows: 44
+Growth score: 1572.4
+Learning score: 1315.0
+Research score: 257.4
+
+PAPER / RISK STATUS
+Paper Shadow: PAPER_SHADOW_ONLINE | last_action=STAND_ASIDE_SIMULATED | open_position=NONE
+Paper Arena: V013 simulator online. It records simulated entries/exits/holds/stand-asides only; no live orders.
+Candle Harvester: CANDLE_HARVESTER_ONLINE | last_new_rows=0 | total_rows=666 | last_at=2026-06-25T10:35:39+00:00
+Universe Scanner: UNIVERSE_SCANNER_ONLINE | latest_batch_rows=40 | ledger_rows=2520 | top=XPLUSDT | top_score=63.566
+Backtest Gate: BACKTEST_WALK_FORWARD_RECORDED | gate=WALK_FORWARD_RECORDED_EDGE_NOT_PROVEN | symbol=BTCUSDT | interval=1m
+Champion proof gate: LOCKED_REPEAT_BACKTEST_AND_HUMAN_APPROVAL_REQUIRED | champion_claim_allowed=False
+Risk Police: ARMED
+No-trade score: 65
+Live trading enable, API keys, champion approval, and disabling Risk Police are not implemented in this build.
+
+LATEST PAPER SHADOW RECORDS
+- 2026-06-25T10:28:25+00:00 | STAND_ASIDE_SIMULATED | BTCUSDT | NO_TRADE_PAPER_ONLY | regime=BTC_TIDE_FALLING | net_pct=None | reason=no_trade_score=65; regime=BTC_TIDE_FALLING; standing aside is scored as valid risk discipline.
+- 2026-06-25T10:29:42+00:00 | STAND_ASIDE_SIMULATED | BTCUSDT | NO_TRADE_PAPER_ONLY | regime=BTC_TIDE_FALLING | net_pct=None | reason=no_trade_score=65; regime=BTC_TIDE_FALLING; standing aside is scored as valid risk discipline.
+- 2026-06-25T10:30:45+00:00 | STAND_ASIDE_SIMULATED | BTCUSDT | NO_TRADE_PAPER_ONLY | regime=BTC_TIDE_FALLING | net_pct=None | reason=no_trade_score=65; regime=BTC_TIDE_FALLING; standing aside is scored as valid risk discipline.
+- 2026-06-25T10:31:02+00:00 | STAND_ASIDE_SIMULATED | BTCUSDT | NO_TRADE_PAPER_ONLY | regime=BTC_TIDE_FALLING | net_pct=None | reason=no_trade_score=65; regime=BTC_TIDE_FALLING; standing aside is scored as valid risk discipline.
+- 2026-06-25T10:32:19+00:00 | STAND_ASIDE_SIMULATED | BTCUSDT | NO_TRADE_PAPER_ONLY | regime=BTC_TIDE_FALLING | net_pct=None | reason=no_trade_score=65; regime=BTC_TIDE_FALLING; standing aside is scored as valid risk discipline.
+- 2026-06-25T10:33:40+00:00 | STAND_ASIDE_SIMULATED | BTCUSDT | NO_TRADE_PAPER_ONLY | regime=BTC_TIDE_FALLING | net_pct=None | reason=no_trade_score=65; regime=BTC_TIDE_FALLING; standing aside is scored as valid risk discipline.
+- 2026-06-25T10:35:38+00:00 | STAND_ASIDE_SIMULATED | BTCUSDT | NO_TRADE_PAPER_ONLY | regime=BTC_TIDE_FALLING | net_pct=None | reason=no_trade_score=65; regime=BTC_TIDE_FALLING; standing aside is scored as valid risk discipline.
+- 2026-06-25T10:35:55+00:00 | STAND_ASIDE_SIMULATED | BTCUSDT | NO_TRADE_PAPER_ONLY | regime=BTC_TIDE_FALLING | net_pct=None | reason=no_trade_score=65; regime=BTC_TIDE_FALLING; standing aside is scored as valid risk discipline.
+
+LATEST CANDLES
+- 2026-06-25T10:36:00+00:00 | BTCUSDT | 1m | O=61552.09 H=61562.81 L=61538.09 C=61562.81 | source=https://data-api.binance.vision
+- 2026-06-25T10:36:00+00:00 | ETHUSDT | 1m | O=1641.7 H=1642.56 L=1641.42 C=1642.56 | source=https://data-api.binance.vision
+- 2026-06-25T10:36:00+00:00 | SOLUSDT | 1m | O=68.53 H=68.55 L=68.51 C=68.53 | source=https://data-api.binance.vision
+- 2026-06-25T10:36:00+00:00 | XRPUSDT | 1m | O=1.0772 H=1.0773 L=1.077 C=1.0773 | source=https://data-api.binance.vision
+- 2026-06-25T10:37:00+00:00 | BTCUSDT | 1m | O=61562.81 H=61562.81 L=61548.0 C=61548.01 | source=https://data-api.binance.vision
+- 2026-06-25T10:37:00+00:00 | ETHUSDT | 1m | O=1642.55 H=1642.55 L=1641.7 C=1641.71 | source=https://data-api.binance.vision
+- 2026-06-25T10:37:00+00:00 | SOLUSDT | 1m | O=68.53 H=68.54 L=68.51 C=68.51 | source=https://data-api.binance.vision
+- 2026-06-25T10:37:00+00:00 | XRPUSDT | 1m | O=1.0773 H=1.0773 L=1.0767 C=1.0768 | source=https://data-api.binance.vision
+
+LATEST UNIVERSE RANKS - TOP OF LATEST BATCH
+Universe headline top check: XPLUSDT should match first visible row below.
+- XPLUSDT | bucket=ACTIVE | score=63.566 | 24h=6.287 | qv=423672465.19 | batch=20260625T103555Z | source=https://data-api.binance.vision
+- AAVEUSDT | bucket=ACTIVE | score=60.867 | 24h=11.57 | qv=49664410.49 | batch=20260625T103555Z | source=https://data-api.binance.vision
+- SYNUSDT | bucket=ACTIVE | score=60.569 | 24h=43.135 | qv=32574640.47 | batch=20260625T103555Z | source=https://data-api.binance.vision
+- ATMUSDT | bucket=ACTIVE | score=60.249 | 24h=51.448 | qv=14254315.29 | batch=20260625T103555Z | source=https://data-api.binance.vision
+- UTKUSDT | bucket=ACTIVE | score=60.178 | 24h=16.228 | qv=10207948.63 | batch=20260625T103555Z | source=https://data-api.binance.vision
+- RESOLVUSDT | bucket=ACTIVE | score=60.128 | 24h=11.848 | qv=7337087.14 | batch=20260625T103555Z | source=https://data-api.binance.vision
+- MUBUSDT | bucket=ACTIVE | score=60.118 | 24h=13.134 | qv=6775854.97 | batch=20260625T103555Z | source=https://data-api.binance.vision
+- SNDKBUSDT | bucket=ACTIVE | score=60.106 | 24h=8.803 | qv=6068109.31 | batch=20260625T103555Z | source=https://data-api.binance.vision
+- PSGUSDT | bucket=ACTIVE | score=60.076 | 24h=12.092 | qv=4331109.93 | batch=20260625T103555Z | source=https://data-api.binance.vision
+- SEIUSDT | bucket=ACTIVE | score=59.154 | 24h=13.266 | qv=8613897.53 | batch=20260625T103555Z | source=https://data-api.binance.vision
+
+LATEST BACKTEST / WALK-FORWARD GATE RECORDS
+- 2026-06-25T10:31:02+00:00 | BT20260625T103102Z | BTCUSDT 1m | gate=WALK_FORWARD_RECORDED_EDGE_NOT_PROVEN | candles=73 | in_trades=7 avg=-0.351 dd=2.4312 | wf_trades=1 avg=-0.3017 dd=0.3017 | champion_allowed=False
+- 2026-06-25T10:32:19+00:00 | BT20260625T103219Z | BTCUSDT 1m | gate=WALK_FORWARD_RECORDED_EDGE_NOT_PROVEN | candles=75 | in_trades=7 avg=-0.351 dd=2.4312 | wf_trades=1 avg=-0.3017 dd=0.3017 | champion_allowed=False
+- 2026-06-25T10:33:40+00:00 | BT20260625T103340Z | BTCUSDT 1m | gate=WALK_FORWARD_RECORDED_EDGE_NOT_PROVEN | candles=76 | in_trades=7 avg=-0.351 dd=2.4312 | wf_trades=1 avg=-0.3017 dd=0.3017 | champion_allowed=False
+- 2026-06-25T10:35:39+00:00 | BT20260625T103538Z | BTCUSDT 1m | gate=WALK_FORWARD_RECORDED_EDGE_NOT_PROVEN | candles=78 | in_trades=7 avg=-0.351 dd=2.4312 | wf_trades=1 avg=-0.3017 dd=0.3017 | champion_allowed=False
+- 2026-06-25T10:35:55+00:00 | BT20260625T103555Z | BTCUSDT 1m | gate=WALK_FORWARD_RECORDED_EDGE_NOT_PROVEN | candles=78 | in_trades=7 avg=-0.351 dd=2.4312 | wf_trades=1 avg=-0.3017 dd=0.3017 | champion_allowed=False
+
+LATEST VERIFIED LIVE TICKS
+- 2026-06-25T10:36:56+00:00 | BTCUSDT | last=61562.81 | 24h=-1.591 | regime=BTC_TIDE_FALLING | source=https://data-api.binance.vision
+- 2026-06-25T10:36:56+00:00 | ETHUSDT | last=1642.55 | 24h=-1.325 | regime=BTC_TIDE_FALLING | source=https://data-api.binance.vision
+- 2026-06-25T10:36:56+00:00 | XRPUSDT | last=1.0773 | 24h=-0.765 | regime=BTC_TIDE_FALLING | source=https://data-api.binance.vision
+- 2026-06-25T10:36:56+00:00 | LINKUSDT | last=7.477 | 24h=-1.398 | regime=BTC_TIDE_FALLING | source=https://data-api.binance.vision
+- 2026-06-25T10:36:56+00:00 | DOGEUSDT | last=0.07654 | 24h=-2.695 | regime=BTC_TIDE_FALLING | source=https://data-api.binance.vision
+- 2026-06-25T10:36:56+00:00 | SOLUSDT | last=68.53 | 24h=-0.825 | regime=BTC_TIDE_FALLING | source=https://data-api.binance.vision
+- 2026-06-25T10:37:11+00:00 | BTCUSDT | last=61548.0 | 24h=-1.57 | regime=BTC_TIDE_FALLING | source=https://data-api.binance.vision
+- 2026-06-25T10:37:11+00:00 | ETHUSDT | last=1641.71 | 24h=-1.354 | regime=BTC_TIDE_FALLING | source=https://data-api.binance.vision
+- 2026-06-25T10:37:11+00:00 | XRPUSDT | last=1.077 | 24h=-0.765 | regime=BTC_TIDE_FALLING | source=https://data-api.binance.vision
+- 2026-06-25T10:37:11+00:00 | LINKUSDT | last=7.473 | 24h=-1.425 | regime=BTC_TIDE_FALLING | source=https://data-api.binance.vision
+- 2026-06-25T10:37:11+00:00 | DOGEUSDT | last=0.07652 | 24h=-2.696 | regime=BTC_TIDE_FALLING | source=https://data-api.binance.vision
+- 2026-06-25T10:37:11+00:00 | SOLUSDT | last=68.51 | 24h=-0.839 | regime=BTC_TIDE_FALLING | source=https://data-api.binance.vision
+
+LATEST LEARNING CYCLES
+- cycle=535 | 2026-06-25T10:28:25+00:00 | source=https://data-api.binance.vision | regime={'alt_avg_pct_24h': -1.4, 'alt_dispersion': 0.534, 'btc_pct_24h': -1.541, 'label': 'BTC_TIDE_FALLING', 'no_trade_score': 65} | claim=LEARNING_PULSE_REAL_LIVE_DATA_COLLECTION_ONLY | task=Collect baseline market regime proof and wait for clearer patterns.
+- cycle=536 | 2026-06-25T10:29:42+00:00 | source=https://data-api.binance.vision | regime={'alt_avg_pct_24h': -1.4, 'alt_dispersion': 0.534, 'btc_pct_24h': -1.529, 'label': 'BTC_TIDE_FALLING', 'no_trade_score': 65} | claim=LEARNING_PULSE_REAL_LIVE_DATA_COLLECTION_ONLY | task=Collect baseline market regime proof and wait for clearer patterns.
+- cycle=537 | 2026-06-25T10:30:45+00:00 | source=https://data-api.binance.vision | regime={'alt_avg_pct_24h': -1.377, 'alt_dispersion': 0.542, 'btc_pct_24h': -1.497, 'label': 'BTC_TIDE_FALLING', 'no_trade_score': 65} | claim=LEARNING_PULSE_REAL_LIVE_DATA_COLLECTION_ONLY | task=Collect baseline market regime proof and wait for clearer patterns.
+- cycle=538 | 2026-06-25T10:31:02+00:00 | source=https://data-api.binance.vision | regime={'alt_avg_pct_24h': -1.428, 'alt_dispersion': 0.532, 'btc_pct_24h': -1.51, 'label': 'BTC_TIDE_FALLING', 'no_trade_score': 65} | claim=LEARNING_PULSE_REAL_LIVE_DATA_COLLECTION_ONLY | task=Collect baseline market regime proof and wait for clearer patterns.
+- cycle=539 | 2026-06-25T10:32:19+00:00 | source=https://data-api.binance.vision | regime={'alt_avg_pct_24h': -1.484, 'alt_dispersion': 0.527, 'btc_pct_24h': -1.593, 'label': 'BTC_TIDE_FALLING', 'no_trade_score': 65} | claim=LEARNING_PULSE_REAL_LIVE_DATA_COLLECTION_ONLY | task=Collect baseline market regime proof and wait for clearer patterns.
+- cycle=540 | 2026-06-25T10:33:40+00:00 | source=https://data-api.binance.vision | regime={'alt_avg_pct_24h': -1.485, 'alt_dispersion': 0.516, 'btc_pct_24h': -1.6, 'label': 'BTC_TIDE_FALLING', 'no_trade_score': 65} | claim=LEARNING_PULSE_REAL_LIVE_DATA_COLLECTION_ONLY | task=Collect baseline market regime proof and wait for clearer patterns.
+- cycle=541 | 2026-06-25T10:35:39+00:00 | source=https://data-api.binance.vision | regime={'alt_avg_pct_24h': -1.506, 'alt_dispersion': 0.54, 'btc_pct_24h': -1.638, 'label': 'BTC_TIDE_FALLING', 'no_trade_score': 65} | claim=LEARNING_PULSE_REAL_LIVE_DATA_COLLECTION_ONLY | task=Collect baseline market regime proof and wait for clearer patterns.
+- cycle=542 | 2026-06-25T10:35:55+00:00 | source=https://data-api.binance.vision | regime={'alt_avg_pct_24h': -1.499, 'alt_dispersion': 0.534, 'btc_pct_24h': -1.645, 'label': 'BTC_TIDE_FALLING', 'no_trade_score': 65} | claim=LEARNING_PULSE_REAL_LIVE_DATA_COLLECTION_ONLY | task=Collect baseline market regime proof and wait for clearer patterns.
+
+LATEST RESEARCH NOTES
+- 2026-06-25T10:30:45+00:00 | Alpha Watch | BTC_TIDE_FALLING | Collect baseline market regime proof and wait for clearer patterns. | claim=REAL_LIVE_DATA_COLLECTION_ONLY_NOT_EDGE_PROOF
+- 2026-06-25T10:31:02+00:00 | Alpha Watch | BTC_TIDE_FALLING | Collect baseline market regime proof and wait for clearer patterns. | claim=REAL_LIVE_DATA_COLLECTION_ONLY_NOT_EDGE_PROOF
+- 2026-06-25T10:32:19+00:00 | Alpha Watch | BTC_TIDE_FALLING | Collect baseline market regime proof and wait for clearer patterns. | claim=REAL_LIVE_DATA_COLLECTION_ONLY_NOT_EDGE_PROOF
+- 2026-06-25T10:33:40+00:00 | Alpha Watch | BTC_TIDE_FALLING | Collect baseline market regime proof and wait for clearer patterns. | claim=REAL_LIVE_DATA_COLLECTION_ONLY_NOT_EDGE_PROOF
+- 2026-06-25T10:35:38+00:00 | Alpha Watch | BTC_TIDE_FALLING | Collect baseline market regime proof and wait for clearer patterns. | claim=REAL_LIVE_DATA_COLLECTION_ONLY_NOT_EDGE_PROOF
+- 2026-06-25T10:35:55+00:00 | Alpha Watch | BTC_TIDE_FALLING | Collect baseline market regime proof and wait for clearer patterns. | claim=REAL_LIVE_DATA_COLLECTION_ONLY_NOT_EDGE_PROOF
+
+LIVE DATA GUARD TAIL
+- 2026-06-25T10:32:03+00:00 | gate=PASS_RECENT_REAL_LIVE_DATA | raw=ENFORCED_PASS_REAL_LIVE_DATA_ONLY | warning=None | status=OK_MULTI_SYMBOLS_6
+- 2026-06-25T10:33:20+00:00 | gate=PASS_RECENT_REAL_LIVE_DATA | raw=ENFORCED_PASS_REAL_LIVE_DATA_ONLY | warning=None | status=OK_MULTI_SYMBOLS_6
+- 2026-06-25T10:35:23+00:00 | gate=PASS_RECENT_REAL_LIVE_DATA | raw=ENFORCED_PASS_REAL_LIVE_DATA_ONLY | warning=None | status=OK_MULTI_SYMBOLS_6
+- 2026-06-25T10:35:39+00:00 | gate=PASS_RECENT_REAL_LIVE_DATA | raw=ENFORCED_PASS_REAL_LIVE_DATA_ONLY | warning=None | status=OK_MULTI_SYMBOLS_6
+- 2026-06-25T10:36:56+00:00 | gate=PASS_RECENT_REAL_LIVE_DATA | raw=ENFORCED_PASS_REAL_LIVE_DATA_ONLY | warning=None | status=OK_MULTI_SYMBOLS_6
+- 2026-06-25T10:37:11+00:00 | gate=PASS_RECENT_REAL_LIVE_DATA | raw=ENFORCED_PASS_REAL_LIVE_DATA_ONLY | warning=None | status=OK_MULTI_SYMBOLS_6
+
+DOCTOR SUMMARY
+Doctor status: PASS
+- PASS Server: Dashboard server is responding.
+- PASS Collector thread: Overnight collector thread is alive.
+- PASS Watch enabled: Watch mode is enabled.
+- PASS Market tick ledger: Rows: 3168
+- PASS Learning ledger: Rows: 526
+- PASS Feed source: Last source: https://data-api.binance.vision
+- PASS Real live data gate: Gate: PASS_RECENT_REAL_LIVE_DATA | warning: OK
+- PASS Live orders: Live orders are OFF and no live trading code is present.
+- PASS Champion lock: Champion Council is locked at 0/3.
+- PASS Update inbox: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\bali_rocket_crypto_command_v011b\UPDATE_INBOX
+- PASS Paper shadow: Rows: 71 | status: PAPER_SHADOW_ONLINE
+- PASS Candle harvester: Rows: 668 | last_new_rows: 0 | status: CANDLE_HARVESTER_ONLINE
+- PASS Universe scanner: Ledger rows: 2520 | visible latest batch rows: 40 | status: UNIVERSE_SCANNER_ONLINE | top: XPLUSDT
+- PASS Backtest walk-forward gate: Rows: 44 | status: BACKTEST_WALK_FORWARD_RECORDED | gate: WALK_FORWARD_RECORDED_EDGE_NOT_PROVEN | champion_claim_allowed: False
+- PASS Reports folder: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\bali_rocket_crypto_command_v011b\shared_data\reports
+
+MY ASK TO CHATGPT
+Please review this Bali status report and tell me: 1) whether the live-data gate is healthy, 2) whether learning/paper/candle/universe/backtest/risk layers are safe, and 3) what patch should come next.
+
+NEXT SUGGESTED PATCH
+V016 Evidence Scorecard + Champion Council Gate: require repeated backtest/walk-forward and paper-shadow evidence before any champion can even be nominated.

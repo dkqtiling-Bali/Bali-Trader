@@ -1,0 +1,58 @@
+BALI DASH UPDATE FINAL REPORT V011S
+Generated: 06/25/2026 11:42:39
+Root folder: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD
+Purpose: dashboard button handles close, patch, fast health, cleanup/status, auto restart, then one final dashboard result.
+Mode: dashboard-only normal flow. Intermediate reports stay in logs; errors open immediately.
+Close guard: LISTENING server on port 9061 must clear before restart; browser ESTABLISHED rows are ignored.
+Mission: STARGATE RIVAL MODE - faster controlled upgrades from inside the dash.
+Safety: live orders OFF, champion lock LOCKED, no API keys.
+
+=== Step 0: close previous dashboard listener ===
+Close dashboard exit code: 0
+LISTENER_STATUS=CLEAR
+NON_LISTENER_CONNECTIONS_PRESENT=YES_OK :: 13
+Closed count: 0
+RESULT: CLOSE DASHBOARD PASS
+
+=== Step 1: speed lane apply/check ===
+Speed lane engine: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\tools\BALI_SPEED_LANE_ENGINE_V011S.ps1
+Speed lane exit code: 0
+LISTENER_STATUS=CLEAR
+RESULT: CLOSE DASHBOARD PASS
+Selected patch zip: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\updates\BALI_ROCKET_CRYPTO_COMMAND_V011U_AUTOPILOT_PROOF_TINY_STATUS_PATCH.zip
+Selected version: V011U
+RESULT: UPDATE APPLIED
+Patch zip: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\updates\BALI_ROCKET_CRYPTO_COMMAND_V011U_AUTOPILOT_PROOF_TINY_STATUS_PATCH.zip
+RESULT: FAST HEALTH PASS
+Installed version: V011U
+ARCHIVED OLD PATCH ZIP: V011S :: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\updates\BALI_ROCKET_CRYPTO_COMMAND_V011S_DASH_ONLY_FINAL_STATUS_FLOW_PATCH.zip
+ARCHIVED OLD PATCH ZIP: V011T :: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\updates\BALI_ROCKET_CRYPTO_COMMAND_V011T_AUTOPILOT_UPDATE_MINIMAL_REPORT_PATCH.zip
+Archived old patch ZIP count: 2
+Kept current/future patch ZIP count: 1
+RESULT: LAUNCH BAY CLEANUP PASS
+Compact status pack: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\logs\BALI_FAST_STATUS_PACK_V011S.txt
+RESULT: FAST HEALTH PASS
+RESULT: FAST STATUS PACK READY
+RESULT: SPEED LANE PASS
+
+=== Final status summary for ChatGPT ===
+VERSION=V011U
+DASHBOARD_UPDATE_BRIDGE=ON
+APP_ROOT=FOUND :: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\bali_rocket_crypto_command_v011b
+PYTHON_VERSION=3.10.11
+DESKTOP_SHORTCUT=FOUND :: Bali Forever Starter
+RESULT: FAST HEALTH PASS
+Installed version: V011U
+Archived old patch ZIP count: 2
+Kept current/future patch ZIP count: 1
+RESULT: LAUNCH BAY CLEANUP PASS
+RESULT: FAST STATUS PACK READY
+Paste this final report if ChatGPT asks for status. You do not need to run BALI_FAST_STATUS_PACK manually.
+=== Step 2: restart dashboard ===
+Starting dashboard via: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\BALI_THEMED_FOREVER_STARTER.bat
+RESTART=LAUNCHED
+
+RESULT: DASH UPDATE FINAL PASS
+Final report only: intermediate update/health/icon/cleanup reports were kept in logs unless an error happened.
+Normal user flow: use the dashboard Updates button only. Fast Status Pack is fallback/recovery only.
+Next normal flow: drop next ZIP into updates, open dashboard Updates tab, click Dashboard Update + Auto Restart. After restart, use Show / Copy Last Final Status in the dashboard if needed.

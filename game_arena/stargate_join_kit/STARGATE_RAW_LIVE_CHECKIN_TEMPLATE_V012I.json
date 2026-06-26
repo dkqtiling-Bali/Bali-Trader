@@ -1,0 +1,19 @@
+{
+  "api_keys_present": false,
+  "capture_timestamp": "REPLACE",
+  "cpu_role": "STARGATE_CPU",
+  "data_origin": "RAW_LIVE_DATA",
+  "market_timestamp": "REPLACE",
+  "mode": "SIM_ONLY",
+  "orders_live": false,
+  "paper_trading_points": 0,
+  "raw_tick_count": 0,
+  "remote_commands": "DISABLED",
+  "research_points": 0,
+  "safety_violations": 0,
+  "schema_version": "V012I",
+  "scout_points": 0,
+  "source_exchange": "REPLACE_WITH_RAW_SOURCE",
+  "symbol": "BTCUSDT",
+  "team": "Stargate"
+}

@@ -1,0 +1,21 @@
+STARGATE JOIN KIT V012H
+
+Purpose:
+- Join the Bali vs Stargate arena as a competitor node.
+- Use shared-folder JSON only.
+- Do not run remote commands.
+- Do not place live orders.
+- Do not use API keys.
+
+Stargate CPU writes JSON check-ins to:
+  shared_drop/from_stargate
+
+Bali Governor Hub reads Stargate check-ins and scores SIM-only rounds.
+
+Required check-in rule:
+  data_origin must be RAW_LIVE_DATA
+  mode must be SIM_ONLY
+  live_orders must be OFF
+  remote_commands must be DISABLED
+
+Next patch can add a Stargate node helper once this shared-folder path is confirmed.

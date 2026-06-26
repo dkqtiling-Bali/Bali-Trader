@@ -1,0 +1,6 @@
+Report Accuracy Policy V014B
+
+Candle last_new_rows means rows added in the latest harvest only.
+Candle total_rows means all collected candle rows.
+Universe latest ranks must show the top of the latest batch, not the last appended rows.
+This repair does not add live trading, API keys, or champion approval.

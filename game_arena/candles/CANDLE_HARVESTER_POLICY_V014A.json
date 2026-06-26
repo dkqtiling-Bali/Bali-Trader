@@ -1,0 +1,12 @@
+{
+  "version": "V014A",
+  "intervals": [
+    "1m",
+    "5m",
+    "15m"
+  ],
+  "public_data_only": true,
+  "live_orders": "OFF",
+  "api_keys": "NONE",
+  "requires_real_live_data": true
+}

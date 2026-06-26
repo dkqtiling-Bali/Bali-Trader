@@ -1,0 +1,106 @@
+BALI ROCKET CRYPTO COMMAND - OVERNIGHT WATCH REPORT
+========================================================================
+Generated UTC: 2026-06-25T22:01:48+00:00
+Version: V015A_BACKTEST_WALK_FORWARD_GATE
+Started UTC: 2026-06-25T14:57:39+00:00
+
+SAFETY STATUS
+Live orders: OFF
+Champion Council: LOCKED / approved 0/3
+Risk Police: ARMED
+Claim level: public data collection and research telemetry only, not trading proof.
+
+OVERNIGHT DATA SUMMARY
+Pulse count: 918
+Market tick rows: 5430
+Learning cycles: 902
+Research ledger rows: 902
+Feed proof rows: 905
+Paper shadow rows: 447
+Last feed source: https://data-api.binance.vision
+Last feed status: OK_MULTI_SYMBOLS_6
+Real live data gate: PASS_RECENT_REAL_LIVE_DATA
+Raw data gate: ENFORCED_PASS_REAL_LIVE_DATA_ONLY
+Live data warning: OK
+Live data stale seconds: 0
+Current regime: BTC_TIDE_FALLING
+No-trade score: 65
+Growth score: 2888.4
+
+REGIME COUNTS
+- BTC_TIDE_FALLING: 2700
+- LOW_WAVE_CHOP: 1542
+- BTC_TIDE_RISING: 642
+- NEUTRAL_LAGOON: 546
+
+SOURCE COUNTS
+- https://data-api.binance.vision: 2946
+- offline_demo: 2484
+
+SYMBOL COUNTS
+- BTCUSDT: 905
+- DOGEUSDT: 905
+- ETHUSDT: 905
+- LINKUSDT: 905
+- SOLUSDT: 905
+- XRPUSDT: 905
+
+RECENT RESEARCH NOTES
+- 2026-06-25T21:49:30+00:00 | Alpha Watch | BTC_TIDE_FALLING | Collect baseline market regime proof and wait for clearer patterns.
+- 2026-06-25T21:50:47+00:00 | Alpha Watch | BTC_TIDE_FALLING | Collect baseline market regime proof and wait for clearer patterns.
+- 2026-06-25T21:52:05+00:00 | Alpha Watch | BTC_TIDE_FALLING | Collect baseline market regime proof and wait for clearer patterns.
+- 2026-06-25T21:53:26+00:00 | Alpha Watch | BTC_TIDE_FALLING | Collect baseline market regime proof and wait for clearer patterns.
+- 2026-06-25T21:54:43+00:00 | Alpha Watch | BTC_TIDE_FALLING | Collect baseline market regime proof and wait for clearer patterns.
+- 2026-06-25T21:56:01+00:00 | Alpha Watch | BTC_TIDE_FALLING | Collect baseline market regime proof and wait for clearer patterns.
+- 2026-06-25T21:57:19+00:00 | Alpha Watch | BTC_TIDE_FALLING | Collect baseline market regime proof and wait for clearer patterns.
+- 2026-06-25T21:58:40+00:00 | Alpha Watch | BTC_TIDE_FALLING | Collect baseline market regime proof and wait for clearer patterns.
+- 2026-06-25T21:59:58+00:00 | Alpha Watch | BTC_TIDE_FALLING | Collect baseline market regime proof and wait for clearer patterns.
+- 2026-06-25T22:01:17+00:00 | Alpha Watch | BTC_TIDE_FALLING | Collect baseline market regime proof and wait for clearer patterns.
+
+SUGGESTED NEXT UPGRADES
+- V011 Candle Harvester: Enough feed ticks are forming a baseline; add candle storage and missing-data checks. [READY_TO_BUILD_NEXT]
+- V012 Market Regime Proof Board: Turn overnight regime labels into graphs and regime durations. [SUGGESTED]
+- V013A Paper Shadow Signal Simulator: Installed: creates paper-only would-have-traded records from verified live public data. [INSTALLED_PAPER_ONLY]
+- V014C Universe Top State Repair: Installed: makes the Universe headline top symbol and visible latest-rank table use the same sorted latest batch. [INSTALLED_UNIVERSE_TOP_STATE_REPAIR]
+- V015A Backtest + Walk-Forward Gate: Installed: replays collected public candles through a simple strategy probe and blocks champion claims until repeated evidence exists. [INSTALLED_BACKTEST_GATE]
+
+DOCTOR SUMMARY
+Doctor status: PASS
+- PASS Server: Dashboard server is responding.
+- PASS Collector thread: Overnight collector thread is alive.
+- PASS Watch enabled: Watch mode is enabled.
+- PASS Market tick ledger: Rows: 5430
+- PASS Learning ledger: Rows: 902
+- PASS Feed source: Last source: https://data-api.binance.vision
+- PASS Real live data gate: Gate: PASS_RECENT_REAL_LIVE_DATA | warning: OK
+- PASS Live orders: Live orders are OFF and no live trading code is present.
+- PASS Champion lock: Champion Council is locked at 0/3.
+- PASS Update inbox: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\bali_rocket_crypto_command_v011b\UPDATE_INBOX
+- PASS Paper shadow: Rows: 447 | status: PAPER_SHADOW_ONLINE
+- PASS Candle harvester: Rows: 4604 | last_new_rows: 24 | status: CANDLE_HARVESTER_ONLINE
+- PASS Universe scanner: Ledger rows: 17560 | visible latest batch rows: 40 | status: UNIVERSE_SCANNER_ONLINE | top: XPLUSDT
+- PASS Backtest walk-forward gate: Rows: 420 | status: BACKTEST_WALK_FORWARD_RECORDED | gate: WALK_FORWARD_RECORDED_EDGE_NOT_PROVEN | champion_claim_allowed: False
+- PASS Reports folder: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\bali_rocket_crypto_command_v011b\shared_data\reports
+
+CURRENT TIMELINE
+V001: Tropical dashboard shell
+V002-V005: Learning/research pulse
+V006: Bali visual rebuild
+V007: Overnight Watch
+V008: Public market feed proof ledger
+V009: Phone LAN command view
+V010: One-click Update Dock scan/apply/rollback foundation
+V012J: Easy OneDrive bridge hub setup
+V012K: Real-live-data lock repair; fake/offline demo scoring blocked
+V012L: Binance public endpoint repair
+V012M: Live gate accepts verified OK_MULTI_SYMBOLS statuses
+V012N: Reports tab fixed; ChatGPT compact handover report generator added
+V013A: Paper Shadow Signal Simulator added; simulated entries/exits/fees/slippage only; local update visibility fixed
+V014A: Candle Harvester + Universe Scanner added; 1m/5m/15m public candles and wider USDT ranking only
+V014B: Candle/universe report accuracy repair; latest universe batch sorted by score and candle last-new-rows clarified
+V014C: Universe top-state repair; dashboard/report visible ranks now use the top rows, not the tail of the sorted batch
+V015A: Backtest + Walk-Forward Gate added; collected candles are replayed before any champion claim is allowed
+
+NEXT GATE
+BACKTEST_WALK_FORWARD_REVIEW
+Current blocker: Need repeated backtest/walk-forward evidence across more candles before any champion claim.

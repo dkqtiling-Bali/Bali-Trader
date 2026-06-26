@@ -1,0 +1,9 @@
+{
+  "version": "V013",
+  "paper_only": true,
+  "live_orders": "OFF",
+  "api_keys": "NONE",
+  "requires_real_live_data_gate": "PASS_RECENT_REAL_LIVE_DATA",
+  "claim_level": "PAPER_SHADOW_SIMULATION_ONLY_NOT_PROFIT_PROOF",
+  "next_patch": "V014_CANDLE_HARVESTER_UNIVERSE_SCANNER"
+}

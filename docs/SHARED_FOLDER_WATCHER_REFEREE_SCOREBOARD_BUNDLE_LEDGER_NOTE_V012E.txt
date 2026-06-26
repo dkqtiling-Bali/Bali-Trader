@@ -1,0 +1,1 @@
+V012E ledger note: added SIM-only shared-folder JSON bridge prep for Bali/Stargate two-CPU game arena. No live orders, no API keys, no remote commands, no network socket bridge, no trading logic changes.

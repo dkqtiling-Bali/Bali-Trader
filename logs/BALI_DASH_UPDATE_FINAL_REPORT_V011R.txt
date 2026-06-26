@@ -1,0 +1,43 @@
+BALI DASH UPDATE FINAL REPORT V011R
+Generated: 06/25/2026 11:31:32
+Root folder: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD
+Purpose: close previous dashboard listener, apply patch, fast health, cleanup/status, auto restart, then one final report.
+Mode: quiet success flow. Intermediate reports stay in logs; errors open immediately.
+Close guard: LISTENING server on port 9061 must clear before restart; browser ESTABLISHED rows are ignored.
+Mission: STARGATE RIVAL MODE - faster controlled upgrades from inside the dash.
+Safety: live orders OFF, champion lock LOCKED, no API keys.
+
+=== Step 0: close previous dashboard listener ===
+Close dashboard exit code: 0
+LISTENER_STATUS=CLEAR
+NON_LISTENER_CONNECTIONS_PRESENT=YES_OK :: 4
+Closed count: 0
+RESULT: CLOSE DASHBOARD PASS
+
+=== Step 1: speed lane apply/check ===
+Speed lane engine: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\tools\BALI_SPEED_LANE_ENGINE_V011R.ps1
+Speed lane exit code: 0
+LISTENER_STATUS=CLEAR
+RESULT: CLOSE DASHBOARD PASS
+Selected patch zip: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\updates\BALI_ROCKET_CRYPTO_COMMAND_V011S_DASH_ONLY_FINAL_STATUS_FLOW_PATCH.zip
+Selected version: V011S
+RESULT: UPDATE APPLIED
+Patch zip: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\updates\BALI_ROCKET_CRYPTO_COMMAND_V011S_DASH_ONLY_FINAL_STATUS_FLOW_PATCH.zip
+RESULT: FAST HEALTH PASS
+Installed version: V011S
+ARCHIVED OLD PATCH ZIP: V011R :: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\updates\BALI_ROCKET_CRYPTO_COMMAND_V011R_QUIET_DASH_CLOSE_GUARD_FINAL_REPORT_PATCH.zip
+Archived old patch ZIP count: 1
+Kept current/future patch ZIP count: 1
+RESULT: LAUNCH BAY CLEANUP PASS
+Compact status pack: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\logs\BALI_FAST_STATUS_PACK_V011R.txt
+RESULT: FAST HEALTH PASS
+RESULT: FAST STATUS PACK READY
+RESULT: SPEED LANE PASS
+
+=== Step 2: restart dashboard ===
+Starting dashboard via: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\BALI_THEMED_FOREVER_STARTER.bat
+RESTART=LAUNCHED
+
+RESULT: DASH UPDATE FINAL PASS
+Final report only: intermediate update/health/icon/cleanup reports were kept in logs unless an error happened.
+Next normal flow: drop next ZIP into updates, open dashboard Updates tab, click Dashboard Update + Auto Restart.

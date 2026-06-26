@@ -1,0 +1,25 @@
+BALI ROCKET CRYPTO COMMAND - LEDGER NOTE V011F
+
+Patch: V011F_VISIBLE_REPORT_ONE_CLICK_UPDATE_BOOTSTRAP
+Generated for: Bali Rocket Crypto Command challenger build
+Mission marker: STARGATE RIVAL MODE - Bali Rocket is being prepared to compete against the Stargate machine.
+
+Issue addressed:
+- User did not receive a visible report after the V011E root-finder patch.
+- V011D logs showed Python 3.10.11 was good, but app.py was not found because the launcher ran from the full-build parent folder.
+- V011E added root finding. V011F makes report visibility stronger and opens the report before the dashboard process starts.
+
+Changes:
+- Replaces ROCKET_CRYPTO_COMMAND_START.bat with V011F visible-report launcher.
+- Replaces phone LAN launcher with V011F visible-report LAN launcher.
+- Adds BALI_ONE_CLICK_UPDATE.bat as the safe future-patch installer.
+- Adds BALI_SHOW_LAST_REPORT.bat for quick report retrieval.
+- Adds BALI_PATCH_MANIFEST.txt so future one-click patches can be verified before applying.
+- Adds updates/DROP_NEXT_PATCH_ZIP_HERE.txt as the future update drop zone.
+
+Safety posture:
+- Live orders OFF.
+- Champion lock LOCKED.
+- No API keys touched.
+- Python 3.13 blocked due to previous crash code -1073741521.
+- Python accepted: 3.10, 3.11, 3.12.

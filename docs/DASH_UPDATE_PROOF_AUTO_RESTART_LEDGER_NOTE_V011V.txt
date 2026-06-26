@@ -1,0 +1,5 @@
+BALI V011V LEDGER NOTE
+
+V011V is the first patch intended specifically to be applied from the dashboard Updates tab as the proof of the full dashboard update + auto-restart loop.
+
+It keeps V011O root guard protections and adds a V011V proof stamp/status marker. No trading logic, live orders, API keys, champion locks, or protected ledgers are changed.

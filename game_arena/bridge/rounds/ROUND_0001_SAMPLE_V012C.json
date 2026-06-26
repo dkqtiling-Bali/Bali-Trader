@@ -1,0 +1,14 @@
+{
+  "version": "V012C",
+  "round_id": "ROUND_0001_SAMPLE",
+  "mode": "SIM_ONLY",
+  "status": "PREP_SAMPLE",
+  "bali_checkin": "game_arena/bridge/outbox/BALI_CPU_CHECKIN_SAMPLE_V012C.json",
+  "stargate_checkin": "game_arena/bridge/inbox/STARGATE_CPU_CHECKIN_SAMPLE_V012C.json",
+  "referee_result": {
+    "bali_score": 0,
+    "stargate_score": 0,
+    "winner": "NOT_SCORED_YET"
+  },
+  "safety": "LIVE_ORDERS_OFF | CHAMPION_LOCK_LOCKED | NO_API_KEYS"
+}

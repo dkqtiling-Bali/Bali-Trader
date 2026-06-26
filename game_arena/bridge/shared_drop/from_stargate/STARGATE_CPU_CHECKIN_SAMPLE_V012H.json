@@ -1,0 +1,19 @@
+{
+  "version": "V012H",
+  "cpu_role": "STARGATE_CPU",
+  "bot": "Stargate Bot",
+  "mode": "SIM_ONLY",
+  "round_id": "ROUND_0001_BRIDGE_TEST",
+  "timestamp": "GENERATED_BY_STARGATE_CPU",
+  "profit_pct": 0.0,
+  "max_drawdown_pct": 0.0,
+  "risk_events": 0,
+  "uptime_pct": 100,
+  "safety_violations": 0,
+  "orders_live": false,
+  "api_keys_present": false,
+  "score": 0,
+  "xp": 0,
+  "status": "READY_FOR_SHARED_FOLDER_BRIDGE",
+  "safety": "SIM_ONLY_NO_LIVE_ORDERS"
+}

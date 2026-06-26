@@ -1,0 +1,248 @@
+{
+  "champion_claim_allowed": false,
+  "checks": [
+    {
+      "detail": "V016 must never enable live orders.",
+      "name": "Live orders disabled",
+      "observed": "OFF",
+      "required": "OFF",
+      "status": "PASS"
+    },
+    {
+      "detail": "Public data research mode only.",
+      "name": "No API keys",
+      "observed": "NONE / private exchange endpoints not used",
+      "required": "NONE / no private endpoints",
+      "status": "PASS"
+    },
+    {
+      "detail": "Blocks private exchange endpoints.",
+      "name": "Public data research mode",
+      "observed": "PUBLIC_DATA_RESEARCH_ONLY",
+      "required": "PUBLIC_DATA_RESEARCH_ONLY",
+      "status": "PASS"
+    },
+    {
+      "detail": "V016 permits nomination review only, not champion claim.",
+      "name": "Champion lock remains locked",
+      "observed": "LOCKED / approved 0/3",
+      "required": "LOCKED",
+      "status": "PASS"
+    },
+    {
+      "detail": "Must be current real public data.",
+      "name": "Recent real-live-data gate",
+      "observed": "PASS_RECENT_REAL_LIVE_DATA",
+      "required": "PASS_RECENT_REAL_LIVE_DATA",
+      "status": "PASS"
+    },
+    {
+      "detail": "No offline/demo rows can score.",
+      "name": "Raw data gate enforced",
+      "observed": "ENFORCED_PASS_REAL_LIVE_DATA_ONLY",
+      "required": "ENFORCED_PASS_REAL_LIVE_DATA_ONLY",
+      "status": "PASS"
+    },
+    {
+      "detail": "Warnings block nomination.",
+      "name": "Live-data warning clean",
+      "observed": "OK",
+      "required": "OK",
+      "status": "PASS"
+    },
+    {
+      "detail": "Stale data cannot nominate champions.",
+      "name": "Live-data freshness",
+      "observed": 0,
+      "required": "<= 120",
+      "status": "PASS"
+    },
+    {
+      "detail": "Only Binance public data mirror is accepted here.",
+      "name": "Approved public feed source",
+      "observed": "https://data-api.binance.vision",
+      "required": "https://data-api.binance.vision",
+      "status": "PASS"
+    },
+    {
+      "detail": "Fake/offline/demo scoring is not evidence.",
+      "name": "Offline/demo rows ignored",
+      "observed": 0,
+      "required": 0,
+      "status": "PASS"
+    },
+    {
+      "detail": "Enough real ticks to prove collection health.",
+      "name": "Market tick evidence count",
+      "observed": 2916.0,
+      "required": ">= 500",
+      "status": "PASS"
+    },
+    {
+      "detail": "Guard must have repeated passes.",
+      "name": "Live guard evidence count",
+      "observed": 88.0,
+      "required": ">= 20",
+      "status": "PASS"
+    },
+    {
+      "detail": "Learning is collection-only, not edge proof.",
+      "name": "Learning cycles recorded",
+      "observed": 486.0,
+      "required": ">= 100",
+      "status": "PASS"
+    },
+    {
+      "detail": "Paper-only simulator remains safe.",
+      "name": "Paper Shadow online",
+      "observed": "PAPER_SHADOW_ONLINE | last_action=STAND_ASIDE_SIMULATED | open_position=NONE",
+      "required": "PAPER_SHADOW_ONLINE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Need repeated paper observations before nomination.",
+      "name": "Paper Shadow repeated rows",
+      "observed": 31,
+      "required": ">= 50",
+      "status": "BLOCK"
+    },
+    {
+      "detail": "Stand-aside rows prove risk discipline but not trade edge.",
+      "name": "Paper Shadow closed trade evidence",
+      "observed": 0,
+      "required": ">= 10",
+      "status": "BLOCK"
+    },
+    {
+      "detail": "Candle layer is allowed as evidence input.",
+      "name": "Candle Harvester online",
+      "observed": "CANDLE_HARVESTER_ONLINE | last_new_rows=12 | total_rows=258 | last_at=2026-06-25T09:40:33+00:00",
+      "required": "CANDLE_HARVESTER_ONLINE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Enough candles for the current V016 baseline.",
+      "name": "Candle row count",
+      "observed": 258,
+      "required": ">= 250",
+      "status": "PASS"
+    },
+    {
+      "detail": "Proof rows must exist, not just derived rows.",
+      "name": "Candle proof count",
+      "observed": 23,
+      "required": ">= 20",
+      "status": "PASS"
+    },
+    {
+      "detail": "Scanner may rank candidates; it cannot nominate alone.",
+      "name": "Universe Scanner online",
+      "observed": "UNIVERSE_SCANNER_ONLINE | latest_batch_rows=40 | ledger_rows=920 | top=AAVEUSDT | top_score=60.876",
+      "required": "UNIVERSE_SCANNER_ONLINE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Universe ranking needs repeated batches.",
+      "name": "Universe scan ledger depth",
+      "observed": 920,
+      "required": ">= 500",
+      "status": "PASS"
+    },
+    {
+      "detail": "Latest visible batch must be broad enough.",
+      "name": "Universe latest batch depth",
+      "observed": 40,
+      "required": ">= 25",
+      "status": "PASS"
+    },
+    {
+      "detail": "Gate exists and records evidence.",
+      "name": "Backtest/WF gate recorded",
+      "observed": "BACKTEST_WALK_FORWARD_RECORDED | gate=WALK_FORWARD_RECORDED_EDGE_NOT_PROVEN | symbol=BTCUSDT | interval=1m",
+      "required": "BACKTEST_WALK_FORWARD_RECORDED",
+      "status": "PASS"
+    },
+    {
+      "detail": "Need repeated runs before nomination.",
+      "name": "Backtest/WF repeated rows",
+      "observed": 4,
+      "required": ">= 12",
+      "status": "BLOCK"
+    },
+    {
+      "detail": "Latest walk-forward averages must repeatedly be positive.",
+      "name": "Backtest/WF positive repeated edge",
+      "observed": 0,
+      "required": ">= 8",
+      "status": "BLOCK"
+    },
+    {
+      "detail": "Drawdown must stay within configured limits.",
+      "name": "Backtest/WF drawdown containment",
+      "observed": 4,
+      "required": ">= 8 rows with dd <= 2.5",
+      "status": "BLOCK"
+    },
+    {
+      "detail": "Repeated evidence cannot be one recycled run.",
+      "name": "Distinct backtest IDs",
+      "observed": 4,
+      "required": ">= 12",
+      "status": "BLOCK"
+    },
+    {
+      "detail": "Existing gate must stop reporting unproven edge.",
+      "name": "Backtest edge not proven flag cleared",
+      "observed": "BACKTEST_WALK_FORWARD_RECORDED | gate=WALK_FORWARD_RECORDED_EDGE_NOT_PROVEN | symbol=BTCUSDT | interval=1m",
+      "required": "No EDGE_NOT_PROVEN flag",
+      "status": "BLOCK"
+    },
+    {
+      "detail": "Risk Police must stay armed.",
+      "name": "Risk Police armed",
+      "observed": "ARMED",
+      "required": "ARMED",
+      "status": "PASS"
+    },
+    {
+      "detail": "V016 does not unlock champion claims.",
+      "name": "Champion claim remains false",
+      "observed": false,
+      "required": false,
+      "status": "PASS"
+    },
+    {
+      "detail": "Even nomination eligibility is review-only; claim still requires humans.",
+      "name": "Human approvals for claim",
+      "observed": "0/3",
+      "required": ">= 3/3",
+      "status": "WARN"
+    }
+  ],
+  "gate": "CHAMPION_NOMINATION_BLOCKED",
+  "generated_utc": "2026-06-25T09:46:35+00:00",
+  "nomination_allowed": false,
+  "overall_status": "BLOCK",
+  "summary": {
+    "backtest_walk_forward_rows": 4,
+    "blocking_checks": [
+      "Paper Shadow repeated rows",
+      "Paper Shadow closed trade evidence",
+      "Backtest/WF repeated rows",
+      "Backtest/WF positive repeated edge",
+      "Backtest/WF drawdown containment",
+      "Distinct backtest IDs",
+      "Backtest edge not proven flag cleared"
+    ],
+    "distinct_backtest_ids_visible": 4,
+    "edge_not_proven_flag_present": true,
+    "paper_closed_trade_rows_visible": 0,
+    "paper_shadow_rows": 31,
+    "raw_data_gate": "ENFORCED_PASS_REAL_LIVE_DATA_ONLY",
+    "real_live_gate": "PASS_RECENT_REAL_LIVE_DATA",
+    "risk_police": "ARMED",
+    "source_version": "V015A_BACKTEST_WALK_FORWARD_GATE",
+    "wf_positive_rows_visible": 0
+  },
+  "version": "V016_EVIDENCE_SCORECARD_CHAMPION_COUNCIL_GATE"
+}

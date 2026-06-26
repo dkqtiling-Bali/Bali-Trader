@@ -1,0 +1,10 @@
+{
+  "version": "V012B",
+  "cpu_role": "STARGATE_CPU",
+  "bot": "Stargate Bot",
+  "mode": "SIM_ONLY",
+  "score": 0,
+  "xp": 0,
+  "status": "AWAITING_TWO_CPU_BRIDGE",
+  "note": "Sample check-in format only. Do not use for live trading."
+}

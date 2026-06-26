@@ -1,0 +1,33 @@
+BALI SPEED LANE UPDATE REPORT V011L
+Generated: 06/25/2026 11:11:59
+Root folder: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD
+Purpose: one double-click for update + fast health + Bali themed icon check.
+Mission: STARGATE RIVAL MODE - faster controlled upgrades for the challenger machine.
+Safety: live orders OFF, champion lock LOCKED, no API keys.
+
+=== Step 1: one-click update engine ===
+Update engine exit code: 0
+Selected patch zip: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\updates\BALI_ROCKET_CRYPTO_COMMAND_V011O_DASH_UPDATE_ROOT_GUARD_RESTART_FIX_PATCH.zip
+Selected version: V011O
+RESULT: UPDATE APPLIED
+Patch zip: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\updates\BALI_ROCKET_CRYPTO_COMMAND_V011O_DASH_UPDATE_ROOT_GUARD_RESTART_FIX_PATCH.zip
+Next step: run BALI_SPEED_LANE_UPDATE.bat for future patches, or run BALI_FAST_STATUS_PACK.bat before asking ChatGPT for the next patch.
+
+=== Step 2: fast health ===
+Fast health exit code: 0
+APP_ROOT=FOUND :: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\bali_rocket_crypto_command_v011b
+PYTHON=FOUND :: C:\Users\CB\AppData\Local\Programs\Python\Python310\python.exe
+PYTHON_VERSION=3.10.11
+SYNTAX=PASS
+UPDATE_ENGINE_V011O=FOUND
+BALI_THEMED_ICON=FOUND_V011O
+DESKTOP_SHORTCUT=FOUND :: Bali Forever Starter
+PORT_9061=LISTENING_OR_ACTIVE
+RESULT: FAST HEALTH PASS
+
+=== Step 3: Bali themed desktop icon ===
+Desktop icon already OK: Bali Forever Starter
+
+RESULT: SPEED LANE PASS
+Next normal flow: put next patch ZIP in root/updates, then double-click BALI_SPEED_LANE_UPDATE.bat.
+For ChatGPT: paste this one report, not every full report, unless I ask for more.

@@ -1,0 +1,30 @@
+BALI CRYPTO COMMAND - LEDGER NOTE V011O
+
+
+
+
+
+Patch: DASH_UPDATE_AUTO_RESTART_ROOT_GUARD
+
+
+Reason: user wants faster updates and less waiting for ChatGPT responses.
+
+
+Resolution: adds speed lane update flow and compact status pack.
+
+
+User-facing desktop brand remains: Bali themed / Bali Forever Starter.
+
+
+Internal project manifest remains BALI_ROCKET_CRYPTO_COMMAND for updater validation.
+
+
+Safety: live orders OFF, champion lock LOCKED, no API keys touched.
+
+
+Trading logic: unchanged.
+
+
+app.py: unchanged.
+
+

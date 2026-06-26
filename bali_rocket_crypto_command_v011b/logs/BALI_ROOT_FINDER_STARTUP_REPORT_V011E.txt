@@ -1,0 +1,25 @@
+BALI ROCKET CRYPTO COMMAND - ROOT FINDER STARTUP REPORT V011E
+Generated: Thu 25/06/2026 10:08:22.95
+Launcher folder: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD
+App folder: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\bali_rocket_crypto_command_v011b
+Mission: STARGATE RIVAL MODE - Bali Rocket is being prepared to compete against the Stargate machine.
+Fix active: app.py root found before Python compile/run.
+Python shield: Python 3.13 is skipped. Preferred order: Python 3.10, 3.11, then 3.12.
+Safety: live orders OFF, champion lock LOCKED, no API keys.
+
+Cleaning old Python cache folder: __pycache__ 
+=== Candidate scan === 
+Checking: direct local Python 3.10 - C:\Users\CB\AppData\Local\Programs\Python\Python310\python.exe 
+probe_version=3.10.11
+ACCEPTED: direct local Python 3.10 - C:\Users\CB\AppData\Local\Programs\Python\Python310\python.exe 
+
+RESULT: READY
+Python selected: C:\Users\CB\AppData\Local\Programs\Python\Python310\python.exe
+Python 3.10.11
+Syntax check: PASS
+Dashboard: http://127.0.0.1:9061
+Phone mode: use ROCKET_CRYPTO_COMMAND_START_PHONE_LAN_EXPERIMENTAL.bat
+Rival marker: Bali Rocket versus Stargate machine.
+Safety: live orders OFF, champion lock LOCKED, no API keys.
+
+Starting dashboard now...

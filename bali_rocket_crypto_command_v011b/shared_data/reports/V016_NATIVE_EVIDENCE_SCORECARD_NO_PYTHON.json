@@ -1,0 +1,16 @@
+{
+  "version": "V016_NATIVE_EVIDENCE_SCORECARD_PANEL_NO_PYTHON",
+  "install_method": "V019_ONE_CLICK_NO_PYTHON_PATCH_RUNNER",
+  "python_used": false,
+  "update_dock_used": false,
+  "evidence_scorecard": "BLOCK",
+  "champion_nomination": "CHAMPION_NOMINATION_BLOCKED",
+  "champion_claim_allowed": false,
+  "live_orders_allowed": false,
+  "safety": {
+    "live_orders": "OFF",
+    "champion_lock": "LOCKED",
+    "api_keys": "NONE",
+    "private_exchange_endpoints": "NOT_USED"
+  }
+}

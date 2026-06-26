@@ -1,0 +1,3 @@
+V012H LEDGER NOTE
+Adds SIM-only shared-folder watcher/referee scoreboard tools for Bali vs Stargate.
+No live orders, no API keys, no remote commands, no trading logic changes.

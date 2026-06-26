@@ -1,0 +1,25 @@
+PHONE REMOTE SAFETY
+===================
+
+Use phone LAN mode only on your private Wi-Fi.
+Do not port-forward this dashboard.
+Do not expose it to the public internet.
+
+Allowed phone actions in this build:
+- View dashboard.
+- View Market Feed.
+- View Growth/Learning Pulse.
+- Manual Pulse Now.
+- Start/Pause Overnight Watch.
+- Generate Morning Report.
+- Scan Update Dock.
+- Apply valid safe update ZIPs from UPDATE_INBOX.
+- Rollback overwritten files from last safe update.
+
+Not available in this build:
+- Live trading.
+- Champion approval.
+- API key changes.
+- Risk increase.
+- Risk Police disable.
+- Proof-gate bypass.

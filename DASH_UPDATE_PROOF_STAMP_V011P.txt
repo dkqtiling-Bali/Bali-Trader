@@ -1,0 +1,12 @@
+BALI DASH UPDATE PROOF STAMP V011P
+
+This marker is installed by V011P. Use it to confirm the dashboard Updates tab can apply a new patch and auto-restart through Bali Forever Starter.
+
+Expected preferred test:
+1. Drop this ZIP into updates.
+2. Start dashboard from Bali Forever Starter.
+3. Open Updates tab.
+4. Click Dashboard Update + Auto Restart.
+5. Dashboard closes, applies V011P, fast health passes, and dashboard restarts.
+
+Safety unchanged: live orders OFF, champion lock LOCKED, no API keys touched.

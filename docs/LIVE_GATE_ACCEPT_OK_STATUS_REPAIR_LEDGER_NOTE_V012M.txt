@@ -1,0 +1,20 @@
+BALI LEDGER NOTE V012M
+
+Observed after V012L:
+- Public Market Feed Proof source showed https://data-api.binance.vision.
+- Status showed OK_MULTI_SYMBOLS_6.
+- Real live gate still showed FAIL_NO_RECENT_REAL_LIVE_DATA.
+- Latest Ticks still displayed older offline_demo rows.
+
+Diagnosis:
+- Binance endpoint repair worked.
+- The live-data verifier was too strict and only accepted feed_status == OK.
+- V012L valid statuses include OK_MULTI_SYMBOLS_* and OK_SINGLE_SYMBOL_REPAIR_*.
+
+Repair:
+- Accept status_text.startswith('OK') only when source is an approved public Binance base URL.
+- Keep every fake/demo/offline rejection rule in force.
+- Filter dashboard latest ticks so old offline_demo history does not appear as current live feed proof.
+
+Hard law remains:
+REAL LIVE DATA ONLY. NO EXCEPTION.

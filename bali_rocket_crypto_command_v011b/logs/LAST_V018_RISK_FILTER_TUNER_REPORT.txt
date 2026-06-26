@@ -1,0 +1,74 @@
+BALI ROCKET - V018 RISK FILTER TUNER REPORT
+========================================================================
+Generated UTC: 2026-06-26T03:08:19+00:00
+Core version: V015A_BACKTEST_WALK_FORWARD_GATE
+Patch report version: V018_RISK_FILTER_TUNER
+
+LAST PATCH DETAILS
+Patch ID: V018_RISK_FILTER_TUNER_ACTIVE_FIX
+Title: Risk Filter Tuner Active App Verifier/Fixer
+Installed UTC: 2026-06-26T02:02:39Z
+Status: installed_active_app_verified
+Files changed: app.py, README_V018_RISK_FILTER_TUNER_ACTIVE_FIX.txt, Reports button: Generate Risk Filter Tuner Report
+Safety note: LIVE_ORDERS_OFF | CHAMPION_LOCKED | NO_API_KEYS | PUBLIC_DATA_RESEARCH_ONLY | NO_STRATEGY_CHANGE
+
+SAFETY LOCKS
+Live orders: OFF
+API/private endpoints: NONE / private exchange endpoints not used
+Champion lock: LOCKED / approved 0/3
+Champion claim allowed: False
+Risk Police: ARMED
+Safety verdict: PASS
+
+RISK GATE SUMMARY
+Gate: WALK_FORWARD_RECORDED_EDGE_NOT_PROVEN
+Risk verdict: EDGE NOT PROVEN - BLOCK CHAMPION
+Symbol / interval: BTCUSDT 1m
+Run ID: BT20260626T030801Z | Run time: 2026-06-26T03:08:01+00:00
+Total candles: 889
+In-sample: trades=64 | avg_net_pct=-0.362 | max_drawdown_pct=20.7189 | win_rate_pct=1.56
+Walk-forward: trades=24 | avg_net_pct=-0.3433 | max_drawdown_pct=7.9245 | win_rate_pct=4.17
+
+WHY CHAMPION IS BLOCKED
+- BLOCKER: walk-forward average net result is not positive after fees/slippage. Edge remains unproven.
+- EDGE DETAIL: walk-forward average net -0.3433% is not positive.
+- SAMPLE DETAIL: walk-forward trades=24 is still a small sample. Keep collecting before conclusions.
+
+RESEARCH-ONLY FILTER RECOMMENDATIONS
+- Keep stand-aside discipline active while BTC_TIDE_FALLING or no_trade_score >= 65.
+- Research-only filter idea: require walk-forward average net > 0 after fees/slippage across repeated runs before any Champion nomination.
+- Collect more candles and paper rows before judging. Small walk-forward samples can mislead.
+- Do not enable live trading, API keys, private endpoints, or Champion unlock from this patch.
+- Next research step: compare risk metrics across symbols/intervals and only promote filters that reduce drawdown without hiding losses.
+
+RISK TREND SINCE PREVIOUS V018 REPORT
+- Previous V018 risk snapshot UTC: 2026-06-26T02:45:07+00:00
+- total_candles: 866 -> 889 | delta=23
+- in_trades: 61 -> 64 | delta=3
+- wf_trades: 25 -> 24 | delta=-1
+- market_ticks: 6864 -> 6972 | delta=108
+- paper_shadow: 680 -> 698 | delta=18
+- candle_rows: 6843 -> 7023 | delta=180
+- backtest_walkforward: 653 -> 671 | delta=18
+- in_avg: -0.3596 -> -0.3620 | change=-0.0024
+- in_dd: 19.7322 -> 20.7189 | change=0.9867
+- wf_avg: -0.3465 -> -0.3433 | change=0.0032
+- wf_dd: 8.3136 -> 7.9245 | change=-0.3891
+
+BOT COLLECTION CONTEXT
+Market ticks: 6972
+Paper shadow rows: 698
+Candle rows: 7023
+Universe scan ledger rows: 27600
+Backtest walk-forward rows: 671
+Current regime: BTC_TIDE_FALLING
+No-trade score: 65
+
+FINAL VERDICT
+LIVE DATA: PASS
+SAFETY: PASS
+RISK FILTER STATUS: EDGE NOT PROVEN - BLOCK CHAMPION
+EDGE PROOF: NOT APPROVED FOR CHAMPION
+NEXT ACTION: Keep live trading OFF; collect more evidence; use this report to decide research-only filter changes.
+
+Safety reminder: this patch does not trade, does not add API keys, does not unlock Champion, and does not claim profit proof.

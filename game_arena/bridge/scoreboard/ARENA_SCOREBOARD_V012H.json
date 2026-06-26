@@ -1,0 +1,26 @@
+{
+  "version": "V012H",
+  "competition": "Bali Bot vs Stargate Bot",
+  "mode": "SIM_ONLY",
+  "bridge": "SHARED_FOLDER_JSON_ONLY",
+  "rounds_scored": 0,
+  "bali": {
+    "score": 0,
+    "xp": 0,
+    "level": 1,
+    "badges": [
+      "Safety locked",
+      "Autopilot stable"
+    ]
+  },
+  "stargate": {
+    "score": 0,
+    "xp": 0,
+    "level": 1,
+    "badges": [
+      "Awaiting first check-in"
+    ]
+  },
+  "last_winner": "NONE_YET",
+  "safety": "LIVE_ORDERS_OFF | CHAMPION_LOCK_LOCKED | NO_API_KEYS"
+}

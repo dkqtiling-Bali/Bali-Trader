@@ -1,0 +1,15 @@
+BALI V011P - DASHBOARD UPDATE PROOF + AUTO RESTART CONFIRM
+
+This patch is meant to be applied from the dashboard, not by manually opening the extracted folder.
+
+Preferred test:
+1. Put BALI_ROCKET_CRYPTO_COMMAND_V011P_DASH_UPDATE_PROOF_AUTO_RESTART_CONFIRM_PATCH.zip into the root updates folder.
+2. Launch the dashboard through Bali Forever Starter.
+3. Open the Updates tab.
+4. Click Dashboard Update + Auto Restart.
+5. The dashboard should close, apply V011P through Speed Lane, run fast health, clean the launch bay, write compact status, and restart.
+
+Fallback:
+Run BALI_SPEED_LANE_UPDATE.bat from the real root folder.
+
+Safety unchanged: live orders OFF, champion lock LOCKED, no API keys touched, no trading logic changed.

@@ -1,0 +1,69 @@
+BALI SPEED LANE UPDATE REPORT V012G
+Generated: 06/25/2026 12:54:11
+Root folder: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD
+Purpose: update + fast health + Bali themed icon + cleanup + auto status + dash bridge check + final-report-only support.
+Mission: STARGATE RIVAL MODE - faster controlled upgrades for the challenger machine.
+Safety: live orders OFF, champion lock LOCKED, no API keys.
+Quiet mode: intermediate reports stay in logs; dashboard flow opens one final report.
+
+=== Step 0: close previous dashboard if needed ===
+Close dashboard exit code: 0
+LISTENER_STATUS=CLEAR
+NON_LISTENER_CONNECTIONS_PRESENT=YES_OK :: 5
+Closed count: 0
+RESULT: CLOSE DASHBOARD PASS
+
+=== Step 1: one-click update engine ===
+Update engine exit code: 0
+Selected patch zip: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\updates\BALI_ROCKET_CRYPTO_COMMAND_V012H_GOVERNOR_HUB_STARGATE_JOIN_KIT_BUNDLE_PATCH.zip
+Selected version: V012H
+RESULT: UPDATE APPLIED
+Patch zip: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\updates\BALI_ROCKET_CRYPTO_COMMAND_V012H_GOVERNOR_HUB_STARGATE_JOIN_KIT_BUNDLE_PATCH.zip
+Next step: run BALI_SPEED_LANE_UPDATE.bat for future patches, or run BALI_FAST_STATUS_PACK.bat before asking ChatGPT for the next patch.
+
+=== Step 2: fast health ===
+Fast health exit code: 0
+APP_ROOT=FOUND :: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\bali_rocket_crypto_command_v011b
+PYTHON=FOUND :: C:\Users\CB\AppData\Local\Programs\Python\Python310\python.exe
+PYTHON_VERSION=3.10.11
+SYNTAX=PASS
+UPDATE_ENGINE_V012G=FOUND
+ROOT_GUARD_V012G=FOUND
+DASH_UPDATE_BRIDGE=FOUND
+DASH_RESTART_ENGINE_V012G=FOUND
+CLOSE_PREVIOUS_DASHBOARD_ENGINE_V012G=FOUND
+FINAL_REPORT_ONLY=ON
+BALI_THEMED_ICON=FOUND_V012G
+DESKTOP_SHORTCUT=FOUND :: Bali Forever Starter
+PORT_9061=LISTENING_OR_ACTIVE
+LAUNCH_BAY_CLEANUP_BAT=FOUND
+LAUNCH_BAY_CLEANUP_ENGINE_V012G=FOUND
+RESULT: FAST HEALTH PASS
+
+=== Step 3: Bali themed desktop icon ===
+Desktop icon already OK: Bali Forever Starter
+
+=== Step 4: launch bay cleanup ===
+Cleanup exit code: 0
+Installed version: V012H
+ARCHIVED OLD PATCH ZIP: V012G :: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\updates\BALI_ROCKET_CRYPTO_COMMAND_V012G_PHONE_ARENA_MONITOR_BOT_GUARDIAN_BUNDLE_PATCH.zip
+KEPT PATCH ZIP: V012H :: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\updates\BALI_ROCKET_CRYPTO_COMMAND_V012H_GOVERNOR_HUB_STARGATE_JOIN_KIT_BUNDLE_PATCH.zip
+REMOVED STAGING FOLDER: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\updates\_staging_speed_dash_20260625_125410
+Archived old patch ZIP count: 1
+Kept current/future patch ZIP count: 1
+Archive folder: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\updates\applied_patch_archive\before_V012H_20260625_125419
+RESULT: LAUNCH BAY CLEANUP PASS
+
+=== Step 5: auto compact status pack ===
+Status pack exit code: 0
+Compact status pack: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\logs\BALI_FAST_STATUS_PACK_V012G.txt
+VERSION=V012H
+APP_ROOT=FOUND :: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\bali_rocket_crypto_command_v011b
+PYTHON_VERSION=3.10.11
+DESKTOP_SHORTCUT=FOUND :: Bali Forever Starter
+RESULT: FAST HEALTH PASS
+RESULT: FAST STATUS PACK READY
+
+RESULT: SPEED LANE PASS
+Next normal flow: leave dashboard open; autopilot applies newer local patches from updates.
+For ChatGPT: paste only the tiny final dashboard report unless there is a warning/fail.

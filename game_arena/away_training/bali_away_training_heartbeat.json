@@ -1,0 +1,22 @@
+﻿{
+    "ok":  true,
+    "version":  "V012N",
+    "role":  "BALI_GOVERNOR_HUB_AND_COMPETITOR",
+    "training":  "ACTIVE_SIM_ONLY_AWAY",
+    "cycle":  25,
+    "started_at":  "2026-06-25T13:54:13.0441406+10:00",
+    "updated_at":  "2026-06-25T14:18:14.3337939+10:00",
+    "safety":  "LIVE_ORDERS_OFF | CHAMPION_LOCK_LOCKED | NO_API_KEYS",
+    "live_orders":  "OFF",
+    "champion_lock":  "LOCKED",
+    "api_keys":  "NONE",
+    "remote_commands":  "BLOCKED",
+    "raw_live_data_only":  true,
+    "raw_data_gate":  "PASS_REQUIRED_FOR_SCORING",
+    "raw_live_data_present":  false,
+    "raw_live_data_path":  null,
+    "scoring_state":  "RAW_LIVE_DATA_ABSENT_SCORING_HELD_DRILLS_ONLY",
+    "current_drill":  "entry_exit_rule_rehearsal",
+    "note":  "Training loop never places orders and never creates fake market prices. Without raw-live data, score is held and only safe drills run.",
+    "bridge_root":  "C:\\Users\\CB\\OneDrive\\BaliArenaBridge"
+}

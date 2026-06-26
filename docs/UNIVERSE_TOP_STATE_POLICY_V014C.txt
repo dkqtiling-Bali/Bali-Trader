@@ -1,0 +1,5 @@
+Universe Top State Policy V014C
+
+The Universe Scanner headline top symbol must match the first visible row in the latest universe ranks table.
+Visible rows must be taken from the top of the latest batch sorted by universe_score, not the tail.
+This patch does not change ranking logic, candle logic, trading logic, API key behavior, or champion locks.

@@ -1,0 +1,98 @@
+BALI CHATGPT STATUS REPORT
+========================================================================
+Generated UTC: 2026-06-25T08:56:48+00:00
+Version: V012N_REPORT_DOCK_AUTOMATION_FIX
+Purpose: one compact report for ChatGPT. No more tab-by-tab copying unless there is a specific error.
+
+SAFETY
+Live orders: OFF
+Champion lock: LOCKED / approved 0/3
+API keys: NONE / private exchange endpoints not used
+Mode: PUBLIC_DATA_RESEARCH_ONLY
+
+REAL LIVE DATA GATE
+Gate: PASS_RECENT_REAL_LIVE_DATA
+Raw data gate: ENFORCED_PASS_REAL_LIVE_DATA_ONLY
+Warning: OK
+Stale seconds: 0
+Feed source: https://data-api.binance.vision
+Feed status: OK_MULTI_SYMBOLS_6
+Current regime: BTC_TIDE_FALLING
+Ignored recent offline_demo rows: 50
+
+COUNTS
+Market ticks: 2634
+Feed proof: 439
+Live data guard: 41
+Learning cycles: 439
+Research notes: 439
+Pulse count: 455
+Growth score: 1267.65
+Learning score: 1097.5
+Research score: 170.15
+
+PAPER / RISK STATUS
+Paper Arena: READY shell only; next build should add simulated entries/exits, fees, slippage, and explanations.
+Risk Police: ARMED
+No-trade score: 65
+Live trading enable, API keys, champion approval, and disabling Risk Police are not implemented in this build.
+
+LATEST VERIFIED LIVE TICKS
+- 2026-06-25T08:55:27+00:00 | BTCUSDT | last=61770.93 | 24h=-1.629 | regime=BTC_TIDE_FALLING | source=https://data-api.binance.vision
+- 2026-06-25T08:55:27+00:00 | ETHUSDT | last=1653.37 | 24h=-1.217 | regime=BTC_TIDE_FALLING | source=https://data-api.binance.vision
+- 2026-06-25T08:55:27+00:00 | XRPUSDT | last=1.0839 | 24h=-1.687 | regime=BTC_TIDE_FALLING | source=https://data-api.binance.vision
+- 2026-06-25T08:55:27+00:00 | LINKUSDT | last=7.508 | 24h=-1.47 | regime=BTC_TIDE_FALLING | source=https://data-api.binance.vision
+- 2026-06-25T08:55:27+00:00 | DOGEUSDT | last=0.0771 | 24h=-2.59 | regime=BTC_TIDE_FALLING | source=https://data-api.binance.vision
+- 2026-06-25T08:55:27+00:00 | SOLUSDT | last=69.09 | 24h=-0.533 | regime=BTC_TIDE_FALLING | source=https://data-api.binance.vision
+- 2026-06-25T08:56:28+00:00 | BTCUSDT | last=61762.93 | 24h=-1.648 | regime=BTC_TIDE_FALLING | source=https://data-api.binance.vision
+- 2026-06-25T08:56:28+00:00 | ETHUSDT | last=1653.19 | 24h=-1.222 | regime=BTC_TIDE_FALLING | source=https://data-api.binance.vision
+- 2026-06-25T08:56:28+00:00 | XRPUSDT | last=1.0837 | 24h=-1.705 | regime=BTC_TIDE_FALLING | source=https://data-api.binance.vision
+- 2026-06-25T08:56:28+00:00 | LINKUSDT | last=7.51 | 24h=-1.482 | regime=BTC_TIDE_FALLING | source=https://data-api.binance.vision
+- 2026-06-25T08:56:28+00:00 | DOGEUSDT | last=0.07709 | 24h=-2.627 | regime=BTC_TIDE_FALLING | source=https://data-api.binance.vision
+- 2026-06-25T08:56:28+00:00 | SOLUSDT | last=69.09 | 24h=-0.518 | regime=BTC_TIDE_FALLING | source=https://data-api.binance.vision
+
+LATEST LEARNING CYCLES
+- cycle=448 | 2026-06-25T08:51:02+00:00 | source=https://data-api.binance.vision | regime={'alt_avg_pct_24h': -1.385, 'alt_dispersion': 0.496, 'btc_pct_24h': -1.552, 'label': 'BTC_TIDE_FALLING', 'no_trade_score': 65} | claim=LEARNING_PULSE_REAL_LIVE_DATA_COLLECTION_ONLY | task=Collect baseline market regime proof and wait for clearer patterns.
+- cycle=449 | 2026-06-25T08:52:03+00:00 | source=https://data-api.binance.vision | regime={'alt_avg_pct_24h': -1.411, 'alt_dispersion': 0.498, 'btc_pct_24h': -1.544, 'label': 'BTC_TIDE_FALLING', 'no_trade_score': 65} | claim=LEARNING_PULSE_REAL_LIVE_DATA_COLLECTION_ONLY | task=Collect baseline market regime proof and wait for clearer patterns.
+- cycle=450 | 2026-06-25T08:53:04+00:00 | source=https://data-api.binance.vision | regime={'alt_avg_pct_24h': -1.485, 'alt_dispersion': 0.499, 'btc_pct_24h': -1.613, 'label': 'BTC_TIDE_FALLING', 'no_trade_score': 65} | claim=LEARNING_PULSE_REAL_LIVE_DATA_COLLECTION_ONLY | task=Collect baseline market regime proof and wait for clearer patterns.
+- cycle=451 | 2026-06-25T08:54:05+00:00 | source=https://data-api.binance.vision | regime={'alt_avg_pct_24h': -1.465, 'alt_dispersion': 0.511, 'btc_pct_24h': -1.596, 'label': 'BTC_TIDE_FALLING', 'no_trade_score': 65} | claim=LEARNING_PULSE_REAL_LIVE_DATA_COLLECTION_ONLY | task=Collect baseline market regime proof and wait for clearer patterns.
+- cycle=452 | 2026-06-25T08:55:06+00:00 | source=https://data-api.binance.vision | regime={'alt_avg_pct_24h': -1.508, 'alt_dispersion': 0.503, 'btc_pct_24h': -1.635, 'label': 'BTC_TIDE_FALLING', 'no_trade_score': 65} | claim=LEARNING_PULSE_REAL_LIVE_DATA_COLLECTION_ONLY | task=Collect baseline market regime proof and wait for clearer patterns.
+- cycle=453 | 2026-06-25T08:55:25+00:00 | source=https://data-api.binance.vision | regime={'alt_avg_pct_24h': -1.511, 'alt_dispersion': 0.515, 'btc_pct_24h': -1.638, 'label': 'BTC_TIDE_FALLING', 'no_trade_score': 65} | claim=LEARNING_PULSE_REAL_LIVE_DATA_COLLECTION_ONLY | task=Collect baseline market regime proof and wait for clearer patterns.
+- cycle=454 | 2026-06-25T08:55:27+00:00 | source=https://data-api.binance.vision | regime={'alt_avg_pct_24h': -1.499, 'alt_dispersion': 0.511, 'btc_pct_24h': -1.629, 'label': 'BTC_TIDE_FALLING', 'no_trade_score': 65} | claim=LEARNING_PULSE_REAL_LIVE_DATA_COLLECTION_ONLY | task=Collect baseline market regime proof and wait for clearer patterns.
+- cycle=455 | 2026-06-25T08:56:28+00:00 | source=https://data-api.binance.vision | regime={'alt_avg_pct_24h': -1.511, 'alt_dispersion': 0.524, 'btc_pct_24h': -1.648, 'label': 'BTC_TIDE_FALLING', 'no_trade_score': 65} | claim=LEARNING_PULSE_REAL_LIVE_DATA_COLLECTION_ONLY | task=Collect baseline market regime proof and wait for clearer patterns.
+
+LATEST RESEARCH NOTES
+- 2026-06-25T08:53:04+00:00 | Alpha Watch | BTC_TIDE_FALLING | Collect baseline market regime proof and wait for clearer patterns. | claim=REAL_LIVE_DATA_COLLECTION_ONLY_NOT_EDGE_PROOF
+- 2026-06-25T08:54:05+00:00 | Alpha Watch | BTC_TIDE_FALLING | Collect baseline market regime proof and wait for clearer patterns. | claim=REAL_LIVE_DATA_COLLECTION_ONLY_NOT_EDGE_PROOF
+- 2026-06-25T08:55:06+00:00 | Alpha Watch | BTC_TIDE_FALLING | Collect baseline market regime proof and wait for clearer patterns. | claim=REAL_LIVE_DATA_COLLECTION_ONLY_NOT_EDGE_PROOF
+- 2026-06-25T08:55:25+00:00 | Alpha Watch | BTC_TIDE_FALLING | Collect baseline market regime proof and wait for clearer patterns. | claim=REAL_LIVE_DATA_COLLECTION_ONLY_NOT_EDGE_PROOF
+- 2026-06-25T08:55:27+00:00 | Alpha Watch | BTC_TIDE_FALLING | Collect baseline market regime proof and wait for clearer patterns. | claim=REAL_LIVE_DATA_COLLECTION_ONLY_NOT_EDGE_PROOF
+- 2026-06-25T08:56:28+00:00 | Alpha Watch | BTC_TIDE_FALLING | Collect baseline market regime proof and wait for clearer patterns. | claim=REAL_LIVE_DATA_COLLECTION_ONLY_NOT_EDGE_PROOF
+
+LIVE DATA GUARD TAIL
+- 2026-06-25T08:53:04+00:00 | gate=None | raw=ENFORCED_PASS_REAL_LIVE_DATA_ONLY | warning=None | status=OK_MULTI_SYMBOLS_6
+- 2026-06-25T08:54:05+00:00 | gate=None | raw=ENFORCED_PASS_REAL_LIVE_DATA_ONLY | warning=None | status=OK_MULTI_SYMBOLS_6
+- 2026-06-25T08:55:05+00:00 | gate=None | raw=ENFORCED_PASS_REAL_LIVE_DATA_ONLY | warning=None | status=OK_MULTI_SYMBOLS_6
+- 2026-06-25T08:55:25+00:00 | gate=None | raw=ENFORCED_PASS_REAL_LIVE_DATA_ONLY | warning=None | status=OK_MULTI_SYMBOLS_6
+- 2026-06-25T08:55:27+00:00 | gate=None | raw=ENFORCED_PASS_REAL_LIVE_DATA_ONLY | warning=None | status=OK_MULTI_SYMBOLS_6
+- 2026-06-25T08:56:28+00:00 | gate=None | raw=ENFORCED_PASS_REAL_LIVE_DATA_ONLY | warning=None | status=OK_MULTI_SYMBOLS_6
+
+DOCTOR SUMMARY
+Doctor status: PASS
+- PASS Server: Dashboard server is responding.
+- PASS Collector thread: Overnight collector thread is alive.
+- PASS Watch enabled: Watch mode is enabled.
+- PASS Market tick ledger: Rows: 2634
+- PASS Learning ledger: Rows: 439
+- PASS Feed source: Last source: https://data-api.binance.vision
+- PASS Real live data gate: Gate: PASS_RECENT_REAL_LIVE_DATA | warning: OK
+- PASS Live orders: Live orders are OFF and no live trading code is present.
+- PASS Champion lock: Champion Council is locked at 0/3.
+- PASS Update inbox: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\bali_rocket_crypto_command_v011b\UPDATE_INBOX
+- PASS Reports folder: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\bali_rocket_crypto_command_v011b\shared_data\reports
+
+MY ASK TO CHATGPT
+Please review this Bali status report and tell me: 1) whether the live-data gate is healthy, 2) whether learning/paper/risk layers are safe, and 3) what patch should come next.
+
+NEXT SUGGESTED PATCH
+V013 Paper Shadow Signal Simulator: simulated entries/exits, fees, slippage, strategy reason, risk reason, and no live orders.

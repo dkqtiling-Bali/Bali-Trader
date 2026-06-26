@@ -1,0 +1,48 @@
+COPY THIS INTO A NEW CHAT FOR HANDOVER
+======================================
+
+We are building the Bali / Stargate Rocket Crypto Command system.
+Please continue from the included ledger and do not lose any requirements.
+
+Current build: BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD with V011C handover docs added.
+Main folder should contain docs:
+- MASTER_LEDGER_HANDOVER_V011C.txt
+- REQUIREMENTS_AND_RULES_CHECKLIST_V011C.txt
+- NEXT_CHAT_HANDOVER_PROMPT_V011C.txt
+
+Current purpose:
+- Themed URL dashboard on port 9061
+- Bali Overnight Watch / future Stargate twin identity
+- Public crypto market-data collection only
+- Learning/research pulse
+- Update Dock / universal patch inbox
+- Doctor and Notepad reports
+- Phone LAN view on private Wi-Fi
+- Live trading OFF and not built
+- Champion Council LOCKED, approved champions 0/3
+
+Key non-negotiables:
+1. Every new feature/rule/decision must go into the ledger.
+2. One universal UPDATE_INBOX handles every patch/update/repair.
+3. User should never need to search folders or manually install files.
+4. Dashboard mini hub should scan/apply safe updates and open Notepad reports.
+5. Protected data/secrets/proof/logs must not be overwritten.
+6. Build maximum safe upgrades at once without upsetting the system.
+7. Fun game-style experience: Bali vs Stargate, XP, levels, badges, missions, roster/bench, coach/governor.
+8. Universal exhaustive research mode with about 6 active bots per machine and a larger substitute bench.
+9. Phone view should be private LAN only until proper security is added.
+10. No live trading until proof gates, risk police, champion council, and human approval are complete.
+
+Immediate next build suggestion:
+Create V012-V020 upgrade pack that adds:
+- Dashboard Ledger tab and copy handover button
+- Governor/Watchtower first version
+- Roster Manager active lineup + substitute bench
+- Bali vs Stargate competition scoreboard foundation
+- Suggested Upgrades board
+- Stronger Update Dock one-click loop with Notepad reports
+- Theme identity selector for Bali or Stargate
+- Candle harvester plan/first public candle collector
+- Market regime proof board
+- Optional sound/music hooks placeholder
+

@@ -1,0 +1,14 @@
+{
+  "version": "V012N",
+  "policy": "ONE_COMPACT_CHATGPT_REPORT_INSTEAD_OF_TAB_BY_TAB_COPYING",
+  "live_orders": "OFF",
+  "api_keys": "NONE",
+  "private_exchange_endpoints": "NOT_USED",
+  "reports_tab_fix": "ON",
+  "chatgpt_report_button": "Generate + Copy ChatGPT Report",
+  "report_paths": [
+    "shared_data/reports/BALI_CHATGPT_STATUS_REPORT_*.txt",
+    "logs/LAST_CHATGPT_STATUS_REPORT.txt"
+  ],
+  "next_suggested_patch": "V013 Paper Shadow Signal Simulator"
+}

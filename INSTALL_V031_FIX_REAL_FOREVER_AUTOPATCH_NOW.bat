@@ -1,0 +1,72 @@
+@echo off
+setlocal EnableExtensions EnableDelayedExpansion
+
+set "BASE=C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD"
+set "APP=%BASE%\bali_rocket_crypto_command_v011b"
+set "FOREVER=%BASE%\BALI_THEMED_FOREVER_STARTER.bat"
+set "ORIGINAL=%BASE%\BALI_THEMED_FOREVER_STARTER_ORIGINAL_V030.bat"
+set "REPORTS=%APP%\shared_data\reports"
+set "REPORT=%REPORTS%\BALI_V031_AUTOPATCH_INSTALL_REPORT.txt"
+set "WRAPPER=%~dp0BALI_THEMED_FOREVER_STARTER_V031_WRAPPER.bat"
+
+if not exist "%REPORTS%" mkdir "%REPORTS%" >nul 2>nul
+
+(
+  echo BALI V031 AUTOPATCH SELECTOR AND CALL FIX INSTALL REPORT
+  echo Generated: %DATE% %TIME%
+  echo SAFETY=LIVE_ORDERS_OFF ^| CHAMPION_LOCK_LOCKED ^| NO_API_KEYS
+  echo VERSION=V031_AUTOPATCH_SELECTOR_AND_CALL_FIX
+  echo PYTHON_USED=NO
+  echo UPDATE_DOCK_USED=NO
+  echo BASE=%BASE%
+  echo APP=%APP%
+  echo FOREVER=%FOREVER%
+  echo REPORTS=%REPORTS%
+) > "%REPORT%"
+
+if not exist "%BASE%" (
+  echo RESULT=FAIL_BASE_NOT_FOUND>>"%REPORT%"
+  start "" notepad "%REPORT%"
+  exit /b 1
+)
+
+if not exist "%FOREVER%" (
+  echo RESULT=FAIL_FOREVER_STARTER_NOT_FOUND>>"%REPORT%"
+  start "" notepad "%REPORT%"
+  exit /b 1
+)
+
+if not exist "%WRAPPER%" (
+  echo RESULT=FAIL_WRAPPER_TEMPLATE_NOT_FOUND>>"%REPORT%"
+  echo EXPECTED_WRAPPER=%WRAPPER%>>"%REPORT%"
+  start "" notepad "%REPORT%"
+  exit /b 1
+)
+
+if not exist "%ORIGINAL%" (
+  copy /Y "%FOREVER%" "%ORIGINAL%" >nul 2>nul
+  echo ORIGINAL_BACKUP_CREATED=%ORIGINAL%>>"%REPORT%"
+) else (
+  echo ORIGINAL_BACKUP_PRESENT=%ORIGINAL%>>"%REPORT%"
+)
+
+copy /Y "%FOREVER%" "%BASE%\BALI_THEMED_FOREVER_STARTER_PRE_V031_BACKUP.bat" >nul 2>nul
+copy /Y "%WRAPPER%" "%FOREVER%" >nul 2>nul
+
+if errorlevel 1 (
+  echo RESULT=FAIL_COULD_NOT_WRITE_FOREVER_WRAPPER>>"%REPORT%"
+  start "" notepad "%REPORT%"
+  exit /b 1
+)
+
+(
+  echo WRAPPER_WRITTEN=%FOREVER%
+  echo ORIGINAL_USED=%ORIGINAL%
+  echo SELECTOR_RULE=ONLY_APPLY_ZIPS_WITH_BALI_AUTO_PATCH_MANIFEST_TXT_AND_AUTO_PATCH_INSTALL_BAT
+  echo LEGACY_ZIPS=MOVED_TO_UPDATES_LEGACY_SKIPPED
+  echo QUOTING_FIX=CALL_PERCENT_PATCH_INSTALLER_PERCENT_WITH_SAFE_QUOTES
+  echo RESULT=PASS_V031_WRAPPER_INSTALLED
+) >> "%REPORT%"
+
+start "" notepad "%REPORT%"
+exit /b 0

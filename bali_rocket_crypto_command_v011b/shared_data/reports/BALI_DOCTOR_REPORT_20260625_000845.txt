@@ -1,0 +1,884 @@
+{
+  "ts": "2026-06-25T00:08:45+00:00",
+  "checks": [
+    {
+      "name": "Server",
+      "ok": true,
+      "detail": "Dashboard server is responding."
+    },
+    {
+      "name": "Collector thread",
+      "ok": true,
+      "detail": "Overnight collector thread is alive."
+    },
+    {
+      "name": "Watch enabled",
+      "ok": true,
+      "detail": "Watch mode is enabled."
+    },
+    {
+      "name": "Market tick ledger",
+      "ok": true,
+      "detail": "Rows: 36"
+    },
+    {
+      "name": "Learning ledger",
+      "ok": true,
+      "detail": "Rows: 6"
+    },
+    {
+      "name": "Feed source",
+      "ok": true,
+      "detail": "Last source: offline_demo"
+    },
+    {
+      "name": "Live orders",
+      "ok": true,
+      "detail": "Live orders are OFF and no live trading code is present."
+    },
+    {
+      "name": "Champion lock",
+      "ok": true,
+      "detail": "Champion Council is locked at 0/3."
+    },
+    {
+      "name": "Update inbox",
+      "ok": true,
+      "detail": "C:\\Users\\CB\\Desktop\\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\\bali_rocket_crypto_command_v011b\\UPDATE_INBOX"
+    },
+    {
+      "name": "Reports folder",
+      "ok": true,
+      "detail": "C:\\Users\\CB\\Desktop\\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\\bali_rocket_crypto_command_v011b\\shared_data\\reports"
+    }
+  ],
+  "summary": "PASS",
+  "data": {
+    "state": {
+      "approved_champions": "0/3",
+      "champion_lock": "LOCKED",
+      "created_at": "2026-06-24T13:51:44+00:00",
+      "current_blocker": "Building overnight sample size",
+      "current_regime": "BTC_TIDE_RISING",
+      "growth_score": 17.1,
+      "last_feed_source": "offline_demo",
+      "last_feed_status": "OFFLINE_FALLBACK: https://data-api.binance.vision: HTTP Error 400: Bad Request | https://api.binance.com: HTTP Error 400: Bad Request",
+      "last_pulse_at": "2026-06-25T00:08:25+00:00",
+      "learning_score": 15.0,
+      "live_orders": "OFF",
+      "mode": "PUBLIC_DATA_RESEARCH_ONLY",
+      "next_gate": "OVERNIGHT_DATA_COLLECTION",
+      "no_trade_score": 45,
+      "phone_lan_enabled": false,
+      "project": "BALI_ROCKET_CRYPTO_COMMAND",
+      "pulse_count": 6,
+      "pulse_seconds": 60,
+      "research_score": 2.1,
+      "risk_police": "ARMED",
+      "symbols": [
+        "BTCUSDT",
+        "ETHUSDT",
+        "SOLUSDT",
+        "XRPUSDT",
+        "DOGEUSDT",
+        "LINKUSDT"
+      ],
+      "title": "Bali Rocket Crypto Command",
+      "updated_at": "2026-06-25T00:08:25+00:00",
+      "version": "V011B_BALI_BAD_PYTHON_HOTFIX",
+      "version_number": 11,
+      "watch_enabled": true
+    },
+    "version": "V011B_BALI_BAD_PYTHON_HOTFIX",
+    "version_number": 11,
+    "uptime_seconds": 21,
+    "lan_ips": [
+      "192.168.1.105",
+      "100.115.61.118"
+    ],
+    "last_ticks": [
+      {
+        "batch_id": "20260624T235035Z",
+        "count": 10000,
+        "feed_status": "OFFLINE_FALLBACK: https://data-api.binance.vision: <urlopen error [Errno -3] Temporary failure in name resolution> | https://api.binance.com: <urlopen error [Errno -3] Temporary failure in name resolution>",
+        "high_24h": 66300.0,
+        "last_price": 65000.0,
+        "low_24h": 63700.0,
+        "no_trade_score": 70,
+        "price_change_percent_24h": 0.0,
+        "quote_volume": 10000000,
+        "regime": "LOW_WAVE_CHOP",
+        "source": "offline_demo",
+        "symbol": "BTCUSDT",
+        "ts": "2026-06-24T23:50:35+00:00",
+        "volume": 100000
+      },
+      {
+        "batch_id": "20260624T235035Z",
+        "count": 10333,
+        "feed_status": "OFFLINE_FALLBACK: https://data-api.binance.vision: <urlopen error [Errno -3] Temporary failure in name resolution> | https://api.binance.com: <urlopen error [Errno -3] Temporary failure in name resolution>",
+        "high_24h": 3594.99,
+        "last_price": 3524.5,
+        "low_24h": 3454.01,
+        "no_trade_score": 70,
+        "price_change_percent_24h": 0.7,
+        "quote_volume": 10123456,
+        "regime": "LOW_WAVE_CHOP",
+        "source": "offline_demo",
+        "symbol": "ETHUSDT",
+        "ts": "2026-06-24T23:50:35+00:00",
+        "volume": 112345
+      },
+      {
+        "batch_id": "20260624T235035Z",
+        "count": 10666,
+        "feed_status": "OFFLINE_FALLBACK: https://data-api.binance.vision: <urlopen error [Errno -3] Temporary failure in name resolution> | https://api.binance.com: <urlopen error [Errno -3] Temporary failure in name resolution>",
+        "high_24h": 155.142,
+        "last_price": 152.1,
+        "low_24h": 149.058,
+        "no_trade_score": 70,
+        "price_change_percent_24h": 1.4,
+        "quote_volume": 10246912,
+        "regime": "LOW_WAVE_CHOP",
+        "source": "offline_demo",
+        "symbol": "SOLUSDT",
+        "ts": "2026-06-24T23:50:35+00:00",
+        "volume": 124690
+      },
+      {
+        "batch_id": "20260624T235035Z",
+        "count": 10999,
+        "feed_status": "OFFLINE_FALLBACK: https://data-api.binance.vision: <urlopen error [Errno -3] Temporary failure in name resolution> | https://api.binance.com: <urlopen error [Errno -3] Temporary failure in name resolution>",
+        "high_24h": 0.59976,
+        "last_price": 0.588,
+        "low_24h": 0.57624,
+        "no_trade_score": 70,
+        "price_change_percent_24h": -2.0,
+        "quote_volume": 10370368,
+        "regime": "LOW_WAVE_CHOP",
+        "source": "offline_demo",
+        "symbol": "XRPUSDT",
+        "ts": "2026-06-24T23:50:35+00:00",
+        "volume": 137035
+      },
+      {
+        "batch_id": "20260624T235035Z",
+        "count": 11332,
+        "feed_status": "OFFLINE_FALLBACK: https://data-api.binance.vision: <urlopen error [Errno -3] Temporary failure in name resolution> | https://api.binance.com: <urlopen error [Errno -3] Temporary failure in name resolution>",
+        "high_24h": 0.1208088,
+        "last_price": 0.11844,
+        "low_24h": 0.1160712,
+        "no_trade_score": 70,
+        "price_change_percent_24h": -1.3,
+        "quote_volume": 10493824,
+        "regime": "LOW_WAVE_CHOP",
+        "source": "offline_demo",
+        "symbol": "DOGEUSDT",
+        "ts": "2026-06-24T23:50:35+00:00",
+        "volume": 149380
+      },
+      {
+        "batch_id": "20260624T235035Z",
+        "count": 11665,
+        "feed_status": "OFFLINE_FALLBACK: https://data-api.binance.vision: <urlopen error [Errno -3] Temporary failure in name resolution> | https://api.binance.com: <urlopen error [Errno -3] Temporary failure in name resolution>",
+        "high_24h": 16.22208,
+        "last_price": 15.904,
+        "low_24h": 15.58592,
+        "no_trade_score": 70,
+        "price_change_percent_24h": -0.6,
+        "quote_volume": 10617280,
+        "regime": "LOW_WAVE_CHOP",
+        "source": "offline_demo",
+        "symbol": "LINKUSDT",
+        "ts": "2026-06-24T23:50:35+00:00",
+        "volume": 161725
+      },
+      {
+        "batch_id": "20260625T000824Z",
+        "count": 10000,
+        "feed_status": "OFFLINE_FALLBACK: https://data-api.binance.vision: HTTP Error 400: Bad Request | https://api.binance.com: HTTP Error 400: Bad Request",
+        "high_24h": 67493.4,
+        "last_price": 66170.0,
+        "low_24h": 64846.6,
+        "no_trade_score": 45,
+        "price_change_percent_24h": 1.8,
+        "quote_volume": 10000000,
+        "regime": "BTC_TIDE_RISING",
+        "source": "offline_demo",
+        "symbol": "BTCUSDT",
+        "ts": "2026-06-25T00:08:24+00:00",
+        "volume": 100000
+      },
+      {
+        "batch_id": "20260625T000824Z",
+        "count": 10333,
+        "feed_status": "OFFLINE_FALLBACK: https://data-api.binance.vision: HTTP Error 400: Bad Request | https://api.binance.com: HTTP Error 400: Bad Request",
+        "high_24h": 3512.88,
+        "last_price": 3444.0,
+        "low_24h": 3375.12,
+        "no_trade_score": 45,
+        "price_change_percent_24h": -1.6,
+        "quote_volume": 10123456,
+        "regime": "BTC_TIDE_RISING",
+        "source": "offline_demo",
+        "symbol": "ETHUSDT",
+        "ts": "2026-06-25T00:08:24+00:00",
+        "volume": 112345
+      },
+      {
+        "batch_id": "20260625T000824Z",
+        "count": 10666,
+        "feed_status": "OFFLINE_FALLBACK: https://data-api.binance.vision: HTTP Error 400: Bad Request | https://api.binance.com: HTTP Error 400: Bad Request",
+        "high_24h": 151.623,
+        "last_price": 148.65,
+        "low_24h": 145.677,
+        "no_trade_score": 45,
+        "price_change_percent_24h": -0.9,
+        "quote_volume": 10246912,
+        "regime": "BTC_TIDE_RISING",
+        "source": "offline_demo",
+        "symbol": "SOLUSDT",
+        "ts": "2026-06-25T00:08:24+00:00",
+        "volume": 124690
+      },
+      {
+        "batch_id": "20260625T000824Z",
+        "count": 10999,
+        "feed_status": "OFFLINE_FALLBACK: https://data-api.binance.vision: HTTP Error 400: Bad Request | https://api.binance.com: HTTP Error 400: Bad Request",
+        "high_24h": 0.610776,
+        "last_price": 0.5988,
+        "low_24h": 0.586824,
+        "no_trade_score": 45,
+        "price_change_percent_24h": -0.2,
+        "quote_volume": 10370368,
+        "regime": "BTC_TIDE_RISING",
+        "source": "offline_demo",
+        "symbol": "XRPUSDT",
+        "ts": "2026-06-25T00:08:24+00:00",
+        "volume": 137035
+      },
+      {
+        "batch_id": "20260625T000824Z",
+        "count": 11332,
+        "feed_status": "OFFLINE_FALLBACK: https://data-api.binance.vision: HTTP Error 400: Bad Request | https://api.binance.com: HTTP Error 400: Bad Request",
+        "high_24h": 0.123012,
+        "last_price": 0.1206,
+        "low_24h": 0.118188,
+        "no_trade_score": 45,
+        "price_change_percent_24h": 0.5,
+        "quote_volume": 10493824,
+        "regime": "BTC_TIDE_RISING",
+        "source": "offline_demo",
+        "symbol": "DOGEUSDT",
+        "ts": "2026-06-25T00:08:24+00:00",
+        "volume": 149380
+      },
+      {
+        "batch_id": "20260625T000824Z",
+        "count": 11665,
+        "feed_status": "OFFLINE_FALLBACK: https://data-api.binance.vision: HTTP Error 400: Bad Request | https://api.binance.com: HTTP Error 400: Bad Request",
+        "high_24h": 16.51584,
+        "last_price": 16.192,
+        "low_24h": 15.86816,
+        "no_trade_score": 45,
+        "price_change_percent_24h": 1.2,
+        "quote_volume": 10617280,
+        "regime": "BTC_TIDE_RISING",
+        "source": "offline_demo",
+        "symbol": "LINKUSDT",
+        "ts": "2026-06-25T00:08:24+00:00",
+        "volume": 161725
+      },
+      {
+        "batch_id": "20260625T000825Z",
+        "count": 10000,
+        "feed_status": "OFFLINE_FALLBACK: https://data-api.binance.vision: HTTP Error 400: Bad Request | https://api.binance.com: HTTP Error 400: Bad Request",
+        "high_24h": 67493.4,
+        "last_price": 66170.0,
+        "low_24h": 64846.6,
+        "no_trade_score": 45,
+        "price_change_percent_24h": 1.8,
+        "quote_volume": 10000000,
+        "regime": "BTC_TIDE_RISING",
+        "source": "offline_demo",
+        "symbol": "BTCUSDT",
+        "ts": "2026-06-25T00:08:25+00:00",
+        "volume": 100000
+      },
+      {
+        "batch_id": "20260625T000825Z",
+        "count": 10333,
+        "feed_status": "OFFLINE_FALLBACK: https://data-api.binance.vision: HTTP Error 400: Bad Request | https://api.binance.com: HTTP Error 400: Bad Request",
+        "high_24h": 3512.88,
+        "last_price": 3444.0,
+        "low_24h": 3375.12,
+        "no_trade_score": 45,
+        "price_change_percent_24h": -1.6,
+        "quote_volume": 10123456,
+        "regime": "BTC_TIDE_RISING",
+        "source": "offline_demo",
+        "symbol": "ETHUSDT",
+        "ts": "2026-06-25T00:08:25+00:00",
+        "volume": 112345
+      },
+      {
+        "batch_id": "20260625T000825Z",
+        "count": 10666,
+        "feed_status": "OFFLINE_FALLBACK: https://data-api.binance.vision: HTTP Error 400: Bad Request | https://api.binance.com: HTTP Error 400: Bad Request",
+        "high_24h": 151.623,
+        "last_price": 148.65,
+        "low_24h": 145.677,
+        "no_trade_score": 45,
+        "price_change_percent_24h": -0.9,
+        "quote_volume": 10246912,
+        "regime": "BTC_TIDE_RISING",
+        "source": "offline_demo",
+        "symbol": "SOLUSDT",
+        "ts": "2026-06-25T00:08:25+00:00",
+        "volume": 124690
+      },
+      {
+        "batch_id": "20260625T000825Z",
+        "count": 10999,
+        "feed_status": "OFFLINE_FALLBACK: https://data-api.binance.vision: HTTP Error 400: Bad Request | https://api.binance.com: HTTP Error 400: Bad Request",
+        "high_24h": 0.610776,
+        "last_price": 0.5988,
+        "low_24h": 0.586824,
+        "no_trade_score": 45,
+        "price_change_percent_24h": -0.2,
+        "quote_volume": 10370368,
+        "regime": "BTC_TIDE_RISING",
+        "source": "offline_demo",
+        "symbol": "XRPUSDT",
+        "ts": "2026-06-25T00:08:25+00:00",
+        "volume": 137035
+      },
+      {
+        "batch_id": "20260625T000825Z",
+        "count": 11332,
+        "feed_status": "OFFLINE_FALLBACK: https://data-api.binance.vision: HTTP Error 400: Bad Request | https://api.binance.com: HTTP Error 400: Bad Request",
+        "high_24h": 0.123012,
+        "last_price": 0.1206,
+        "low_24h": 0.118188,
+        "no_trade_score": 45,
+        "price_change_percent_24h": 0.5,
+        "quote_volume": 10493824,
+        "regime": "BTC_TIDE_RISING",
+        "source": "offline_demo",
+        "symbol": "DOGEUSDT",
+        "ts": "2026-06-25T00:08:25+00:00",
+        "volume": 149380
+      },
+      {
+        "batch_id": "20260625T000825Z",
+        "count": 11665,
+        "feed_status": "OFFLINE_FALLBACK: https://data-api.binance.vision: HTTP Error 400: Bad Request | https://api.binance.com: HTTP Error 400: Bad Request",
+        "high_24h": 16.51584,
+        "last_price": 16.192,
+        "low_24h": 15.86816,
+        "no_trade_score": 45,
+        "price_change_percent_24h": 1.2,
+        "quote_volume": 10617280,
+        "regime": "BTC_TIDE_RISING",
+        "source": "offline_demo",
+        "symbol": "LINKUSDT",
+        "ts": "2026-06-25T00:08:25+00:00",
+        "volume": 161725
+      }
+    ],
+    "last_cycles": [
+      {
+        "champion_lock": "LOCKED",
+        "claim_level": "LEARNING_PULSE_DATA_COLLECTION_ONLY",
+        "cycle": 1,
+        "feed_status": "OFFLINE_FALLBACK: https://data-api.binance.vision: <urlopen error [Errno -3] Temporary failure in name resolution> | https://api.binance.com: <urlopen error [Er",
+        "learning_points_added": 2.5,
+        "live_orders": "OFF",
+        "manual": false,
+        "regime": {
+          "alt_avg_pct_24h": -0.4,
+          "alt_dispersion": 0.84,
+          "btc_pct_24h": 1.6,
+          "label": "BTC_TIDE_RISING",
+          "no_trade_score": 45
+        },
+        "research_points_added": 0.35,
+        "research_task": "Collect baseline market regime proof and wait for clearer patterns.",
+        "source": "offline_demo",
+        "ts": "2026-06-24T13:51:49+00:00"
+      },
+      {
+        "champion_lock": "LOCKED",
+        "claim_level": "LEARNING_PULSE_DATA_COLLECTION_ONLY",
+        "cycle": 2,
+        "feed_status": "OFFLINE_FALLBACK: https://data-api.binance.vision: <urlopen error [Errno -3] Temporary failure in name resolution> | https://api.binance.com: <urlopen error [Er",
+        "learning_points_added": 2.5,
+        "live_orders": "OFF",
+        "manual": false,
+        "regime": {
+          "alt_avg_pct_24h": -0.4,
+          "alt_dispersion": 0.84,
+          "btc_pct_24h": 1.6,
+          "label": "BTC_TIDE_RISING",
+          "no_trade_score": 45
+        },
+        "research_points_added": 0.35,
+        "research_task": "Collect baseline market regime proof and wait for clearer patterns.",
+        "source": "offline_demo",
+        "ts": "2026-06-24T13:51:54+00:00"
+      },
+      {
+        "champion_lock": "LOCKED",
+        "claim_level": "LEARNING_PULSE_DATA_COLLECTION_ONLY",
+        "cycle": 3,
+        "feed_status": "OFFLINE_FALLBACK: https://data-api.binance.vision: <urlopen error [Errno -3] Temporary failure in name resolution> | https://api.binance.com: <urlopen error [Er",
+        "learning_points_added": 2.5,
+        "live_orders": "OFF",
+        "manual": false,
+        "regime": {
+          "alt_avg_pct_24h": -0.36,
+          "alt_dispersion": 1.128,
+          "btc_pct_24h": 0.0,
+          "label": "LOW_WAVE_CHOP",
+          "no_trade_score": 70
+        },
+        "research_points_added": 0.35,
+        "research_task": "Collect range behaviour for Lagoon Mean Reversion; no live signals.",
+        "source": "offline_demo",
+        "ts": "2026-06-24T23:50:30+00:00"
+      },
+      {
+        "champion_lock": "LOCKED",
+        "claim_level": "LEARNING_PULSE_DATA_COLLECTION_ONLY",
+        "cycle": 4,
+        "feed_status": "OFFLINE_FALLBACK: https://data-api.binance.vision: <urlopen error [Errno -3] Temporary failure in name resolution> | https://api.binance.com: <urlopen error [Er",
+        "learning_points_added": 2.5,
+        "live_orders": "OFF",
+        "manual": false,
+        "regime": {
+          "alt_avg_pct_24h": -0.36,
+          "alt_dispersion": 1.128,
+          "btc_pct_24h": 0.0,
+          "label": "LOW_WAVE_CHOP",
+          "no_trade_score": 70
+        },
+        "research_points_added": 0.35,
+        "research_task": "Collect range behaviour for Lagoon Mean Reversion; no live signals.",
+        "source": "offline_demo",
+        "ts": "2026-06-24T23:50:35+00:00"
+      },
+      {
+        "champion_lock": "LOCKED",
+        "claim_level": "LEARNING_PULSE_DATA_COLLECTION_ONLY",
+        "cycle": 5,
+        "feed_status": "OFFLINE_FALLBACK: https://data-api.binance.vision: HTTP Error 400: Bad Request | https://api.binance.com: HTTP Error 400: Bad Request",
+        "learning_points_added": 2.5,
+        "live_orders": "OFF",
+        "manual": false,
+        "regime": {
+          "alt_avg_pct_24h": -0.2,
+          "alt_dispersion": 0.84,
+          "btc_pct_24h": 1.8,
+          "label": "BTC_TIDE_RISING",
+          "no_trade_score": 45
+        },
+        "research_points_added": 0.35,
+        "research_task": "Collect baseline market regime proof and wait for clearer patterns.",
+        "source": "offline_demo",
+        "ts": "2026-06-25T00:08:24+00:00"
+      },
+      {
+        "champion_lock": "LOCKED",
+        "claim_level": "LEARNING_PULSE_DATA_COLLECTION_ONLY",
+        "cycle": 6,
+        "feed_status": "OFFLINE_FALLBACK: https://data-api.binance.vision: HTTP Error 400: Bad Request | https://api.binance.com: HTTP Error 400: Bad Request",
+        "learning_points_added": 2.5,
+        "live_orders": "OFF",
+        "manual": false,
+        "regime": {
+          "alt_avg_pct_24h": -0.2,
+          "alt_dispersion": 0.84,
+          "btc_pct_24h": 1.8,
+          "label": "BTC_TIDE_RISING",
+          "no_trade_score": 45
+        },
+        "research_points_added": 0.35,
+        "research_task": "Collect baseline market regime proof and wait for clearer patterns.",
+        "source": "offline_demo",
+        "ts": "2026-06-25T00:08:25+00:00"
+      }
+    ],
+    "last_research": [
+      {
+        "claim_level": "DATA_COLLECTION_ONLY_NOT_EDGE_PROOF",
+        "feed_source": "offline_demo",
+        "feed_status": "OFFLINE_FALLBACK: https://data-api.binance.vision: <urlopen error [Errno -3] Temporary failure in name resolution> | https://api.binance.com: <urlopen error [Er",
+        "regime": "BTC_TIDE_RISING",
+        "research_task": "Collect baseline market regime proof and wait for clearer patterns.",
+        "squad": "Alpha Watch",
+        "symbols_seen": [
+          "BTCUSDT",
+          "ETHUSDT",
+          "SOLUSDT",
+          "XRPUSDT",
+          "DOGEUSDT",
+          "LINKUSDT"
+        ],
+        "ts": "2026-06-24T13:51:49+00:00"
+      },
+      {
+        "claim_level": "DATA_COLLECTION_ONLY_NOT_EDGE_PROOF",
+        "feed_source": "offline_demo",
+        "feed_status": "OFFLINE_FALLBACK: https://data-api.binance.vision: <urlopen error [Errno -3] Temporary failure in name resolution> | https://api.binance.com: <urlopen error [Er",
+        "regime": "BTC_TIDE_RISING",
+        "research_task": "Collect baseline market regime proof and wait for clearer patterns.",
+        "squad": "Alpha Watch",
+        "symbols_seen": [
+          "BTCUSDT",
+          "ETHUSDT",
+          "SOLUSDT",
+          "XRPUSDT",
+          "DOGEUSDT",
+          "LINKUSDT"
+        ],
+        "ts": "2026-06-24T13:51:54+00:00"
+      },
+      {
+        "claim_level": "DATA_COLLECTION_ONLY_NOT_EDGE_PROOF",
+        "feed_source": "offline_demo",
+        "feed_status": "OFFLINE_FALLBACK: https://data-api.binance.vision: <urlopen error [Errno -3] Temporary failure in name resolution> | https://api.binance.com: <urlopen error [Er",
+        "regime": "LOW_WAVE_CHOP",
+        "research_task": "Collect range behaviour for Lagoon Mean Reversion; no live signals.",
+        "squad": "Charlie Specialist",
+        "symbols_seen": [
+          "BTCUSDT",
+          "ETHUSDT",
+          "SOLUSDT",
+          "XRPUSDT",
+          "DOGEUSDT",
+          "LINKUSDT"
+        ],
+        "ts": "2026-06-24T23:50:30+00:00"
+      },
+      {
+        "claim_level": "DATA_COLLECTION_ONLY_NOT_EDGE_PROOF",
+        "feed_source": "offline_demo",
+        "feed_status": "OFFLINE_FALLBACK: https://data-api.binance.vision: <urlopen error [Errno -3] Temporary failure in name resolution> | https://api.binance.com: <urlopen error [Er",
+        "regime": "LOW_WAVE_CHOP",
+        "research_task": "Collect range behaviour for Lagoon Mean Reversion; no live signals.",
+        "squad": "Charlie Specialist",
+        "symbols_seen": [
+          "BTCUSDT",
+          "ETHUSDT",
+          "SOLUSDT",
+          "XRPUSDT",
+          "DOGEUSDT",
+          "LINKUSDT"
+        ],
+        "ts": "2026-06-24T23:50:35+00:00"
+      },
+      {
+        "claim_level": "DATA_COLLECTION_ONLY_NOT_EDGE_PROOF",
+        "feed_source": "offline_demo",
+        "feed_status": "OFFLINE_FALLBACK: https://data-api.binance.vision: HTTP Error 400: Bad Request | https://api.binance.com: HTTP Error 400: Bad Request",
+        "regime": "BTC_TIDE_RISING",
+        "research_task": "Collect baseline market regime proof and wait for clearer patterns.",
+        "squad": "Alpha Watch",
+        "symbols_seen": [
+          "BTCUSDT",
+          "ETHUSDT",
+          "SOLUSDT",
+          "XRPUSDT",
+          "DOGEUSDT",
+          "LINKUSDT"
+        ],
+        "ts": "2026-06-25T00:08:24+00:00"
+      },
+      {
+        "claim_level": "DATA_COLLECTION_ONLY_NOT_EDGE_PROOF",
+        "feed_source": "offline_demo",
+        "feed_status": "OFFLINE_FALLBACK: https://data-api.binance.vision: HTTP Error 400: Bad Request | https://api.binance.com: HTTP Error 400: Bad Request",
+        "regime": "BTC_TIDE_RISING",
+        "research_task": "Collect baseline market regime proof and wait for clearer patterns.",
+        "squad": "Alpha Watch",
+        "symbols_seen": [
+          "BTCUSDT",
+          "ETHUSDT",
+          "SOLUSDT",
+          "XRPUSDT",
+          "DOGEUSDT",
+          "LINKUSDT"
+        ],
+        "ts": "2026-06-25T00:08:25+00:00"
+      }
+    ],
+    "last_feed": [
+      {
+        "batch_id": "20260624T135149Z",
+        "claim_level": "PUBLIC_MARKET_DATA_FEED_PROOF_ONLY",
+        "live_trading": "OFF",
+        "regime": {
+          "alt_avg_pct_24h": -0.4,
+          "alt_dispersion": 0.84,
+          "btc_pct_24h": 1.6,
+          "label": "BTC_TIDE_RISING",
+          "no_trade_score": 45
+        },
+        "source": "offline_demo",
+        "status": "OFFLINE_FALLBACK: https://data-api.binance.vision: <urlopen error [Errno -3] Temporary failure in name resolution> | https://api.binance.com: <urlopen error [Errno -3] Temporary failure in name resolution>",
+        "symbols": [
+          "BTCUSDT",
+          "ETHUSDT",
+          "SOLUSDT",
+          "XRPUSDT",
+          "DOGEUSDT",
+          "LINKUSDT"
+        ],
+        "ts": "2026-06-24T13:51:49+00:00"
+      },
+      {
+        "batch_id": "20260624T135154Z",
+        "claim_level": "PUBLIC_MARKET_DATA_FEED_PROOF_ONLY",
+        "live_trading": "OFF",
+        "regime": {
+          "alt_avg_pct_24h": -0.4,
+          "alt_dispersion": 0.84,
+          "btc_pct_24h": 1.6,
+          "label": "BTC_TIDE_RISING",
+          "no_trade_score": 45
+        },
+        "source": "offline_demo",
+        "status": "OFFLINE_FALLBACK: https://data-api.binance.vision: <urlopen error [Errno -3] Temporary failure in name resolution> | https://api.binance.com: <urlopen error [Errno -3] Temporary failure in name resolution>",
+        "symbols": [
+          "BTCUSDT",
+          "ETHUSDT",
+          "SOLUSDT",
+          "XRPUSDT",
+          "DOGEUSDT",
+          "LINKUSDT"
+        ],
+        "ts": "2026-06-24T13:51:54+00:00"
+      },
+      {
+        "batch_id": "20260624T235030Z",
+        "claim_level": "PUBLIC_MARKET_DATA_FEED_PROOF_ONLY",
+        "live_trading": "OFF",
+        "regime": {
+          "alt_avg_pct_24h": -0.36,
+          "alt_dispersion": 1.128,
+          "btc_pct_24h": 0.0,
+          "label": "LOW_WAVE_CHOP",
+          "no_trade_score": 70
+        },
+        "source": "offline_demo",
+        "status": "OFFLINE_FALLBACK: https://data-api.binance.vision: <urlopen error [Errno -3] Temporary failure in name resolution> | https://api.binance.com: <urlopen error [Errno -3] Temporary failure in name resolution>",
+        "symbols": [
+          "BTCUSDT",
+          "ETHUSDT",
+          "SOLUSDT",
+          "XRPUSDT",
+          "DOGEUSDT",
+          "LINKUSDT"
+        ],
+        "ts": "2026-06-24T23:50:30+00:00"
+      },
+      {
+        "batch_id": "20260624T235035Z",
+        "claim_level": "PUBLIC_MARKET_DATA_FEED_PROOF_ONLY",
+        "live_trading": "OFF",
+        "regime": {
+          "alt_avg_pct_24h": -0.36,
+          "alt_dispersion": 1.128,
+          "btc_pct_24h": 0.0,
+          "label": "LOW_WAVE_CHOP",
+          "no_trade_score": 70
+        },
+        "source": "offline_demo",
+        "status": "OFFLINE_FALLBACK: https://data-api.binance.vision: <urlopen error [Errno -3] Temporary failure in name resolution> | https://api.binance.com: <urlopen error [Errno -3] Temporary failure in name resolution>",
+        "symbols": [
+          "BTCUSDT",
+          "ETHUSDT",
+          "SOLUSDT",
+          "XRPUSDT",
+          "DOGEUSDT",
+          "LINKUSDT"
+        ],
+        "ts": "2026-06-24T23:50:35+00:00"
+      },
+      {
+        "batch_id": "20260625T000824Z",
+        "claim_level": "PUBLIC_MARKET_DATA_FEED_PROOF_ONLY",
+        "live_trading": "OFF",
+        "regime": {
+          "alt_avg_pct_24h": -0.2,
+          "alt_dispersion": 0.84,
+          "btc_pct_24h": 1.8,
+          "label": "BTC_TIDE_RISING",
+          "no_trade_score": 45
+        },
+        "source": "offline_demo",
+        "status": "OFFLINE_FALLBACK: https://data-api.binance.vision: HTTP Error 400: Bad Request | https://api.binance.com: HTTP Error 400: Bad Request",
+        "symbols": [
+          "BTCUSDT",
+          "ETHUSDT",
+          "SOLUSDT",
+          "XRPUSDT",
+          "DOGEUSDT",
+          "LINKUSDT"
+        ],
+        "ts": "2026-06-25T00:08:24+00:00"
+      },
+      {
+        "batch_id": "20260625T000825Z",
+        "claim_level": "PUBLIC_MARKET_DATA_FEED_PROOF_ONLY",
+        "live_trading": "OFF",
+        "regime": {
+          "alt_avg_pct_24h": -0.2,
+          "alt_dispersion": 0.84,
+          "btc_pct_24h": 1.8,
+          "label": "BTC_TIDE_RISING",
+          "no_trade_score": 45
+        },
+        "source": "offline_demo",
+        "status": "OFFLINE_FALLBACK: https://data-api.binance.vision: HTTP Error 400: Bad Request | https://api.binance.com: HTTP Error 400: Bad Request",
+        "symbols": [
+          "BTCUSDT",
+          "ETHUSDT",
+          "SOLUSDT",
+          "XRPUSDT",
+          "DOGEUSDT",
+          "LINKUSDT"
+        ],
+        "ts": "2026-06-25T00:08:25+00:00"
+      }
+    ],
+    "strategy_dna": [
+      {
+        "family": "Trend Pullback",
+        "name": "Bali Breakout Pullback",
+        "proof_needed": "historical candles + paper arena",
+        "regime_needed": "BTC_TIDE_RISING or BALI_TREND_UP_ALT_ROTATION",
+        "risk": "medium",
+        "status": "RESEARCH_SEED",
+        "symbols": "BTCUSDT, ETHUSDT, SOLUSDT",
+        "timeframes": "4h bias + 15m entry"
+      },
+      {
+        "family": "Range Reversion",
+        "name": "Lagoon Mean Reversion",
+        "proof_needed": "chop-only backtest + slippage stress",
+        "regime_needed": "LOW_WAVE_CHOP",
+        "risk": "medium",
+        "status": "RESEARCH_SEED",
+        "symbols": "BTCUSDT, ETHUSDT",
+        "timeframes": "1h range + 5m entry"
+      },
+      {
+        "family": "Defensive No-Trade Filter",
+        "name": "Volcano Risk-Off Shield",
+        "proof_needed": "feed proof + drawdown avoidance test",
+        "regime_needed": "BTC_STORM_RISK_OFF",
+        "risk": "low",
+        "status": "RESEARCH_SEED",
+        "symbols": "all",
+        "timeframes": "market-wide"
+      },
+      {
+        "family": "Alt Momentum Scanner",
+        "name": "Palm Tree Alt Rotation Scout",
+        "proof_needed": "relative strength ledger + paper shadow trades",
+        "regime_needed": "BALI_TREND_UP_ALT_ROTATION",
+        "risk": "high",
+        "status": "RESEARCH_SEED",
+        "symbols": "SOLUSDT, XRPUSDT, DOGEUSDT, LINKUSDT",
+        "timeframes": "1h + 15m"
+      }
+    ],
+    "suggested_upgrades": [
+      {
+        "name": "Candle Harvester",
+        "one_click_ready": false,
+        "risk": "low",
+        "status": "SUGGESTED_AFTER_OVERNIGHT_BASELINE",
+        "version": "V011",
+        "why": "Collecting tick snapshots is awake; next step is 1m/5m/15m candle history for real research."
+      },
+      {
+        "name": "Market Regime Proof Board",
+        "one_click_ready": false,
+        "risk": "low",
+        "status": "SUGGESTED",
+        "version": "V012",
+        "why": "Turn overnight regime labels into graphs and regime durations."
+      },
+      {
+        "name": "Paper Shadow Signal Simulator",
+        "one_click_ready": false,
+        "risk": "medium",
+        "status": "SUGGESTED_AFTER_CANDLES",
+        "version": "V013",
+        "why": "Let strategy seeds create would-have-traded records without placing orders."
+      }
+    ],
+    "update_scan": {
+      "updated_at": "2026-06-25T00:08:45+00:00",
+      "current_version_number": 11,
+      "items": [
+        {
+          "file": "BALI_ROCKET_CRYPTO_COMMAND_V012_CANDLE_HARVESTER_PLAN_DEMO_UPDATE.zip",
+          "path": "C:\\Users\\CB\\Desktop\\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\\bali_rocket_crypto_command_v011b\\UPDATE_INBOX\\BALI_ROCKET_CRYPTO_COMMAND_V012_CANDLE_HARVESTER_PLAN_DEMO_UPDATE.zip",
+          "valid": true,
+          "blocked": [],
+          "warnings": [],
+          "manifest": {
+            "project": "BALI_ROCKET_CRYPTO_COMMAND",
+            "name": "V012 Candle Harvester Plan Demo",
+            "version": "V012_DEMO_PLAN_ONLY",
+            "version_number": 12,
+            "payload_prefix": "payload/",
+            "restart_required": false,
+            "summary": "Demo safe update that adds a V012 candle harvester plan note only. It does not change app code or protected data.",
+            "safety": "plan_only_no_live_orders_no_api_keys"
+          },
+          "payload_files": [
+            "shared_data/updates/V012_CANDLE_HARVESTER_PLAN_DEMO.json",
+            "docs/V012_CANDLE_HARVESTER_PLAN_DEMO.txt"
+          ],
+          "payload_file_count": 2
+        }
+      ],
+      "best_valid": {
+        "file": "BALI_ROCKET_CRYPTO_COMMAND_V012_CANDLE_HARVESTER_PLAN_DEMO_UPDATE.zip",
+        "path": "C:\\Users\\CB\\Desktop\\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\\bali_rocket_crypto_command_v011b\\UPDATE_INBOX\\BALI_ROCKET_CRYPTO_COMMAND_V012_CANDLE_HARVESTER_PLAN_DEMO_UPDATE.zip",
+        "valid": true,
+        "blocked": [],
+        "warnings": [],
+        "manifest": {
+          "project": "BALI_ROCKET_CRYPTO_COMMAND",
+          "name": "V012 Candle Harvester Plan Demo",
+          "version": "V012_DEMO_PLAN_ONLY",
+          "version_number": 12,
+          "payload_prefix": "payload/",
+          "restart_required": false,
+          "summary": "Demo safe update that adds a V012 candle harvester plan note only. It does not change app code or protected data.",
+          "safety": "plan_only_no_live_orders_no_api_keys"
+        },
+        "payload_files": [
+          "shared_data/updates/V012_CANDLE_HARVESTER_PLAN_DEMO.json",
+          "docs/V012_CANDLE_HARVESTER_PLAN_DEMO.txt"
+        ],
+        "payload_file_count": 2
+      }
+    },
+    "reports": [
+      "BALI_OVERNIGHT_REPORT_20260624_135146.txt"
+    ],
+    "line_counts": {
+      "market_ticks": 36,
+      "learning_cycles": 6,
+      "research_ledger": 6,
+      "feed_proof": 6
+    },
+    "collector_alive": true
+  }
+}

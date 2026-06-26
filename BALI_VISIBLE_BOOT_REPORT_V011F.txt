@@ -1,0 +1,10 @@
+BALI ROCKET CRYPTO COMMAND - VISIBLE STARTUP REPORT V011F
+Generated: Thu 25/06/2026 10:18:01.96
+Launcher folder: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD
+Mission: STARGATE RIVAL MODE - Bali Rocket is being prepared to compete against the Stargate machine.
+Fix active: visible report first, root finder active, Python 3.13 shield active.
+One-click update: bootstrap installed. Future patch zips can be applied with BALI_ONE_CLICK_UPDATE.bat.
+Safety: live orders OFF, champion lock LOCKED, no API keys.
+
+=== App root scan === 
+ACCEPTED app root: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\bali_rocket_crypto_command_v011b 

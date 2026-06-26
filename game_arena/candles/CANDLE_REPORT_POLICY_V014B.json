@@ -1,0 +1,8 @@
+{
+  "version": "V014B",
+  "last_new_rows_is_not_total_rows": true,
+  "total_rows_reported_separately": true,
+  "public_data_only": true,
+  "live_orders": "OFF",
+  "api_keys": "NONE"
+}

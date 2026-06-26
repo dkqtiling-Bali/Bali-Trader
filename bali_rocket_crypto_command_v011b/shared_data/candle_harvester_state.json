@@ -1,0 +1,41 @@
+{
+  "api_keys": "NONE",
+  "intervals": [
+    "1m",
+    "5m",
+    "15m"
+  ],
+  "last_open_time_ms": {
+    "BTCUSDT|15m": 1782442800000,
+    "BTCUSDT|1m": 1782443580000,
+    "BTCUSDT|5m": 1782443400000,
+    "DOGEUSDT|15m": 1782442800000,
+    "DOGEUSDT|1m": 1782443640000,
+    "DOGEUSDT|5m": 1782443400000,
+    "ETHUSDT|15m": 1782442800000,
+    "ETHUSDT|1m": 1782443640000,
+    "ETHUSDT|5m": 1782443400000,
+    "LINKUSDT|15m": 1782442800000,
+    "LINKUSDT|1m": 1782443640000,
+    "LINKUSDT|5m": 1782443400000,
+    "SOLUSDT|15m": 1782442800000,
+    "SOLUSDT|1m": 1782443640000,
+    "SOLUSDT|5m": 1782443400000,
+    "XRPUSDT|15m": 1782442800000,
+    "XRPUSDT|1m": 1782443640000,
+    "XRPUSDT|5m": 1782443400000
+  },
+  "last_rows_written": 11,
+  "live_orders": "OFF",
+  "status": "CANDLE_HARVESTER_ONLINE",
+  "symbols": [
+    "BTCUSDT",
+    "ETHUSDT",
+    "SOLUSDT",
+    "XRPUSDT",
+    "DOGEUSDT",
+    "LINKUSDT"
+  ],
+  "total_rows_written": 6963,
+  "updated_at": "2026-06-26T03:13:59+00:00"
+}

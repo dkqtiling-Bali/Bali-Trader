@@ -1,0 +1,1 @@
+V011V ledger note: local dashboard autopilot watcher proof patch. No live orders, API keys, secrets, or trading logic changed. Tiny result only on success.

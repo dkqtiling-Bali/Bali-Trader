@@ -1,0 +1,14 @@
+BALI FAST HEALTH REPORT V012I
+Generated: 06/25/2026 13:35:17
+Root folder: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD
+Safety: live orders OFF, champion lock LOCKED, no API keys.
+
+APP_ROOT=FOUND :: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\bali_rocket_crypto_command_v011b
+PYTHON=FOUND :: C:\Users\CB\AppData\Local\Programs\Python\Python310\python.exe
+PYTHON_VERSION=3.10.11
+PY_COMPILE:   File "C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\bali_rocket_crypto_command_v011b\app.py", line 1451
+PY_COMPILE:     "GOVERNOR_HUB=BALI_CPU", "STARGATE_JOIN_KIT_EXPORT=READY
+PY_COMPILE:                              ^
+PY_COMPILE: SyntaxError: unterminated string literal (detected at line 1451)
+SYNTAX=FAIL
+RESULT: FAST HEALTH FAIL

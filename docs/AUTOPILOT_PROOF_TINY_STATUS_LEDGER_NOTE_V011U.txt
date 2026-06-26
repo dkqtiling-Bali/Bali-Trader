@@ -1,0 +1,1 @@
+V011U ledger note: low-risk proof patch for local dashboard autopilot and tiny final status reporting. No live orders, API keys, secrets, or trading logic changed.

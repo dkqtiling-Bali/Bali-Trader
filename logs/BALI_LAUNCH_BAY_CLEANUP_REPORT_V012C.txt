@@ -1,0 +1,21 @@
+BALI LAUNCH BAY CLEANUP REPORT V012C
+Generated: 06/25/2026 12:26:08
+Root folder: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD
+Purpose: archive old patch ZIPs so the updater only sees current/future patches.
+Scope: Bali root folder and updates folder only. Downloads/Desktop are not moved.
+Safety: live orders OFF, champion lock LOCKED, no API keys.
+
+Installed version: V012D
+Installed rank: 1203
+
+=== Patch ZIP cleanup ===
+ARCHIVED OLD PATCH ZIP: V012C :: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\updates\BALI_ROCKET_CRYPTO_COMMAND_V012C_MATCH_REFEREE_ENGINE_PREP_BUNDLE_PATCH.zip
+KEPT PATCH ZIP: V012D :: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\updates\BALI_ROCKET_CRYPTO_COMMAND_V012D_TWO_CPU_SHARED_FOLDER_BRIDGE_BUNDLE_PATCH.zip
+
+=== Staging cleanup ===
+REMOVED STAGING FOLDER: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\updates\_staging_speed_dash_20260625_122601
+
+Archived old patch ZIP count: 1
+Kept current/future patch ZIP count: 1
+Archive folder: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\updates\applied_patch_archive\before_V012D_20260625_122608
+RESULT: LAUNCH BAY CLEANUP PASS

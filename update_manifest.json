@@ -1,0 +1,8 @@
+{
+  "project": "BALI_ROCKET_CRYPTO_COMMAND",
+  "version": "V015A",
+  "version_number": 1501,
+  "name": "BACKTEST_WALK_FORWARD_GATE",
+  "payload_prefix": "payload/",
+  "restart_required": true
+}

@@ -1,0 +1,14 @@
+{
+  "api_keys": "NONE",
+  "batch_id": "20260626T031414Z",
+  "claim_level": "UNIVERSE_SCANNER_RANKING_ONLY_NOT_TRADE_SIGNAL",
+  "feed_status": "OK_UNIVERSE_24HR_80",
+  "live_orders": "OFF",
+  "rows_ranked": 80,
+  "rows_written": 40,
+  "source": "https://data-api.binance.vision",
+  "status": "UNIVERSE_SCANNER_ONLINE",
+  "top_score": 66.637,
+  "top_symbol": "XPLUSDT",
+  "updated_at": "2026-06-26T03:14:14+00:00"
+}

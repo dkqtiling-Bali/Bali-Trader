@@ -1,0 +1,31 @@
+BALI SPEED LANE UPDATE REPORT V012I
+Generated: 06/25/2026 13:35:11
+Root folder: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD
+Purpose: update + fast health + Bali themed icon + cleanup + auto status + dash bridge check + final-report-only support.
+Mission: STARGATE RIVAL MODE - faster controlled upgrades for the challenger machine.
+Safety: live orders OFF, champion lock LOCKED, no API keys.
+Quiet mode: intermediate reports stay in logs; dashboard flow opens one final report.
+
+=== Step 0: close previous dashboard if needed ===
+Close dashboard exit code: 0
+LISTENER_STATUS=CLEAR
+NON_LISTENER_CONNECTIONS_PRESENT=YES_OK :: 9
+Closed count: 0
+RESULT: CLOSE DASHBOARD PASS
+
+=== Step 1: one-click update engine ===
+Update engine exit code: 0
+Selected patch zip: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\updates\BALI_ROCKET_CRYPTO_COMMAND_V012J_EASY_ONEDRIVE_BRIDGE_HUB_SETUP_PATCH.zip
+Selected version: V012J
+RESULT: UPDATE APPLIED
+Patch zip: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\updates\BALI_ROCKET_CRYPTO_COMMAND_V012J_EASY_ONEDRIVE_BRIDGE_HUB_SETUP_PATCH.zip
+Next step: run BALI_SPEED_LANE_UPDATE.bat for future patches, or run BALI_FAST_STATUS_PACK.bat before asking ChatGPT for the next patch.
+
+=== Step 2: fast health ===
+Fast health exit code: 4
+APP_ROOT=FOUND :: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\bali_rocket_crypto_command_v011b
+PYTHON=FOUND :: C:\Users\CB\AppData\Local\Programs\Python\Python310\python.exe
+PYTHON_VERSION=3.10.11
+SYNTAX=FAIL
+RESULT: FAST HEALTH FAIL
+RESULT: SPEED LANE FAIL - HEALTH STEP FAILED

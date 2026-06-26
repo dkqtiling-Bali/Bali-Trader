@@ -1,0 +1,20 @@
+{
+  "version": "V012I",
+  "type": "bot_checkin",
+  "data_origin": "RAW_LIVE_DATA",
+  "feed_mode": "LIVE_RAW_CAPTURE",
+  "source_exchange": "example_exchange",
+  "source_symbol": "BTCUSDT",
+  "market_timestamp_utc": "2026-06-25T00:00:00Z",
+  "captured_at_utc": "2026-06-25T00:00:01Z",
+  "raw_ticks_count": 1,
+  "profit_pct": 0.0,
+  "max_drawdown_pct": 0.0,
+  "risk_events": 0,
+  "uptime_pct": 100,
+  "signal_quality": 50,
+  "orders_live": false,
+  "api_keys_present": false,
+  "safety_violations": 0,
+  "raw_feed_note": "Schema example only. Do not use example data for ranked scoring."
+}

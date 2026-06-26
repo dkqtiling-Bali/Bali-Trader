@@ -1,0 +1,9 @@
+{
+  "version": "V014B",
+  "latest_batch_sorted_by_score": true,
+  "report_top_matches_visible_table": true,
+  "ranking_only": true,
+  "not_trade_signal": true,
+  "live_orders": "OFF",
+  "api_keys": "NONE"
+}

@@ -1,0 +1,31 @@
+{
+  "version": "V012B",
+  "mode": "SIM_ONLY",
+  "safety": "LIVE_ORDERS_OFF | CHAMPION_LOCK_LOCKED | NO_API_KEYS",
+  "arena": "GAME_FOUNDATION",
+  "two_cpu_bridge": "PREP_ONLY",
+  "cpu_roles": [
+    "BALI_CPU",
+    "STARGATE_CPU",
+    "REFEREE_CPU"
+  ],
+  "bridge_networking": "OFF_PLACEHOLDER_ONLY",
+  "bots": [
+    {
+      "name": "Bali Bot",
+      "cpu": "BALI_CPU",
+      "score": 0,
+      "level": 1,
+      "xp": 0
+    },
+    {
+      "name": "Stargate Bot",
+      "cpu": "STARGATE_CPU",
+      "score": 0,
+      "level": 1,
+      "xp": 0
+    }
+  ],
+  "rounds": [],
+  "next": "V012C local check-in/import rules"
+}

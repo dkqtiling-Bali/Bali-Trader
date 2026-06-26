@@ -1,0 +1,38 @@
+BALI ROCKET CRYPTO COMMAND - HEALTH CHECK REPORT V011J
+Generated: Thu 25/06/2026 10:38:15.65
+Root folder: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD
+Mission: STARGATE RIVAL MODE - verify the challenger machine without launching trades.
+Purpose: no-launch diagnostic for app root, Python, syntax, updater, icon assets, and port visibility.
+Safety: live orders OFF, champion lock LOCKED, no API keys.
+
+=== App root scan === 
+ACCEPTED app root: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\bali_rocket_crypto_command_v011b 
+App root: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\bali_rocket_crypto_command_v011b
+app.py: FOUND
+ 
+=== Python candidate scan === 
+Checking: direct local Python 3.10 - C:\Users\CB\AppData\Local\Programs\Python\Python310\python.exe 
+probe_version=3.10.11
+ACCEPTED: direct local Python 3.10 - C:\Users\CB\AppData\Local\Programs\Python\Python310\python.exe 
+
+=== Updater check ===
+BALI_ONE_CLICK_UPDATE.bat: FOUND 
+V011J update engine: FOUND 
+Root manifest: FOUND 
+
+=== Forever desktop starter icon check ===
+Forever icon file V011J: FOUND 
+Icon creator: FOUND 
+Desktop shortcut: NOT CREATED YET - run BALI_CREATE_FOREVER_DESKTOP_ICON.bat 
+
+=== Port 9061 visibility check ===
+Port 9061: no active listener right now. This is OK if the dashboard is not running. 
+
+RESULT: HEALTH PASS
+Python selected: C:\Users\CB\AppData\Local\Programs\Python\Python310\python.exe
+Python 3.10.11
+Syntax check: PASS
+Dashboard target: http://127.0.0.1:9061
+Phone LAN target: http://YOUR-PC-LAN-IP:9061 when phone launcher is running.
+Rival marker: Bali Rocket versus Stargate machine.
+Safety: live orders OFF, champion lock LOCKED, no API keys.

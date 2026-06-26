@@ -1,0 +1,20 @@
+{
+  "version": "V012J",
+  "phone_monitor": "READY_READ_ONLY_LAN",
+  "phone_control": "OFF_VIEW_ONLY",
+  "phone_trading_controls": "BLOCKED",
+  "public_internet_exposure": "OFF",
+  "dashboard_url_local": "http://127.0.0.1:9061",
+  "dashboard_url_phone_lan": "http://YOUR-PC-LAN-IP:9061",
+  "shows": [
+    "arena_scoreboard",
+    "bot_heartbeats",
+    "research_points",
+    "scout_points",
+    "paper_trading_points",
+    "governor_notes",
+    "raw_live_data_gate",
+    "safety_locks"
+  ],
+  "next": "Use phone LAN launcher only on trusted Wi-Fi. Cloud remote access is not built yet."
+}

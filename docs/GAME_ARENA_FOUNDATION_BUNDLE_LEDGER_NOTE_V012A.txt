@@ -1,0 +1,1 @@
+V012A ledger note: added SIM-only Game Arena UI for Bali Bot versus Stargate Bot, with placeholder scoreboard, scoring gates, bot XP/cards, round history placeholders, and CPU identity panel. No live orders, API keys, secrets, or trading logic changed.

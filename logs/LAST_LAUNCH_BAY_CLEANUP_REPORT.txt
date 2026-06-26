@@ -1,0 +1,19 @@
+BALI LAUNCH BAY CLEANUP REPORT V012J
+Generated: 06/26/2026 11:55:53
+Root folder: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD
+Purpose: archive old patch ZIPs so the updater only sees current/future patches.
+Scope: Bali root folder and updates folder only. Downloads/Desktop are not moved.
+Safety: live orders OFF, champion lock LOCKED, no API keys.
+
+Installed version: V015A
+Installed rank: 1500
+
+=== Patch ZIP cleanup ===
+No old lower-version patch ZIPs needed archiving.
+
+=== Staging cleanup ===
+No staging folders found.
+
+Archived old patch ZIP count: 0
+Kept current/future patch ZIP count: 0
+RESULT: LAUNCH BAY CLEANUP PASS

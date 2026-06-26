@@ -1,0 +1,1 @@
+V011X ledger note: bundle-ready autopilot/reporting polish. Dynamic tiny-result title for future patches. No live orders, API keys, secrets, or trading logic changed.

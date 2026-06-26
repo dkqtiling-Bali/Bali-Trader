@@ -1,0 +1,26 @@
+BALI ROCKET CRYPTO COMMAND - ONE CLICK UPDATE REPORT V011F
+Generated: Thu 25/06/2026 10:21:34.80
+Root folder: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD
+Mission: STARGATE RIVAL MODE - controlled upgrades for the challenger machine.
+Safety: live orders OFF, champion lock LOCKED, no API keys.
+
+Search order:
+1. C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\updates
+2. C:\Users\CB\Downloads
+3. C:\Users\CB\Desktop
+4. C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD
+
+Selected patch zip:   
+Extracting patch to: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\updates\_staging_20260625_102134 
+Expand-Archive : The path 'C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\ ' either 
+does not exist or is not a valid file system path.
+At line:1 char:1
++ Expand-Archive -LiteralPath $env:PATCH_ZIP -DestinationPath $env:STAG ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (C:\Users\CB\Des...IX_FULL_BUILD\ :String) [Expand-Archive], IOExceptio 
+   n
+    + FullyQualifiedErrorId : PathNotFound,Expand-Archive
+ 
+RESULT: EXTRACT FAILED
+Selected zip:  
+Staging folder: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\updates\_staging_20260625_102134

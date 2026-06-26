@@ -1,0 +1,6 @@
+Candle Harvester Policy V014A
+
+Candles are collected from public Binance market endpoints only after the live-data gate passes.
+They are research evidence, not proof of edge or permission to trade.
+Intervals: 1m, 5m, 15m.
+No API keys. No live orders. No champion approval.

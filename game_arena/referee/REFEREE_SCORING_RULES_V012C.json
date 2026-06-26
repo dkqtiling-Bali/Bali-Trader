@@ -1,0 +1,22 @@
+{
+  "version": "V012C",
+  "competition_mode": "SIM_ONLY",
+  "live_orders": "OFF",
+  "champion_lock": "LOCKED",
+  "api_keys": "NONE",
+  "rule_weights": {
+    "profit_score": 25,
+    "risk_control": 25,
+    "drawdown_control": 20,
+    "consistency": 15,
+    "uptime": 10,
+    "safety_cleanliness": 5
+  },
+  "hard_penalties": {
+    "live_order_attempt": -999,
+    "api_key_present": -999,
+    "champion_lock_unlocked": -999,
+    "missing_checkin": -50
+  },
+  "notes": "Prep rules only. Referee reads local JSON check-ins and does not trade."
+}

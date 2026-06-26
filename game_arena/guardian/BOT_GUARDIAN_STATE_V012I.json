@@ -1,0 +1,60 @@
+{
+  "version": "V012I",
+  "bot_guardian": "ON_SIM_ONLY",
+  "maintenance_lock": "OFF_UNLESS_UPDATING",
+  "live_orders": "OFF",
+  "champion_lock": "LOCKED",
+  "api_keys": "NONE",
+  "mode": "WATCH_SCORE_HEARTBEAT_ONLY",
+  "bots": [
+    {
+      "name": "Bali Research Bot",
+      "team": "Bali",
+      "role": "research",
+      "status": "READY_FOR_HEARTBEAT",
+      "points": 0,
+      "live_trading": "OFF"
+    },
+    {
+      "name": "Bali Scout Bot",
+      "team": "Bali",
+      "role": "scout",
+      "status": "READY_FOR_HEARTBEAT",
+      "points": 0,
+      "live_trading": "OFF"
+    },
+    {
+      "name": "Bali Paper Trading Bot",
+      "team": "Bali",
+      "role": "paper",
+      "status": "READY_FOR_SIM_ONLY",
+      "points": 0,
+      "live_trading": "OFF"
+    },
+    {
+      "name": "Stargate Research Bot",
+      "team": "Stargate",
+      "role": "research",
+      "status": "AWAITING_REMOTE_CHECKIN",
+      "points": 0,
+      "live_trading": "OFF"
+    },
+    {
+      "name": "Stargate Scout Bot",
+      "team": "Stargate",
+      "role": "scout",
+      "status": "AWAITING_REMOTE_CHECKIN",
+      "points": 0,
+      "live_trading": "OFF"
+    },
+    {
+      "name": "Stargate Paper Trading Bot",
+      "team": "Stargate",
+      "role": "paper",
+      "status": "AWAITING_REMOTE_CHECKIN",
+      "points": 0,
+      "live_trading": "OFF"
+    }
+  ],
+  "notes": "Guardian watches heartbeats and SIM scores only. It does not place orders."
+}

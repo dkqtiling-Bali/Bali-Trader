@@ -1,0 +1,7 @@
+BALI ROCKET CRYPTO COMMAND - V011D LEDGER NOTE
+
+Patch name: V011D_GOOD_PYTHON_SHIELD
+Reason: User startup report on 2026-06-25 showed Python selected as Python313 and app exit code -1073741521.
+Resolution: Launcher and phone LAN launcher now reject Python313 paths and prefer safe Python 3.10, 3.11, or 3.12. Python doctor updated to make candidate selection visible.
+Scope: BAT launchers only plus README/docs note.
+Safety lock: unchanged. live orders OFF. champion lock LOCKED. no API keys. no secrets touched.

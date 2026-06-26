@@ -1,0 +1,1 @@
+V011W ledger note: cleans stale V011U autopilot proof label and reduces final success report to important lines only. No live orders, API keys, secrets, or trading logic changed.

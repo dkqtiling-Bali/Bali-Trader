@@ -1,0 +1,3 @@
+STARGATE JOIN KIT V012I
+
+Copy this kit to the Stargate CPU. Use shared-folder JSON only. SIM only. Raw live data only. No remote commands. No live orders. No API keys.

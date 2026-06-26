@@ -1,0 +1,27 @@
+{
+  "version": "V012H",
+  "policy": "RAW_LIVE_DATA_ONLY",
+  "mode": "SIM_ONLY_SCORING_WITH_LIVE_ORDERS_OFF",
+  "allowed_data_origin": "RAW_LIVE_DATA",
+  "blocked_origins": [
+    "SYNTHETIC",
+    "MOCK",
+    "SEED",
+    "DEMO",
+    "BACKFILL",
+    "GENERATED",
+    "REPLAY_RANKED"
+  ],
+  "required_fields": [
+    "data_origin",
+    "source_exchange",
+    "source_symbol",
+    "market_timestamp_utc",
+    "captured_at_utc",
+    "raw_ticks_count",
+    "orders_live",
+    "api_keys_present",
+    "safety_violations"
+  ],
+  "notes": "Arena scoring is allowed only from raw live market data captured by the bot. Orders remain off and keys remain absent."
+}

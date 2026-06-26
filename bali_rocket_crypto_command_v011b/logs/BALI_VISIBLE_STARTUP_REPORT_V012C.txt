@@ -1,0 +1,35 @@
+BALI ROCKET CRYPTO COMMAND - QUIET STARTUP REPORT V012C
+Generated: Thu 25/06/2026 12:22:07.12
+Launcher folder: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD
+App folder: C:\Users\CB\Desktop\BALI_ROCKET_CRYPTO_COMMAND_V011B_BAD_PYTHON_HOTFIX_FULL_BUILD\bali_rocket_crypto_command_v011b
+Mission: STARGATE RIVAL MODE - Bali Rocket is being prepared to compete against the Stargate machine.
+Update active: V012C Arena marker and local-only two-CPU bridge prep, autopilot, Bali-themed starter, and safety root guard.
+Fix active: app.py root found before Python compile/run.
+Report mode: quiet startup; only final report opens after exit or immediate report opens on error.
+Python shield: Python 3.13 is skipped. Preferred order: Python 3.10, 3.11, then 3.12.
+Speed lane: use BALI_SPEED_LANE_UPDATE.bat from the launcher folder for future patch zips.
+Health check: use BALI_ROCKET_HEALTH_CHECK.bat or BALI_FAST_STATUS_PACK.bat for diagnostics.
+Bali themed desktop icon: run BALI_CREATE_FOREVER_DESKTOP_ICON.bat once, then use Bali Forever Starter on Desktop.
+Safety: live orders OFF, champion lock LOCKED, no API keys.
+
+Cleaning old Python cache folder: __pycache__ 
+=== Candidate scan === 
+Checking: direct local Python 3.10 - C:\Users\CB\AppData\Local\Programs\Python\Python310\python.exe 
+probe_version=3.10.11
+ACCEPTED: direct local Python 3.10 - C:\Users\CB\AppData\Local\Programs\Python\Python310\python.exe 
+
+RESULT: READY
+Python selected: C:\Users\CB\AppData\Local\Programs\Python\Python310\python.exe
+Python 3.10.11
+Syntax check: PASS
+Dashboard: http://127.0.0.1:9061
+Phone mode: use ROCKET_CRYPTO_COMMAND_START_PHONE_LAN_EXPERIMENTAL.bat
+Rival marker: Bali-themed challenger versus Stargate machine.
+V012C marker: Game Arena foundation with SIM-only Bali vs Stargate scoreboard is installed.
+Bali themed icon: Bali Forever Starter desktop shortcut supported.
+Safety: live orders OFF, champion lock LOCKED, no API keys.
+
+Starting dashboard now. Startup report is saved quietly; final report opens only after exit or if an error occurs.
+
+App exited with code 0
+Final report generated: Thu 25/06/2026 12:26:00.52

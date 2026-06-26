@@ -1,0 +1,29 @@
+BALI BUILD LEDGER V010
+======================
+
+V001: Tropical dashboard shell.
+V002-V005: Learning and research pulse.
+V006: Bali themed rebuild.
+V007: Overnight Watch mode.
+V008: Public market feed proof ledger.
+V009: Phone LAN command view.
+V010: One-click Update Dock scan/apply/rollback foundation.
+
+Current mission:
+Leave the system running overnight so it can collect public market snapshots, feed proof rows, learning cycles, research notes, growth score, and suggested next upgrades.
+
+Current gate:
+OVERNIGHT_DATA_COLLECTION
+
+Current blocker:
+Need overnight sample size before building candle harvester and paper-shadow simulator.
+
+Safety truth:
+This build gathers data and research telemetry only. It does not trade and does not prove a winning strategy yet.
+
+V011B BAD PYTHON HOTFIX LEDGER ADDITION
+- Added robust Windows Python auto-detect launcher.
+- Added BALI_PYTHON_DOCTOR.bat that opens a Notepad report.
+- Added startup reports in logs folder.
+- Added /api/doctor endpoint alias for easier checks.
+- Safety unchanged: no live orders, no API keys, Champion Council locked, Risk Police armed.

@@ -1,0 +1,6 @@
+V012I ledger note
+
+V012I moves the normal update/status loop into the dashboard.
+The Fast Status Pack remains available as a recovery diagnostic only; normal operation is Dashboard Updates tab -> Dashboard Update + Auto Restart -> one final report / Show Copy Last Final Status.
+
+Safety: live orders OFF, champion lock LOCKED, no API keys touched, trading logic unchanged.

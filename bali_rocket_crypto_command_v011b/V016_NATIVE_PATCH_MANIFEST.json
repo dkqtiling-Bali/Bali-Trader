@@ -1,0 +1,31 @@
+{
+  "patch_id": "V016_NATIVE_EVIDENCE_SCORECARD_PANEL",
+  "type": "additive_native_sidecar_panel",
+  "base_expected": "V015A_BACKTEST_WALK_FORWARD_GATE",
+  "safety": {
+    "live_orders": "OFF_REQUIRED",
+    "api_keys": "NONE_REQUIRED",
+    "private_exchange_endpoints": "NOT_USED",
+    "champion_lock": "LOCKED_REQUIRED",
+    "mode": "PUBLIC_DATA_RESEARCH_ONLY",
+    "real_live_data_gate": "REQUIRED_FOR_SCORING",
+    "fake_or_offline_demo_scoring": "BLOCKED"
+  },
+  "installs": [
+    "tools/bali_v016_native_evidence_scorecard.py",
+    "RUN_V016_EVIDENCE_SCORECARD_NOW.bat",
+    "dashboard_snippets/v016_native_evidence_scorecard_panel.html"
+  ],
+  "writes_reports": [
+    "shared_data/reports/BALI_V016_EVIDENCE_SCORECARD.md",
+    "shared_data/reports/BALI_V016_EVIDENCE_SCORECARD.json",
+    "shared_data/reports/BALI_TINY_UPDATE_RESULT_V016_NATIVE.txt"
+  ],
+  "does_not": [
+    "does_not_enable_live_orders",
+    "does_not_add_api_keys",
+    "does_not_unlock_champion_council",
+    "does_not_call_private_exchange_endpoints",
+    "does_not_modify_trading_executor"
+  ]
+}

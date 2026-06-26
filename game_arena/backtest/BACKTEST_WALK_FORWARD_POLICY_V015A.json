@@ -1,0 +1,11 @@
+{
+  "version": "V015A",
+  "backtest_gate": true,
+  "walk_forward_split": true,
+  "uses_collected_public_candles_only": true,
+  "fees_and_slippage_included": true,
+  "champion_claim_allowed": false,
+  "live_orders": "OFF",
+  "api_keys": "NONE",
+  "private_endpoints": "NOT_USED"
+}

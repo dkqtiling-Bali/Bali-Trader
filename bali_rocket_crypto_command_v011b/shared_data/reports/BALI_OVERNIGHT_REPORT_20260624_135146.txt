@@ -1,0 +1,59 @@
+BALI ROCKET CRYPTO COMMAND - OVERNIGHT WATCH REPORT
+========================================================================
+Generated UTC: 2026-06-24T13:51:46+00:00
+Version: V010_BALI_OVERNIGHT_WATCH
+Started UTC: 2026-06-24T13:51:44+00:00
+
+SAFETY STATUS
+Live orders: OFF
+Champion Council: LOCKED / approved 0/3
+Risk Police: ARMED
+Claim level: public data collection and research telemetry only, not trading proof.
+
+OVERNIGHT DATA SUMMARY
+Pulse count: 0
+Market tick rows: 0
+Learning cycles: 0
+Research ledger rows: 0
+Feed proof rows: 0
+Last feed source: not_started
+Last feed status: WAITING
+Current regime: UNKNOWN
+No-trade score: None
+Growth score: 0.0
+
+REGIME COUNTS
+
+SOURCE COUNTS
+
+SYMBOL COUNTS
+
+RECENT RESEARCH NOTES
+
+SUGGESTED NEXT UPGRADES
+
+DOCTOR SUMMARY
+Doctor status: WARN
+- PASS Server: Dashboard server is responding.
+- PASS Collector thread: Overnight collector thread is alive.
+- PASS Watch enabled: Watch mode is enabled.
+- WARN Market tick ledger: Rows: 0
+- WARN Learning ledger: Rows: 0
+- WARN Feed source: Last source: not_started
+- PASS Live orders: Live orders are OFF and no live trading code is present.
+- PASS Champion lock: Champion Council is locked at 0/3.
+- PASS Update inbox: /mnt/data/bali_rocket_crypto_command_v006_v010/UPDATE_INBOX
+- PASS Reports folder: /mnt/data/bali_rocket_crypto_command_v006_v010/shared_data/reports
+
+CURRENT TIMELINE
+V001: Tropical dashboard shell
+V002-V005: Learning/research pulse
+V006: Bali visual rebuild
+V007: Overnight Watch
+V008: Public market feed proof ledger
+V009: Phone LAN command view
+V010: One-click Update Dock scan/apply/rollback foundation
+
+NEXT GATE
+OVERNIGHT_DATA_COLLECTION
+Current blocker: No overnight sample collected yet

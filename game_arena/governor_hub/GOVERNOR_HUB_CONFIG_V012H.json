@@ -1,0 +1,19 @@
+{
+  "version": "V012H",
+  "hub_role": "BALI_GOVERNOR_HUB",
+  "hub_machine": "BALI_CPU",
+  "competitor_nodes": [
+    "BALI_CPU",
+    "STARGATE_CPU"
+  ],
+  "referee": "BALI_GOVERNOR_HUB",
+  "bridge_mode": "SHARED_FOLDER_JSON_ONLY",
+  "raw_live_data_only": true,
+  "competition_mode": "SIM_ONLY",
+  "remote_commands": "BLOCKED",
+  "live_orders": "OFF",
+  "champion_lock": "LOCKED",
+  "api_keys": "NONE",
+  "phone_monitor": "READ_ONLY_LAN",
+  "public_internet_exposure": "OFF"
+}

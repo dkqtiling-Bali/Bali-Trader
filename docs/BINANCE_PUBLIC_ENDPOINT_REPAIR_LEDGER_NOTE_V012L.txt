@@ -1,0 +1,21 @@
+BALI LEDGER NOTE V012L
+
+Problem observed after V012K:
+- Real Live Data Gate correctly blocked scoring.
+- Public Binance fetch returned HTTP Error 400 on both:
+  https://data-api.binance.vision
+  https://api.binance.com
+
+Repair:
+- Keep V012K hard safety gate.
+- Repair Binance public ticker fetch formatting.
+- Use compact official symbols JSON array format.
+- Add one-symbol-at-a-time public endpoint repair fallback.
+
+Non-negotiables retained:
+- REAL LIVE DATA ONLY. NO EXCEPTION.
+- No offline_demo scoring.
+- No synthetic/mock/fake market ticks.
+- No live orders.
+- No API keys.
+- No remote commands.
