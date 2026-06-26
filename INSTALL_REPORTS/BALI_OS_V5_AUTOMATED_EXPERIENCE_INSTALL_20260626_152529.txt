@@ -1,0 +1,9 @@
+﻿BALI OS V5 AUTOMATED EXPERIENCE INSTALL REPORT
+Generated: 
+26/06/2026 3:25:29 PM
+Target: 
+C:\Bali\Bali-Trader
+Patch class: SAFE_TOOLING_ONLY
+Safety: no app.py edit, no trading logic change, no live trading, no keys, no champion unlock
+Installed: BALI_START_HERE.bat, BALI_ONE_CLICK_SESSION.bat, BALI_MASTER_CONTROL.bat V5, tools/BALI_OS_ENGINE_V5.ps1, tools/BALI_OS_SAFETY_SCAN_V5.ps1, tools/BALI_SAFE_GIT_SAVE_V5.ps1
+Next: Run BALI_START_HERE.bat and choose option 1. After review choose option 8.

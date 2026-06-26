@@ -1,0 +1,5 @@
+﻿run_id,created_utc,type,status,source_file,summary,mission_alignment
+SESSION_20260626_152613,2026-06-26T15:26:13.9131536+10:00,status_dashboard,PASS,BALI_STATUS_V5_20260626_152613.txt,Generated automated status dashboard,Reporting and maintainability
+SAFETY_20260626_152613,2026-06-26T15:26:13.9131536+10:00,safety_scan,PASS,BALI_SAFETY_SCAN_V5_20260626_152613.txt,Generated automated safety scan,Safety visibility
+SESSION_20260626_153013,2026-06-26T15:30:13.8919865+10:00,status_dashboard,PASS,BALI_STATUS_V5_20260626_153013.txt,Generated automated status dashboard,Reporting and maintainability
+SAFETY_20260626_153013,2026-06-26T15:30:13.8919865+10:00,safety_scan,PASS,BALI_SAFETY_SCAN_V5_20260626_153013.txt,Generated automated safety scan,Safety visibility

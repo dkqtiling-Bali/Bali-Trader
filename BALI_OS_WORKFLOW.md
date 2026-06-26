@@ -41,3 +41,17 @@ Can this be made one-click?
 ```
 
 If yes, build it that way.
+
+## Bali OS V5 Automated Experience
+
+Default session workflow:
+1. Open `BALI_START_HERE.bat`.
+2. Choose `1. Start Automated Session`.
+3. Bali OS creates safety scan, status dashboard, recommendation, project map, evidence index, run registry, session report, and AI handover.
+4. Review the recommendation.
+5. Build only approved safe/proof-first patches.
+6. Test.
+7. Choose `8. Git Safe Save / Backup V5`.
+
+Automation rule:
+No manual folder hunting, cut-and-paste, or report searching where Bali OS can generate, open, copy, or index the file automatically.

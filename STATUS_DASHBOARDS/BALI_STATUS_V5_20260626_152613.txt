@@ -1,0 +1,35 @@
+﻿BALI STATUS DASHBOARD V5
+Generated: 
+26/06/2026 3:26:13 PM
+Base: 
+C:\Bali\Bali-Trader
+
+BALI STATUS
+Version: 
+V015A / BACKTEST_WALK_FORWARD_GATE
+Git: 
+DIRTY 21 item(s)
+Branch: 
+main
+Safety: 
+PASS
+LIVE_ORDERS_OFF: 
+True
+NO_API_KEYS: 
+True
+PUBLIC_DATA_ONLY: 
+True
+CHAMPION_LOCKED: 
+True
+PAPER_SIM_FIRST: 
+True
+Latest Safety Report: 
+BALI_SAFETY_SCAN_V5_20260626_152613.txt
+Latest Handover: 
+BALI_OS_V4_FULL_HANDOVER_20260626_151844.txt
+Overall Readiness: 
+90
+%
+
+NEXT OPERATOR STEP
+Run BALI_MASTER_CONTROL option 4 to review recommended task, or option 8 to safe-save generated reports.

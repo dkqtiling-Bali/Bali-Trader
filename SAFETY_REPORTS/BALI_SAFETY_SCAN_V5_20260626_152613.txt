@@ -1,0 +1,20 @@
+﻿BALI SAFETY SCAN V5
+Generated: 06/26/2026 15:26:13
+Base: C:\Bali\Bali-Trader
+Status: PASS
+Block findings: 0
+Warnings: 2
+
+RULES
+- Safety-policy wording such as NO_API_KEYS, NO live trading, and CHAMPION_LOCKED does not block.
+- Real-looking secrets/tokens still block.
+- Direct live-trading/champion-unlock enablement still blocks.
+- Process warnings are listed but do not block Git save.
+
+No blocking findings detected.
+
+WARNINGS
+[WARN] bali_rocket_crypto_command_v011b\app.py:2883 - Automation/process warning for review
+  function reports(s){let rep=(DATA.reports||[]);let list=rep.map(n=>`<div class="row"><b>${esc(n)}</b><span><button class="btn alt" onclick="copyReportFile('${String(n).replace(/'/g...
+[WARN] payload\app.py:2251 - Automation/process warning for review
+  function reports(s){let rep=(DATA.reports||[]);let list=rep.map(n=>`<div class="row"><b>${esc(n)}</b><span><button class="btn alt" onclick="copyReportFile('${String(n).replace(/'/g...

@@ -174,3 +174,58 @@ Safety preserved:
 - PAPER/SIM FIRST
 - CHAMPION_LOCKED
 - NO TRADING LOGIC CHANGE
+
+Bali OS V5 Automated Experience added.
+
+Added:
+- BALI_START_HERE.bat
+- BALI_ONE_CLICK_SESSION.bat
+- BALI_MASTER_CONTROL.bat V5
+- tools/BALI_OS_ENGINE_V5.ps1
+- tools/BALI_OS_SAFETY_SCAN_V5.ps1
+- tools/BALI_SAFE_GIT_SAVE_V5.ps1
+- SESSION_REPORTS
+- RUN_REGISTRY
+- APPROVAL_QUEUE
+- PATCH_QUEUE
+- TEST_REPORTS
+
+Purpose:
+Makes Bali OS a smoother automated session workflow: analyse, safety scan, status dashboard, project map, evidence index, run registry, handover, clipboard copy, recommendation, and safe Git save.
+
+Mission alignment:
+Improves maintainability, proof tracking, reporting, safety visibility, and automated project control before any trading logic change.
+
+Safety preserved:
+- LIVE_ORDERS_OFF
+- NO_API_KEYS
+- PUBLIC_DATA_ONLY
+- PAPER/SIM FIRST
+- CHAMPION_LOCKED
+- NO TRADING LOGIC CHANGE
+
+Next recommended patch:
+V6 Evidence Pack Registry + Backtest Run History Engine.
+
+Bali OS V5A Handover Fix added.
+
+Added/Changed:
+- Patched tools/BALI_OS_ENGINE_V5.ps1 handover generation.
+- Replaced List.AddRange(Object[]) usage with safe per-line string adds.
+- Added tools/BALI_OS_V5A_HANDOVER_SELFTEST.ps1.
+- Updated menu label to V5A.
+
+Purpose:
+Fixes the automated session failure where V5 completed safety scan, dashboard, recommendation, project map, evidence index, run registry, and session report, then failed during final handover generation.
+
+Mission alignment:
+Improves automation reliability, reporting continuity, handover quality, and seamless project operation without changing trading logic.
+
+Safety preserved:
+- LIVE_ORDERS_OFF
+- NO_API_KEYS
+- PUBLIC_DATA_ONLY
+- PAPER/SIM FIRST
+- CHAMPION_LOCKED
+- NO app.py edit
+- NO trading logic change

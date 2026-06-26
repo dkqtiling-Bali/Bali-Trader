@@ -50,3 +50,25 @@ SAFE_TOOLING_ONLY.
 
 Blocked:
 Any patch that enables live trading, adds API keys, unlocks champion mode, changes strategy scoring without evidence, changes trading logic without proof, or claims profitability without proof.
+
+BALI OS V5 NEXT PATCH NOTE
+
+Preferred next patch:
+V6 Evidence Pack Registry + Backtest Run History Engine.
+
+Patch class:
+SAFE_TOOLING_ONLY / PROOF_ENGINE_ONLY.
+
+Why:
+Bali's mission is to discover evidence-backed crypto strategies. The next safest upgrade is to make every backtest, walk-forward test, strategy scorecard, rejection reason, and proof file traceable before changing strategy logic.
+
+Blocked:
+- live trading
+- API keys
+- champion unlock
+- profitability claims without proof
+- trading logic changes without evidence
+
+BALI OS V5A NOTE
+
+V5A fixes the automated handover generation bug. After installing V5A, run BALI_START_HERE.bat option 1 again. If it completes, safe-save with Git option 8. Then continue toward V6 Evidence Pack Registry + Backtest Run History Engine unless a safety/health issue appears first.
