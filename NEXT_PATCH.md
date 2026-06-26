@@ -19,3 +19,6 @@ Create a one-click Generate AI Handover Report button/tool that summarizes:
 - latest report
 - active errors
 - next recommended patch
+
+FUTURE PATCH RULE:
+All future patch recommendations must explain how they move Bali Trader toward the mission goal of finding evidence-backed winning crypto strategies, while preserving safety locks and paper/simulation-first testing.

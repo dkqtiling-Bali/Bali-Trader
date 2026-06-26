@@ -1,0 +1,207 @@
+ BALI TRADER AI HANDOVER REPORT
+Generated: 06/26/2026 13:49:07
+Path: C:\Bali\Bali-Trader
+
+============================================================
+FILE: MISSION.md
+============================================================
+BALI TRADER PROJECT MISSION
+
+Goal:
+Build Bali Trader into a safe, proof-driven crypto strategy research machine that competes against Stargate.
+
+Current safety rules:
+- LIVE_ORDERS_OFF
+- NO_API_KEYS
+- PUBLIC_DATA_ONLY
+- PAPER/SIM FIRST
+- CHAMPION_LOCKED until proof gates pass
+- NO profitability claims without evidence
+- Every patch must move toward safer testing, better reporting, better proof, or better strategy discovery.
+
+Core loop:
+1. Read LEDGER.md
+2. Read NEXT_PATCH.md
+3. Inspect current reports/logs
+4. Recommend safest next patch
+5. Patch only what is needed
+6. Generate report
+7. Update LEDGER.md
+
+============================================================
+FILE: LEDGER.md
+============================================================
+BALI TRADER LEDGER
+
+V001 Project Brain created.
+
+Status:
+- GitHub connected
+- Local repo path: C:\Bali\Bali-Trader
+- Safety-first mission recorded
+- Next patch direction recorded
+
+Next recommended patch:
+Create an AI handover report generator for ChatGPT/Copilot/Claude use.
+
+AI HQ V1 added.
+
+Added:
+- BALI_AI_HQ_V1.bat
+- README_BALI_AI_HQ_V1.md
+
+Purpose:
+Central command menu for AI handover, Git status, Git backup, and Project Brain access.
+
+Next recommended patch:
+Improve handover report to include folder map, latest logs, safety lock scan, and next patch recommendation.
+
+============================================================
+FILE: NEXT_PATCH.md
+============================================================
+NEXT PATCH OBJECTIVE
+
+V001 Project Brain Setup
+
+Objective:
+Make Bali Trader easier for any AI assistant to understand without re-explaining the whole project.
+
+Required:
+- Preserve safety locks
+- Do not change trading logic
+- Do not enable live orders
+- Add/update documentation only
+- Prepare project for future AI-assisted patching
+
+Next preferred upgrade:
+Create a one-click Generate AI Handover Report button/tool that summarizes:
+- current version
+- safety locks
+- latest report
+- active errors
+- next recommended patch
+
+============================================================
+FILE: AI_RULES.md
+============================================================
+BALI TRADER AI RULES
+
+Always preserve:
+- LIVE_ORDERS_OFF
+- NO_API_KEYS
+- PUBLIC_DATA_ONLY
+- CHAMPION_LOCKED
+- PAPER/SIM FIRST
+
+Never:
+- Enable live trading
+- Add API keys
+- Claim profitability without proof
+- Patch blindly without a report
+- Break the launcher/startup flow
+
+Always:
+- Read MISSION.md first
+- Read LEDGER.md if present
+- Read NEXT_PATCH.md
+- Make small safe patches
+- Update the ledger after changes
+
+============================================================
+FILE: README.md
+============================================================
+MISSING: README.md
+
+============================================================
+FILE: update_manifest.json
+============================================================
+{
+  "project": "BALI_ROCKET_CRYPTO_COMMAND",
+  "version": "V015A",
+  "version_number": 1501,
+  "name": "BACKTEST_WALK_FORWARD_GATE",
+  "payload_prefix": "payload/",
+  "restart_required": true
+}
+
+============================================================
+FILE: logs\LAST_FINAL_REPORT.txt
+============================================================
+BALI TINY UPDATE RESULT V015A
+Generated: 06/26/2026 11:55:57
+SAFETY=LIVE_ORDERS_OFF | CHAMPION_LOCK_LOCKED | NO_API_KEYS
+VERSION=V015A
+HEALTH=PASS
+CLOSE=PASS
+RESTART=PASS
+AUTOPILOT=LOCAL_ONLY
+WATCHER=PASS
+BUNDLE=READY
+GOVERNOR=MISSION_CONSOLE
+ARENA=GAME_FOUNDATION
+CPU_BRIDGE=SHARED_FOLDER_WATCHER_READY_SIM_ONLY
+MATCH_REFEREE=SCORING_READY_SIM_ONLY
+BRIDGE=JSON_ONLY_NO_REMOTE_COMMANDS
+REFEREE_SCOREBOARD=READY_SIM_ONLY
+RAW_LIVE_DATA_ONLY=ON
+RAW_DATA_GATE=PASS_REQUIRED_FOR_SCORING
+BOT_GUARDIAN=ON_SIM_ONLY
+BOT_HEARTBEATS=ON
+PHONE_MONITOR=READY_READ_ONLY_LAN
+GOVERNOR_HUB=BALI_CPU
+STARGATE_JOIN_KIT=READY
+STARGATE_JOIN_KIT_EXPORT=READY
+ONEDRIVE_BRIDGE_SETUP=READY
+GOVERNOR_HUB_STATUS=READY
+STARGATE_ROLE=COMPETITOR_NODE_JSON_CHECKINS_ONLY
+HUB=GOVERNOR_REFEREE
+PHONE_CONTROL=OFF_VIEW_ONLY
+REMOTE_MONITORING=LOCAL_LAN_ONLY
+RESULT=PASS
+
+============================================================
+FILE: logs\LAST_DASH_UPDATE_RESTART_REPORT.txt
+============================================================
+BALI TINY UPDATE RESULT V015A
+Generated: 06/26/2026 11:55:57
+SAFETY=LIVE_ORDERS_OFF | CHAMPION_LOCK_LOCKED | NO_API_KEYS
+VERSION=V015A
+HEALTH=PASS
+CLOSE=PASS
+RESTART=PASS
+AUTOPILOT=LOCAL_ONLY
+WATCHER=PASS
+BUNDLE=READY
+GOVERNOR=MISSION_CONSOLE
+ARENA=GAME_FOUNDATION
+CPU_BRIDGE=SHARED_FOLDER_WATCHER_READY_SIM_ONLY
+MATCH_REFEREE=SCORING_READY_SIM_ONLY
+BRIDGE=JSON_ONLY_NO_REMOTE_COMMANDS
+REFEREE_SCOREBOARD=READY_SIM_ONLY
+RAW_LIVE_DATA_ONLY=ON
+RAW_DATA_GATE=PASS_REQUIRED_FOR_SCORING
+BOT_GUARDIAN=ON_SIM_ONLY
+BOT_HEARTBEATS=ON
+PHONE_MONITOR=READY_READ_ONLY_LAN
+GOVERNOR_HUB=BALI_CPU
+STARGATE_JOIN_KIT=READY
+STARGATE_JOIN_KIT_EXPORT=READY
+ONEDRIVE_BRIDGE_SETUP=READY
+GOVERNOR_HUB_STATUS=READY
+STARGATE_ROLE=COMPETITOR_NODE_JSON_CHECKINS_ONLY
+HUB=GOVERNOR_REFEREE
+PHONE_CONTROL=OFF_VIEW_ONLY
+REMOTE_MONITORING=LOCAL_LAN_ONLY
+RESULT=PASS
+
+============================================================
+GIT STATUS
+============================================================
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	AI_HANDOVER_REPORTS/
+
+nothing added to commit but untracked files present (use "git add" to track)

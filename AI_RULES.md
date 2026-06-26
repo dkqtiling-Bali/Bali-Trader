@@ -20,3 +20,6 @@ Always:
 - Read NEXT_PATCH.md
 - Make small safe patches
 - Update the ledger after changes
+
+MISSION ALIGNMENT RULE:
+Every update, patch, report, tool, dashboard, cleanup, or strategy change must clearly move Bali Trader closer to the mission goal: safely discovering evidence-backed crypto strategies that may help generate profit in the market. If a patch does not improve proof, safety, testing, reporting, strategy discovery, or maintainability, it should not be done.
