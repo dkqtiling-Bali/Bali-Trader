@@ -72,3 +72,85 @@ Blocked:
 BALI OS V5A NOTE
 
 V5A fixes the automated handover generation bug. After installing V5A, run BALI_START_HERE.bat option 1 again. If it completes, safe-save with Git option 8. Then continue toward V6 Evidence Pack Registry + Backtest Run History Engine unless a safety/health issue appears first.
+
+BALI OS V5C NEXT PATCH NOTE
+
+After V5C is installed and Git Safe Save passes, the next preferred patch is:
+V6 Evidence Pack Registry + Strategy Run History Engine.
+
+Patch class: SAFE_TOOLING_ONLY.
+
+Reason:
+Bali must turn generated reports, backtests, walk-forward outputs, safety scans, and strategy results into a searchable proof registry before any trading logic changes.
+
+BALI OS V6 NEXT PATCH NOTE
+
+Preferred next patch after V6:
+V7 Stable Tool Cleanup + Archive Manager.
+
+Why:
+Now that Bali OS has a dashboard, clean up older V4/V5 fix clutter, preserve stable tools, archive old patch reports, and make the daily operating experience cleaner before deeper evidence/proof modules.
+
+Patch class:
+SAFE_TOOLING_ONLY.
+
+Blocked:
+Any patch that enables live trading, adds API keys, unlocks champion mode, changes strategy scoring without evidence, or claims profitability without proof.
+
+BALI OS V6 NEXT PATCH NOTE
+
+Preferred next patch after V6:
+V7 Stable Tool Cleanup + Archive Manager.
+
+Why:
+Now that Bali OS has a dashboard, clean up older V4/V5 fix clutter, preserve stable tools, archive old patch reports, and make the daily operating experience cleaner before deeper evidence/proof modules.
+
+Patch class:
+SAFE_TOOLING_ONLY.
+
+Blocked:
+Any patch that enables live trading, adds API keys, unlocks champion mode, changes strategy scoring without evidence, or claims profitability without proof.
+
+BALI OS V6A NEXT PATCH NOTE
+
+Recommended after V6A:
+Run Start Day from the V6A dashboard, then End Day / Git Safe Save. If dashboard flow is stable, next preferred patch is V7 Stable Tool Cleanup + Archive Manager, followed by V8 Evidence Pack Registry + Strategy Run History Engine.
+
+Patch class:
+SAFE_TOOLING_ONLY.
+
+BALI OS V6B NEXT PATCH NOTE
+
+Preferred next patch after V6B:
+V7 Stable Tool Cleanup + Archive Manager.
+
+Why:
+The project now has multiple V4/V5/V6 fix scripts. Before deeper strategy research, Bali should consolidate current stable tooling, archive old fix scripts/reports, and keep the dashboard/OS layer easy to operate.
+
+Patch class:
+SAFE_TOOLING_ONLY.
+
+Blocked:
+LIVE_TRADING, API_KEYS, CHAMPION_UNLOCK, PROFITABILITY_CLAIM_WITHOUT_EVIDENCE, TRADING_LOGIC_CHANGE_WITHOUT_EVIDENCE.
+
+BALI OS V6D NEXT PATCH NOTE
+
+After V6D is installed and Git safe-saved, recommended next patch:
+V7 Stable Tool Cleanup + Archive Manager.
+
+Why:
+Clean up V4/V5/V6 fix clutter, archive old generated reports, keep the latest stable tools easy to operate, and reduce confusion before moving into deeper Evidence Pack Registry / strategy proof work.
+
+Patch class: SAFE_TOOLING_ONLY.
+Blocked: live trading, API keys, champion unlock, trading logic changes without evidence, profitability claims without evidence.
+
+BALI OS V6E NEXT PATCH NOTE
+
+After V6E is installed and Git safe-saved, recommended next patch:
+V7 Stable Tool Cleanup + Archive Manager.
+
+Why:
+Clean up V4/V5/V6 fix clutter, archive old generated reports, keep the latest stable dashboard/tools easy to operate, and reduce scanner confusion before deeper Evidence Pack Registry / strategy proof work.
+
+Patch class: SAFE_TOOLING_ONLY.
+Blocked: live trading, API keys, champion unlock, trading logic changes without evidence, profitability claims without evidence.

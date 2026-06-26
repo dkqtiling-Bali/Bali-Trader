@@ -1,119 +1,43 @@
 @echo off
 setlocal
-set "BASE=C:\Bali\Bali-Trader"
-cd /d "%BASE%"
+cd /d C:\Bali\Bali-Trader
 :menu
 cls
 echo ==========================================
-echo        BALI OS V5A MASTER CONTROL
+echo        BALI OS V6E MASTER CONTROL
 echo ==========================================
-echo Base: %BASE%
+echo Base: C:\Bali\Bali-Trader
 echo.
-echo 1. Start Automated Session V5A
-echo 2. Concise AI Handover / Clipboard
-echo 3. Recommend Highest-Value Next Patch
-echo 4. Safety Scan V5
-echo 5. Generate Project Map
-echo 6. Generate Evidence Index + Run Registry
-echo 7. Generate Status Dashboard
-echo 8. Git Safe Save / Backup V5
+echo 1. Open Local URL Dashboard V6E
+echo 2. Start Day / Auto Session V6E
+echo 3. Concise AI Handover / Clipboard
+echo 4. Recommend Highest-Value Next Patch
+echo 5. Safety Scan V6E
+echo 6. Generate Project Map
+echo 7. Generate Evidence Index + Run Registry
+echo 8. Git Safe Save / Backup V6E
 echo 9. Open Latest Handover
 echo 10. Open Latest Status Dashboard
 echo 11. Open Recommendation
-echo 12. Open Constitution
-echo 13. Open Ledger
-echo 14. Exit
+echo 12. Open Latest Safety Report
+echo 13. Open Constitution
+echo 14. Open Ledger
+echo 15. Exit
 echo.
 set /p choice=Choose option: 
-if "%choice%"=="1" goto session
-if "%choice%"=="2" goto handover
-if "%choice%"=="3" goto recommend
-if "%choice%"=="4" goto safety
-if "%choice%"=="5" goto map
-if "%choice%"=="6" goto evidence
-if "%choice%"=="7" goto status
-if "%choice%"=="8" goto git
-if "%choice%"=="9" goto openhandover
-if "%choice%"=="10" goto openstatus
-if "%choice%"=="11" goto openrec
-if "%choice%"=="12" goto constitution
-if "%choice%"=="13" goto ledger
-if "%choice%"=="14" goto end
+if "%choice%"=="1" call C:\Bali\Bali-Trader\BALI_URL_DASHBOARD.bat
+if "%choice%"=="2" call C:\Bali\Bali-Trader\tools\BALI_DASHBOARD_SAFE_RUN_V6E.bat auto
+if "%choice%"=="3" call C:\Bali\Bali-Trader\tools\BALI_DASHBOARD_SAFE_RUN_V6E.bat handover
+if "%choice%"=="4" call C:\Bali\Bali-Trader\tools\BALI_DASHBOARD_SAFE_RUN_V6E.bat recommend
+if "%choice%"=="5" call C:\Bali\Bali-Trader\tools\BALI_DASHBOARD_SAFE_RUN_V6E.bat safety
+if "%choice%"=="6" call C:\Bali\Bali-Trader\tools\BALI_DASHBOARD_SAFE_RUN_V6E.bat map
+if "%choice%"=="7" call C:\Bali\Bali-Trader\tools\BALI_DASHBOARD_SAFE_RUN_V6E.bat evidence
+if "%choice%"=="8" call C:\Bali\Bali-Trader\tools\BALI_DASHBOARD_SAFE_RUN_V6E.bat git
+if "%choice%"=="9" powershell -NoProfile -ExecutionPolicy Bypass -Command "$f=Get-ChildItem 'C:\Bali\Bali-Trader\AI_HANDOVER_REPORTS' -File -ErrorAction SilentlyContinue | Sort-Object LastWriteTime -Descending | Select-Object -First 1; if($f){Start-Process notepad $f.FullName}else{Write-Host 'No handover found'; pause}"
+if "%choice%"=="10" powershell -NoProfile -ExecutionPolicy Bypass -Command "$f=Get-ChildItem 'C:\Bali\Bali-Trader\STATUS_DASHBOARDS' -File -ErrorAction SilentlyContinue | Sort-Object LastWriteTime -Descending | Select-Object -First 1; if($f){Start-Process notepad $f.FullName}else{Write-Host 'No status found'; pause}"
+if "%choice%"=="11" powershell -NoProfile -ExecutionPolicy Bypass -Command "$f=Get-ChildItem 'C:\Bali\Bali-Trader\NEXT_PATCH_REPORTS' -File -ErrorAction SilentlyContinue | Sort-Object LastWriteTime -Descending | Select-Object -First 1; if($f){Start-Process notepad $f.FullName}else{Write-Host 'No recommendation found'; pause}"
+if "%choice%"=="12" powershell -NoProfile -ExecutionPolicy Bypass -Command "$f=Get-ChildItem 'C:\Bali\Bali-Trader\SAFETY_REPORTS' -File -ErrorAction SilentlyContinue | Sort-Object LastWriteTime -Descending | Select-Object -First 1; if($f){Start-Process notepad $f.FullName}else{Write-Host 'No safety report found'; pause}"
+if "%choice%"=="13" if exist C:\Bali\Bali-Trader\CONSTITUTION.md start notepad C:\Bali\Bali-Trader\CONSTITUTION.md
+if "%choice%"=="14" if exist C:\Bali\Bali-Trader\LEDGER.md start notepad C:\Bali\Bali-Trader\LEDGER.md
+if "%choice%"=="15" exit /b 0
 goto menu
-
-:session
-echo Running Bali OS V5 automated session...
-powershell -NoProfile -ExecutionPolicy Bypass -File "C:\Bali\Bali-Trader\tools\BALI_OS_ENGINE_V5.ps1" -Action Session -Base "C:\Bali\Bali-Trader"
-pause
-goto menu
-
-:handover
-powershell -NoProfile -ExecutionPolicy Bypass -File "C:\Bali\Bali-Trader\tools\BALI_OS_ENGINE_V5.ps1" -Action Handover -Base "C:\Bali\Bali-Trader"
-pause
-goto menu
-
-:recommend
-powershell -NoProfile -ExecutionPolicy Bypass -File "C:\Bali\Bali-Trader\tools\BALI_OS_ENGINE_V5.ps1" -Action Recommend -Base "C:\Bali\Bali-Trader"
-start "" "C:\Bali\Bali-Trader\NEXT_PATCH_RECOMMENDATION_LATEST.txt"
-pause
-goto menu
-
-:safety
-powershell -NoProfile -ExecutionPolicy Bypass -File "C:\Bali\Bali-Trader\tools\BALI_OS_SAFETY_SCAN_V5.ps1" -Base "C:\Bali\Bali-Trader" -WriteReport
-pause
-goto menu
-
-:map
-powershell -NoProfile -ExecutionPolicy Bypass -File "C:\Bali\Bali-Trader\tools\BALI_OS_ENGINE_V5.ps1" -Action Map -Base "C:\Bali\Bali-Trader"
-start "" "C:\Bali\Bali-Trader\PROJECT_MAP.md"
-pause
-goto menu
-
-:evidence
-powershell -NoProfile -ExecutionPolicy Bypass -File "C:\Bali\Bali-Trader\tools\BALI_OS_ENGINE_V5.ps1" -Action Evidence -Base "C:\Bali\Bali-Trader"
-powershell -NoProfile -ExecutionPolicy Bypass -File "C:\Bali\Bali-Trader\tools\BALI_OS_ENGINE_V5.ps1" -Action Registry -Base "C:\Bali\Bali-Trader"
-start "" "C:\Bali\Bali-Trader\EVIDENCE_INDEX.md"
-pause
-goto menu
-
-:status
-powershell -NoProfile -ExecutionPolicy Bypass -File "C:\Bali\Bali-Trader\tools\BALI_OS_ENGINE_V5.ps1" -Action Status -Base "C:\Bali\Bali-Trader"
-start "" "C:\Bali\Bali-Trader\BALI_STATUS_LATEST.txt"
-pause
-goto menu
-
-:git
-echo Running Git Safe Save V5...
-powershell -NoProfile -ExecutionPolicy Bypass -File "C:\Bali\Bali-Trader\tools\BALI_SAFE_GIT_SAVE_V5.ps1" -Base "C:\Bali\Bali-Trader"
-pause
-goto menu
-
-:openhandover
-if exist "C:\Bali\Bali-Trader\LATEST_CHAT_HANDOVER.txt" start "" "C:\Bali\Bali-Trader\LATEST_CHAT_HANDOVER.txt"
-pause
-goto menu
-
-:openstatus
-if exist "C:\Bali\Bali-Trader\BALI_STATUS_LATEST.txt" start "" "C:\Bali\Bali-Trader\BALI_STATUS_LATEST.txt"
-pause
-goto menu
-
-:openrec
-if exist "C:\Bali\Bali-Trader\NEXT_PATCH_RECOMMENDATION_LATEST.txt" start "" "C:\Bali\Bali-Trader\NEXT_PATCH_RECOMMENDATION_LATEST.txt"
-pause
-goto menu
-
-:constitution
-if exist "C:\Bali\Bali-Trader\CONSTITUTION.md" start "" "C:\Bali\Bali-Trader\CONSTITUTION.md"
-pause
-goto menu
-
-:ledger
-if exist "C:\Bali\Bali-Trader\LEDGER.md" start "" "C:\Bali\Bali-Trader\LEDGER.md"
-pause
-goto menu
-
-:end
-endlocal
-exit /b 0
-

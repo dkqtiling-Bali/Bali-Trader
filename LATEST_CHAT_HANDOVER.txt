@@ -1,129 +1,62 @@
-﻿BALI OS V5 AI HANDOVER
-Generated: 06/26/2026 15:30:14
+﻿BALI OS V6E CHAT HANDOVER
+Generated: 2026-06-26 16:43:06
 Base: C:\Bali\Bali-Trader
 
-FIRST PAGE DASHBOARD
-Version: V015A / BACKTEST_WALK_FORWARD_GATE
-Git: DIRTY 40 item(s)
-Safety: SEE BALI_SAFETY_SCAN_V5_20260626_153013.txt
-Latest Status: BALI_STATUS_V5_20260626_153013.txt
-Recommended Next Patch: BALI_NEXT_PATCH_RECOMMENDATION_V5_20260626_153013.txt
-Session Report: BALI_SESSION_REPORT_V5_20260626_153013.txt
-
 MISSION
-Build Bali into a safe, proof-driven crypto strategy research machine that can hunt for evidence-backed strategies while preserving LIVE_ORDERS_OFF, NO_API_KEYS, PUBLIC_DATA_ONLY, PAPER/SIM FIRST, and CHAMPION_LOCKED.
+Build Bali into a safe proof-driven crypto strategy research machine that hunts for evidence-backed strategies, while staying paper/sim-first with live trading locked off.
 
-AUTOMATED EXPERIENCE RULE
-No manual file hunting or cut-and-paste where Bali OS can generate/open/copy the right report automatically.
+SAFETY RULES
+- LIVE_ORDERS_OFF
+- NO_API_KEYS
+- PUBLIC_DATA_ONLY
+- PAPER/SIM FIRST
+- CHAMPION_LOCKED
+- NO profitability claims without evidence
 
-LATEST FILES
-- C:\Bali\Bali-Trader\STATUS_DASHBOARDS\BALI_STATUS_V5_20260626_153013.txt
-- C:\Bali\Bali-Trader\NEXT_PATCH_REPORTS\BALI_NEXT_PATCH_RECOMMENDATION_V5_20260626_153013.txt
-- C:\Bali\Bali-Trader\SESSION_REPORTS\BALI_SESSION_REPORT_V5_20260626_153013.txt
-- C:\Bali\Bali-Trader\SAFETY_REPORTS\BALI_SAFETY_SCAN_V5_20260626_153013.txt
-- C:\Bali\Bali-Trader\PROJECT_MAPS\BALI_PROJECT_MAP_V5_20260626_153013.md
-- C:\Bali\Bali-Trader\EVIDENCE_INDEX\BALI_EVIDENCE_INDEX_V5_20260626_153013.md
+LATEST STATUS
+BALI STATUS V6E
+Generated: 2026-06-26 16:43:05
 
-CONSTITUTION EXCERPT
-# BALI TRADER CONSTITUTION
+Base: C:\Bali\Bali-Trader
+Version: V015A / Bali OS V6E tooling layer
+Git: DIRTY
+Safety: PASS (latest V6E scan required before actions)
+Live Trading: OFF
+API Keys: NONE / BLOCKED
+Champion Lock: ON
+Paper/Sim First: ON
+Dashboard: LOCAL URL + TERMINAL FALLBACK
+Phone Controls: LOCAL LAN SAFE ACTIONS ONLY
 
-## Mission
+Recommended operating flow:
+1. Start Day / Auto Session
+2. Review recommendation
+3. Git Safe Save
+4. Install next approved safe patch only
 
-Build Bali Trader into a safe, proof-driven crypto strategy research machine that competes against Stargate and searches for evidence-backed strategies that may help generate profit in the market.
+LATEST RECOMMENDATION
+BALI NEXT PATCH RECOMMENDATION V6E
+Generated: 2026-06-26 16:43:05
 
-Bali does not chase guesses. Bali builds proof.
-
-## Permanent safety rules
-
-Always preserve:
-
-- `LIVE_ORDERS_OFF`
-- `NO_API_KEYS`
-- `PUBLIC_DATA_ONLY`
-- `PAPER/SIM FIRST`
-- `CHAMPION_LOCKED`
-
-Never:
-
-- enable live trading
-- add API keys
-- add private exchange endpoints
-- unlock champion mode without proof gates
-- claim profitability without evidence
-- patch blindly without a report
-- break launcher/startup flow
-- change trading logic without evidence and approval
-
-## Mission alignment rule
-
-Every update, patch, report, tool, dashboard, cleanup, or strategy change must clearly move Bali Trader closer to the mission goal: safely discovering evidence-backed crypto strategies that may help generate profit in the market.
-
-If a patch does not improve proof, safety, testing, reporting, strategy discovery, automation, or maintainability, it should not be done.
-
-## Bali OS workflow
-
-1. Open VS Code.
-2. Run `BALI_MASTER_CONTROL.bat`.
-3. Analyse project.
-
-NEXT PATCH EXCERPT
-NEXT PATCH OBJECTIVE
-
-V001 Project Brain Setup
-
-Objective:
-Make Bali Trader easier for any AI assistant to understand without re-explaining the whole project.
-
-Required:
-- Preserve safety locks
-- Do not change trading logic
-- Do not enable live orders
-- Add/update documentation only
-- Prepare project for future AI-assisted patching
-
-Next preferred upgrade:
-Create a one-click Generate AI Handover Report button/tool that summarizes:
-- current version
-- safety locks
-- latest report
-- active errors
-- next recommended patch
-
-FUTURE PATCH RULE:
-All future patch recommendations must explain how they move Bali Trader toward the mission goal of finding evidence-backed winning crypto strategies, while preserving safety locks and paper/simulation-first testing.
-
-BALI AI HQ V3 NEXT PATCH NOTE
-
-Preferred next patch after V3:
-V4 Evidence Pack Index + Backtest Run Registry.
-
+Recommended Next Patch:
+Git Safe Save current generated reports before another patch
+Patch Class:
+SAFE_TOOLING_ONLY
 Why:
-Before changing strategy logic, Bali should make every backtest, walk-forward result, raw-data gate result, safety scan, and scoreboard output easy to find, compare, and prove. This improves proof, testing, reporting, and strategy discovery while preserving safety locks.
+The project has generated reports/changes that should be preserved before moving to the next patch.
 
-Patch class:
-SAFE_TOOLING_ONLY.
+MISSION FIT
+Improves automation, reporting, proof tracking, project control, maintainability, and safe strategy discovery workflow.
 
-Blocked:
-Any patch that enables live trading, adds API keys, unlocks champion mode, changes strategy scoring without evidence, or claims profitability without proof.
+BLOCKED PATCHES
+- LIVE_TRADING
+- API_KEYS
+- CHAMPION_UNLOCK
+- PROFITABILITY_CLAIM_WITHOUT_EVIDENCE
+- TRADING_LOGIC_CHANGE_WITHOUT_EVIDENCE
 
-BALI OS V4 NEXT PATCH NOTE
+OPERATOR DECISION
+Approve only if this keeps Bali paper/sim-first and improves proof, testing, reporting, strategy discovery, or maintainability.
 
-Preferred next patch after V4:
-V5 Evidence Pack Index + Backtest Run Registry.
-
-Why:
-Before changing strategy logic, Bali should make every backtest, walk-forward result, raw-data gate result, safety scan, scoreboard output, and paper/sim result easy to find, compare, and prove. This improves proof, testing, reporting, and strategy discovery while preserving safety locks.
-
-Patch class:
-SAFE_TOOLING_ONLY.
-
-Blocked:
-Any patch that enables live trading, adds API keys, unlocks champion mode, changes strategy scoring without evidence, changes trading logic without proof, or claims profitability without proof.
-
-BALI OS V5 NEXT PATCH NOTE
-
-Preferred next patch:
-V6 Evidence Pack Registry + Backtest Run History Engine.
-
-Patch class:
-SAFE_TOOLING_ONLY / PROOF_ENGINE_ONLY.
+NEXT CHAT INSTRUCTION
+Read this handover, preserve the safety rules, and recommend the safest next mission-aligned patch.

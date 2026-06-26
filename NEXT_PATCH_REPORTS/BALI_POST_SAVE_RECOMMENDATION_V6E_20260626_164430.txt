@@ -1,0 +1,11 @@
+﻿BALI POST-SAVE RECOMMENDATION V6E
+Generated: 2026-06-26 16:44:30
+
+Recommended Next Patch:
+V7 Stable Tool Cleanup + Archive Manager
+Patch Class: SAFE_TOOLING_ONLY
+
+Why:
+Clean old V4/V5/V6 fix clutter and archive older reports so Bali OS stays simple before deeper evidence/strategy proof development.
+
+Safety preserved: LIVE_ORDERS_OFF, NO_API_KEYS, PUBLIC_DATA_ONLY, PAPER/SIM FIRST, CHAMPION_LOCKED.

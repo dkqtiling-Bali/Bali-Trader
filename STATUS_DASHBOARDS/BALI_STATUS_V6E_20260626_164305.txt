@@ -1,0 +1,19 @@
+﻿BALI STATUS V6E
+Generated: 2026-06-26 16:43:05
+
+Base: C:\Bali\Bali-Trader
+Version: V015A / Bali OS V6E tooling layer
+Git: DIRTY
+Safety: PASS (latest V6E scan required before actions)
+Live Trading: OFF
+API Keys: NONE / BLOCKED
+Champion Lock: ON
+Paper/Sim First: ON
+Dashboard: LOCAL URL + TERMINAL FALLBACK
+Phone Controls: LOCAL LAN SAFE ACTIONS ONLY
+
+Recommended operating flow:
+1. Start Day / Auto Session
+2. Review recommendation
+3. Git Safe Save
+4. Install next approved safe patch only

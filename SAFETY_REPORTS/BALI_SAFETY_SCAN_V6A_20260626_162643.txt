@@ -1,0 +1,8 @@
+﻿BALI OS SAFETY SCAN V6A
+Generated: 06/26/2026 16:26:45
+Base: C:\Bali\Bali-Trader
+Status: BLOCKED
+Safety locks expected: LIVE_ORDERS_OFF | NO_API_KEYS | PUBLIC_DATA_ONLY | PAPER/SIM FIRST | CHAMPION_LOCKED
+
+BLOCKERS:
+POSSIBLE_CHAMPION_UNLOCK: bali_forever_setup\BaliForever_AutoRecovery_Setup.ps1

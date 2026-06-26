@@ -1,0 +1,13 @@
+﻿BALI OS SAFETY SCAN V6E
+Generated: 06/26/2026 16:43:05
+Base: C:\Bali\Bali-Trader
+Status: PASS
+Active files scanned: 540
+Ignored files/folders: 1335
+
+Scanner policy:
+- Ignores generated report folders, payload folders, docs, old safety scanners, old patch engines, and safety-policy wording.
+- SAFE policy phrases such as NO_API_KEYS, LIVE_ORDERS_OFF, ENABLE_LIVE_ORDERS=0, and CHAMPION_LOCKED are not blockers.
+- Blocks only real-looking secret assignments, live order enablement, champion unlock, or direct order placement calls in active Python runtime code.
+
+No active-code safety blockers found.

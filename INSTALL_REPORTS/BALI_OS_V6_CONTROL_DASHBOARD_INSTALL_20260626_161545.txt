@@ -1,0 +1,7 @@
+﻿BALI OS V6 CONTROL DASHBOARD INSTALL REPORT
+Generated: 06/26/2026 16:15:45
+Base: C:\Bali\Bali-Trader
+Backup: C:\Bali\Bali-Trader\BACKUPS\BALI_OS_V6_CONTROL_DASHBOARD_20260626_161545
+Safety: SAFE_TOOLING_ONLY | NO app.py edit | NO trading logic change | NO live trading | NO API keys | CHAMPION_LOCKED
+Result: PASS
+Next: Open C:\Bali\Bali-Trader\BALI_START_HERE.bat and choose option 1.

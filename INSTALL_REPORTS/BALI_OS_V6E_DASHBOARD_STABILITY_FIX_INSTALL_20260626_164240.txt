@@ -1,0 +1,8 @@
+﻿BALI OS V6E DASHBOARD STABILITY FIX INSTALL REPORT
+Generated: 2026-06-26 16:42:40
+Patch class: SAFE_TOOLING_ONLY
+Installed: BALI_START_HERE.bat, BALI_MASTER_CONTROL.bat, BALI_CONTROL_DASHBOARD.bat, BALI_URL_DASHBOARD.bat
+Installed: V6E engine, safety scan, git safe save, local URL dashboard
+Fixed: Windows could not find Bali / cmd start quoting issue
+Fixed: safety scan false positives from old scanners, old payloads, manifests, and safety-policy text
+Safety: no app.py edit, no trading logic change, no live trading, no keys, no champion unlock

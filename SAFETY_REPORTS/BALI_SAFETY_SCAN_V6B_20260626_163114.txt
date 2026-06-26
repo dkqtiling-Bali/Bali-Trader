@@ -1,0 +1,56 @@
+﻿BALI OS SAFETY SCAN V6B
+Generated: 06/26/2026 16:31:21
+Base: C:\Bali\Bali-Trader
+Status: BLOCKED
+
+Scanner rule: ignore safe policy text like NO_API_KEYS and LIVE_ORDERS_OFF; block real-looking secrets, live order enablement, or champion unlock.
+
+BLOCKERS:
+- BALI_FOREVER_ONE_CLICK_FROM_HERE.cmd line 263 - possible live trading enablement/order action :: set "ENABLE_LIVE_ORDERS=0"
+- BALI_FOREVER_ONE_CLICK_REPAIR_FIXED.cmd line 263 - possible live trading enablement/order action :: set "ENABLE_LIVE_ORDERS=0"
+- bali_forever_setup\BaliForever_AutoRecovery_Setup.ps1 line 229 - possible live trading enablement/order action :: @{ Name = "enable_live_orders"; Pattern = "enable[_ -]?live[_ -]?orders|live[_ -]?trading\s*(=|:)\s*(on|true|1|yes)" },
+- bali_rocket_crypto_command_v011b\tools\BALI_AUTO_PATCH_LANE\BALI_AUTO_PATCH_RUNNER.bat line 134 - possible live trading enablement/order action :: findstr /i /m /c:"LIVE_ORDERS_ON" /c:"ENABLE_LIVE_TRADING" /c:"API_SECRET" /c:"PRIVATE_ENDPOINT" /c:"CREATE_ORDER" /c:"FAPI" "%SCAN_TARGET%" >nul 2>nul
+- bali_rocket_crypto_command_v011b\tools\BALI_AUTO_PATCH_LANE\BALI_AUTO_PATCH_RUNNER.bat line 140 - possible live trading enablement/order action :: findstr /s /i /m /c:"LIVE_ORDERS_ON" /c:"ENABLE_LIVE_TRADING" /c:"API_SECRET" /c:"PRIVATE_ENDPOINT" /c:"CREATE_ORDER" /c:"FAPI" "%SCAN_TARGET%\*.*" >nul 2>nul
+- bali_rocket_crypto_command_v011b\tools\bali_v016_native_evidence_scorecard.py line 40 - possible champion unlock :: "CHAMPION_UNLOCKED",
+- bali_rocket_crypto_command_v011b\V016_NATIVE_PATCH_MANIFEST.json line 25 - possible live trading enablement/order action :: "does_not_enable_live_orders",
+- bali_rocket_crypto_command_v011b\V016_NATIVE_PATCH_MANIFEST.json line 27 - possible champion unlock :: "does_not_unlock_champion_council",
+- payload\tools\bali_v016_native_evidence_scorecard.py line 40 - possible champion unlock :: "CHAMPION_UNLOCKED",
+- payload\V016_NATIVE_PATCH_MANIFEST.json line 25 - possible live trading enablement/order action :: "does_not_enable_live_orders",
+- payload\V016_NATIVE_PATCH_MANIFEST.json line 27 - possible champion unlock :: "does_not_unlock_champion_council",
+- tools\BALI_AI_HQ_V3_ANALYSE.ps1 line 182 - possible live trading enablement/order action :: "ENABLE_LIVE_ORDERS",
+- tools\BALI_AI_HQ_V3_ANALYSE.ps1 line 183 - possible live trading enablement/order action :: "ENABLE_LIVE_TRADING",
+- tools\BALI_AI_HQ_V3_ANALYSE.ps1 line 184 - possible champion unlock :: "CHAMPION_UNLOCKED",
+- tools\BALI_ONE_CLICK_UPDATE_ENGINE_V011H.ps1 line 104 - possible live trading enablement/order action :: if($text -match '(?im)^LIVE_ORDERS=ON\s*$') { Add-Report ('SKIP unsafe live-orders manifest: ' + $f.FullName); continue }
+- tools\BALI_ONE_CLICK_UPDATE_ENGINE_V011J.ps1 line 107 - possible live trading enablement/order action :: if($text -match '(?im)^LIVE_ORDERS=ON\s*$') { Add-Report ('SKIP unsafe live-orders manifest: ' + $f.FullName); continue }
+- tools\BALI_ONE_CLICK_UPDATE_ENGINE_V011L.ps1 line 319 - possible live trading enablement/order action :: if($text -match '(?im)^LIVE_ORDERS=ON\s*$') { Add-Report ('SKIP unsafe live-orders manifest: ' + $f.FullName); continue }
+- tools\BALI_ONE_CLICK_UPDATE_ENGINE_V011O.ps1 line 1273 - possible live trading enablement/order action :: if($text -match '(?im)^LIVE_ORDERS=ON\s*$') { Add-Report ('SKIP unsafe live-orders manifest: ' + $f.FullName); continue }
+- tools\BALI_ONE_CLICK_UPDATE_ENGINE_V011P.ps1 line 1273 - possible live trading enablement/order action :: if($text -match '(?im)^LIVE_ORDERS=ON\s*$') { Add-Report ('SKIP unsafe live-orders manifest: ' + $f.FullName); continue }
+- tools\BALI_ONE_CLICK_UPDATE_ENGINE_V011Q.ps1 line 1273 - possible live trading enablement/order action :: if($text -match '(?im)^LIVE_ORDERS=ON\s*$') { Add-Report ('SKIP unsafe live-orders manifest: ' + $f.FullName); continue }
+- tools\BALI_ONE_CLICK_UPDATE_ENGINE_V011R.ps1 line 1273 - possible live trading enablement/order action :: if($text -match '(?im)^LIVE_ORDERS=ON\s*$') { Add-Report ('SKIP unsafe live-orders manifest: ' + $f.FullName); continue }
+- tools\BALI_ONE_CLICK_UPDATE_ENGINE_V011S.ps1 line 1273 - possible live trading enablement/order action :: if($text -match '(?im)^LIVE_ORDERS=ON\s*$') { Add-Report ('SKIP unsafe live-orders manifest: ' + $f.FullName); continue }
+- tools\BALI_ONE_CLICK_UPDATE_ENGINE_V011U.ps1 line 1273 - possible live trading enablement/order action :: if($text -match '(?im)^LIVE_ORDERS=ON\s*$') { Add-Report ('SKIP unsafe live-orders manifest: ' + $f.FullName); continue }
+- tools\BALI_ONE_CLICK_UPDATE_ENGINE_V011V.ps1 line 1273 - possible live trading enablement/order action :: if($text -match '(?im)^LIVE_ORDERS=ON\s*$') { Add-Report ('SKIP unsafe live-orders manifest: ' + $f.FullName); continue }
+- tools\BALI_ONE_CLICK_UPDATE_ENGINE_V011W.ps1 line 1273 - possible live trading enablement/order action :: if($text -match '(?im)^LIVE_ORDERS=ON\s*$') { Add-Report ('SKIP unsafe live-orders manifest: ' + $f.FullName); continue }
+- tools\BALI_ONE_CLICK_UPDATE_ENGINE_V011X.ps1 line 1273 - possible live trading enablement/order action :: if($text -match '(?im)^LIVE_ORDERS=ON\s*$') { Add-Report ('SKIP unsafe live-orders manifest: ' + $f.FullName); continue }
+- tools\BALI_ONE_CLICK_UPDATE_ENGINE_V011Y.ps1 line 1273 - possible live trading enablement/order action :: if($text -match '(?im)^LIVE_ORDERS=ON\s*$') { Add-Report ('SKIP unsafe live-orders manifest: ' + $f.FullName); continue }
+- tools\BALI_ONE_CLICK_UPDATE_ENGINE_V011Z.ps1 line 1273 - possible live trading enablement/order action :: if($text -match '(?im)^LIVE_ORDERS=ON\s*$') { Add-Report ('SKIP unsafe live-orders manifest: ' + $f.FullName); continue }
+- tools\BALI_ONE_CLICK_UPDATE_ENGINE_V012A.ps1 line 1273 - possible live trading enablement/order action :: if($text -match '(?im)^LIVE_ORDERS=ON\s*$') { Add-Report ('SKIP unsafe live-orders manifest: ' + $f.FullName); continue }
+- tools\BALI_ONE_CLICK_UPDATE_ENGINE_V012B.ps1 line 1273 - possible live trading enablement/order action :: if($text -match '(?im)^LIVE_ORDERS=ON\s*$') { Add-Report ('SKIP unsafe live-orders manifest: ' + $f.FullName); continue }
+- tools\BALI_ONE_CLICK_UPDATE_ENGINE_V012C.ps1 line 1273 - possible live trading enablement/order action :: if($text -match '(?im)^LIVE_ORDERS=ON\s*$') { Add-Report ('SKIP unsafe live-orders manifest: ' + $f.FullName); continue }
+- tools\BALI_ONE_CLICK_UPDATE_ENGINE_V012D.ps1 line 1273 - possible live trading enablement/order action :: if($text -match '(?im)^LIVE_ORDERS=ON\s*$') { Add-Report ('SKIP unsafe live-orders manifest: ' + $f.FullName); continue }
+- tools\BALI_ONE_CLICK_UPDATE_ENGINE_V012E.ps1 line 1273 - possible live trading enablement/order action :: if($text -match '(?im)^LIVE_ORDERS=ON\s*$') { Add-Report ('SKIP unsafe live-orders manifest: ' + $f.FullName); continue }
+- tools\BALI_ONE_CLICK_UPDATE_ENGINE_V012F.ps1 line 1273 - possible live trading enablement/order action :: if($text -match '(?im)^LIVE_ORDERS=ON\s*$') { Add-Report ('SKIP unsafe live-orders manifest: ' + $f.FullName); continue }
+- tools\BALI_ONE_CLICK_UPDATE_ENGINE_V012G.ps1 line 1273 - possible live trading enablement/order action :: if($text -match '(?im)^LIVE_ORDERS=ON\s*$') { Add-Report ('SKIP unsafe live-orders manifest: ' + $f.FullName); continue }
+- tools\BALI_ONE_CLICK_UPDATE_ENGINE_V012H.ps1 line 1273 - possible live trading enablement/order action :: if($text -match '(?im)^LIVE_ORDERS=ON\s*$') { Add-Report ('SKIP unsafe live-orders manifest: ' + $f.FullName); continue }
+- tools\BALI_ONE_CLICK_UPDATE_ENGINE_V012I.ps1 line 1273 - possible live trading enablement/order action :: if($text -match '(?im)^LIVE_ORDERS=ON\s*$') { Add-Report ('SKIP unsafe live-orders manifest: ' + $f.FullName); continue }
+- tools\BALI_ONE_CLICK_UPDATE_ENGINE_V012J.ps1 line 1273 - possible live trading enablement/order action :: if($text -match '(?im)^LIVE_ORDERS=ON\s*$') { Add-Report ('SKIP unsafe live-orders manifest: ' + $f.FullName); continue }
+- tools\BALI_OS_ENGINE.ps1 line 88 - possible champion unlock :: if ($content -match "LIVE_ORDERS_ON|enable_live|live_trading\s*=\s*true|api_secret|private_key|CHAMPION_UNLOCKED") {
+- tools\BALI_OS_ENGINE_V5C.ps1 line 84 - possible champion unlock :: "CHAMPION_UNLOCKED",
+- tools\BALI_OS_SAFETY_SCAN_V4B.ps1 line 38 - possible champion unlock :: '(?i)CHAMPION_UNLOCKED',
+- tools\BALI_OS_SAFETY_SCAN_V4C.ps1 line 50 - possible champion unlock :: '(?i)^\s*CHAMPION_UNLOCKED\s*$',
+- tools\BALI_OS_SAFETY_SCAN_V4D.ps1 line 46 - possible champion unlock :: '(?i)^\s*CHAMPION_UNLOCKED\s*$',
+- tools\BALI_OS_SAFETY_SCAN_V4E.ps1 line 51 - possible champion unlock :: '(?i)^\s*CHAMPION_UNLOCKED\s*$',
+- tools\BALI_OS_SAFETY_SCAN_V5.ps1 line 54 - possible champion unlock :: '(?i)^\s*CHAMPION_UNLOCKED\s*$',
+- tools\BALI_OS_SAFETY_SCAN_V5B.ps1 line 28 - possible champion unlock :: if ($text -match "(?im)^\s*(LIVE_ORDERS|LIVE_TRADING|ENABLE_LIVE|CHAMPION_UNLOCKED)\s*=\s*(true|1|yes|on|enabled)\b") {
+- tools\BALI_OS_SAFETY_SCAN_V6B.ps1 line 50 - possible live trading enablement/order action :: if ($line -match '(?i)(LIVE_TRADING\s*[:=]\s*(ON|TRUE|1)|LIVE_ORDERS\s*[:=]\s*(ON|TRUE|1)|ENABLE_LIVE_TRADING|ENABLE_LIVE_ORDERS|place_order\(|create_order\(|market_buy\(|market_sell\()') {
+- tools\BALI_OS_SAFETY_SCAN_V6B.ps1 line 56 - possible champion unlock :: if ($line -match '(?i)(CHAMPION_UNLOCKED|CHAMPION_LOCK\s*[:=]\s*(OFF|FALSE|0)|UNLOCK_CHAMPION)') {

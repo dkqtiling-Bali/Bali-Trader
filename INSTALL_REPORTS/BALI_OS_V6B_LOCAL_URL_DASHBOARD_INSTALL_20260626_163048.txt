@@ -1,0 +1,5 @@
+﻿BALI OS V6B LOCAL URL DASHBOARD INSTALL REPORT
+Generated: 06/26/2026 16:30:48
+Patch class: SAFE_TOOLING_ONLY
+Installed: local URL dashboard, phone-safe controls, V6B safety scan fix
+Safety preserved: NO app.py edit | NO trading logic change | NO live trading | NO API keys | NO champion unlock

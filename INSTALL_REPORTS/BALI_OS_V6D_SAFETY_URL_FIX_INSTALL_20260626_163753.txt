@@ -1,0 +1,6 @@
+﻿BALI OS V6D SAFETY + URL DASHBOARD FIX INSTALL REPORT
+Generated: 2026-06-26 16:37:53
+Patch class: SAFE_TOOLING_ONLY
+Installed: BALI_START_HERE.bat, BALI_MASTER_CONTROL.bat, BALI_CONTROL_DASHBOARD.bat, BALI_URL_DASHBOARD.bat
+Installed: V6D engine, safety scan, git safe save, local URL dashboard
+Safety: no app.py edit, no trading logic change, no live trading, no keys, no champion unlock

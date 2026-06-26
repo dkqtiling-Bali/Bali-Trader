@@ -1,0 +1,6 @@
+﻿BALI SESSION REPORT V6E
+Generated: 2026-06-26 16:43:06
+Safety: PASS
+Git: DIRTY
+Actions: safety scan, status dashboard, recommendation, project map, evidence index, run registry, handover
+Next: review recommendation, then Git Safe Save.

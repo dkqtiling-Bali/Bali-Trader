@@ -229,3 +229,150 @@ Safety preserved:
 - CHAMPION_LOCKED
 - NO app.py edit
 - NO trading logic change
+
+BALI OS V5C Recommendation Flow Fix added.
+
+Added/updated:
+- BALI_MASTER_CONTROL.bat
+- BALI_START_HERE.bat
+- BALI_ONE_CLICK_SESSION.bat
+- BALI_SAFE_GIT_SAVE.bat
+- tools/BALI_OS_ENGINE_V5C.ps1
+- tools/BALI_OS_SAFETY_SCAN_V5C.ps1
+- tools/BALI_SAFE_GIT_SAVE_V5C.ps1
+
+Purpose:
+Fixes V5B installer path handling by removing BundleRoot/GetFullPath dependency, keeps the automated experience, and improves the recommendation flow so Git Safe Save creates a post-save recommendation pointing to V6 Evidence Pack Registry + Strategy Run History Engine.
+
+Safety preserved:
+- LIVE_ORDERS_OFF
+- NO_API_KEYS
+- PUBLIC_DATA_ONLY
+- PAPER/SIM FIRST
+- CHAMPION_LOCKED
+- NO TRADING LOGIC CHANGE
+
+BALI OS V6 Control Dashboard added.
+
+Added:
+- BALI_CONTROL_DASHBOARD.bat
+- BALI_START_HERE.bat V6
+- BALI_MASTER_CONTROL.bat V6
+- tools/BALI_CONTROL_DASHBOARD_V6.ps1
+- tools/BALI_OS_ENGINE_V6.ps1
+- tools/BALI_OS_SAFETY_SCAN_V6.ps1
+- tools/BALI_SAFE_GIT_SAVE_V6.ps1
+- docs/BALI_CONTROL_DASHBOARD_GUIDE.md
+
+Purpose:
+Adds a clickable dashboard front door with Start Day, End Day / Git Safe Save, safety scan, recommendation, new chat handover, latest report buttons, and terminal fallback.
+
+Mission alignment:
+Improves automation, reporting, proof tracking, project control, maintainability, and safe strategy discovery workflow.
+
+Safety preserved:
+- LIVE_ORDERS_OFF
+- NO_API_KEYS
+- PUBLIC_DATA_ONLY
+- PAPER/SIM FIRST
+- CHAMPION_LOCKED
+- NO TRADING LOGIC CHANGE
+- NO app.py EDIT
+
+Next recommended patch after V6:
+V7 Stable Tool Cleanup + Archive Manager unless V6 finds a safety or health issue first.
+
+BALI OS V6 Control Dashboard added.
+
+Added:
+- BALI_CONTROL_DASHBOARD.bat
+- BALI_START_HERE.bat V6
+- BALI_MASTER_CONTROL.bat V6
+- tools/BALI_CONTROL_DASHBOARD_V6.ps1
+- tools/BALI_OS_ENGINE_V6.ps1
+- tools/BALI_OS_SAFETY_SCAN_V6.ps1
+- tools/BALI_SAFE_GIT_SAVE_V6.ps1
+- docs/BALI_CONTROL_DASHBOARD_GUIDE.md
+
+Purpose:
+Adds a clickable dashboard front door with Start Day, End Day / Git Safe Save, safety scan, recommendation, new chat handover, latest report buttons, and terminal fallback.
+
+Mission alignment:
+Improves automation, reporting, proof tracking, project control, maintainability, and safe strategy discovery workflow.
+
+Safety preserved:
+- LIVE_ORDERS_OFF
+- NO_API_KEYS
+- PUBLIC_DATA_ONLY
+- PAPER/SIM FIRST
+- CHAMPION_LOCKED
+- NO TRADING LOGIC CHANGE
+- NO app.py EDIT
+
+Next recommended patch after V6:
+V7 Stable Tool Cleanup + Archive Manager unless V6 finds a safety or health issue first.
+
+Bali OS V6A Dashboard Hardening added.
+
+Added:
+- BALI_CONTROL_DASHBOARD.bat V6A
+- BALI_START_HERE.bat V6A
+- BALI_MASTER_CONTROL.bat V6A fallback
+- BALI_DASHBOARD_SAFE_RUN.bat
+- tools/BALI_CONTROL_DASHBOARD_V6A.ps1
+- tools/BALI_OS_ENGINE_V6A.ps1
+- tools/BALI_OS_SAFETY_SCAN_V6A.ps1
+- tools/BALI_SAFE_GIT_SAVE_V6A.ps1
+
+Purpose:
+Stops dashboard actions from silently closing, adds visible runner windows, dashboard logs, latest-report buttons, and clearer operator feedback.
+
+Mission alignment:
+Improves automation, maintainability, reporting visibility, operator control, and safe strategy discovery workflow while preserving safety locks.
+
+Safety preserved:
+- LIVE_ORDERS_OFF
+- NO_API_KEYS
+- PUBLIC_DATA_ONLY
+- PAPER/SIM FIRST
+- CHAMPION_LOCKED
+- NO TRADING LOGIC CHANGE
+
+Bali OS V6B Local URL Dashboard + Safety Scan Fix added.
+
+Added:
+- BALI_LOCAL_URL_DASHBOARD.bat
+- BALI_DASHBOARD_SAFE_RUN_V6B.bat
+- BALI_START_HERE.bat V6B
+- BALI_MASTER_CONTROL.bat V6B
+- tools/BALI_URL_DASHBOARD_V6B.ps1
+- tools/BALI_OS_ENGINE_V6B.ps1
+- tools/BALI_OS_SAFETY_SCAN_V6B.ps1
+- tools/BALI_SAFE_GIT_SAVE_V6B.ps1
+- docs/BALI_URL_PHONE_CONTROL_GUIDE.md
+
+Purpose:
+Adds a browser/URL style Bali dashboard, optional same-Wi-Fi phone-safe controls, visible action windows/logs, and a less noisy safety scan that blocks real dangerous signals without blocking safe policy text.
+
+Mission alignment:
+Improves automation, operator control, reporting visibility, safety visibility, and project maintainability before any strategy or trading logic change.
+
+Safety preserved:
+- LIVE_ORDERS_OFF
+- NO_API_KEYS
+- PUBLIC_DATA_ONLY
+- PAPER/SIM FIRST
+- CHAMPION_LOCKED
+- NO TRADING LOGIC CHANGE
+
+Bali OS V6D Safety + URL Dashboard Fix added.
+Installed local: 2026-06-26 16:37:53
+Patch class: SAFE_TOOLING_ONLY
+Purpose: Fix the V6C installer payload path bug, keep exact blocker reporting, improve local URL dashboard/phone-safe controls, and keep dashboard actions visible/logged.
+Safety preserved: LIVE_ORDERS_OFF, NO_API_KEYS, PUBLIC_DATA_ONLY, PAPER/SIM FIRST, CHAMPION_LOCKED, no app.py edit, no trading logic change.
+
+Bali OS V6E Dashboard Stability Fix added.
+Installed local: 2026-06-26 16:42:40
+Patch class: SAFE_TOOLING_ONLY
+Purpose: Fix URL dashboard start-button quoting, harden local/phone safe controls, and replace noisy safety scanning with exact active-code blockers only.
+Safety preserved: LIVE_ORDERS_OFF, NO_API_KEYS, PUBLIC_DATA_ONLY, PAPER/SIM FIRST, CHAMPION_LOCKED, no app.py edit, no trading logic change.

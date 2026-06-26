@@ -1,0 +1,36 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20260626164255
+Username: DESKTOP-4UT9OI7\CB
+RunAs User: DESKTOP-4UT9OI7\CB
+Configuration Name: 
+Machine: DESKTOP-4UT9OI7 (Microsoft Windows NT 10.0.26200.0)
+Host Application: powershell -NoProfile -ExecutionPolicy Bypass -File C:\Bali\Bali-Trader\tools\BALI_OS_ENGINE_V6E.ps1 -Action auto
+Process ID: 17960
+PSVersion: 5.1.26100.8655
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.8655
+BuildVersion: 10.0.26100.8655
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Bali OS Engine V6E action started: auto
+Safety scan created: C:\Bali\Bali-Trader\SAFETY_REPORTS\BALI_SAFETY_SCAN_V6E_20260626_164255.txt
+Safety status: PASS
+Status dashboard created: C:\Bali\Bali-Trader\STATUS_DASHBOARDS\BALI_STATUS_V6E_20260626_164305.txt
+Recommendation created: C:\Bali\Bali-Trader\NEXT_PATCH_REPORTS\BALI_NEXT_PATCH_RECOMMENDATION_V6E_20260626_164305.txt
+Project map created: C:\Bali\Bali-Trader\PROJECT_MAPS\BALI_PROJECT_MAP_V6E_20260626_164305.md
+Evidence index created: C:\Bali\Bali-Trader\EVIDENCE_INDEX\BALI_EVIDENCE_INDEX_V6E_20260626_164306.md
+Run registry updated: C:\Bali\Bali-Trader\RUN_REGISTRY\RUN_REGISTRY.csv
+Session report created: C:\Bali\Bali-Trader\SESSION_REPORTS\BALI_SESSION_REPORT_V6E_20260626_164306.txt
+Handover created: C:\Bali\Bali-Trader\AI_HANDOVER_REPORTS\BALI_OS_V6E_HANDOVER_20260626_164306.txt
+Latest handover copied to: LATEST_CHAT_HANDOVER.txt
+
+PASS - Bali OS V6E automated session complete.
+NEXT: Review recommendation, then Git Safe Save generated reports.
+**********************
+Windows PowerShell transcript end
+End time: 20260626164306
+**********************

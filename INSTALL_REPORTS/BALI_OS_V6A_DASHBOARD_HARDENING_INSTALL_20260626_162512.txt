@@ -1,0 +1,14 @@
+﻿BALI OS V6A DASHBOARD HARDENING INSTALL REPORT
+Generated: 06/26/2026 16:25:12
+Patch class: SAFE_TOOLING_ONLY
+Installed:
+- BALI_CONTROL_DASHBOARD.bat
+- BALI_START_HERE.bat
+- BALI_MASTER_CONTROL.bat
+- BALI_DASHBOARD_SAFE_RUN.bat
+- tools/BALI_CONTROL_DASHBOARD_V6A.ps1
+- tools/BALI_OS_ENGINE_V6A.ps1
+- tools/BALI_OS_SAFETY_SCAN_V6A.ps1
+- tools/BALI_SAFE_GIT_SAVE_V6A.ps1
+- docs/BALI_CONTROL_DASHBOARD_V6A_GUIDE.md
+Safety preserved: no app.py edit, no trading logic, no live trading, no keys, no champion unlock.

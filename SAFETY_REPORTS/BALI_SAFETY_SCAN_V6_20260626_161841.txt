@@ -1,0 +1,412 @@
+﻿BALI SAFETY SCAN V6
+Generated: 06/26/2026 16:18:45
+Status: BLOCKED
+Patch class: SAFE_TOOLING_ONLY
+Rules: NO app.py edit | NO trading logic change | NO live trading | NO API keys | CHAMPION_LOCKED
+
+DANGER MATCHES
+C:\Bali\Bali-Trader\AI_RULES.md:11 : - Enable live trading
+C:\Bali\Bali-Trader\BALI_PATCH_MANIFEST.txt:12 : API_KEYS_TOUCHED=NO
+C:\Bali\Bali-Trader\BALI_PATCH_MANIFEST.txt:28 : NO_LIVE_ORDERS=ON
+C:\Bali\Bali-Trader\CONSTITUTION.md:21 : - enable live trading
+C:\Bali\Bali-Trader\DEFINITION_OF_DONE.md:7 : - no live trading is enabled
+C:\Bali\Bali-Trader\DEFINITION_OF_DONE.md:32 : - `CHAMPION_UNLOCK`
+C:\Bali\Bali-Trader\LATEST_CHAT_HANDOVER.txt:48 : - enable live trading
+C:\Bali\Bali-Trader\NEXT_PATCH_RECOMMENDATION_LATEST.txt:18 : - CHAMPION_UNLOCK
+C:\Bali\Bali-Trader\PATCH_APPROVAL_RULES.md:30 : - live trading enablement
+C:\Bali\Bali-Trader\README_GOVERNOR_HUB_STARGATE_JOIN_KIT_BUNDLE_V012H.txt:21 : - api_keys_present=false
+C:\Bali\Bali-Trader\README_PHONE_ARENA_MONITOR_BOT_GUARDIAN_BUNDLE_V012G.txt:21 : - api_keys_present=false
+C:\Bali\Bali-Trader\README_RAW_LIVE_DATA_ONLY_GOVERNOR_GATE_BUNDLE_V012F.txt:21 : - api_keys_present=false
+C:\Bali\Bali-Trader\README_SHARED_FOLDER_WATCHER_REFEREE_SCOREBOARD_BUNDLE_V012E.txt:12 : - API_KEYS_TOUCHED=NO
+C:\Bali\Bali-Trader\README_V018_RISK_FILTER_TUNER_ACTIVE_FIX.txt:12 : - No live trading enabled.
+C:\Bali\Bali-Trader\AI_HANDOVER_REPORTS\BALI_AI_HANDOVER_20260626_134907.txt:97 : - Enable live trading
+C:\Bali\Bali-Trader\AI_HANDOVER_REPORTS\BALI_AI_HANDOVER_20260626_134923.txt:97 : - Enable live trading
+C:\Bali\Bali-Trader\AI_HANDOVER_REPORTS\BALI_AI_HANDOVER_20260626_140421.txt:103 : - Enable live trading
+C:\Bali\Bali-Trader\AI_HANDOVER_REPORTS\BALI_AI_HQ_V2_20260626_142130.txt:119 : - Enable live trading
+C:\Bali\Bali-Trader\AI_HANDOVER_REPORTS\BALI_AI_HQ_V2_20260626_143132.txt:156 : - Enable live trading
+C:\Bali\Bali-Trader\AI_HANDOVER_REPORTS\BALI_AI_HQ_V3_20260626_143053.txt:34 : API key change: NO
+C:\Bali\Bali-Trader\AI_HANDOVER_REPORTS\BALI_OS_V4_FULL_HANDOVER_20260626_144406.txt:50 : - CHAMPION_UNLOCK
+C:\Bali\Bali-Trader\AI_HANDOVER_REPORTS\BALI_OS_V4_FULL_HANDOVER_20260626_144406.txt:96 : - enable live trading
+C:\Bali\Bali-Trader\AI_HANDOVER_REPORTS\BALI_OS_V4_FULL_HANDOVER_20260626_144406.txt:1070 : - no live trading is enabled
+C:\Bali\Bali-Trader\AI_HANDOVER_REPORTS\BALI_OS_V4_FULL_HANDOVER_20260626_144406.txt:1095 : - `CHAMPION_UNLOCK`
+C:\Bali\Bali-Trader\AI_HANDOVER_REPORTS\BALI_OS_V4_FULL_HANDOVER_20260626_144406.txt:1130 : - live trading enablement
+C:\Bali\Bali-Trader\AI_HANDOVER_REPORTS\BALI_OS_V4_FULL_HANDOVER_20260626_144720.txt:50 : - CHAMPION_UNLOCK
+C:\Bali\Bali-Trader\AI_HANDOVER_REPORTS\BALI_OS_V4_FULL_HANDOVER_20260626_144720.txt:96 : - enable live trading
+C:\Bali\Bali-Trader\AI_HANDOVER_REPORTS\BALI_OS_V4_FULL_HANDOVER_20260626_144720.txt:1070 : - no live trading is enabled
+C:\Bali\Bali-Trader\AI_HANDOVER_REPORTS\BALI_OS_V4_FULL_HANDOVER_20260626_144720.txt:1095 : - `CHAMPION_UNLOCK`
+C:\Bali\Bali-Trader\AI_HANDOVER_REPORTS\BALI_OS_V4_FULL_HANDOVER_20260626_144720.txt:1130 : - live trading enablement
+C:\Bali\Bali-Trader\AI_HANDOVER_REPORTS\BALI_OS_V4_FULL_HANDOVER_20260626_151844.txt:50 : - CHAMPION_UNLOCK
+C:\Bali\Bali-Trader\AI_HANDOVER_REPORTS\BALI_OS_V4_FULL_HANDOVER_20260626_151844.txt:96 : - enable live trading
+C:\Bali\Bali-Trader\AI_HANDOVER_REPORTS\BALI_OS_V4_FULL_HANDOVER_20260626_151844.txt:1169 : - no live trading is enabled
+C:\Bali\Bali-Trader\AI_HANDOVER_REPORTS\BALI_OS_V4_FULL_HANDOVER_20260626_151844.txt:1194 : - `CHAMPION_UNLOCK`
+C:\Bali\Bali-Trader\AI_HANDOVER_REPORTS\BALI_OS_V4_FULL_HANDOVER_20260626_151844.txt:1229 : - live trading enablement
+C:\Bali\Bali-Trader\AI_HANDOVER_REPORTS\BALI_OS_V5_HANDOVER_20260626_152952.txt:48 : - enable live trading
+C:\Bali\Bali-Trader\AI_HANDOVER_REPORTS\BALI_OS_V5_HANDOVER_20260626_153014.txt:48 : - enable live trading
+C:\Bali\Bali-Trader\AI_HANDOVER_REPORTS\BALI_OS_V5_HANDOVER_20260626_153402.txt:48 : - enable live trading
+C:\Bali\Bali-Trader\bali_forever_setup\BaliForever_AutoRecovery_Setup.ps1:228 :         @{ Name = "live_orders_on"; Pattern = "live[_ -]?orders\s*(=|:)\s*(on|true|1|yes)" },
+C:\Bali\Bali-Trader\bali_forever_setup\BaliForever_AutoRecovery_Setup.ps1:229 :         @{ Name = "enable_live_orders"; Pattern = "enable[_ -]?live[_ -]?orders|live[_ -]?trading\s*(=|:)\s*(on|true|1|yes)" },
+C:\Bali\Bali-Trader\bali_forever_setup\BaliForever_AutoRecovery_Setup.ps1:230 :         @{ Name = "champion_unlock"; Pattern = "champion.*unlock|unlock.*champion|champion[_ -]?claim[_ -]?allowed\s*(=|:)\s*(true|1|yes)" },
+C:\Bali\Bali-Trader\bali_forever_setup\BaliForever_AutoRecovery_Setup.ps1:231 :         @{ Name = "api_key_assignment"; Pattern = 'api[_ -]?key\s*=\s*[^\s"'']+' },
+C:\Bali\Bali-Trader\bali_forever_setup\BaliForever_AutoRecovery_Setup.ps1:372 : $reportLines.Add("- BALI_CHAMPION_UNLOCK=False")
+C:\Bali\Bali-Trader\bali_forever_setup\BaliForever_AutoRecovery_Setup.ps1:416 : $cmdLines += 'set "BALI_CHAMPION_UNLOCK=False"'
+C:\Bali\Bali-Trader\bali_forever_setup\BaliForever_AutoRecovery_Setup.ps1:417 : $cmdLines += 'set "API_KEY="'
+C:\Bali\Bali-Trader\bali_forever_setup\BaliForever_AutoRecovery_Setup.ps1:419 : $cmdLines += 'set "EXCHANGE_API_KEY="'
+C:\Bali\Bali-Trader\bali_forever_setup\BaliForever_AutoRecovery_Setup.ps1:421 : $cmdLines += 'set "BROKER_API_KEY="'
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\app.py:618 :         "api_keys": "NONE",
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\app.py:693 :         "api_keys": "NONE",
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\app.py:822 :         "api_keys": "NONE",
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\app.py:1105 :             "api_keys": "NONE",
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\app.py:1145 :         "api_keys": "NONE",
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\app.py:1155 :         "champion_claim_allowed", "live_orders", "api_keys", "claim_level"
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\app.py:1173 :         "api_keys": "NONE",
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\app.py:1222 :         "api_keys": "NONE",
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\app.py:1306 :                     "api_keys": "NONE",
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\app.py:1334 :                     "api_keys": "NONE",
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\app.py:1375 :                 "api_keys": "NONE",
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\app.py:1401 :                 "api_keys": "NONE",
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\app.py:1412 :             "source", "live_orders", "api_keys", "strategy_reason", "risk_reason", "claim_level"
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\app.py:2370 :     lines.append("API keys: NONE / private exchange endpoints not used")
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\app.py:2410 :     lines.append("Live trading enable, API keys, champion approval, and disabling Risk Police are not implemented in this build.")
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\app.py:2874 : function backtest(s){let b=DATA.backtest_summary||{};let rowsBt=DATA.last_backtests||[];let datasets=DATA.candle_datasets||[];return `<div class="grid">${card('Backtest + Walk-Forward Gate',`<div class="metric">${esc(b.status||s.backtest_gate_status||'READY')}</div><div class="row"><b>Gate</b><span>${esc(b.gate||s.backtest_walk_forward_status||'NOT_RUN')}</span></div><div class="row"><b>Symbol / interval</b><span>${esc((b.symbol||s.backtest_last_symbol||'NONE')+' '+(b.interval||s.backtest_last_interval||''))}</span></div><div class="row"><b>Rows</b><span>${esc(DATA.line_counts.backtest_walkforward||0)}</span></div><div class="row"><b>Champion claim allowed</b><span class="danger">${esc(b.champion_claim_allowed===true?'YES - CHECK LOCK':'NO')}</span></div><button class="btn" onclick="act('/api/backtest/run')">Run Backtest + Walk-Forward Gate</button><button class="btn alt" onclick="generateRiskFilterReport()">Generate Risk Filter Tuner Report</button><button class="btn alt" onclick="act('/api/pulse')">Run Full Live Pulse</button><p class="muted">V015A replays collected public candles only. It records in-sample and walk-forward results with fees/slippage. It is not profit proof and cannot unlock live trading.</p>`,'card wide')}${card('Latest Backtest Gate Records',rows(rowsBt,[['ts','Time'],['run_id','Run'],['symbol','Symbol'],['interval','TF'],['status','Status'],['gate','Gate'],['total_candles','Candles'],['champion_claim_allowed','Champion allowed']]),'card full')}${card('Available Candle Datasets',rows(datasets,[['symbol','Symbol'],['interval','TF'],['rows','Rows'],['first','First'],['last','Last']]),'card full')}</div>`}
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\app.py:3254 :     keys = bool(data.get("api_keys_present", False))
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\app.py:3374 :         "api_keys": "NONE",
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\app.py:3407 :         "orders_live": False, "api_keys_present": False, "remote_commands": "DISABLED",
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\app.py:3457 :         "api_keys": "NONE",
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\evidence_scorecard_v016.py:213 :     api_keys = _find_line_value(text, "API keys")
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\evidence_scorecard_v016.py:260 :             "api_keys": api_keys,
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\README_BAD_PYTHON_HOTFIX.txt:11 : This hotfix does not add live trading, API keys, or order execution.
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\V016_NATIVE_PATCH_MANIFEST.json:7 :     "api_keys": "NONE_REQUIRED",
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\V016_NATIVE_PATCH_MANIFEST.json:25 :     "does_not_enable_live_orders",
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\docs\MASTER_LEDGER_HANDOVER_V011C.txt:16 : API keys: not required / not used
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\docs\MASTER_LEDGER_HANDOVER_V011C.txt:28 : 1. Build the command centre first, not live trading first.
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\docs\MASTER_LEDGER_HANDOVER_V011C.txt:31 : 4. No live trading without champion proof gates and explicit human approval.
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\docs\NEXT_CHAT_HANDOVER_PROMPT_V011C.txt:34 : 10. No live trading until proof gates, risk police, champion council, and human approval are complete.
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\logs\LAST_CHATGPT_STATUS_REPORT.txt:10 : API keys: NONE / private exchange endpoints not used
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\logs\LAST_CHATGPT_STATUS_REPORT.txt:50 : Live trading enable, API keys, champion approval, and disabling Risk Police are not implemented in this build.
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\shared_data\candle_harvester_state.json:2 :   "api_keys": "NONE",
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\shared_data\backtests\backtest_walkforward_state.json:2 :   "api_keys": "NONE",
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\shared_data\reports\BALI_CHATGPT_STATUS_REPORT_20260625_085648.txt:10 : API keys: NONE / private exchange endpoints not used
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\shared_data\reports\BALI_CHATGPT_STATUS_REPORT_20260625_085648.txt:38 : Live trading enable, API keys, champion approval, and disabling Risk Police are not implemented in this build.
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\shared_data\reports\BALI_CHATGPT_STATUS_REPORT_20260625_091205.txt:10 : API keys: NONE / private exchange endpoints not used
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\shared_data\reports\BALI_CHATGPT_STATUS_REPORT_20260625_091205.txt:40 : Live trading enable, API keys, champion approval, and disabling Risk Police are not implemented in this build.
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\shared_data\reports\BALI_CHATGPT_STATUS_REPORT_20260625_091213.txt:10 : API keys: NONE / private exchange endpoints not used
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\shared_data\reports\BALI_CHATGPT_STATUS_REPORT_20260625_091213.txt:40 : Live trading enable, API keys, champion approval, and disabling Risk Police are not implemented in this build.
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\shared_data\reports\BALI_CHATGPT_STATUS_REPORT_20260625_091949.txt:10 : API keys: NONE / private exchange endpoints not used
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\shared_data\reports\BALI_CHATGPT_STATUS_REPORT_20260625_091949.txt:45 : Live trading enable, API keys, champion approval, and disabling Risk Police are not implemented in this build.
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\shared_data\reports\BALI_CHATGPT_STATUS_REPORT_20260625_092625.txt:10 : API keys: NONE / private exchange endpoints not used
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\shared_data\reports\BALI_CHATGPT_STATUS_REPORT_20260625_092625.txt:47 : Live trading enable, API keys, champion approval, and disabling Risk Police are not implemented in this build.
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\shared_data\reports\BALI_CHATGPT_STATUS_REPORT_20260625_093119.txt:10 : API keys: NONE / private exchange endpoints not used
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\shared_data\reports\BALI_CHATGPT_STATUS_REPORT_20260625_093119.txt:47 : Live trading enable, API keys, champion approval, and disabling Risk Police are not implemented in this build.
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\shared_data\reports\BALI_CHATGPT_STATUS_REPORT_20260625_094052.txt:10 : API keys: NONE / private exchange endpoints not used
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\shared_data\reports\BALI_CHATGPT_STATUS_REPORT_20260625_094052.txt:50 : Live trading enable, API keys, champion approval, and disabling Risk Police are not implemented in this build.
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\shared_data\reports\BALI_CHATGPT_STATUS_REPORT_20260625_103720.txt:10 : API keys: NONE / private exchange endpoints not used
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\shared_data\reports\BALI_CHATGPT_STATUS_REPORT_20260625_103720.txt:50 : Live trading enable, API keys, champion approval, and disabling Risk Police are not implemented in this build.
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\shared_data\reports\BALI_CHATGPT_STATUS_REPORT_20260625_111307.txt:10 : API keys: NONE / private exchange endpoints not used
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\shared_data\reports\BALI_CHATGPT_STATUS_REPORT_20260625_111307.txt:50 : Live trading enable, API keys, champion approval, and disabling Risk Police are not implemented in this build.
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\shared_data\reports\BALI_CHATGPT_STATUS_REPORT_20260625_121753.txt:10 : API keys: NONE / private exchange endpoints not used
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\shared_data\reports\BALI_CHATGPT_STATUS_REPORT_20260625_121753.txt:50 : Live trading enable, API keys, champion approval, and disabling Risk Police are not implemented in this build.
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\shared_data\reports\BALI_CHATGPT_STATUS_REPORT_20260625_145820.txt:10 : API keys: NONE / private exchange endpoints not used
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\shared_data\reports\BALI_CHATGPT_STATUS_REPORT_20260625_145820.txt:50 : Live trading enable, API keys, champion approval, and disabling Risk Police are not implemented in this build.
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\shared_data\reports\BALI_CHATGPT_STATUS_REPORT_20260625_220255.txt:10 : API keys: NONE / private exchange endpoints not used
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\shared_data\reports\BALI_CHATGPT_STATUS_REPORT_20260625_220255.txt:50 : Live trading enable, API keys, champion approval, and disabling Risk Police are not implemented in this build.
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\shared_data\reports\BALI_CHATGPT_STATUS_REPORT_20260625_220305.txt:10 : API keys: NONE / private exchange endpoints not used
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\shared_data\reports\BALI_CHATGPT_STATUS_REPORT_20260625_220305.txt:50 : Live trading enable, API keys, champion approval, and disabling Risk Police are not implemented in this build.
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\shared_data\reports\BALI_CHATGPT_STATUS_REPORT_20260625_221149.txt:10 : API keys: NONE / private exchange endpoints not used
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\shared_data\reports\BALI_CHATGPT_STATUS_REPORT_20260625_221149.txt:50 : Live trading enable, API keys, champion approval, and disabling Risk Police are not implemented in this build.
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\shared_data\reports\BALI_CHATGPT_STATUS_REPORT_20260625_221812.txt:10 : API keys: NONE / private exchange endpoints not used
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\shared_data\reports\BALI_CHATGPT_STATUS_REPORT_20260625_221812.txt:50 : Live trading enable, API keys, champion approval, and disabling Risk Police are not implemented in this build.
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\shared_data\reports\BALI_CHATGPT_STATUS_REPORT_20260626_003729.txt:10 : API keys: NONE / private exchange endpoints not used
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\shared_data\reports\BALI_CHATGPT_STATUS_REPORT_20260626_003729.txt:50 : Live trading enable, API keys, champion approval, and disabling Risk Police are not implemented in this build.
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\shared_data\reports\BALI_CHATGPT_STATUS_REPORT_20260626_011142.txt:10 : API keys: NONE / private exchange endpoints not used
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\shared_data\reports\BALI_CHATGPT_STATUS_REPORT_20260626_011142.txt:50 : Live trading enable, API keys, champion approval, and disabling Risk Police are not implemented in this build.
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\shared_data\reports\BALI_CHATGPT_STATUS_REPORT_20260626_015707.txt:10 : API keys: NONE / private exchange endpoints not used
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\shared_data\reports\BALI_CHATGPT_STATUS_REPORT_20260626_015707.txt:50 : Live trading enable, API keys, champion approval, and disabling Risk Police are not implemented in this build.
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\shared_data\reports\V016_NATIVE_EVIDENCE_SCORECARD_NO_PYTHON.json:13 :     "api_keys": "NONE",
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\shared_data\reports\V017B_EASY_FIX_REPORT.md:8 : - API keys: not created / not requested
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\shared_data\reports\V017B_EASY_FIX_REPORT.txt:8 : - API keys: not created / not requested
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\shared_data\universe\universe_state.json:2 :   "api_keys": "NONE",
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\tools\bali_v016_native_evidence_scorecard.py:37 :     "LIVE_ORDERS_ON",
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\tools\bali_v016_native_evidence_scorecard.py:67 :         if "Live orders" in text or "LIVE_ORDERS" in text: score += 15
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\tools\bali_v016_native_evidence_scorecard.py:106 :         data["api_keys"] = "NONE"
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\tools\evidence_scorecard_v016.py:213 :     api_keys = _find_line_value(text, "API keys")
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\tools\evidence_scorecard_v016.py:260 :             "api_keys": api_keys,
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\tools\BALI_AUTO_PATCH_LANE\BALI_AUTO_PATCH_RUNNER.bat:134 : findstr /i /m /c:"LIVE_ORDERS_ON" /c:"ENABLE_LIVE_TRADING" /c:"API_SECRET" /c:"PRIVATE_ENDPOINT" /c:"CREATE_ORDER" /c:"FAPI" "%SCAN_TARGET%" >nul 2>nul
+C:\Bali\Bali-Trader\bali_rocket_crypto_command_v011b\tools\BALI_AUTO_PATCH_LANE\BALI_AUTO_PATCH_RUNNER.bat:140 : findstr /s /i /m /c:"LIVE_ORDERS_ON" /c:"ENABLE_LIVE_TRADING" /c:"API_SECRET" /c:"PRIVATE_ENDPOINT" /c:"CREATE_ORDER" /c:"FAPI" "%SCAN_TARGET%\*.*" >nul 2>nul
+C:\Bali\Bali-Trader\docs\ARENA_MARKER_TWO_CPU_BRIDGE_PREP_LEDGER_NOTE_V012B.txt:1 : V012B ledger note: added arena marker status and local-only two-CPU bridge prep folders/CPU role samples. Networking, API keys, live orders, and trading logic remain disabled/unchanged. Competition remains SIM/PAPER only.
+C:\Bali\Bali-Trader\docs\AUTOPILOT_LABEL_CLEANUP_TRUE_TINY_REPORT_LEDGER_NOTE_V011W.txt:1 : V011W ledger note: cleans stale V011U autopilot proof label and reduces final success report to important lines only. No live orders, API keys, secrets, or trading logic changed.
+C:\Bali\Bali-Trader\docs\AUTOPILOT_PROOF_TINY_STATUS_LEDGER_NOTE_V011U.txt:1 : V011U ledger note: low-risk proof patch for local dashboard autopilot and tiny final status reporting. No live orders, API keys, secrets, or trading logic changed.
+C:\Bali\Bali-Trader\docs\AUTOPILOT_WATCHER_PROOF_TINY_RESULT_LEDGER_NOTE_V011V.txt:1 : V011V ledger note: local dashboard autopilot watcher proof patch. No live orders, API keys, secrets, or trading logic changed. Tiny result only on success.
+C:\Bali\Bali-Trader\docs\BACKTEST_WALK_FORWARD_POLICY_V015A.txt:6 : No live trading, API keys, private endpoints, or broker/exchange execution are added.
+C:\Bali\Bali-Trader\docs\BUNDLE_READY_DYNAMIC_TINY_RESULT_LEDGER_NOTE_V011X.txt:1 : V011X ledger note: bundle-ready autopilot/reporting polish. Dynamic tiny-result title for future patches. No live orders, API keys, secrets, or trading logic changed.
+C:\Bali\Bali-Trader\docs\CONSTITUTION.md:21 : - enable live trading
+C:\Bali\Bali-Trader\docs\DEFINITION_OF_DONE.md:7 : - no live trading is enabled
+C:\Bali\Bali-Trader\docs\DEFINITION_OF_DONE.md:32 : - `CHAMPION_UNLOCK`
+C:\Bali\Bali-Trader\docs\GAME_ARENA_FOUNDATION_BUNDLE_LEDGER_NOTE_V012A.txt:1 : V012A ledger note: added SIM-only Game Arena UI for Bali Bot versus Stargate Bot, with placeholder scoreboard, scoring gates, bot XP/cards, round history placeholders, and CPU identity panel. No live orders, API keys, secrets, or trading logic changed.
+C:\Bali\Bali-Trader\docs\IMPORTANT_ONLY_AUTOPILOT_BUNDLE_REPORT_LEDGER_NOTE_V011Y.txt:1 : V011Y ledger note: important-only autopilot success report; detailed lines kept in logs. No live orders, API keys, secrets, or trading logic changed.
+C:\Bali\Bali-Trader\docs\PATCH_APPROVAL_RULES.md:30 : - live trading enablement
+C:\Bali\Bali-Trader\docs\REPORT_ACCURACY_POLICY_V014B.txt:6 : This repair does not add live trading, API keys, or champion approval.
+C:\Bali\Bali-Trader\game_arena\away_training\bali_away_training_heartbeat.json:12 :     "api_keys":  "NONE",
+C:\Bali\Bali-Trader\game_arena\away_training\BALI_AWAY_TRAINING_STATUS_V012N.json:12 :     "api_keys":  "NONE",
+C:\Bali\Bali-Trader\game_arena\backtest\BACKTEST_WALK_FORWARD_POLICY_V015A.json:9 :   "api_keys": "NONE",
+C:\Bali\Bali-Trader\game_arena\bridge\ACTIVE_BRIDGE_CONFIG.json:3 :   "api_keys": "NONE",
+C:\Bali\Bali-Trader\game_arena\bridge\BRIDGE_CONFIG_SAMPLE_V012D.json:8 :   "api_keys": "NONE",
+C:\Bali\Bali-Trader\game_arena\bridge\BRIDGE_CONFIG_SAMPLE_V012E.json:8 :   "api_keys": "NONE",
+C:\Bali\Bali-Trader\game_arena\bridge\BRIDGE_CONFIG_SAMPLE_V012F.json:8 :   "api_keys": "NONE",
+C:\Bali\Bali-Trader\game_arena\bridge\BRIDGE_CONFIG_SAMPLE_V012G.json:8 :   "api_keys": "NONE",
+C:\Bali\Bali-Trader\game_arena\bridge\BRIDGE_CONFIG_SAMPLE_V012H.json:8 :   "api_keys": "NONE",
+C:\Bali\Bali-Trader\game_arena\bridge\BRIDGE_CONFIG_SAMPLE_V012I.json:8 :   "api_keys": "NONE",
+C:\Bali\Bali-Trader\game_arena\bridge\BRIDGE_CONFIG_SAMPLE_V012J.json:8 :   "api_keys": "NONE",
+C:\Bali\Bali-Trader\game_arena\bridge\cpu_roles\CPU_ROLE_CONFIG_V012B.json:14 :   "api_keys": "NONE"
+C:\Bali\Bali-Trader\game_arena\bridge\cpu_roles\CPU_ROLE_CONFIG_V012C.json:14 :   "api_keys": "NONE"
+C:\Bali\Bali-Trader\game_arena\bridge\cpu_roles\CPU_ROLE_CONFIG_V012D.json:14 :   "api_keys": "NONE"
+C:\Bali\Bali-Trader\game_arena\bridge\cpu_roles\CPU_ROLE_CONFIG_V012E.json:14 :   "api_keys": "NONE"
+C:\Bali\Bali-Trader\game_arena\bridge\cpu_roles\CPU_ROLE_CONFIG_V012F.json:14 :   "api_keys": "NONE"
+C:\Bali\Bali-Trader\game_arena\bridge\cpu_roles\CPU_ROLE_CONFIG_V012G.json:14 :   "api_keys": "NONE"
+C:\Bali\Bali-Trader\game_arena\bridge\cpu_roles\CPU_ROLE_CONFIG_V012H.json:14 :   "api_keys": "NONE"
+C:\Bali\Bali-Trader\game_arena\bridge\cpu_roles\CPU_ROLE_CONFIG_V012I.json:14 :   "api_keys": "NONE"
+C:\Bali\Bali-Trader\game_arena\bridge\cpu_roles\CPU_ROLE_CONFIG_V012J.json:14 :   "api_keys": "NONE"
+C:\Bali\Bali-Trader\game_arena\bridge\inbox\STARGATE_CPU_CHECKIN_SAMPLE_V012D.json:14 :   "api_keys_present": false,
+C:\Bali\Bali-Trader\game_arena\bridge\inbox\STARGATE_CPU_CHECKIN_SAMPLE_V012E.json:14 :   "api_keys_present": false,
+C:\Bali\Bali-Trader\game_arena\bridge\inbox\STARGATE_CPU_CHECKIN_SAMPLE_V012F.json:14 :   "api_keys_present": false,
+C:\Bali\Bali-Trader\game_arena\bridge\inbox\STARGATE_CPU_CHECKIN_SAMPLE_V012G.json:14 :   "api_keys_present": false,
+C:\Bali\Bali-Trader\game_arena\bridge\inbox\STARGATE_CPU_CHECKIN_SAMPLE_V012H.json:14 :   "api_keys_present": false,
+C:\Bali\Bali-Trader\game_arena\bridge\inbox\STARGATE_CPU_CHECKIN_SAMPLE_V012I.json:14 :   "api_keys_present": false,
+C:\Bali\Bali-Trader\game_arena\bridge\inbox\STARGATE_CPU_CHECKIN_SAMPLE_V012J.json:14 :   "api_keys_present": false,
+C:\Bali\Bali-Trader\game_arena\bridge\outbox\BALI_CPU_CHECKIN_SAMPLE_V012D.json:14 :   "api_keys_present": false,
+C:\Bali\Bali-Trader\game_arena\bridge\outbox\BALI_CPU_CHECKIN_SAMPLE_V012E.json:14 :   "api_keys_present": false,
+C:\Bali\Bali-Trader\game_arena\bridge\outbox\BALI_CPU_CHECKIN_SAMPLE_V012F.json:14 :   "api_keys_present": false,
+C:\Bali\Bali-Trader\game_arena\bridge\outbox\BALI_CPU_CHECKIN_SAMPLE_V012G.json:14 :   "api_keys_present": false,
+C:\Bali\Bali-Trader\game_arena\bridge\outbox\BALI_CPU_CHECKIN_SAMPLE_V012H.json:14 :   "api_keys_present": false,
+C:\Bali\Bali-Trader\game_arena\bridge\outbox\BALI_CPU_CHECKIN_SAMPLE_V012I.json:14 :   "api_keys_present": false,
+C:\Bali\Bali-Trader\game_arena\bridge\outbox\BALI_CPU_CHECKIN_SAMPLE_V012J.json:14 :   "api_keys_present": false,
+C:\Bali\Bali-Trader\game_arena\bridge\shared_drop\from_bali\BALI_CPU_CHECKIN_SAMPLE_V012D.json:14 :   "api_keys_present": false,
+C:\Bali\Bali-Trader\game_arena\bridge\shared_drop\from_bali\BALI_CPU_CHECKIN_SAMPLE_V012E.json:14 :   "api_keys_present": false,
+C:\Bali\Bali-Trader\game_arena\bridge\shared_drop\from_bali\BALI_CPU_CHECKIN_SAMPLE_V012F.json:14 :   "api_keys_present": false,
+C:\Bali\Bali-Trader\game_arena\bridge\shared_drop\from_bali\BALI_CPU_CHECKIN_SAMPLE_V012G.json:14 :   "api_keys_present": false,
+C:\Bali\Bali-Trader\game_arena\bridge\shared_drop\from_bali\BALI_CPU_CHECKIN_SAMPLE_V012H.json:14 :   "api_keys_present": false,
+C:\Bali\Bali-Trader\game_arena\bridge\shared_drop\from_bali\BALI_CPU_CHECKIN_SAMPLE_V012I.json:14 :   "api_keys_present": false,
+C:\Bali\Bali-Trader\game_arena\bridge\shared_drop\from_bali\BALI_CPU_CHECKIN_SAMPLE_V012J.json:14 :   "api_keys_present": false,
+C:\Bali\Bali-Trader\game_arena\bridge\shared_drop\from_stargate\STARGATE_CPU_CHECKIN_SAMPLE_V012D.json:14 :   "api_keys_present": false,
+C:\Bali\Bali-Trader\game_arena\bridge\shared_drop\from_stargate\STARGATE_CPU_CHECKIN_SAMPLE_V012E.json:14 :   "api_keys_present": false,
+C:\Bali\Bali-Trader\game_arena\bridge\shared_drop\from_stargate\STARGATE_CPU_CHECKIN_SAMPLE_V012F.json:14 :   "api_keys_present": false,
+C:\Bali\Bali-Trader\game_arena\bridge\shared_drop\from_stargate\STARGATE_CPU_CHECKIN_SAMPLE_V012G.json:14 :   "api_keys_present": false,
+C:\Bali\Bali-Trader\game_arena\bridge\shared_drop\from_stargate\STARGATE_CPU_CHECKIN_SAMPLE_V012H.json:14 :   "api_keys_present": false,
+C:\Bali\Bali-Trader\game_arena\bridge\shared_drop\from_stargate\STARGATE_CPU_CHECKIN_SAMPLE_V012I.json:14 :   "api_keys_present": false,
+C:\Bali\Bali-Trader\game_arena\bridge\shared_drop\from_stargate\STARGATE_CPU_CHECKIN_SAMPLE_V012J.json:14 :   "api_keys_present": false,
+C:\Bali\Bali-Trader\game_arena\candles\CANDLE_HARVESTER_POLICY_V014A.json:10 :   "api_keys": "NONE",
+C:\Bali\Bali-Trader\game_arena\candles\CANDLE_REPORT_POLICY_V014B.json:7 :   "api_keys": "NONE"
+C:\Bali\Bali-Trader\game_arena\governor_hub\GOVERNOR_HUB_CONFIG_V012H.json:16 :   "api_keys": "NONE",
+C:\Bali\Bali-Trader\game_arena\governor_hub\GOVERNOR_HUB_CONFIG_V012I.json:16 :   "api_keys": "NONE",
+C:\Bali\Bali-Trader\game_arena\governor_hub\GOVERNOR_HUB_CONFIG_V012J.json:16 :   "api_keys": "NONE",
+C:\Bali\Bali-Trader\game_arena\guardian\BOT_GUARDIAN_STATE_V012G.json:7 :   "api_keys": "NONE",
+C:\Bali\Bali-Trader\game_arena\guardian\BOT_GUARDIAN_STATE_V012H.json:7 :   "api_keys": "NONE",
+C:\Bali\Bali-Trader\game_arena\guardian\BOT_GUARDIAN_STATE_V012I.json:7 :   "api_keys": "NONE",
+C:\Bali\Bali-Trader\game_arena\guardian\BOT_GUARDIAN_STATE_V012J.json:7 :   "api_keys": "NONE",
+C:\Bali\Bali-Trader\game_arena\paper_shadow\PAPER_SHADOW_POLICY_V013.json:5 :   "api_keys": "NONE",
+C:\Bali\Bali-Trader\game_arena\raw_live_data\BINANCE_PUBLIC_ENDPOINT_REPAIR_POLICY_V012L.json:17 :   "api_keys_touched": false,
+C:\Bali\Bali-Trader\game_arena\raw_live_data\LIVE_GATE_ACCEPT_OK_STATUS_REPAIR_POLICY_V012M.json:11 :   "api_keys": false,
+C:\Bali\Bali-Trader\game_arena\raw_live_data\RAW_LIVE_CHECKIN_SCHEMA_V012F.json:17 :   "api_keys_present": false,
+C:\Bali\Bali-Trader\game_arena\raw_live_data\RAW_LIVE_CHECKIN_SCHEMA_V012G.json:17 :   "api_keys_present": false,
+C:\Bali\Bali-Trader\game_arena\raw_live_data\RAW_LIVE_CHECKIN_SCHEMA_V012H.json:17 :   "api_keys_present": false,
+C:\Bali\Bali-Trader\game_arena\raw_live_data\RAW_LIVE_CHECKIN_SCHEMA_V012I.json:17 :   "api_keys_present": false,
+C:\Bali\Bali-Trader\game_arena\raw_live_data\RAW_LIVE_CHECKIN_SCHEMA_V012J.json:17 :   "api_keys_present": false,
+C:\Bali\Bali-Trader\game_arena\raw_live_data\RAW_LIVE_DATA_ONLY_POLICY_V012K.json:5 :   "api_keys": "NONE",
+C:\Bali\Bali-Trader\game_arena\referee\REFEREE_SCORING_RULES_V012C.json:6 :   "api_keys": "NONE",
+C:\Bali\Bali-Trader\game_arena\referee\REFEREE_SCORING_RULES_V012C.json:17 :     "api_key_present": -999,
+C:\Bali\Bali-Trader\game_arena\referee\REFEREE_SCORING_RULES_V012D.json:6 :   "api_keys": "NONE",
+C:\Bali\Bali-Trader\game_arena\referee\REFEREE_SCORING_RULES_V012D.json:17 :     "api_key_present": -999,
+C:\Bali\Bali-Trader\game_arena\reporting\CHATGPT_REPORT_POLICY_V012N.json:5 :   "api_keys": "NONE",
+C:\Bali\Bali-Trader\game_arena\stargate_join_kit\BALI_HUB_RULES_FOR_STARGATE_V012H.json:10 :   "api_keys": "NONE",
+C:\Bali\Bali-Trader\game_arena\stargate_join_kit\BALI_HUB_RULES_FOR_STARGATE_V012I.json:10 :   "api_keys": "NONE",
+C:\Bali\Bali-Trader\game_arena\stargate_join_kit\BALI_HUB_RULES_FOR_STARGATE_V012J.json:10 :   "api_keys": "NONE",
+C:\Bali\Bali-Trader\game_arena\stargate_join_kit\STARGATE_CHECKIN_TEMPLATE_V012H.json:23 :   "api_keys": "NONE",
+C:\Bali\Bali-Trader\game_arena\stargate_join_kit\STARGATE_CHECKIN_TEMPLATE_V012I.json:23 :   "api_keys": "NONE",
+C:\Bali\Bali-Trader\game_arena\stargate_join_kit\STARGATE_CHECKIN_TEMPLATE_V012J.json:23 :   "api_keys": "NONE",
+C:\Bali\Bali-Trader\game_arena\stargate_join_kit\STARGATE_RAW_LIVE_CHECKIN_TEMPLATE_V012I.json:2 :   "api_keys_present": false,
+C:\Bali\Bali-Trader\game_arena\stargate_join_kit\STARGATE_RAW_LIVE_CHECKIN_TEMPLATE_V012J.json:28 :   "api_keys_present": false,
+C:\Bali\Bali-Trader\game_arena\stargate_join_kit\STARGATE_RAW_LIVE_CHECKIN_TEMPLATE_V012J.json:29 :   "api_keys": "NONE",
+C:\Bali\Bali-Trader\game_arena\stargate_join_kit\STARGATE_WRITE_HEARTBEAT_V012I.ps1:14 :   api_keys='NONE'
+C:\Bali\Bali-Trader\game_arena\stargate_join_kit\STARGATE_WRITE_HEARTBEAT_V012J.ps1:14 :   api_keys='NONE'
+C:\Bali\Bali-Trader\game_arena\universe\UNIVERSE_SCANNER_POLICY_V014A.json:6 :   "api_keys": "NONE",
+C:\Bali\Bali-Trader\game_arena\universe\UNIVERSE_SCANNER_REPORT_POLICY_V014B.json:8 :   "api_keys": "NONE"
+C:\Bali\Bali-Trader\game_arena\universe\UNIVERSE_TOP_STATE_POLICY_V014C.json:9 :   "api_keys": "NONE"
+C:\Bali\Bali-Trader\INSTALL_REPORTS\BALI_AI_HQ_V3_INSTALL_REPORT_20260626_143053.txt:9 : Live trading enabled: NO
+C:\Bali\Bali-Trader\INSTALL_REPORTS\BALI_AI_HQ_V3_INSTALL_REPORT_20260626_143053.txt:10 : API keys added: NO
+C:\Bali\Bali-Trader\INSTALL_REPORTS\BALI_OS_V4_INSTALL_20260626_144330.txt:10 : API keys added: NO
+C:\Bali\Bali-Trader\logs\BALI_AWAY_TRAINING_START_REPORT_V012N.txt:10 : API keys: NONE
+C:\Bali\Bali-Trader\logs\BALI_FAST_STATUS_PACK_V011L.txt:14 : API_KEYS_TOUCHED=NO
+C:\Bali\Bali-Trader\logs\BALI_FAST_STATUS_PACK_V011O.txt:14 : API_KEYS_TOUCHED=NO
+C:\Bali\Bali-Trader\logs\BALI_FAST_STATUS_PACK_V011P.txt:14 : API_KEYS_TOUCHED=NO
+C:\Bali\Bali-Trader\logs\BALI_FAST_STATUS_PACK_V011Q.txt:14 : API_KEYS_TOUCHED=NO
+C:\Bali\Bali-Trader\logs\BALI_FAST_STATUS_PACK_V011R.txt:14 : API_KEYS_TOUCHED=NO
+C:\Bali\Bali-Trader\logs\BALI_FAST_STATUS_PACK_V011S.txt:14 : API_KEYS_TOUCHED=NO
+C:\Bali\Bali-Trader\logs\BALI_FAST_STATUS_PACK_V011U.txt:14 : API_KEYS_TOUCHED=NO
+C:\Bali\Bali-Trader\logs\BALI_FAST_STATUS_PACK_V011V.txt:14 : API_KEYS_TOUCHED=NO
+C:\Bali\Bali-Trader\logs\BALI_FAST_STATUS_PACK_V011W.txt:14 : API_KEYS_TOUCHED=NO
+C:\Bali\Bali-Trader\logs\BALI_FAST_STATUS_PACK_V011X.txt:14 : API_KEYS_TOUCHED=NO
+C:\Bali\Bali-Trader\logs\BALI_FAST_STATUS_PACK_V011Y.txt:14 : API_KEYS_TOUCHED=NO
+C:\Bali\Bali-Trader\logs\BALI_FAST_STATUS_PACK_V011Z.txt:14 : API_KEYS_TOUCHED=NO
+C:\Bali\Bali-Trader\logs\BALI_FAST_STATUS_PACK_V012A.txt:14 : API_KEYS_TOUCHED=NO
+C:\Bali\Bali-Trader\logs\BALI_FAST_STATUS_PACK_V012B.txt:14 : API_KEYS_TOUCHED=NO
+C:\Bali\Bali-Trader\logs\BALI_FAST_STATUS_PACK_V012C.txt:14 : API_KEYS_TOUCHED=NO
+C:\Bali\Bali-Trader\logs\BALI_FAST_STATUS_PACK_V012D.txt:14 : API_KEYS_TOUCHED=NO
+C:\Bali\Bali-Trader\logs\BALI_FAST_STATUS_PACK_V012E.txt:14 : API_KEYS_TOUCHED=NO
+C:\Bali\Bali-Trader\logs\BALI_FAST_STATUS_PACK_V012F.txt:14 : API_KEYS_TOUCHED=NO
+C:\Bali\Bali-Trader\logs\BALI_FAST_STATUS_PACK_V012G.txt:14 : API_KEYS_TOUCHED=NO
+C:\Bali\Bali-Trader\logs\BALI_FAST_STATUS_PACK_V012H.txt:14 : API_KEYS_TOUCHED=NO
+C:\Bali\Bali-Trader\logs\BALI_FAST_STATUS_PACK_V012J.txt:15 : API_KEYS_TOUCHED=NO
+C:\Bali\Bali-Trader\logs\BALI_ONE_CLICK_UPDATE_REPORT_V011H.txt:46 : API_KEYS_TOUCHED=NO
+C:\Bali\Bali-Trader\logs\BALI_ONE_CLICK_UPDATE_REPORT_V011J.txt:50 : API_KEYS_TOUCHED=NO
+C:\Bali\Bali-Trader\logs\BALI_ONE_CLICK_UPDATE_RESCUE_REPORT_V011H.txt:44 : API_KEYS_TOUCHED=NO
+C:\Bali\Bali-Trader\logs\BALI_ONE_CLICK_UPDATE_RESCUE_REPORT_V011J.txt:46 : API_KEYS_TOUCHED=NO
+C:\Bali\Bali-Trader\logs\BALI_SPEED_LANE_INTERNAL_UPDATE_REPORT_V011L.txt:56 : API_KEYS_TOUCHED=NO
+C:\Bali\Bali-Trader\logs\BALI_SPEED_LANE_INTERNAL_UPDATE_REPORT_V011O.txt:40 : API_KEYS_TOUCHED=NO
+C:\Bali\Bali-Trader\logs\BALI_SPEED_LANE_INTERNAL_UPDATE_REPORT_V011P.txt:40 : API_KEYS_TOUCHED=NO
+C:\Bali\Bali-Trader\logs\BALI_SPEED_LANE_INTERNAL_UPDATE_REPORT_V011Q.txt:40 : API_KEYS_TOUCHED=NO
+C:\Bali\Bali-Trader\logs\BALI_SPEED_LANE_INTERNAL_UPDATE_REPORT_V011R.txt:40 : API_KEYS_TOUCHED=NO
+C:\Bali\Bali-Trader\logs\BALI_SPEED_LANE_INTERNAL_UPDATE_REPORT_V011S.txt:42 : API_KEYS_TOUCHED=NO
+C:\Bali\Bali-Trader\logs\BALI_SPEED_LANE_INTERNAL_UPDATE_REPORT_V011U.txt:40 : API_KEYS_TOUCHED=NO
+C:\Bali\Bali-Trader\logs\BALI_SPEED_LANE_INTERNAL_UPDATE_REPORT_V011V.txt:40 : API_KEYS_TOUCHED=NO
+C:\Bali\Bali-Trader\logs\BALI_SPEED_LANE_INTERNAL_UPDATE_REPORT_V011W.txt:40 : API_KEYS_TOUCHED=NO
+C:\Bali\Bali-Trader\logs\BALI_SPEED_LANE_INTERNAL_UPDATE_REPORT_V011X.txt:40 : API_KEYS_TOUCHED=NO
+C:\Bali\Bali-Trader\logs\BALI_SPEED_LANE_INTERNAL_UPDATE_REPORT_V011Y.txt:40 : API_KEYS_TOUCHED=NO
+C:\Bali\Bali-Trader\logs\BALI_SPEED_LANE_INTERNAL_UPDATE_REPORT_V011Z.txt:40 : API_KEYS_TOUCHED=NO
+C:\Bali\Bali-Trader\logs\BALI_SPEED_LANE_INTERNAL_UPDATE_REPORT_V012A.txt:40 : API_KEYS_TOUCHED=NO
+C:\Bali\Bali-Trader\logs\BALI_SPEED_LANE_INTERNAL_UPDATE_REPORT_V012B.txt:40 : API_KEYS_TOUCHED=NO
+C:\Bali\Bali-Trader\logs\BALI_SPEED_LANE_INTERNAL_UPDATE_REPORT_V012C.txt:40 : API_KEYS_TOUCHED=NO
+C:\Bali\Bali-Trader\logs\BALI_SPEED_LANE_INTERNAL_UPDATE_REPORT_V012D.txt:40 : API_KEYS_TOUCHED=NO
+C:\Bali\Bali-Trader\logs\BALI_SPEED_LANE_INTERNAL_UPDATE_REPORT_V012E.txt:40 : API_KEYS_TOUCHED=NO
+C:\Bali\Bali-Trader\logs\BALI_SPEED_LANE_INTERNAL_UPDATE_REPORT_V012F.txt:40 : API_KEYS_TOUCHED=NO
+C:\Bali\Bali-Trader\logs\BALI_SPEED_LANE_INTERNAL_UPDATE_REPORT_V012G.txt:40 : API_KEYS_TOUCHED=NO
+C:\Bali\Bali-Trader\logs\BALI_SPEED_LANE_INTERNAL_UPDATE_REPORT_V012H.txt:40 : API_KEYS_TOUCHED=NO
+C:\Bali\Bali-Trader\logs\BALI_SPEED_LANE_INTERNAL_UPDATE_REPORT_V012I.txt:40 : API_KEYS_TOUCHED=NO
+C:\Bali\Bali-Trader\logs\LAST_FAST_STATUS_PACK.txt:15 : API_KEYS_TOUCHED=NO
+C:\Bali\Bali-Trader\NEXT_PATCH_REPORTS\BALI_NEXT_PATCH_RECOMMENDATION_20260626_144408.txt:19 : - CHAMPION_UNLOCK
+C:\Bali\Bali-Trader\NEXT_PATCH_REPORTS\BALI_NEXT_PATCH_RECOMMENDATION_20260626_144722.txt:19 : - CHAMPION_UNLOCK
+C:\Bali\Bali-Trader\NEXT_PATCH_REPORTS\BALI_NEXT_PATCH_RECOMMENDATION_20260626_151845.txt:19 : - CHAMPION_UNLOCK
+C:\Bali\Bali-Trader\NEXT_PATCH_REPORTS\BALI_NEXT_PATCH_RECOMMENDATION_V5_20260626_152613.txt:18 : - CHAMPION_UNLOCK
+C:\Bali\Bali-Trader\NEXT_PATCH_REPORTS\BALI_NEXT_PATCH_RECOMMENDATION_V5_20260626_153013.txt:18 : - CHAMPION_UNLOCK
+C:\Bali\Bali-Trader\NEXT_PATCH_REPORTS\BALI_NEXT_PATCH_RECOMMENDATION_V5_20260626_153402.txt:18 : - CHAMPION_UNLOCK
+C:\Bali\Bali-Trader\payload\app.py:592 :         "api_keys": "NONE",
+C:\Bali\Bali-Trader\payload\app.py:667 :         "api_keys": "NONE",
+C:\Bali\Bali-Trader\payload\app.py:796 :         "api_keys": "NONE",
+C:\Bali\Bali-Trader\payload\app.py:1079 :             "api_keys": "NONE",
+C:\Bali\Bali-Trader\payload\app.py:1119 :         "api_keys": "NONE",
+C:\Bali\Bali-Trader\payload\app.py:1129 :         "champion_claim_allowed", "live_orders", "api_keys", "claim_level"
+C:\Bali\Bali-Trader\payload\app.py:1147 :         "api_keys": "NONE",
+C:\Bali\Bali-Trader\payload\app.py:1196 :         "api_keys": "NONE",
+C:\Bali\Bali-Trader\payload\app.py:1280 :                     "api_keys": "NONE",
+C:\Bali\Bali-Trader\payload\app.py:1308 :                     "api_keys": "NONE",
+C:\Bali\Bali-Trader\payload\app.py:1349 :                 "api_keys": "NONE",
+C:\Bali\Bali-Trader\payload\app.py:1375 :                 "api_keys": "NONE",
+C:\Bali\Bali-Trader\payload\app.py:1386 :             "source", "live_orders", "api_keys", "strategy_reason", "risk_reason", "claim_level"
+C:\Bali\Bali-Trader\payload\app.py:1867 :     lines.append("API keys: NONE / private exchange endpoints not used")
+C:\Bali\Bali-Trader\payload\app.py:1907 :     lines.append("Live trading enable, API keys, champion approval, and disabling Risk Police are not implemented in this build.")
+C:\Bali\Bali-Trader\payload\app.py:2244 : function backtest(s){let b=DATA.backtest_summary||{};let rowsBt=DATA.last_backtests||[];let datasets=DATA.candle_datasets||[];return `<div class="grid">${card('Backtest + Walk-Forward Gate',`<div class="metric">${esc(b.status||s.backtest_gate_status||'READY')}</div><div class="row"><b>Gate</b><span>${esc(b.gate||s.backtest_walk_forward_status||'NOT_RUN')}</span></div><div class="row"><b>Symbol / interval</b><span>${esc((b.symbol||s.backtest_last_symbol||'NONE')+' '+(b.interval||s.backtest_last_interval||''))}</span></div><div class="row"><b>Rows</b><span>${esc(DATA.line_counts.backtest_walkforward||0)}</span></div><div class="row"><b>Champion claim allowed</b><span class="danger">${esc(b.champion_claim_allowed===true?'YES - CHECK LOCK':'NO')}</span></div><button class="btn" onclick="act('/api/backtest/run')">Run Backtest + Walk-Forward Gate</button><button class="btn alt" onclick="act('/api/pulse')">Run Full Live Pulse</button><p class="muted">V015A replays collected public candles only. It records in-sample and walk-forward results with fees/slippage. It is not profit proof and cannot unlock live trading.</p>`,'card wide')}${card('Latest Backtest Gate Records',rows(rowsBt,[['ts','Time'],['run_id','Run'],['symbol','Symbol'],['interval','TF'],['status','Status'],['gate','Gate'],['total_candles','Candles'],['champion_claim_allowed','Champion allowed']]),'card full')}${card('Available Candle Datasets',rows(datasets,[['symbol','Symbol'],['interval','TF'],['rows','Rows'],['first','First'],['last','Last']]),'card full')}</div>`}
+C:\Bali\Bali-Trader\payload\app.py:2604 :     keys = bool(data.get("api_keys_present", False))
+C:\Bali\Bali-Trader\payload\app.py:2724 :         "api_keys": "NONE",
+C:\Bali\Bali-Trader\payload\app.py:2757 :         "orders_live": False, "api_keys_present": False, "remote_commands": "DISABLED",
+C:\Bali\Bali-Trader\payload\app.py:2807 :         "api_keys": "NONE",
+C:\Bali\Bali-Trader\payload\V016_NATIVE_PATCH_MANIFEST.json:7 :     "api_keys": "NONE_REQUIRED",
+C:\Bali\Bali-Trader\payload\V016_NATIVE_PATCH_MANIFEST.json:25 :     "does_not_enable_live_orders",
+C:\Bali\Bali-Trader\payload\sample_outputs\BALI_V016_EVIDENCE_SCORECARD.json:44 :       "name": "api_keys_none",
+C:\Bali\Bali-Trader\payload\sample_outputs\BALI_V016_EVIDENCE_SCORECARD.json:228 :     "api_keys": "NONE / private exchange endpoints not used",
+C:\Bali\Bali-Trader\payload\sample_outputs\BALI_V016_EVIDENCE_SCORECARD.md:37 : - PASS api_keys_none: observed=NONE / private exchange endpoints not used required=NONE
+C:\Bali\Bali-Trader\payload\tools\bali_v016_native_evidence_scorecard.py:37 :     "LIVE_ORDERS_ON",
+C:\Bali\Bali-Trader\payload\tools\bali_v016_native_evidence_scorecard.py:67 :         if "Live orders" in text or "LIVE_ORDERS" in text: score += 15
+C:\Bali\Bali-Trader\payload\tools\bali_v016_native_evidence_scorecard.py:106 :         data["api_keys"] = "NONE"
+C:\Bali\Bali-Trader\tools\BALI_AI_HQ_V3_ANALYSE.ps1:180 :         "LIVE_ORDERS_ON",
+C:\Bali\Bali-Trader\tools\BALI_AI_HQ_V3_ANALYSE.ps1:182 :         "ENABLE_LIVE_ORDERS",
+C:\Bali\Bali-Trader\tools\BALI_AI_HQ_V3_ANALYSE.ps1:384 :     $lines.Add("API key change: NO")
+C:\Bali\Bali-Trader\tools\BALI_FAST_STATUS_PACK_V011L.ps1:22 :   Get-Content -LiteralPath $manifest | Where-Object { $_ -match '^(VERSION|PATCH_NAME|PATCH_TYPE|MISSION|LIVE_ORDERS|CHAMPION_LOCK|API_KEYS_TOUCHED|TRADING_LOGIC_CHANGED|APP_PY_CHANGED|BALI_THEMED_DESKTOP_STARTER|FAST_UPDATE_SPEED_LANE|SHORTCUT_NAME|SUPERSEDES)=' } | ForEach-Object { Add $_ }
+C:\Bali\Bali-Trader\tools\BALI_FAST_STATUS_PACK_V011O.ps1:43 :   Get-Content -LiteralPath $manifest | Where-Object { $_ -match '^(VERSION|PATCH_NAME|PATCH_TYPE|MISSION|LIVE_ORDERS|CHAMPION_LOCK|API_KEYS_TOUCHED|TRADING_LOGIC_CHANGED|APP_PY_CHANGED|BALI_THEMED_DESKTOP_STARTER|FAST_UPDATE_SPEED_LANE|LAUNCH_BAY_CLEANUP|NO_REAPPLY_CURRENT_VERSION|AUTO_STATUS_AFTER_SPEED_LANE|DASHBOARD_UPDATE_BRIDGE|DASHBOARD_UPDATE_BUTTON|AUTO_RESTART_AFTER_PATCH|SHORTCUT_NAME|SUPERSEDES)=' } | ForEach-Object { Add $_ }
+C:\Bali\Bali-Trader\tools\BALI_FAST_STATUS_PACK_V011P.ps1:43 :   Get-Content -LiteralPath $manifest | Where-Object { $_ -match '^(VERSION|PATCH_NAME|PATCH_TYPE|MISSION|LIVE_ORDERS|CHAMPION_LOCK|API_KEYS_TOUCHED|TRADING_LOGIC_CHANGED|APP_PY_CHANGED|BALI_THEMED_DESKTOP_STARTER|FAST_UPDATE_SPEED_LANE|LAUNCH_BAY_CLEANUP|NO_REAPPLY_CURRENT_VERSION|AUTO_STATUS_AFTER_SPEED_LANE|DASHBOARD_UPDATE_BRIDGE|DASHBOARD_UPDATE_BUTTON|AUTO_RESTART_AFTER_PATCH|SHORTCUT_NAME|SUPERSEDES)=' } | ForEach-Object { Add $_ }
+C:\Bali\Bali-Trader\tools\BALI_FAST_STATUS_PACK_V011Q.ps1:43 :   Get-Content -LiteralPath $manifest | Where-Object { $_ -match '^(VERSION|PATCH_NAME|PATCH_TYPE|MISSION|LIVE_ORDERS|CHAMPION_LOCK|API_KEYS_TOUCHED|TRADING_LOGIC_CHANGED|APP_PY_CHANGED|BALI_THEMED_DESKTOP_STARTER|FAST_UPDATE_SPEED_LANE|LAUNCH_BAY_CLEANUP|NO_REAPPLY_CURRENT_VERSION|AUTO_STATUS_AFTER_SPEED_LANE|DASHBOARD_UPDATE_BRIDGE|DASHBOARD_UPDATE_BUTTON|AUTO_RESTART_AFTER_PATCH|SHORTCUT_NAME|SUPERSEDES)=' } | ForEach-Object { Add $_ }
+C:\Bali\Bali-Trader\tools\BALI_FAST_STATUS_PACK_V011R.ps1:43 :   Get-Content -LiteralPath $manifest | Where-Object { $_ -match '^(VERSION|PATCH_NAME|PATCH_TYPE|MISSION|LIVE_ORDERS|CHAMPION_LOCK|API_KEYS_TOUCHED|TRADING_LOGIC_CHANGED|APP_PY_CHANGED|BALI_THEMED_DESKTOP_STARTER|FAST_UPDATE_SPEED_LANE|LAUNCH_BAY_CLEANUP|NO_REAPPLY_CURRENT_VERSION|AUTO_STATUS_AFTER_SPEED_LANE|DASHBOARD_UPDATE_BRIDGE|DASHBOARD_UPDATE_BUTTON|AUTO_RESTART_AFTER_PATCH|SHORTCUT_NAME|SUPERSEDES)=' } | ForEach-Object { Add $_ }
+C:\Bali\Bali-Trader\tools\BALI_FAST_STATUS_PACK_V011S.ps1:43 :   Get-Content -LiteralPath $manifest | Where-Object { $_ -match '^(VERSION|PATCH_NAME|PATCH_TYPE|MISSION|LIVE_ORDERS|CHAMPION_LOCK|API_KEYS_TOUCHED|TRADING_LOGIC_CHANGED|APP_PY_CHANGED|BALI_THEMED_DESKTOP_STARTER|FAST_UPDATE_SPEED_LANE|LAUNCH_BAY_CLEANUP|NO_REAPPLY_CURRENT_VERSION|AUTO_STATUS_AFTER_SPEED_LANE|DASHBOARD_UPDATE_BRIDGE|DASHBOARD_UPDATE_BUTTON|AUTO_RESTART_AFTER_PATCH|SHORTCUT_NAME|SUPERSEDES)=' } | ForEach-Object { Add $_ }
+C:\Bali\Bali-Trader\tools\BALI_FAST_STATUS_PACK_V011U.ps1:43 :   Get-Content -LiteralPath $manifest | Where-Object { $_ -match '^(VERSION|PATCH_NAME|PATCH_TYPE|MISSION|LIVE_ORDERS|CHAMPION_LOCK|API_KEYS_TOUCHED|TRADING_LOGIC_CHANGED|APP_PY_CHANGED|BALI_THEMED_DESKTOP_STARTER|FAST_UPDATE_SPEED_LANE|LAUNCH_BAY_CLEANUP|NO_REAPPLY_CURRENT_VERSION|AUTO_STATUS_AFTER_SPEED_LANE|DASHBOARD_UPDATE_BRIDGE|DASHBOARD_UPDATE_BUTTON|AUTO_RESTART_AFTER_PATCH|SHORTCUT_NAME|SUPERSEDES)=' } | ForEach-Object { Add $_ }
+C:\Bali\Bali-Trader\tools\BALI_FAST_STATUS_PACK_V011V.ps1:43 :   Get-Content -LiteralPath $manifest | Where-Object { $_ -match '^(VERSION|PATCH_NAME|PATCH_TYPE|MISSION|LIVE_ORDERS|CHAMPION_LOCK|API_KEYS_TOUCHED|TRADING_LOGIC_CHANGED|APP_PY_CHANGED|BALI_THEMED_DESKTOP_STARTER|FAST_UPDATE_SPEED_LANE|LAUNCH_BAY_CLEANUP|NO_REAPPLY_CURRENT_VERSION|AUTO_STATUS_AFTER_SPEED_LANE|DASHBOARD_UPDATE_BRIDGE|DASHBOARD_UPDATE_BUTTON|AUTO_RESTART_AFTER_PATCH|SHORTCUT_NAME|SUPERSEDES)=' } | ForEach-Object { Add $_ }
+C:\Bali\Bali-Trader\tools\BALI_FAST_STATUS_PACK_V011W.ps1:43 :   Get-Content -LiteralPath $manifest | Where-Object { $_ -match '^(VERSION|PATCH_NAME|PATCH_TYPE|MISSION|LIVE_ORDERS|CHAMPION_LOCK|API_KEYS_TOUCHED|TRADING_LOGIC_CHANGED|APP_PY_CHANGED|BALI_THEMED_DESKTOP_STARTER|FAST_UPDATE_SPEED_LANE|LAUNCH_BAY_CLEANUP|NO_REAPPLY_CURRENT_VERSION|AUTO_STATUS_AFTER_SPEED_LANE|DASHBOARD_UPDATE_BRIDGE|DASHBOARD_UPDATE_BUTTON|AUTO_RESTART_AFTER_PATCH|SHORTCUT_NAME|SUPERSEDES)=' } | ForEach-Object { Add $_ }
+C:\Bali\Bali-Trader\tools\BALI_FAST_STATUS_PACK_V011X.ps1:43 :   Get-Content -LiteralPath $manifest | Where-Object { $_ -match '^(VERSION|PATCH_NAME|PATCH_TYPE|MISSION|LIVE_ORDERS|CHAMPION_LOCK|API_KEYS_TOUCHED|TRADING_LOGIC_CHANGED|APP_PY_CHANGED|BALI_THEMED_DESKTOP_STARTER|FAST_UPDATE_SPEED_LANE|LAUNCH_BAY_CLEANUP|NO_REAPPLY_CURRENT_VERSION|AUTO_STATUS_AFTER_SPEED_LANE|DASHBOARD_UPDATE_BRIDGE|DASHBOARD_UPDATE_BUTTON|AUTO_RESTART_AFTER_PATCH|SHORTCUT_NAME|SUPERSEDES)=' } | ForEach-Object { Add $_ }
+C:\Bali\Bali-Trader\tools\BALI_FAST_STATUS_PACK_V011Y.ps1:43 :   Get-Content -LiteralPath $manifest | Where-Object { $_ -match '^(VERSION|PATCH_NAME|PATCH_TYPE|MISSION|LIVE_ORDERS|CHAMPION_LOCK|API_KEYS_TOUCHED|TRADING_LOGIC_CHANGED|APP_PY_CHANGED|BALI_THEMED_DESKTOP_STARTER|FAST_UPDATE_SPEED_LANE|LAUNCH_BAY_CLEANUP|NO_REAPPLY_CURRENT_VERSION|AUTO_STATUS_AFTER_SPEED_LANE|DASHBOARD_UPDATE_BRIDGE|DASHBOARD_UPDATE_BUTTON|AUTO_RESTART_AFTER_PATCH|SHORTCUT_NAME|SUPERSEDES)=' } | ForEach-Object { Add $_ }
+C:\Bali\Bali-Trader\tools\BALI_FAST_STATUS_PACK_V011Z.ps1:43 :   Get-Content -LiteralPath $manifest | Where-Object { $_ -match '^(VERSION|PATCH_NAME|PATCH_TYPE|MISSION|LIVE_ORDERS|CHAMPION_LOCK|API_KEYS_TOUCHED|TRADING_LOGIC_CHANGED|APP_PY_CHANGED|BALI_THEMED_DESKTOP_STARTER|FAST_UPDATE_SPEED_LANE|LAUNCH_BAY_CLEANUP|NO_REAPPLY_CURRENT_VERSION|AUTO_STATUS_AFTER_SPEED_LANE|DASHBOARD_UPDATE_BRIDGE|DASHBOARD_UPDATE_BUTTON|AUTO_RESTART_AFTER_PATCH|SHORTCUT_NAME|SUPERSEDES)=' } | ForEach-Object { Add $_ }
+C:\Bali\Bali-Trader\tools\BALI_FAST_STATUS_PACK_V012A.ps1:43 :   Get-Content -LiteralPath $manifest | Where-Object { $_ -match '^(VERSION|PATCH_NAME|PATCH_TYPE|MISSION|LIVE_ORDERS|CHAMPION_LOCK|API_KEYS_TOUCHED|TRADING_LOGIC_CHANGED|APP_PY_CHANGED|BALI_THEMED_DESKTOP_STARTER|FAST_UPDATE_SPEED_LANE|LAUNCH_BAY_CLEANUP|NO_REAPPLY_CURRENT_VERSION|AUTO_STATUS_AFTER_SPEED_LANE|DASHBOARD_UPDATE_BRIDGE|DASHBOARD_UPDATE_BUTTON|AUTO_RESTART_AFTER_PATCH|SHORTCUT_NAME|SUPERSEDES)=' } | ForEach-Object { Add $_ }
+C:\Bali\Bali-Trader\tools\BALI_FAST_STATUS_PACK_V012B.ps1:43 :   Get-Content -LiteralPath $manifest | Where-Object { $_ -match '^(VERSION|PATCH_NAME|PATCH_TYPE|MISSION|LIVE_ORDERS|CHAMPION_LOCK|API_KEYS_TOUCHED|TRADING_LOGIC_CHANGED|APP_PY_CHANGED|BALI_THEMED_DESKTOP_STARTER|FAST_UPDATE_SPEED_LANE|LAUNCH_BAY_CLEANUP|NO_REAPPLY_CURRENT_VERSION|AUTO_STATUS_AFTER_SPEED_LANE|DASHBOARD_UPDATE_BRIDGE|DASHBOARD_UPDATE_BUTTON|AUTO_RESTART_AFTER_PATCH|SHORTCUT_NAME|SUPERSEDES)=' } | ForEach-Object { Add $_ }
+C:\Bali\Bali-Trader\tools\BALI_FAST_STATUS_PACK_V012C.ps1:43 :   Get-Content -LiteralPath $manifest | Where-Object { $_ -match '^(VERSION|PATCH_NAME|PATCH_TYPE|MISSION|LIVE_ORDERS|CHAMPION_LOCK|API_KEYS_TOUCHED|TRADING_LOGIC_CHANGED|APP_PY_CHANGED|BALI_THEMED_DESKTOP_STARTER|FAST_UPDATE_SPEED_LANE|LAUNCH_BAY_CLEANUP|NO_REAPPLY_CURRENT_VERSION|AUTO_STATUS_AFTER_SPEED_LANE|DASHBOARD_UPDATE_BRIDGE|DASHBOARD_UPDATE_BUTTON|AUTO_RESTART_AFTER_PATCH|SHORTCUT_NAME|SUPERSEDES)=' } | ForEach-Object { Add $_ }
+C:\Bali\Bali-Trader\tools\BALI_FAST_STATUS_PACK_V012D.ps1:43 :   Get-Content -LiteralPath $manifest | Where-Object { $_ -match '^(VERSION|PATCH_NAME|PATCH_TYPE|MISSION|LIVE_ORDERS|CHAMPION_LOCK|API_KEYS_TOUCHED|TRADING_LOGIC_CHANGED|APP_PY_CHANGED|BALI_THEMED_DESKTOP_STARTER|FAST_UPDATE_SPEED_LANE|LAUNCH_BAY_CLEANUP|NO_REAPPLY_CURRENT_VERSION|AUTO_STATUS_AFTER_SPEED_LANE|DASHBOARD_UPDATE_BRIDGE|DASHBOARD_UPDATE_BUTTON|AUTO_RESTART_AFTER_PATCH|SHORTCUT_NAME|SUPERSEDES)=' } | ForEach-Object { Add $_ }
+C:\Bali\Bali-Trader\tools\BALI_FAST_STATUS_PACK_V012E.ps1:43 :   Get-Content -LiteralPath $manifest | Where-Object { $_ -match '^(VERSION|PATCH_NAME|PATCH_TYPE|MISSION|LIVE_ORDERS|CHAMPION_LOCK|API_KEYS_TOUCHED|TRADING_LOGIC_CHANGED|APP_PY_CHANGED|BALI_THEMED_DESKTOP_STARTER|FAST_UPDATE_SPEED_LANE|LAUNCH_BAY_CLEANUP|NO_REAPPLY_CURRENT_VERSION|AUTO_STATUS_AFTER_SPEED_LANE|DASHBOARD_UPDATE_BRIDGE|DASHBOARD_UPDATE_BUTTON|AUTO_RESTART_AFTER_PATCH|SHORTCUT_NAME|SUPERSEDES)=' } | ForEach-Object { Add $_ }
+C:\Bali\Bali-Trader\tools\BALI_FAST_STATUS_PACK_V012F.ps1:43 :   Get-Content -LiteralPath $manifest | Where-Object { $_ -match '^(VERSION|PATCH_NAME|PATCH_TYPE|MISSION|LIVE_ORDERS|CHAMPION_LOCK|API_KEYS_TOUCHED|TRADING_LOGIC_CHANGED|APP_PY_CHANGED|BALI_THEMED_DESKTOP_STARTER|FAST_UPDATE_SPEED_LANE|LAUNCH_BAY_CLEANUP|NO_REAPPLY_CURRENT_VERSION|AUTO_STATUS_AFTER_SPEED_LANE|DASHBOARD_UPDATE_BRIDGE|DASHBOARD_UPDATE_BUTTON|AUTO_RESTART_AFTER_PATCH|SHORTCUT_NAME|SUPERSEDES)=' } | ForEach-Object { Add $_ }
+C:\Bali\Bali-Trader\tools\BALI_FAST_STATUS_PACK_V012G.ps1:43 :   Get-Content -LiteralPath $manifest | Where-Object { $_ -match '^(VERSION|PATCH_NAME|PATCH_TYPE|MISSION|LIVE_ORDERS|CHAMPION_LOCK|API_KEYS_TOUCHED|TRADING_LOGIC_CHANGED|APP_PY_CHANGED|BALI_THEMED_DESKTOP_STARTER|FAST_UPDATE_SPEED_LANE|LAUNCH_BAY_CLEANUP|NO_REAPPLY_CURRENT_VERSION|AUTO_STATUS_AFTER_SPEED_LANE|DASHBOARD_UPDATE_BRIDGE|DASHBOARD_UPDATE_BUTTON|AUTO_RESTART_AFTER_PATCH|SHORTCUT_NAME|SUPERSEDES)=' } | ForEach-Object { Add $_ }
+C:\Bali\Bali-Trader\tools\BALI_FAST_STATUS_PACK_V012H.ps1:43 :   Get-Content -LiteralPath $manifest | Where-Object { $_ -match '^(VERSION|PATCH_NAME|PATCH_TYPE|MISSION|LIVE_ORDERS|CHAMPION_LOCK|API_KEYS_TOUCHED|TRADING_LOGIC_CHANGED|APP_PY_CHANGED|BALI_THEMED_DESKTOP_STARTER|FAST_UPDATE_SPEED_LANE|LAUNCH_BAY_CLEANUP|NO_REAPPLY_CURRENT_VERSION|AUTO_STATUS_AFTER_SPEED_LANE|DASHBOARD_UPDATE_BRIDGE|DASHBOARD_UPDATE_BUTTON|AUTO_RESTART_AFTER_PATCH|SHORTCUT_NAME|SUPERSEDES)=' } | ForEach-Object { Add $_ }
+C:\Bali\Bali-Trader\tools\BALI_FAST_STATUS_PACK_V012I.ps1:43 :   Get-Content -LiteralPath $manifest | Where-Object { $_ -match '^(VERSION|PATCH_NAME|PATCH_TYPE|MISSION|LIVE_ORDERS|CHAMPION_LOCK|API_KEYS_TOUCHED|TRADING_LOGIC_CHANGED|APP_PY_CHANGED|BALI_THEMED_DESKTOP_STARTER|FAST_UPDATE_SPEED_LANE|LAUNCH_BAY_CLEANUP|NO_REAPPLY_CURRENT_VERSION|AUTO_STATUS_AFTER_SPEED_LANE|DASHBOARD_UPDATE_BRIDGE|DASHBOARD_UPDATE_BUTTON|AUTO_RESTART_AFTER_PATCH|SHORTCUT_NAME|SUPERSEDES)=' } | ForEach-Object { Add $_ }
+C:\Bali\Bali-Trader\tools\BALI_FAST_STATUS_PACK_V012J.ps1:43 :   Get-Content -LiteralPath $manifest | Where-Object { $_ -match '^(VERSION|PATCH_NAME|PATCH_TYPE|MISSION|LIVE_ORDERS|CHAMPION_LOCK|API_KEYS_TOUCHED|TRADING_LOGIC_CHANGED|APP_PY_CHANGED|BALI_THEMED_DESKTOP_STARTER|FAST_UPDATE_SPEED_LANE|LAUNCH_BAY_CLEANUP|NO_REAPPLY_CURRENT_VERSION|AUTO_STATUS_AFTER_SPEED_LANE|DASHBOARD_UPDATE_BRIDGE|DASHBOARD_UPDATE_BUTTON|AUTO_RESTART_AFTER_PATCH|SHORTCUT_NAME|SUPERSEDES)=' } | ForEach-Object { Add $_ }
+C:\Bali\Bali-Trader\tools\BALI_ONE_CLICK_UPDATE_ENGINE_V011H.ps1:104 :     if($text -match '(?im)^LIVE_ORDERS=ON\s*$') { Add-Report ('SKIP unsafe live-orders manifest: ' + $f.FullName); continue }
+C:\Bali\Bali-Trader\tools\BALI_ONE_CLICK_UPDATE_ENGINE_V011H.ps1:105 :     if($text -match '(?im)^API_KEYS_TOUCHED=YES\s*$') { Add-Report ('SKIP API-key touching manifest: ' + $f.FullName); continue }
+C:\Bali\Bali-Trader\tools\BALI_ONE_CLICK_UPDATE_ENGINE_V011J.ps1:107 :     if($text -match '(?im)^LIVE_ORDERS=ON\s*$') { Add-Report ('SKIP unsafe live-orders manifest: ' + $f.FullName); continue }
+C:\Bali\Bali-Trader\tools\BALI_ONE_CLICK_UPDATE_ENGINE_V011J.ps1:108 :     if($text -match '(?im)^API_KEYS_TOUCHED=YES\s*$') { Add-Report ('SKIP API-key touching manifest: ' + $f.FullName); continue }
+C:\Bali\Bali-Trader\tools\BALI_ONE_CLICK_UPDATE_ENGINE_V011L.ps1:319 :     if($text -match '(?im)^LIVE_ORDERS=ON\s*$') { Add-Report ('SKIP unsafe live-orders manifest: ' + $f.FullName); continue }
+C:\Bali\Bali-Trader\tools\BALI_ONE_CLICK_UPDATE_ENGINE_V011L.ps1:322 :     if($text -match '(?im)^API_KEYS_TOUCHED=YES\s*$') { Add-Report ('SKIP API-key touching manifest: ' + $f.FullName); continue }
+C:\Bali\Bali-Trader\tools\BALI_ONE_CLICK_UPDATE_ENGINE_V011O.ps1:1273 :     if($text -match '(?im)^LIVE_ORDERS=ON\s*$') { Add-Report ('SKIP unsafe live-orders manifest: ' + $f.FullName); continue }
+C:\Bali\Bali-Trader\tools\BALI_ONE_CLICK_UPDATE_ENGINE_V011O.ps1:1285 :     if($text -match '(?im)^API_KEYS_TOUCHED=YES\s*$') { Add-Report ('SKIP API-key touching manifest: ' + $f.FullName); continue }
+C:\Bali\Bali-Trader\tools\BALI_ONE_CLICK_UPDATE_ENGINE_V011P.ps1:1273 :     if($text -match '(?im)^LIVE_ORDERS=ON\s*$') { Add-Report ('SKIP unsafe live-orders manifest: ' + $f.FullName); continue }
+C:\Bali\Bali-Trader\tools\BALI_ONE_CLICK_UPDATE_ENGINE_V011P.ps1:1285 :     if($text -match '(?im)^API_KEYS_TOUCHED=YES\s*$') { Add-Report ('SKIP API-key touching manifest: ' + $f.FullName); continue }
+C:\Bali\Bali-Trader\tools\BALI_ONE_CLICK_UPDATE_ENGINE_V011Q.ps1:1273 :     if($text -match '(?im)^LIVE_ORDERS=ON\s*$') { Add-Report ('SKIP unsafe live-orders manifest: ' + $f.FullName); continue }
+C:\Bali\Bali-Trader\tools\BALI_ONE_CLICK_UPDATE_ENGINE_V011Q.ps1:1285 :     if($text -match '(?im)^API_KEYS_TOUCHED=YES\s*$') { Add-Report ('SKIP API-key touching manifest: ' + $f.FullName); continue }
+C:\Bali\Bali-Trader\tools\BALI_ONE_CLICK_UPDATE_ENGINE_V011R.ps1:1273 :     if($text -match '(?im)^LIVE_ORDERS=ON\s*$') { Add-Report ('SKIP unsafe live-orders manifest: ' + $f.FullName); continue }
+C:\Bali\Bali-Trader\tools\BALI_ONE_CLICK_UPDATE_ENGINE_V011R.ps1:1285 :     if($text -match '(?im)^API_KEYS_TOUCHED=YES\s*$') { Add-Report ('SKIP API-key touching manifest: ' + $f.FullName); continue }
+C:\Bali\Bali-Trader\tools\BALI_ONE_CLICK_UPDATE_ENGINE_V011S.ps1:1273 :     if($text -match '(?im)^LIVE_ORDERS=ON\s*$') { Add-Report ('SKIP unsafe live-orders manifest: ' + $f.FullName); continue }
+C:\Bali\Bali-Trader\tools\BALI_ONE_CLICK_UPDATE_ENGINE_V011S.ps1:1285 :     if($text -match '(?im)^API_KEYS_TOUCHED=YES\s*$') { Add-Report ('SKIP API-key touching manifest: ' + $f.FullName); continue }
+C:\Bali\Bali-Trader\tools\BALI_ONE_CLICK_UPDATE_ENGINE_V011U.ps1:1273 :     if($text -match '(?im)^LIVE_ORDERS=ON\s*$') { Add-Report ('SKIP unsafe live-orders manifest: ' + $f.FullName); continue }
+C:\Bali\Bali-Trader\tools\BALI_ONE_CLICK_UPDATE_ENGINE_V011U.ps1:1285 :     if($text -match '(?im)^API_KEYS_TOUCHED=YES\s*$') { Add-Report ('SKIP API-key touching manifest: ' + $f.FullName); continue }
+C:\Bali\Bali-Trader\tools\BALI_ONE_CLICK_UPDATE_ENGINE_V011V.ps1:1273 :     if($text -match '(?im)^LIVE_ORDERS=ON\s*$') { Add-Report ('SKIP unsafe live-orders manifest: ' + $f.FullName); continue }
+C:\Bali\Bali-Trader\tools\BALI_ONE_CLICK_UPDATE_ENGINE_V011V.ps1:1285 :     if($text -match '(?im)^API_KEYS_TOUCHED=YES\s*$') { Add-Report ('SKIP API-key touching manifest: ' + $f.FullName); continue }
+C:\Bali\Bali-Trader\tools\BALI_ONE_CLICK_UPDATE_ENGINE_V011W.ps1:1273 :     if($text -match '(?im)^LIVE_ORDERS=ON\s*$') { Add-Report ('SKIP unsafe live-orders manifest: ' + $f.FullName); continue }
+C:\Bali\Bali-Trader\tools\BALI_ONE_CLICK_UPDATE_ENGINE_V011W.ps1:1285 :     if($text -match '(?im)^API_KEYS_TOUCHED=YES\s*$') { Add-Report ('SKIP API-key touching manifest: ' + $f.FullName); continue }
+C:\Bali\Bali-Trader\tools\BALI_ONE_CLICK_UPDATE_ENGINE_V011X.ps1:1273 :     if($text -match '(?im)^LIVE_ORDERS=ON\s*$') { Add-Report ('SKIP unsafe live-orders manifest: ' + $f.FullName); continue }
+C:\Bali\Bali-Trader\tools\BALI_ONE_CLICK_UPDATE_ENGINE_V011X.ps1:1285 :     if($text -match '(?im)^API_KEYS_TOUCHED=YES\s*$') { Add-Report ('SKIP API-key touching manifest: ' + $f.FullName); continue }
+C:\Bali\Bali-Trader\tools\BALI_ONE_CLICK_UPDATE_ENGINE_V011Y.ps1:1273 :     if($text -match '(?im)^LIVE_ORDERS=ON\s*$') { Add-Report ('SKIP unsafe live-orders manifest: ' + $f.FullName); continue }
+C:\Bali\Bali-Trader\tools\BALI_ONE_CLICK_UPDATE_ENGINE_V011Y.ps1:1285 :     if($text -match '(?im)^API_KEYS_TOUCHED=YES\s*$') { Add-Report ('SKIP API-key touching manifest: ' + $f.FullName); continue }
+C:\Bali\Bali-Trader\tools\BALI_ONE_CLICK_UPDATE_ENGINE_V011Z.ps1:1273 :     if($text -match '(?im)^LIVE_ORDERS=ON\s*$') { Add-Report ('SKIP unsafe live-orders manifest: ' + $f.FullName); continue }
+C:\Bali\Bali-Trader\tools\BALI_ONE_CLICK_UPDATE_ENGINE_V011Z.ps1:1285 :     if($text -match '(?im)^API_KEYS_TOUCHED=YES\s*$') { Add-Report ('SKIP API-key touching manifest: ' + $f.FullName); continue }
+C:\Bali\Bali-Trader\tools\BALI_ONE_CLICK_UPDATE_ENGINE_V012A.ps1:1273 :     if($text -match '(?im)^LIVE_ORDERS=ON\s*$') { Add-Report ('SKIP unsafe live-orders manifest: ' + $f.FullName); continue }
+C:\Bali\Bali-Trader\tools\BALI_ONE_CLICK_UPDATE_ENGINE_V012A.ps1:1285 :     if($text -match '(?im)^API_KEYS_TOUCHED=YES\s*$') { Add-Report ('SKIP API-key touching manifest: ' + $f.FullName); continue }
+C:\Bali\Bali-Trader\tools\BALI_ONE_CLICK_UPDATE_ENGINE_V012B.ps1:1273 :     if($text -match '(?im)^LIVE_ORDERS=ON\s*$') { Add-Report ('SKIP unsafe live-orders manifest: ' + $f.FullName); continue }
+C:\Bali\Bali-Trader\tools\BALI_ONE_CLICK_UPDATE_ENGINE_V012B.ps1:1285 :     if($text -match '(?im)^API_KEYS_TOUCHED=YES\s*$') { Add-Report ('SKIP API-key touching manifest: ' + $f.FullName); continue }
+C:\Bali\Bali-Trader\tools\BALI_ONE_CLICK_UPDATE_ENGINE_V012C.ps1:1273 :     if($text -match '(?im)^LIVE_ORDERS=ON\s*$') { Add-Report ('SKIP unsafe live-orders manifest: ' + $f.FullName); continue }
+C:\Bali\Bali-Trader\tools\BALI_ONE_CLICK_UPDATE_ENGINE_V012C.ps1:1285 :     if($text -match '(?im)^API_KEYS_TOUCHED=YES\s*$') { Add-Report ('SKIP API-key touching manifest: ' + $f.FullName); continue }
+C:\Bali\Bali-Trader\tools\BALI_ONE_CLICK_UPDATE_ENGINE_V012D.ps1:1273 :     if($text -match '(?im)^LIVE_ORDERS=ON\s*$') { Add-Report ('SKIP unsafe live-orders manifest: ' + $f.FullName); continue }
+C:\Bali\Bali-Trader\tools\BALI_ONE_CLICK_UPDATE_ENGINE_V012D.ps1:1285 :     if($text -match '(?im)^API_KEYS_TOUCHED=YES\s*$') { Add-Report ('SKIP API-key touching manifest: ' + $f.FullName); continue }
+C:\Bali\Bali-Trader\tools\BALI_ONE_CLICK_UPDATE_ENGINE_V012E.ps1:1273 :     if($text -match '(?im)^LIVE_ORDERS=ON\s*$') { Add-Report ('SKIP unsafe live-orders manifest: ' + $f.FullName); continue }
+C:\Bali\Bali-Trader\tools\BALI_ONE_CLICK_UPDATE_ENGINE_V012E.ps1:1285 :     if($text -match '(?im)^API_KEYS_TOUCHED=YES\s*$') { Add-Report ('SKIP API-key touching manifest: ' + $f.FullName); continue }
+C:\Bali\Bali-Trader\tools\BALI_ONE_CLICK_UPDATE_ENGINE_V012F.ps1:1273 :     if($text -match '(?im)^LIVE_ORDERS=ON\s*$') { Add-Report ('SKIP unsafe live-orders manifest: ' + $f.FullName); continue }
+C:\Bali\Bali-Trader\tools\BALI_ONE_CLICK_UPDATE_ENGINE_V012F.ps1:1285 :     if($text -match '(?im)^API_KEYS_TOUCHED=YES\s*$') { Add-Report ('SKIP API-key touching manifest: ' + $f.FullName); continue }
+C:\Bali\Bali-Trader\tools\BALI_ONE_CLICK_UPDATE_ENGINE_V012G.ps1:1273 :     if($text -match '(?im)^LIVE_ORDERS=ON\s*$') { Add-Report ('SKIP unsafe live-orders manifest: ' + $f.FullName); continue }
+C:\Bali\Bali-Trader\tools\BALI_ONE_CLICK_UPDATE_ENGINE_V012G.ps1:1285 :     if($text -match '(?im)^API_KEYS_TOUCHED=YES\s*$') { Add-Report ('SKIP API-key touching manifest: ' + $f.FullName); continue }
+C:\Bali\Bali-Trader\tools\BALI_ONE_CLICK_UPDATE_ENGINE_V012H.ps1:1273 :     if($text -match '(?im)^LIVE_ORDERS=ON\s*$') { Add-Report ('SKIP unsafe live-orders manifest: ' + $f.FullName); continue }
+C:\Bali\Bali-Trader\tools\BALI_ONE_CLICK_UPDATE_ENGINE_V012H.ps1:1285 :     if($text -match '(?im)^API_KEYS_TOUCHED=YES\s*$') { Add-Report ('SKIP API-key touching manifest: ' + $f.FullName); continue }
+C:\Bali\Bali-Trader\tools\BALI_ONE_CLICK_UPDATE_ENGINE_V012I.ps1:1273 :     if($text -match '(?im)^LIVE_ORDERS=ON\s*$') { Add-Report ('SKIP unsafe live-orders manifest: ' + $f.FullName); continue }
+C:\Bali\Bali-Trader\tools\BALI_ONE_CLICK_UPDATE_ENGINE_V012I.ps1:1285 :     if($text -match '(?im)^API_KEYS_TOUCHED=YES\s*$') { Add-Report ('SKIP API-key touching manifest: ' + $f.FullName); continue }
+C:\Bali\Bali-Trader\tools\BALI_ONE_CLICK_UPDATE_ENGINE_V012J.ps1:1273 :     if($text -match '(?im)^LIVE_ORDERS=ON\s*$') { Add-Report ('SKIP unsafe live-orders manifest: ' + $f.FullName); continue }
+C:\Bali\Bali-Trader\tools\BALI_ONE_CLICK_UPDATE_ENGINE_V012J.ps1:1285 :     if($text -match '(?im)^API_KEYS_TOUCHED=YES\s*$') { Add-Report ('SKIP API-key touching manifest: ' + $f.FullName); continue }
+C:\Bali\Bali-Trader\tools\BALI_OS_ENGINE.ps1:62 :         NoApiKeys = "UNKNOWN"
+C:\Bali\Bali-Trader\tools\BALI_OS_ENGINE.ps1:293 : - CHAMPION_UNLOCK
+C:\Bali\Bali-Trader\tools\BALI_OS_ENGINE_V5.ps1:78 :   if (-not $flags.NoApiKeys) { $ready -= 20 }
+C:\Bali\Bali-Trader\tools\BALI_OS_ENGINE_V5.ps1:226 :     "- CHAMPION_UNLOCK",
+C:\Bali\Bali-Trader\tools\BALI_OS_ENGINE_V5C.ps1:83 :     "LIVE_ORDERS_ON",
+C:\Bali\Bali-Trader\tools\BALI_OS_ENGINE_V5C.ps1:86 :     "live_orders\s*=\s*true",
+C:\Bali\Bali-Trader\tools\BALI_OS_ENGINE_V5C.ps1:87 :     "api_key\s*=\s*['\"][A-Za-z0-9_\-]{12,}",
+C:\Bali\Bali-Trader\tools\BALI_OS_ENGINE_V5C.ps1:88 :     "api_secret\s*=\s*['\"][A-Za-z0-9_\-]{12,}",
+C:\Bali\Bali-Trader\tools\BALI_OS_ENGINE_V5C.ps1:130 :     "API Keys: NONE EXPECTED",
+C:\Bali\Bali-Trader\tools\BALI_OS_ENGINE_V5C.ps1:181 :     "- CHAMPION_UNLOCK",
+C:\Bali\Bali-Trader\tools\BALI_OS_ENGINE_V6.ps1:78 :       if ($l -match "begin private key") { $hit = $true }
+C:\Bali\Bali-Trader\tools\BALI_OS_ENGINE_V6.ps1:81 :       if (($l -match "live_orders|live trading") -and ($l -match "true|enable|enabled|on|1")) { $hit = $true }
+C:\Bali\Bali-Trader\tools\BALI_OS_ENGINE_V6.ps1:83 :       if (($l -match "champion_unlock") -and ($l -match "true|on|1|enabled")) { $hit = $true }
+C:\Bali\Bali-Trader\tools\BALI_OS_ENGINE_V6.ps1:146 :     "API Keys: NONE",
+C:\Bali\Bali-Trader\tools\BALI_OS_ENGINE_V6.ps1:190 :     "- CHAMPION_UNLOCK",
+C:\Bali\Bali-Trader\tools\BALI_OS_SAFETY_SCAN_V4B.ps1:36 :   '(?i)LIVE_ORDERS_ON',
+C:\Bali\Bali-Trader\tools\BALI_OS_SAFETY_SCAN_V4C.ps1:46 :   '(?i)^\s*LIVE_ORDERS_ON\s*$',
+C:\Bali\Bali-Trader\tools\BALI_OS_SAFETY_SCAN_V4D.ps1:42 :   '(?i)^\s*LIVE_ORDERS_ON\s*$',
+C:\Bali\Bali-Trader\tools\BALI_OS_SAFETY_SCAN_V4E.ps1:47 :   '(?i)^\s*LIVE_ORDERS_ON\s*$',
+C:\Bali\Bali-Trader\tools\BALI_OS_SAFETY_SCAN_V5.ps1:50 :   '(?i)^\s*LIVE_ORDERS_ON\s*$',
+C:\Bali\Bali-Trader\tools\BALI_SAFE_GIT_SAVE_V5B.ps1:60 : - CHAMPION_UNLOCK
+C:\Bali\Bali-Trader\tools\INSTALL_BALI_OS_V5B_RECOMMENDATION_FLOW_FIX.ps1:87 : LIVE_TRADING, API_KEYS, CHAMPION_UNLOCK, PROFITABILITY_CLAIM_WITHOUT_EVIDENCE, TRADING_LOGIC_CHANGE_WITHOUT_EVIDENCE.

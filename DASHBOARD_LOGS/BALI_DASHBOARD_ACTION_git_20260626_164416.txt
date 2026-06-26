@@ -1,0 +1,18 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20260626164416
+Username: DESKTOP-4UT9OI7\CB
+RunAs User: DESKTOP-4UT9OI7\CB
+Configuration Name: 
+Machine: DESKTOP-4UT9OI7 (Microsoft Windows NT 10.0.26200.0)
+Host Application: powershell -NoProfile -ExecutionPolicy Bypass -File C:\Bali\Bali-Trader\tools\BALI_OS_ENGINE_V6E.ps1 -Action git
+Process ID: 18240
+PSVersion: 5.1.26100.8655
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.8655
+BuildVersion: 10.0.26100.8655
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
